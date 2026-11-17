@@ -1,0 +1,593 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ── Sovereign Pitch Black & Royal Metals Palette ── */
+  --obsidian-void: #000000;
+  --obsidian-surface: #040406;
+  --obsidian-card: rgba(8, 8, 12, 0.85);
+  --abyss: #000000;
+  --navy: #000000;
+  --deep: #050508;
+  --ocean: #08080E;
+  --teal: #10B981;
+  --foam: #E2E8F0;
+  --cream: #F8FAFC;
+
+  /* Sovereign Gold Accents */
+  --gold: #E6C687;
+  --gold-light: #F4E2BB;
+  --gold-dark: #C29B4D;
+  --gold-glow: rgba(230, 198, 135, 0.25);
+
+  /* Agricultural Provenance Emerald Accent */
+  --emerald: #10B981;
+  --emerald-light: #34D399;
+  --emerald-glow: rgba(16, 185, 129, 0.25);
+
+  /* Marine Reefer Cold Chain Azure */
+  --marine-azure: #0EA5E9;
+  --marine-glow: rgba(14, 165, 233, 0.25);
+
+  /* Eye-catching Saffron Secondary */
+  --saffron: #FF6B00;
+  --saffron-light: #FF8833;
+  --saffron-glow: rgba(255, 107, 0, 0.35);
+
+  /* ── Unique Typography: Cormorant Garamond & Outfit ── */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ── Soft Curvature (No sharp rectangles/squares) ── */
+  --radius-sm: 1rem;       /* 16px */
+  --radius-md: 1.5rem;     /* 24px */
+  --radius-lg: 2.25rem;    /* 36px */
+  --radius-xl: 3rem;       /* 48px */
+  --radius-pill: 9999px;
+
+  /* ── Smoked Liquid Glassmorphism ── */
+  --glass-bg: rgba(6, 6, 10, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: 28px;
+  --shadow-card: 0 16px 48px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.8);
+  --shadow-float: 0 28px 88px rgba(0, 0, 0, 0.98);
+}
+
+/* ────────────────────────────────────────────────
+   RESET & FOUNDATIONS
+───────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  background-color: #000000;
+  color: var(--cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #000000;
+  color: var(--cream);
+  position: relative;
+}
+
+/* ────────────────────────────────────────────────
+   GLOBAL ANIMATED GRADIENT BLACK BACKGROUND
+   Pitch-black obsidian with ultra-subtle golden and emerald ambient halos
+───────────────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% -5%, rgba(230, 198, 135, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 90% 45%, rgba(16, 185, 129, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 10% 85%, rgba(14, 165, 233, 0.05) 0%, transparent 65%),
+    linear-gradient(180deg, #000000 0%, #030305 35%, #050508 70%, #000000 100%);
+  animation: bgDrift 28s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 36px 36px;
+  opacity: 0.4;
+}
+
+@keyframes bgDrift {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(-2%, 2%) scale(1.03); }
+  100% { transform: translate(2%, -1%) scale(0.99); }
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* ────────────────────────────────────────────────
+   TYPOGRAPHY
+───────────────────────────────────────────────── */
+.font-display { font-family: var(--font-display); }
+.font-serif   { font-family: var(--font-serif); }
+.font-sans    { font-family: var(--font-sans); }
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 6vw + 1rem, 7rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw + 0.5rem, 4.8rem);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 1.8vw + 0.3rem, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  font-weight: 600;
+}
+
+/* Perfectly aligned numbers */
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  color: var(--cream);
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+}
+
+/* ────────────────────────────────────────────────
+   FROSTED GLASSMORPHISM & LIQUID GLASS SURFACES
+───────────────────────────────────────────────── */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-card);
+}
+
+.glass-obsidian {
+  background: rgba(8, 13, 22, 0.76);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.glass-gold-edge {
+  background: rgba(9, 14, 24, 0.82);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(230, 198, 135, 0.28);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(230, 198, 135, 0.12), inset 0 1px 0 rgba(230, 198, 135, 0.25);
+}
+
+.glass-emerald-edge {
+  background: rgba(7, 13, 20, 0.82);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(16, 185, 129, 0.12), inset 0 1px 0 rgba(16, 185, 129, 0.25);
+}
+
+.glass-saffron {
+  background: rgba(10, 15, 26, 0.78);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid rgba(255, 107, 0, 0.28);
+  box-shadow: 0 14px 48px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 107, 0, 0.18);
+}
+
+.glass-hover {
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.glass-hover:hover {
+  border-color: rgba(230, 198, 135, 0.45);
+  box-shadow: var(--shadow-card), 0 0 40px rgba(230, 198, 135, 0.2);
+  transform: translateY(-4px);
+}
+
+/* ────────────────────────────────────────────────
+   3D HARDWARE TRANSFORMS & PERSPECTIVE
+───────────────────────────────────────────────── */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.perspective-1200 {
+  perspective: 1200px;
+}
+.perspective-2000 {
+  perspective: 2000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.translate-z-10 {
+  transform: translateZ(10px);
+}
+.translate-z-20 {
+  transform: translateZ(20px);
+}
+.translate-z-30 {
+  transform: translateZ(30px);
+}
+.translate-z-40 {
+  transform: translateZ(40px);
+}
+.translate-z-60 {
+  transform: translateZ(60px);
+}
+
+/* Specular Gradient Texts */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #FFF8EC 0%, #E6C687 45%, #C29B4D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #ECFDF5 0%, #34D399 50%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.text-gradient-silver {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 50%, #94A3B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ────────────────────────────────────────────────
+   BUTTONS (Soft Pills with Saffron Glow)
+───────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.95rem 2.25rem;
+  background: linear-gradient(135deg, var(--saffron) 0%, #FF8C38 50%, var(--saffron) 100%);
+  background-size: 200% 100%;
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 28px rgba(255, 107, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  text-decoration: none;
+}
+.btn-primary:hover {
+  background-position: 100% 0;
+  box-shadow: 0 8px 40px rgba(255, 107, 0, 0.6);
+  transform: translateY(-2px) scale(1.01);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.95rem 2.25rem;
+  background: rgba(13, 32, 53, 0.5);
+  color: var(--cream);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  text-decoration: none;
+}
+.btn-ghost:hover {
+  border-color: var(--saffron);
+  color: var(--saffron-light);
+  background: rgba(255, 107, 0, 0.08);
+  box-shadow: 0 0 25px rgba(255, 107, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ────────────────────────────────────────────────
+   SCROLL REVEAL UTILITIES
+───────────────────────────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-reveal="up"]    { transform: translateY(45px); }
+[data-reveal="down"]  { transform: translateY(-30px); }
+[data-reveal="left"]  { transform: translateX(50px); }
+[data-reveal="right"] { transform: translateX(-50px); }
+[data-reveal="scale"] { transform: scale(0.92); }
+
+[data-reveal][data-revealed] {
+  opacity: 1;
+  transform: none;
+}
+
+[data-stagger] > * {
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-stagger][data-revealed] > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0ms; }
+[data-stagger][data-revealed] > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 100ms; }
+[data-stagger][data-revealed] > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 200ms; }
+[data-stagger][data-revealed] > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 300ms; }
+[data-stagger][data-revealed] > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 400ms; }
+[data-stagger][data-revealed] > *:nth-child(6) { opacity: 1; transform: none; transition-delay: 500ms; }
+
+/* ────────────────────────────────────────────────
+   SCRIM GRADIENTS
+───────────────────────────────────────────────── */
+.scrim-hero {
+  background: linear-gradient(
+    180deg,
+    rgba(4, 13, 24, 0.82) 0%,
+    rgba(7, 21, 37, 0.45) 45%,
+    rgba(4, 13, 24, 0.95) 100%
+  );
+}
+
+.scrim-side-left {
+  background: linear-gradient(90deg, rgba(4, 13, 24, 0.95) 0%, rgba(4, 13, 24, 0.6) 45%, transparent 100%);
+}
+
+.scrim-card {
+  background: linear-gradient(180deg, transparent 0%, rgba(4, 13, 24, 0.75) 60%, rgba(4, 13, 24, 0.98) 100%);
+}
+
+/* Saffron subtle line */
+.saffron-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--saffron) 50%, transparent 100%);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--abyss); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--saffron), var(--deep));
+  border-radius: 4px;
+}
+
+/* ────────────────────────────────────────────────
+   SKILL INTEGRATIONS: CINEMATIC POLISH
+   (scroll-experience, design-spells, animation-performance)
+───────────────────────────────────────────────── */
+
+/* ── Lenis Smooth Scrolling ── */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ── Word-by-Word & Text Reveals ── */
+.word-reveal-wrap {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+}
+.word-reveal-inner {
+  display: inline-block;
+  clip-path: inset(0 0% 0 0);
+  will-change: transform, opacity;
+}
+
+/* ── Spin Slow (Nautical Compasses & Rotators) ── */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spinSlow 12s linear infinite;
+}
+
+/* ── Shimmer Sweep (Design Spells) ── */
+@keyframes shimmerSweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+.shimmer-sweep {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-sweep::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transform: translateX(-100%);
+}
+.shimmer-sweep:hover::after {
+  animation: shimmerSweep 1s ease-in-out;
+}
+
+/* ── Ambient Floating Orbs ── */
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  will-change: transform;
+}
+.orb-teal {
+  background: radial-gradient(circle, rgba(27, 107, 124, 0.45) 0%, transparent 70%);
+}
+.orb-gold {
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.35) 0%, transparent 70%);
+}
+.orb-ocean {
+  background: radial-gradient(circle, rgba(15, 58, 92, 0.45) 0%, transparent 70%);
+}
+@keyframes orbDrift {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(24px, -18px); }
+  66% { transform: translate(-18px, 24px); }
+}
+.orb {
+  animation: orbDrift 20s ease-in-out infinite;
+}
+
+/* ── Tactile Button Feedback (Spring Physics) ── */
+.btn-primary:active,
+.btn-ghost:active {
+  transform: scale(0.97);
+  transition: transform 120ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Respect Prefers-Reduced-Motion (Strict Accessibility) ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-spin-slow,
+  .orb {
+    animation: none !important;
+  }
+}
+
+
+/* ── GSAP Clip-path word reveal setup ── */
+.word-reveal-wrap {
+  overflow: hidden;
+  display: inline-block;
+}
+.word-reveal-inner {
+  display: inline-block;
+  clip-path: inset(0 100% 0 0);
+  will-change: clip-path;
+}
+
+/* ── Lenis smooth scroll ── */
+html.lenis { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-scrolling iframe { pointer-events: none; }
+
+/* ── Spin slow (loader compass) ── */
+@keyframes spinSlow { to { transform: rotate(360deg); } }
+.animate-spin-slow { animation: spinSlow 8s linear infinite; }
+
+/* ── Orb floating elements ── */
+.orb { position: absolute; border-radius: 9999px; filter: blur(80px); }
+.orb-teal  { background: radial-gradient(circle, rgba(27,107,124,0.5) 0%, transparent 70%); }
+.orb-gold  { background: radial-gradient(circle, rgba(212,175,55,0.4) 0%, transparent 70%); }
+.orb-ocean { background: radial-gradient(circle, rgba(15,58,92,0.5) 0%, transparent 70%); }
+@keyframes orbDrift { 0%,100%{transform:translate(0,0)} 33%{transform:translate(20px,-15px)} 66%{transform:translate(-15px,20px)} }
+.orb { animation: orbDrift var(--drift-dur, 20s) ease-in-out infinite; }
+
+/* ── Tracking overrides ── */
+.tracking-eyebrow { letter-spacing: 0.22em; }
+
+/* ── 3D Isometric Diamond Mosaic (Exact Reference Match) ── */
+.perspective-stage {
+  perspective: 1200px;
+  perspective-origin: 50% 30%;
+}
+
+.isometric-plane {
+  transform: rotateX(46deg) rotateZ(-22deg) scale(1.18);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.isometric-card {
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.isometric-card:hover {
+  transform: translateZ(36px) scale(1.06);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.95), 0 0 30px rgba(230, 198, 135, 0.35);
+  border-color: rgba(230, 198, 135, 0.6) !important;
+  z-index: 20;
+}
+
+/* ── Continuous Smooth Marquee Glide ── */
+@keyframes glideAnimation {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-glide {
+  display: flex;
+  width: max-content;
+  animation: glideAnimation 36s linear infinite;
+  will-change: transform;
+}
