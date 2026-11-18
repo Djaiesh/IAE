@@ -24,10 +24,10 @@ export function FloatingRFQDock() {
   return (
     <>
       {/* Floating Action Dock Container */}
-      <aside aria-label="Quick Procurement & Trade Desk" className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-2.5 pointer-events-auto">
+      <aside aria-label="Quick Procurement & Trade Desk" className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end gap-2.5 pointer-events-auto">
         {/* Expanded Quick Options Menu */}
         {isExpanded && (
-          <div className="flex flex-col gap-2 p-3 rounded-3xl bg-[#070B13]/90 backdrop-blur-2xl border border-white/15 shadow-2xl animate-in fade-in slide-in-from-bottom-3 duration-300 w-64">
+          <div className="flex flex-col gap-2 p-3 rounded-3xl bg-[#070B13]/95 backdrop-blur-2xl border border-white/15 shadow-2xl animate-in fade-in slide-in-from-bottom-3 duration-300 w-64 max-w-[calc(100vw-2rem)]">
             <div className="px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-[#E6C687] flex items-center justify-between">
               <span>Sovereign Trade Desk</span>
               <span className="flex items-center gap-1.5 text-emerald-400">

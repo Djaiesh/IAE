@@ -444,7 +444,7 @@ export function SovereignGlobe3D() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
           {/* Left Column: 3D WebGL Canvas Globe (Borderless, Pure Floating Planetary Model) */}
-          <div className="lg:col-span-7 relative w-full h-[520px] sm:h-[620px] lg:h-[700px] flex items-center justify-center">
+          <div className="lg:col-span-7 relative w-full h-[380px] sm:h-[520px] lg:h-[700px] flex items-center justify-center">
             {/* The 3D Canvas */}
             <div ref={mountRef} className="w-full h-full cursor-grab active:cursor-grabbing" />
           </div>

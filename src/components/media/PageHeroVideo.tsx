@@ -53,7 +53,7 @@ export function PageHeroVideo({
   }, []);
 
   return (
-    <section className="relative pt-32 pb-20 lg:pt-36 lg:pb-24 overflow-hidden border-b border-white/10">
+    <section className="relative pt-28 pb-14 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24 overflow-hidden border-b border-white/10">
       {/* ── Background Cinematic Video ── */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <video
@@ -74,25 +74,25 @@ export function PageHeroVideo({
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,transparent_0%,rgba(6,16,29,0.7)_100%)]" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-10">
         {/* Breadcrumb Trail */}
         {breadcrumbs && breadcrumbs.length > 0 && (
-          <div className="mb-6">
+          <div className="mb-4 sm:mb-6 overflow-x-auto pb-1">
             <Breadcrumbs items={breadcrumbs} />
           </div>
         )}
 
         <div className="max-w-4xl" data-reveal="up">
           {/* Eyebrow Pill */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-saffron/40 bg-saffron/15 text-saffron mb-6 backdrop-blur-md shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-saffron/40 bg-saffron/15 text-saffron mb-4 sm:mb-6 backdrop-blur-md shadow-sm">
             {badgeIcon || <Sparkles className="w-3.5 h-3.5" />}
-            <span className="eyebrow text-[11px] font-semibold tracking-wider uppercase text-saffron">
+            <span className="eyebrow text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase text-saffron">
               {badgeText}
             </span>
           </div>
 
           {/* Heading */}
-          <h1 className="hero-title text-cream font-normal leading-[1.05] tracking-tight drop-shadow-md">
+          <h1 className="hero-title text-cream font-normal leading-[1.08] sm:leading-[1.05] tracking-tight drop-shadow-md text-3xl sm:text-5xl lg:text-6xl">
             {title}
             {highlightedTitle && (
               <span className="text-saffron italic block mt-1">
@@ -102,18 +102,18 @@ export function PageHeroVideo({
           </h1>
 
           {/* Description */}
-          <p className="font-sans text-base sm:text-lg lg:text-xl text-foam/90 font-light mt-5 leading-relaxed max-w-3xl drop-shadow">
+          <p className="font-sans text-sm sm:text-lg lg:text-xl text-foam/90 font-light mt-3 sm:mt-5 leading-relaxed max-w-3xl drop-shadow">
             {description}
           </p>
 
           {/* Optional Action CTAs */}
           {(primaryCtaText || secondaryCtaText) && (
-            <div className="flex flex-wrap items-center gap-4 mt-8">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mt-6 sm:mt-8">
               {primaryCtaText && (
                 primaryCtaHref ? (
                   <Link
                     href={primaryCtaHref}
-                    className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-saffron hover:bg-saffron-light text-white font-sans text-sm font-semibold tracking-wide uppercase shadow-saffron transition-all duration-300 hover:scale-[1.02]"
+                    className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-saffron hover:bg-saffron-light text-white font-sans text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-saffron transition-all duration-300 hover:scale-[1.02] text-center"
                   >
                     <span>{primaryCtaText}</span>
                     <ArrowRight className="w-4 h-4" />
@@ -122,7 +122,7 @@ export function PageHeroVideo({
                   <button
                     type="button"
                     onClick={onPrimaryCtaClick}
-                    className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-saffron hover:bg-saffron-light text-white font-sans text-sm font-semibold tracking-wide uppercase shadow-saffron transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-saffron hover:bg-saffron-light text-white font-sans text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-saffron transition-all duration-300 hover:scale-[1.02] cursor-pointer text-center"
                   >
                     <span>{primaryCtaText}</span>
                     <ArrowRight className="w-4 h-4" />
@@ -133,7 +133,7 @@ export function PageHeroVideo({
               {secondaryCtaText && secondaryCtaHref && (
                 <Link
                   href={secondaryCtaHref}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full glass border border-white/20 hover:border-saffron/50 text-cream font-sans text-sm font-medium tracking-wide transition-all duration-300 hover:bg-white/10"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full glass border border-white/20 hover:border-saffron/50 text-cream font-sans text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 hover:bg-white/10 text-center"
                 >
                   {secondaryCtaText}
                 </Link>
@@ -143,13 +143,13 @@ export function PageHeroVideo({
 
           {/* Optional Metrics Grid */}
           {metrics && metrics.length > 0 && (
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12 pt-8 border-t border-white/15">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/15">
               {metrics.map((m, idx) => (
-                <div key={idx} className="p-4 rounded-2xl glass border border-white/10 backdrop-blur-md">
-                  <div className="text-xl sm:text-2xl lg:text-3xl font-display font-medium text-cream mb-1">
+                <div key={idx} className="p-3 sm:p-4 rounded-2xl glass border border-white/10 backdrop-blur-md">
+                  <div className="text-lg sm:text-2xl lg:text-3xl font-display font-medium text-cream mb-0.5 sm:mb-1">
                     {m.value}
                   </div>
-                  <div className="text-xs font-mono uppercase tracking-wider text-foam/75">
+                  <div className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-foam/75">
                     {m.label}
                   </div>
                 </div>

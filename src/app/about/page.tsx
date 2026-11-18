@@ -102,7 +102,7 @@ export default function AboutPage() {
         secondaryCtaHref="/contact"
       />
 
-      <div className="py-20 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div className="py-12 sm:py-20 max-w-7xl mx-auto px-4 sm:px-8 lg:px-10">
 
         {/* 2. Editorial Company Story Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-28">
@@ -222,15 +222,15 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="relative border-l border-white/15 ml-4 sm:ml-8 pl-6 sm:pl-10 space-y-12">
+          <div className="relative border-l border-white/15 ml-3 sm:ml-8 pl-5 sm:pl-10 space-y-8 sm:space-y-12">
             {milestones.map((m, index) => (
               <div key={m.year} className="relative group">
                 {/* Milestone Node */}
-                <div className="absolute -left-[31px] sm:-left-[47px] top-1 w-6 h-6 rounded-full bg-navy border-2 border-saffron flex items-center justify-center shadow-glow">
-                  <div className="w-2 h-2 rounded-full bg-saffron" />
+                <div className="absolute -left-[27px] sm:-left-[47px] top-1 w-5 sm:w-6 h-5 sm:h-6 rounded-full bg-navy border-2 border-saffron flex items-center justify-center shadow-glow">
+                  <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-saffron" />
                 </div>
 
-                <div className="p-6 sm:p-8 rounded-4xl glass glass-hover border border-white/10 transition-all duration-300">
+                <div className="p-5 sm:p-8 rounded-3xl sm:rounded-4xl glass glass-hover border border-white/10 transition-all duration-300">
                   <div className="flex flex-wrap items-center gap-3 mb-2">
                     <span className="font-mono text-saffron text-sm font-bold bg-saffron/10 px-3 py-1 rounded-full border border-saffron/30">
                       {m.year}

@@ -55,20 +55,22 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
   return (
-    <div className="pt-32 pb-24 bg-navy text-cream min-h-screen">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+    <div className="pt-28 pb-16 sm:pt-32 sm:pb-24 bg-navy text-cream min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10">
         
         {/* Breadcrumb Trail */}
-        <Breadcrumbs
-          items={[
-            { label: "Products", href: "/products" },
-            { label: category.name, href: `/products/${category.slug}` },
-            { label: product.name },
-          ]}
-        />
+        <div className="overflow-x-auto pb-1 mb-2">
+          <Breadcrumbs
+            items={[
+              { label: "Products", href: "/products" },
+              { label: category.name, href: `/products/${category.slug}` },
+              { label: product.name },
+            ]}
+          />
+        </div>
 
         {/* Product Overview Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-20">
           
           {/* Left Column: Visual Asset Frame */}
           <div className="lg:col-span-6 space-y-5" data-reveal="right">

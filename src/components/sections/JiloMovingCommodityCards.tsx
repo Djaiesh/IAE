@@ -150,10 +150,10 @@ export function JiloMovingCommodityCards() {
               <div
                 key={`${item.id}-${idx}`}
                 onClick={() => setActiveCardId(isSelected ? null : `${item.id}-${idx}`)}
-                className={`relative w-72 sm:w-80 h-[440px] rounded-3xl overflow-hidden bg-[#07070B] shadow-2xl flex flex-col justify-between shrink-0 transition-all duration-300 cursor-pointer group/card font-sans ${
+                className={`relative w-64 sm:w-80 h-[430px] sm:h-[440px] rounded-3xl overflow-hidden bg-[#07070B] shadow-2xl flex flex-col justify-between shrink-0 transition-all duration-300 cursor-pointer group/card font-sans ${
                   isSelected
-                    ? "scale-110 -translate-y-4 z-30 border-2 border-[#E6C687] shadow-[0_25px_60px_rgba(230,198,135,0.3)]"
-                    : "border border-white/10 hover:scale-110 hover:-translate-y-4 hover:z-30 hover:border-[#E6C687] hover:shadow-[0_25px_60px_rgba(230,198,135,0.25)]"
+                    ? "scale-105 sm:scale-110 -translate-y-3 sm:-translate-y-4 z-30 border-2 border-[#E6C687] shadow-[0_25px_60px_rgba(230,198,135,0.3)]"
+                    : "border border-white/10 hover:scale-105 sm:hover:scale-110 hover:-translate-y-3 sm:hover:-translate-y-4 hover:z-30 hover:border-[#E6C687] hover:shadow-[0_25px_60px_rgba(230,198,135,0.25)]"
                 }`}
               >
                 {/* Photo Frame */}

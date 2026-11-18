@@ -67,7 +67,7 @@ export default function ExportProcessPage() {
         secondaryCtaHref="/contact"
       />
 
-      <div id="pipeline" className="py-20 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div id="pipeline" className="py-12 sm:py-20 max-w-7xl mx-auto px-4 sm:px-8 lg:px-10">
 
         {/* 2. Six-Step Process with Connecting Timeline Lines */}
         <div className="relative mb-24" data-reveal="up">
@@ -82,19 +82,19 @@ export default function ExportProcessPage() {
           </div>
 
           {/* Timeline Container with Connecting Center Line on Desktop */}
-          <div className="relative space-y-12 before:absolute before:inset-0 before:left-7 md:before:left-10 before:w-0.5 before:bg-gradient-to-b before:from-saffron before:via-teal before:to-saffron/40 before:pointer-events-none">
+          <div className="relative space-y-8 sm:space-y-12 before:absolute before:inset-0 before:left-5 sm:before:left-7 md:before:left-10 before:w-0.5 before:bg-gradient-to-b before:from-saffron before:via-teal before:to-saffron/40 before:pointer-events-none">
             {SITE_CONFIG.exportProcessSteps.map((step, index) => (
               <div
                 key={step.stepNumber}
-                className="relative pl-16 md:pl-24 group"
+                className="relative pl-11 sm:pl-16 md:pl-24 group"
               >
                 {/* Step Circle on Connecting Line */}
-                <div className="absolute left-4 md:left-7 top-6 -translate-x-1/2 w-8 h-8 rounded-full bg-navy border-2 border-saffron flex items-center justify-center shadow-glow z-10">
-                  <div className="w-2.5 h-2.5 rounded-full bg-saffron" />
+                <div className="absolute left-2.5 sm:left-4 md:left-7 top-6 -translate-x-1/2 w-6 sm:w-8 h-6 sm:h-8 rounded-full bg-navy border-2 border-saffron flex items-center justify-center shadow-glow z-10">
+                  <div className="w-1.5 sm:w-2.5 h-1.5 sm:h-2.5 rounded-full bg-saffron" />
                 </div>
 
                 {/* Step Card with Glassmorphism */}
-                <div className="p-8 sm:p-10 rounded-4xl glass glass-hover border border-white/10 flex flex-col md:flex-row gap-8 items-start transition-all duration-300">
+                <div className="p-5 sm:p-8 md:p-10 rounded-3xl sm:rounded-4xl glass glass-hover border border-white/10 flex flex-col md:flex-row gap-6 md:gap-8 items-start transition-all duration-300">
                   {/* Step Monogram and Icon */}
                   <div className="flex md:flex-col items-center gap-4 shrink-0">
                     <span className="font-display text-4xl sm:text-5xl text-saffron font-bold tabular-nums">

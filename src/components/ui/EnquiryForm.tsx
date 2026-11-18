@@ -120,9 +120,9 @@ export function EnquiryForm({
   }
 
   return (
-    <div className={cn("glass rounded-4xl p-6 sm:p-10 border border-white/10", className)}>
+    <div className={cn("glass rounded-3xl sm:rounded-4xl p-5 sm:p-8 md:p-10 border border-white/10", className)}>
       {/* Simulation Info Pill */}
-      <div className="mb-8 p-4 rounded-2xl bg-teal/10 border border-teal/20 flex items-start gap-3 text-xs font-sans text-foam/75">
+      <div className="mb-6 sm:mb-8 p-3.5 sm:p-4 rounded-2xl bg-teal/10 border border-teal/20 flex items-start gap-3 text-xs font-sans text-foam/75">
         <Info className="w-4 h-4 text-teal shrink-0 mt-0.5" />
         <div>
           <span className="text-saffron font-semibold block mb-0.5">Commercial Export Desk</span>
@@ -130,13 +130,13 @@ export function EnquiryForm({
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+      <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6" noValidate>
         {/* Enquiry Type Toggle */}
         <div>
           <span className="font-sans text-[11px] uppercase tracking-eyebrow text-foam/60 block mb-2 font-semibold">
             Inquiry Type *
           </span>
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-3 gap-2 sm:gap-3">
             {[
               { id: "quote" as const, label: "FCL Quote" },
               { id: "sample" as const, label: "Lab Sample" },
@@ -147,7 +147,7 @@ export function EnquiryForm({
                 type="button"
                 onClick={() => handleInputChange("enquiryType", t.id)}
                 className={cn(
-                  "py-3 px-3 rounded-2xl border text-xs font-sans font-medium transition-all min-h-[44px] flex items-center justify-center cursor-pointer",
+                  "py-2.5 sm:py-3 px-1.5 sm:px-3 rounded-2xl border text-[11px] sm:text-xs font-sans font-medium transition-all min-h-[44px] flex items-center justify-center cursor-pointer text-center",
                   form.enquiryType === t.id
                     ? "bg-saffron text-white border-saffron shadow-saffron font-bold"
                     : "border-white/10 bg-white/5 text-foam/70 hover:border-white/20 hover:text-cream"

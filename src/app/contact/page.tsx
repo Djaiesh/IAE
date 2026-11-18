@@ -57,10 +57,10 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
         primaryCtaHref="#rfq-form"
       />
 
-      <div id="rfq-form" className="py-20 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div id="rfq-form" className="py-12 sm:py-20 max-w-7xl mx-auto px-4 sm:px-8 lg:px-10">
 
         {/* 2. Split Layout: Form & Verified Contact Desks */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
           {/* Main Enquiry Form (lg:col-span-7) */}
           <div className="lg:col-span-7" data-reveal="right">
@@ -75,7 +75,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
           <div className="lg:col-span-5 space-y-6" data-reveal="left">
             
             {/* Commercial Operations Desk Card */}
-            <div className="glass rounded-4xl p-8 sm:p-10 border border-white/10 space-y-6">
+            <div className="glass rounded-3xl sm:rounded-4xl p-6 sm:p-8 md:p-10 border border-white/10 space-y-6">
               <h2 className="font-display text-2xl text-cream font-normal pb-4 border-b border-white/10">
                 Operations & Booking Desk
               </h2>

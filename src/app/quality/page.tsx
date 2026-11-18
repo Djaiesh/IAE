@@ -114,11 +114,11 @@ export default function QualityPage() {
         secondaryCtaHref="/documents/company-portfolio.pdf"
       />
 
-      <div id="testing" className="py-20 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div id="testing" className="py-12 sm:py-20 max-w-7xl mx-auto px-4 sm:px-8 lg:px-10">
 
         {/* 2. Analytical Lab Testing Technologies (HPLC, GC-MS/MS, Aflatoxin, Titration) */}
-        <div className="mb-24" data-reveal="up">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 pb-6 border-b border-white/10">
+        <div className="mb-16 sm:mb-24" data-reveal="up">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10 pb-6 border-b border-white/10">
             <div>
               <span className="eyebrow text-saffron block mb-1">Testing Methodologies</span>
               <h2 className="font-display text-2xl sm:text-3xl text-cream font-normal">
@@ -130,13 +130,13 @@ export default function QualityPage() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6" data-stagger>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6" data-stagger>
             {labTechnologies.map((tech) => {
               const Icon = tech.icon;
               return (
                 <div
                   key={tech.title}
-                  className="glass glass-hover rounded-4xl p-8 border border-white/10 flex flex-col justify-between"
+                  className="glass glass-hover rounded-3xl sm:rounded-4xl p-6 sm:p-8 border border-white/10 flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-6">
