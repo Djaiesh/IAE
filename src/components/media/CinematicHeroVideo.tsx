@@ -62,7 +62,6 @@ export function CinematicHeroVideo() {
           poster="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2000&q=85"
           className="w-full h-full object-cover object-center scale-[1.01] will-change-transform opacity-95"
         >
-          <source src="/video/jilo-intro.mp4" type="video/mp4" />
           <source src="/video/hero.mp4" type="video/mp4" />
           <source
             src="https://assets.mixkit.co/videos/preview/mixkit-cargo-ship-sailing-in-the-open-sea-43098-large.mp4"
