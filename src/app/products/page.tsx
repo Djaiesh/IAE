@@ -4,6 +4,7 @@ import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { PageHeroVideo } from "@/components/media/PageHeroVideo";
+import { LazyMountOnScroll } from "@/components/motion/LazyMountOnScroll";
 import { CategoryTiles } from "@/components/sections/CategoryTiles";
 import { PRODUCTS, ProductItem } from "@/data/products";
 import { CATEGORIES } from "@/data/categories";
@@ -64,13 +65,16 @@ export default function ProductsPage() {
       />
 
       <div className="py-16 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-        {/* 2. CategoryTiles */}
-        <div className="mb-20">
-          <CategoryTiles className="py-0" showHeader={false} />
-        </div>
+        {/* 2. CategoryTiles: Lazy Mounts on Scroll */}
+        <LazyMountOnScroll minHeight="240px" rootMargin="150px 0px 150px 0px">
+          <div className="mb-20">
+            <CategoryTiles className="py-0" showHeader={false} />
+          </div>
+        </LazyMountOnScroll>
 
-        {/* 3. Catalogue Section with Search & Filter Tabs */}
-        <div id="catalogue" className="mb-10">
+        {/* 3. Catalogue Section with Search & Filter Tabs: Lazy Mounts on Scroll */}
+        <LazyMountOnScroll minHeight="600px" rootMargin="150px 0px 150px 0px">
+          <div id="catalogue" className="mb-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
             <div>
               <span className="eyebrow block mb-2 text-saffron">Commodity Directory</span>
@@ -251,6 +255,7 @@ export default function ProductsPage() {
             </div>
           )}
         </div>
+        </LazyMountOnScroll>
 
       </div>
     </div>

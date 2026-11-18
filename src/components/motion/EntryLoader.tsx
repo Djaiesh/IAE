@@ -38,13 +38,12 @@ export function EntryLoader() {
       role="dialog"
       aria-modal="true"
       aria-label="Introduction Video"
-      onClick={dismissLoader}
       className={cn(
-        "fixed inset-0 z-[99999] select-none transition-opacity duration-700 ease-out bg-black cursor-pointer",
+        "fixed inset-0 z-[99999] select-none transition-opacity duration-700 ease-out bg-black cursor-default",
         fadingOut ? "opacity-0 pointer-events-none" : "opacity-100"
       )}
     >
-      {/* ── Pure Fullscreen Intro Video (Zero Sound, Zero Wording) ── */}
+      {/* ── Pure Fullscreen Intro Video (Mandatory Playback, Zero Sound, Zero Wording, No Skip) ── */}
       <video
         ref={videoRef}
         src="/video/intro.mp4"
@@ -53,22 +52,9 @@ export function EntryLoader() {
         playsInline
         preload="auto"
         onEnded={dismissLoader}
+        onError={dismissLoader}
         className="w-full h-full object-cover object-center scale-[1.01]"
       />
-
-      {/* Discreet Minimal Skip Button (Top Right Corner) */}
-      <div className="absolute top-6 right-6 z-20">
-        <button
-          type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            dismissLoader();
-          }}
-          className="px-4 py-1.5 rounded-full bg-black/40 hover:bg-black/70 border border-white/20 text-white/70 hover:text-white text-xs font-sans tracking-wider uppercase transition-all backdrop-blur-md cursor-pointer"
-        >
-          Skip
-        </button>
-      </div>
     </div>
   );
 }
