@@ -44,10 +44,10 @@ export const SITE_CONFIG = {
   contact: {
     email: "trade@jilo-exports.com",
     salesDesk: "+91 98765 43210 (JILO Trade Desk)",
-    emergencyLogistics: "+91 98200 12345 (Port Operations)",
-    registeredOffice: "JILO Export Tower, Maritime Logistics Quarter, Ballard Estate, Mumbai 400 001, India",
-    packingFacility: "JILO Central Packhouse & Cold-Storage Terminal, MIDC Dindori, Nashik Agro-Export Zone, Maharashtra",
-    businessHours: "Monday – Friday: 08:30 – 19:30 IST / 24/7 Reefer Telemetry Desk",
+    emergencyLogistics: "+91 98200 12345 (Port Logistics Operations)",
+    registeredOffice: "JILO Global Agro-Exports, Valasaravakkam, Chennai, Tamil Nadu 600087, India",
+    packingFacility: "JILO Cold-Storage Terminal & Export Packhouse Hub, Chennai Port Corridor, Tamil Nadu",
+    businessHours: "Monday – Saturday: 08:30 – 19:30 IST / 24/7 Global Reefer Telemetry Desk",
   },
 
   complianceCertifications: [

@@ -51,7 +51,7 @@ export function SovereignGlobe3D() {
       0.1,
       1000
     );
-    camera.position.z = 240;
+    camera.position.z = 215;
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
     renderer.setSize(container.clientWidth, container.clientHeight);
@@ -75,7 +75,7 @@ export function SovereignGlobe3D() {
     const globeGroup = new THREE.Group();
     scene.add(globeGroup);
 
-    const GLOBE_RADIUS = 68;
+    const GLOBE_RADIUS = 86;
 
     // Ocean Core Sphere with deep abyss gradient
     const oceanGeometry = new THREE.SphereGeometry(GLOBE_RADIUS, 64, 64);
@@ -337,7 +337,7 @@ export function SovereignGlobe3D() {
 
       // Smooth auto-rotation when user is not dragging
       if (!isDragging && !targetRotationRef.current && !prefersReduced) {
-        globeGroup.rotation.y += 0.0016;
+        globeGroup.rotation.y += 0.0042;
       }
 
       // Smooth lerp to target port coordinates if clicked
@@ -443,27 +443,16 @@ export function SovereignGlobe3D() {
         {/* ── 3D GLOBE SHOWCASE & TELEMETRY COCKPIT ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
-          {/* Left Column: 3D WebGL Canvas Globe */}
-          <div className="lg:col-span-7 relative w-full h-[450px] sm:h-[550px] rounded-5xl border border-white/10 bg-abyss/85 backdrop-blur-2xl shadow-float overflow-hidden flex items-center justify-center">
-            
+          {/* Left Column: 3D WebGL Canvas Globe (Borderless, Pure Floating Planetary Model) */}
+          <div className="lg:col-span-7 relative w-full h-[520px] sm:h-[620px] lg:h-[700px] flex items-center justify-center">
             {/* The 3D Canvas */}
             <div ref={mountRef} className="w-full h-full cursor-grab active:cursor-grabbing" />
-
-            {/* Micro HUD Overlay */}
-            <div className="absolute top-4 left-6 pointer-events-none flex items-center gap-2 bg-abyss/90 backdrop-blur-xl border border-white/10 px-3.5 py-1.5 rounded-full text-[11px] font-mono text-saffron">
-              <span className="w-2 h-2 rounded-full bg-saffron animate-pulse" />
-              <span>Drag to rotate 3D Earth · Click Ports Below</span>
-            </div>
-
-            <div className="absolute bottom-4 right-6 pointer-events-none text-[10px] font-mono text-foam/50">
-              WebGL 3D Core · 60fps Sovereign Engine
-            </div>
           </div>
 
-          {/* Right Column: Active Port Telemetry & Port Switcher */}
+          {/* Right Column: Active Port Telemetry & Direct Corridor Console */}
           <div className="lg:col-span-5 space-y-4">
             
-            {/* Quick Port Pills */}
+            {/* Quick Port Selection Pills */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-2">
               {ports.map((p) => {
                 const isCurrent = p.id === selectedId;
@@ -472,14 +461,14 @@ export function SovereignGlobe3D() {
                     key={p.id}
                     onClick={() => handleSelectPort(p.id)}
                     className={cn(
-                      "p-3 rounded-2xl border text-left transition-all duration-300 flex items-center gap-2.5 cursor-pointer",
+                      "p-3 rounded-2xl border text-left transition-all duration-300 flex items-center gap-2.5 cursor-pointer font-sans",
                       isCurrent
-                        ? "bg-saffron text-white border-saffron shadow-saffron"
-                        : "glass border-white/5 hover:border-white/20 text-foam/80"
+                        ? "bg-[#E6C687] text-black border-[#E6C687] shadow-[0_0_20px_rgba(230,198,135,0.3)] font-semibold"
+                        : "bg-white/[0.03] border-white/10 hover:border-white/20 text-slate-300 font-medium"
                     )}
                   >
-                    <Anchor className="w-3.5 h-3.5 shrink-0" />
-                    <span className="font-sans text-xs font-semibold truncate">
+                    <Anchor className={cn("w-3.5 h-3.5 shrink-0", isCurrent ? "text-black" : "text-[#E6C687]")} />
+                    <span className="text-xs truncate">
                       {p.city}
                     </span>
                   </button>
@@ -487,43 +476,43 @@ export function SovereignGlobe3D() {
               })}
             </div>
 
-            {/* Selected Port Deep Telemetry Card */}
-            <div className="glass rounded-4xl p-6 sm:p-8 border border-white/15 shadow-float relative overflow-hidden">
-              <div className="flex items-center justify-between gap-3 pb-4 border-b border-white/10 mb-6">
+            {/* Selected Port Detailed Console */}
+            <div className="bg-[#07070B] rounded-3xl p-6 sm:p-7 border border-white/15 shadow-2xl relative overflow-hidden font-sans">
+              <div className="flex items-start justify-between gap-3 pb-4 border-b border-white/10 mb-5">
                 <div>
-                  <span className="eyebrow text-saffron text-[10px] block mb-1">
-                    Direct Discharge Corridor
+                  <span className="text-[10px] uppercase tracking-widest text-[#E6C687] font-semibold block mb-1">
+                    Direct Maritime Discharge Corridor
                   </span>
-                  <h3 className="font-display text-2xl text-cream font-medium">
+                  <h3 className="text-xl sm:text-2xl text-white font-bold tracking-tight">
                     {selectedPort.name}
                   </h3>
-                  <p className="font-sans text-xs text-foam/60 mt-0.5">
-                    {selectedPort.city}, {selectedPort.country} ({selectedPort.region})
+                  <p className="text-xs text-slate-400 mt-1">
+                    {selectedPort.city}, {selectedPort.country} · Direct lane from Chennai &amp; West Coast berths
                   </p>
                 </div>
 
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-saffron/15 border border-saffron/40 text-saffron text-xs font-mono font-bold shrink-0">
-                  <Navigation className="w-3.5 h-3.5 animate-pulse" />
+                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-400/10 border border-emerald-400/30 text-emerald-400 text-[11px] font-semibold shrink-0">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   <span>Direct Line</span>
                 </div>
               </div>
 
               {/* Transit & Handling Metrics */}
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                <div className="p-3.5 rounded-2xl bg-white/5 border border-white/5">
-                  <div className="flex items-center gap-1.5 text-xs text-foam/50 mb-1">
-                    <Clock className="w-3.5 h-3.5 text-saffron" /> Sea Transit
+              <div className="grid grid-cols-2 gap-3 mb-5">
+                <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
+                  <div className="flex items-center gap-1.5 text-xs text-slate-400 mb-1">
+                    <Clock className="w-3.5 h-3.5 text-[#E6C687]" /> Sea Transit
                   </div>
-                  <div className="font-display text-lg text-cream font-semibold">
+                  <div className="text-base sm:text-lg text-white font-bold">
                     {selectedPort.typicalTransitDays}
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-2xl bg-white/5 border border-white/5">
-                  <div className="flex items-center gap-1.5 text-xs text-foam/50 mb-1">
-                    <Ship className="w-3.5 h-3.5 text-teal" /> Frequency
+                <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
+                  <div className="flex items-center gap-1.5 text-xs text-slate-400 mb-1">
+                    <Ship className="w-3.5 h-3.5 text-sky-400" /> Liner Frequency
                   </div>
-                  <div className="font-display text-sm text-cream font-medium truncate mt-0.5">
+                  <div className="text-xs sm:text-sm text-white font-semibold truncate mt-1">
                     {selectedPort.handlingVolume}
                   </div>
                 </div>
@@ -531,16 +520,16 @@ export function SovereignGlobe3D() {
 
               {/* Cleared Commodities */}
               <div className="mb-6">
-                <span className="font-sans text-[11px] uppercase tracking-wider text-foam/50 block mb-2 font-semibold">
+                <span className="text-[11px] uppercase tracking-wider text-slate-400 block mb-2.5 font-semibold">
                   Primary Cleared Commodities at Berth:
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {selectedPort.primaryCommodities.map((c, i) => (
                     <span
                       key={i}
-                      className="text-xs bg-abyss/90 border border-white/10 px-3 py-1 rounded-full text-foam/90 flex items-center gap-1.5"
+                      className="text-xs bg-white/[0.04] border border-white/10 px-3 py-1.5 rounded-full text-slate-200 flex items-center gap-1.5"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-saffron shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#E6C687] shrink-0" />
                       {c}
                     </span>
                   ))}
@@ -550,9 +539,9 @@ export function SovereignGlobe3D() {
               {/* CTA Link */}
               <a
                 href={`/contact?port=${encodeURIComponent(selectedPort.name)}&type=quote`}
-                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-saffron hover:bg-saffron-light text-white font-sans text-xs uppercase tracking-wider font-bold transition-all shadow-saffron"
+                className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-gradient-to-r from-[#E6C687] to-[#C29B4D] hover:opacity-95 text-black text-xs uppercase tracking-wider font-bold transition-all shadow-lg"
               >
-                <span>Request Berth Freight Schedule to {selectedPort.city}</span>
+                <span>Inquire Freight Schedule to {selectedPort.city}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
 

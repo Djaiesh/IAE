@@ -179,42 +179,35 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
               </div>
             </div>
 
-            {/* Static Styled Map / Terminal Coordinate Placeholder Box (No External API) */}
+            {/* Interactive Location Map Box - Valasaravakkam, Chennai */}
             <div className="glass rounded-4xl p-7 border border-white/10 space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                <div className="flex items-center gap-2 text-xs font-mono text-saffron">
-                  <Compass className="w-4 h-4 text-saffron" />
-                  <span className="uppercase tracking-wider font-semibold">Maritime Terminal Coordinates</span>
+                <div className="flex items-center gap-2 text-xs font-mono text-[#E6C687]">
+                  <Compass className="w-4 h-4 text-[#E6C687]" />
+                  <span className="uppercase tracking-wider font-semibold">Headquarters &amp; Maritime Port</span>
                 </div>
-                <span className="text-[10px] font-mono text-teal bg-teal/15 px-2.5 py-0.5 rounded-full border border-teal/30">
-                  JNPT / Ballard Estate
+                <span className="text-[10px] font-mono text-emerald-400 bg-emerald-400/15 px-2.5 py-0.5 rounded-full border border-emerald-400/30">
+                  Chennai Hub · INMAA
                 </span>
               </div>
 
-              {/* Styled Static Map Representation */}
-              <div className="relative h-44 rounded-3xl overflow-hidden bg-abyss border border-white/10 flex flex-col justify-between p-5">
-                {/* Radial Grid Lines Background */}
-                <div className="absolute inset-0 bg-[radial-gradient(#1B6B7C_1px,transparent_1px)] [background-size:16px_16px] opacity-25" />
-                <div className="absolute inset-0 bg-gradient-to-t from-abyss via-abyss/40 to-transparent" />
+              {/* Embedded Google Map */}
+              <div className="relative h-48 rounded-2xl overflow-hidden border border-white/15 shadow-xl bg-[#090E1A]">
+                <iframe
+                  title="JILO Headquarters Location Map - Valasaravakkam, Chennai"
+                  src="https://maps.google.com/maps?q=Valasaravakkam%2C%20Chennai%2C%20Tamil%20Nadu%2C%20India&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, filter: "invert(92%) hue-rotate(180deg) contrast(110%) brightness(85%)" }}
+                  allowFullScreen={false}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
 
-                <div className="relative z-10 flex justify-between items-start text-[11px] font-mono text-foam/60">
-                  <div>
-                    <span className="text-cream block font-bold">Mumbai Trade Desk</span>
-                    <span>18.9322° N, 72.8428° E</span>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-saffron block font-bold">JNPT Nhava Sheva</span>
-                    <span>18.9499° N, 72.9510° E</span>
-                  </div>
-                </div>
-
-                <div className="relative z-10 flex items-center justify-between pt-3 border-t border-white/10 text-[10px] font-sans text-foam/70">
-                  <span className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-teal animate-pulse" />
-                    Deep-Sea Container Berth Priority
-                  </span>
-                  <span className="font-mono text-saffron">POL: INNSA</span>
-                </div>
+              <div className="flex justify-between items-center text-[11px] font-sans text-slate-400 pt-1">
+                <span>Valasaravakkam, Chennai: 13.0403° N, 80.1723° E</span>
+                <span className="text-emerald-400 font-semibold">Port: Chennai / Ennore</span>
               </div>
             </div>
 

@@ -102,7 +102,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="font-sans text-base sm:text-xl text-foam/85 font-light mt-6 leading-relaxed max-w-3xl">
-            {SITE_CONFIG.name} — {SITE_CONFIG.tagline}. Operating from Mumbai's historic maritime trade district with dedicated processing facilities in the agricultural hinterlands.
+            {SITE_CONFIG.name} — {SITE_CONFIG.tagline}. Headquartered in Valasaravakkam, Chennai with direct export access to major Indian deepwater seaports and processing packhouses across agricultural hinterlands.
           </p>
         </div>
 
@@ -117,7 +117,7 @@ export default function AboutPage() {
               Perishable agricultural cargo and volatile aromatic spices demand an entirely different standard of logistical care than standard dry containerized freight. The transit from origin harvest fields across the Indian Ocean to northern European or Gulf berths represents a rigorous biological trial.
             </p>
             <p>
-              We founded our operations upon an unwavering premise: complete end-to-end custody. By establishing packing operations within hours of prime farmgates and securing priority berths at JNPT Nhava Sheva and Mundra, we bridge the gap between smallholder agricultural excellence and multinational food processors.
+              We founded our operations upon an unwavering premise: complete end-to-end custody. By establishing packing operations within hours of prime farmgates and securing priority berths at Chennai, Ennore, and JNPT, we bridge the gap between smallholder agricultural excellence and multinational food processors.
             </p>
             <p>
               Every consignment is backed by independent ISO 17025 accredited laboratory assays, phytosanitary clearances, and continuous temperature records.

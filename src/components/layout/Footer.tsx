@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Download, ArrowUp, Mail, Phone, MapPin, Clock, ShieldCheck, Sparkles, CheckCircle2 } from "lucide-react";
+import { ArrowUp, Mail, Phone, MapPin, Clock, ShieldCheck, Sparkles, CheckCircle2, ExternalLink } from "lucide-react";
 import { SITE_CONFIG } from "@/data/site";
 import { CATEGORIES } from "@/data/categories";
 import { ProcurementTenderModal } from "@/components/leads/ProcurementTenderModal";
@@ -24,103 +24,31 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-black text-white overflow-hidden border-t border-white/10">
+    <footer className="relative bg-black text-white overflow-hidden border-t border-white/10 font-sans">
       {/* Top Gold Shimmer Line */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#E6C687]/30 to-transparent" />
-
-      {/* Editorial Closing Banner */}
-      <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pt-16 pb-12 border-b border-white/10" data-reveal="up">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <span className="eyebrow block mb-3 text-[#E6C687]">Direct Origin Sea Freight</span>
-            <h2 className="font-display text-4xl sm:text-6xl text-white font-normal tracking-tight leading-none">
-              {SITE_CONFIG.editorialClosingLine}
-            </h2>
-          </div>
-          <div className="flex items-center gap-4 shrink-0">
-            <button
-              onClick={() => setIsTenderOpen(true)}
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#E6C687] to-[#C29B4D] text-black font-bold text-xs uppercase tracking-wider shadow-lg hover:opacity-95 transition-all cursor-pointer"
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Request Spot RFQ</span>
-            </button>
-            <button
-              onClick={scrollToTop}
-              className="p-3.5 rounded-full border border-white/15 bg-white/5 text-slate-300 hover:border-[#E6C687] hover:text-[#E6C687] transition-all cursor-pointer shadow-sm"
-              aria-label="Back to top"
-            >
-              <ArrowUp className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-
-        {/* Live Maritime Ticker Metrics */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/5" data-stagger>
-          <div className="p-5 rounded-3xl bg-[#070B13] border border-white/10 flex items-center gap-4">
-            <div className="font-display text-3xl sm:text-4xl text-[#E6C687] font-bold tabular-nums">
-              180+
-            </div>
-            <div>
-              <span className="font-sans text-xs uppercase tracking-wider text-white font-semibold block">
-                MT Monthly Volume
-              </span>
-              <span className="text-[11px] text-slate-400 font-light block">
-                Continuous FCL &amp; LCL Reefer Shipments
-              </span>
-            </div>
-          </div>
-
-          <div className="p-5 rounded-3xl bg-[#070B13] border border-white/10 flex items-center gap-4">
-            <div className="font-display text-3xl sm:text-4xl text-emerald-400 font-bold tabular-nums">
-              28
-            </div>
-            <div>
-              <span className="font-sans text-xs uppercase tracking-wider text-white font-semibold block">
-                International Berths
-              </span>
-              <span className="text-[11px] text-slate-400 font-light block">
-                Direct Scheduled Liner Connections
-              </span>
-            </div>
-          </div>
-
-          <div className="p-5 rounded-3xl bg-[#070B13] border border-white/10 flex items-center gap-4">
-            <div className="font-display text-3xl sm:text-4xl text-sky-400 font-bold tabular-nums">
-              100%
-            </div>
-            <div>
-              <span className="font-sans text-xs uppercase tracking-wider text-white font-semibold block">
-                Cold Chain Custody
-              </span>
-              <span className="text-[11px] text-slate-400 font-light block">
-                Satellite GPS &amp; Pulp Data Logging
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#E6C687]/40 to-transparent" />
 
       {/* Main Multi-Column Grid */}
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
 
-          {/* Brand Block */}
-          <div className="lg:col-span-2 space-y-5">
+          {/* ── Col 1: Brand & Market Intelligence (4 cols) ── */}
+          <div className="lg:col-span-4 space-y-5">
             <Link href="/" className="inline-flex items-center gap-3 group">
-              <div className="w-11 h-11 rounded-2xl border border-[#E6C687]/40 bg-[#090E1A] flex items-center justify-center shadow-md">
-                <svg viewBox="0 0 32 32" className="w-6 h-6" fill="none">
-                  <path d="M6 26 L16 6 L26 26" stroke="#E6C687" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M10 20 L22 20" stroke="#DFC08A" strokeWidth="1.8" strokeLinecap="round"/>
-                </svg>
+              <div className="w-11 h-11 rounded-2xl border border-[#E6C687]/40 bg-[#090E1A] flex items-center justify-center shadow-md group-hover:border-[#E6C687] transition-all">
+                <span className="font-display text-xl font-bold text-[#E6C687]">J</span>
               </div>
               <div>
-                <span className="font-display text-2xl text-white font-bold tracking-widest block">JILO</span>
-                <span className="text-[10px] tracking-eyebrow uppercase text-[#E6C687] font-sans">Global Agro-Exports</span>
+                <span className="font-display text-2xl text-white font-bold tracking-widest block leading-none">
+                  JILO
+                </span>
+                <span className="text-[10px] tracking-widest uppercase text-[#E6C687] font-semibold block mt-1">
+                  Global Agro-Exports
+                </span>
               </div>
             </Link>
 
-            <p className="font-sans text-sm text-slate-400 font-light leading-relaxed max-w-sm">
+            <p className="text-sm text-slate-400 font-light leading-relaxed max-w-sm">
               International B2B maritime export trading house specializing in single-origin spices, hydro-cooled vegetables, and Global-GAP certified tropical fruits with end-to-end cold chain traceability.
             </p>
 
@@ -136,11 +64,11 @@ export function Footer() {
                   placeholder="Enter corporate email..."
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
-                  className="w-full bg-[#070B13] border border-white/15 rounded-full px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#E6C687]"
+                  className="w-full bg-[#07070B] border border-white/15 rounded-full px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#E6C687]"
                 />
                 <button
                   type="submit"
-                  className="px-4 py-2.5 rounded-full bg-white/10 hover:bg-[#E6C687] hover:text-black text-xs font-bold text-white transition-all shrink-0 cursor-pointer"
+                  className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#E6C687] to-[#C29B4D] hover:opacity-95 text-xs font-bold text-black transition-all shrink-0 cursor-pointer shadow-sm"
                 >
                   Join
                 </button>
@@ -153,16 +81,18 @@ export function Footer() {
               )}
             </div>
 
-            <div className="flex items-center gap-2 text-xs font-sans text-emerald-400 pt-2">
+            <div className="flex items-center gap-2 text-xs text-emerald-400 pt-1">
               <ShieldCheck className="w-4 h-4 shrink-0" />
               <span>APEDA · FSSAI · US-FDA · Global-GAP Export Supply Chains</span>
             </div>
           </div>
 
-          {/* Explore Links */}
-          <div>
-            <h3 className="eyebrow mb-5 block text-[#E6C687]">Explore</h3>
-            <ul className="space-y-3 font-sans text-sm">
+          {/* ── Col 2: Navigation (2 cols) ── */}
+          <div className="lg:col-span-2">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-[#E6C687] mb-5 block">
+              Navigation
+            </h3>
+            <ul className="space-y-3 text-sm">
               {SITE_CONFIG.navItems.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-slate-400 hover:text-[#E6C687] transition-colors block py-0.5">
@@ -173,10 +103,12 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Product Categories */}
-          <div>
-            <h3 className="eyebrow mb-5 block text-[#E6C687]">Commodities</h3>
-            <ul className="space-y-3 font-sans text-sm">
+          {/* ── Col 3: Commodities (2 cols) ── */}
+          <div className="lg:col-span-2">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-[#E6C687] mb-5 block">
+              Commodities
+            </h3>
+            <ul className="space-y-3 text-sm">
               {CATEGORIES.map((cat) => (
                 <li key={cat.id}>
                   <Link
@@ -184,53 +116,90 @@ export function Footer() {
                     className="text-slate-400 hover:text-[#E6C687] transition-colors flex items-center justify-between group py-0.5"
                   >
                     <span>{cat.name}</span>
-                    <span className="text-[10px] text-[#E6C687] opacity-0 group-hover:opacity-100 transition-opacity">View →</span>
+                    <span className="text-[10px] text-[#E6C687] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                   </Link>
                 </li>
               ))}
               <li className="pt-2">
-                <Link href="/products" className="font-sans text-xs uppercase tracking-wider text-[#E6C687] hover:underline transition-colors font-semibold">
+                <Link href="/products" className="text-xs uppercase tracking-wider text-[#E6C687] hover:underline transition-colors font-semibold">
                   Full Catalogue →
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Trade Operations */}
-          <div>
-            <h3 className="eyebrow mb-5 block text-[#E6C687]">Trade Desk</h3>
-            <ul className="space-y-4 font-sans text-xs text-slate-400 font-light">
-              <li className="flex items-start gap-2.5">
-                <Mail className="w-4 h-4 text-[#E6C687] shrink-0 mt-0.5" />
-                <a href={`mailto:${SITE_CONFIG.contact.email}`} className="hover:text-[#E6C687] transition-colors break-all">
+          {/* ── Col 4: Registered Office & Interactive Location Map (4 cols) ── */}
+          <div className="lg:col-span-4 space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-[#E6C687]">
+                Headquarters &amp; Location
+              </h3>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Valasaravakkam,+Chennai,+Tamil+Nadu,+India"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[11px] text-[#E6C687] hover:underline flex items-center gap-1"
+              >
+                <span>View on Maps</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+
+            {/* Address Details */}
+            <div className="p-4 rounded-2xl bg-[#07070B] border border-white/10 space-y-2 text-xs text-slate-300">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-[#E6C687] shrink-0 mt-0.5" />
+                <div className="leading-relaxed">
+                  <strong className="text-white block font-semibold">JILO Global Agro-Exports</strong>
+                  <span>Valasaravakkam, Chennai, Tamil Nadu 600087, India</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2.5 pt-1 text-slate-400">
+                <Mail className="w-3.5 h-3.5 text-[#E6C687] shrink-0" />
+                <a href={`mailto:${SITE_CONFIG.contact.email}`} className="hover:text-white transition-colors">
                   {SITE_CONFIG.contact.email}
                 </a>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <Phone className="w-4 h-4 text-[#E6C687] shrink-0 mt-0.5" />
+              </div>
+              <div className="flex items-center gap-2.5 text-slate-400">
+                <Phone className="w-3.5 h-3.5 text-[#E6C687] shrink-0" />
                 <span>{SITE_CONFIG.contact.salesDesk}</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#E6C687] shrink-0 mt-0.5" />
-                <span className="leading-relaxed">{SITE_CONFIG.contact.registeredOffice}</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <Clock className="w-4 h-4 text-[#E6C687] shrink-0 mt-0.5" />
-                <span>{SITE_CONFIG.contact.businessHours}</span>
-              </li>
-            </ul>
+              </div>
+            </div>
+
+            {/* Embedded Google Map */}
+            <div className="relative w-full h-44 rounded-2xl overflow-hidden border border-white/15 shadow-xl bg-[#090E1A]">
+              <iframe
+                title="JILO Headquarters Location Map - Valasaravakkam, Chennai, Tamil Nadu"
+                src="https://maps.google.com/maps?q=Valasaravakkam%2C%20Chennai%2C%20Tamil%20Nadu%2C%20India&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: "invert(92%) hue-rotate(180deg) contrast(110%) brightness(85%)" }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
 
         </div>
       </div>
 
-      {/* Legal Strip */}
-      <div className="border-t border-white/5 py-6">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-3 font-sans text-xs text-slate-500">
+      {/* Legal Strip & Back to Top */}
+      <div className="border-t border-white/10 py-6 bg-[#040406]">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <span>© {new Date().getFullYear()} {SITE_CONFIG.name}. All international trade rights reserved.</span>
-          <span className="text-slate-600">
-            Registered APEDA &amp; FSSAI Agro-Exporter · Sovereign Direct Origin Logistics
-          </span>
+          <div className="flex items-center gap-4">
+            <span className="text-slate-600">
+              Valasaravakkam, Chennai, Tamil Nadu, India · Registered APEDA Agro-Exporter
+            </span>
+            <button
+              onClick={scrollToTop}
+              className="p-2.5 rounded-full border border-white/15 bg-white/5 text-slate-300 hover:border-[#E6C687] hover:text-[#E6C687] transition-all cursor-pointer shadow-sm ml-2"
+              aria-label="Back to top"
+            >
+              <ArrowUp className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
       </div>
 
