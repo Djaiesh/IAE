@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { PageHeroVideo } from "@/components/media/PageHeroVideo";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SITE_CONFIG } from "@/data/site";
 import {
@@ -44,29 +45,29 @@ export default function ExportProcessPage() {
   };
 
   return (
-    <div className="pt-32 pb-24 bg-navy text-cream min-h-screen">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-        
-        {/* Breadcrumb Trail */}
-        <Breadcrumbs items={[{ label: "Export Process" }]} />
+    <div className="bg-navy text-cream min-h-screen">
+      {/* 1. Cinematic Dedicated Page Hero Video */}
+      <PageHeroVideo
+        videoSrc="/video/pages/export-process.mp4"
+        badgeIcon={<Compass className="w-3.5 h-3.5 text-saffron" />}
+        badgeText="End-to-End Maritime Execution • Port Logistics"
+        title="The Six-Stage Maritime"
+        highlightedTitle="Export Pipeline & Cargo Journey"
+        description="From calibrated farmgate harvesting to the surrender of clean destination delivery orders, our logistics framework eliminates container demurrage and maintains continuous biological chain-of-custody."
+        breadcrumbs={[{ label: "Export Process" }]}
+        metrics={[
+          { value: "0 Demurrage", label: "Port Gate Target" },
+          { value: "<3 Hours", label: "Farmgate to Reefer" },
+          { value: "15 Min", label: "IoT GPS Telemetry" },
+          { value: "100%", label: "Traceable Provenance" },
+        ]}
+        primaryCtaText="Inspect 6 Stages"
+        primaryCtaHref="#pipeline"
+        secondaryCtaText="Request Berth Schedule"
+        secondaryCtaHref="/contact"
+      />
 
-        {/* 1. Hero Section */}
-        <div className="max-w-4xl mb-16" data-reveal="up">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-saffron/30 bg-saffron/10 mb-6 backdrop-blur-md">
-            <Compass className="w-3.5 h-3.5 text-saffron" />
-            <span className="eyebrow text-saffron text-[11px] font-semibold">
-              End-to-End Maritime Execution
-            </span>
-          </div>
-
-          <h1 className="hero-title text-cream font-normal leading-[1.05]">
-            The Six-Stage Maritime
-            <span className="text-saffron italic block mt-1">Export Pipeline</span>
-          </h1>
-          <p className="font-sans text-base sm:text-lg text-foam/85 font-light mt-6 leading-relaxed max-w-3xl">
-            From calibrated farmgate harvesting to the surrender of clean destination delivery orders, our logistics framework eliminates container demurrage and maintains continuous biological chain-of-custody.
-          </p>
-        </div>
+      <div id="pipeline" className="py-20 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
 
         {/* 2. Six-Step Process with Connecting Timeline Lines */}
         <div className="relative mb-24" data-reveal="up">

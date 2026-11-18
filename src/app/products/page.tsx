@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { PageHeroVideo } from "@/components/media/PageHeroVideo";
 import { CategoryTiles } from "@/components/sections/CategoryTiles";
 import { PRODUCTS, ProductItem } from "@/data/products";
 import { CATEGORIES } from "@/data/categories";
@@ -41,25 +41,30 @@ export default function ProductsPage() {
   };
 
   return (
-    <div className="pt-32 pb-24 bg-navy text-cream min-h-screen">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-        
-        {/* Breadcrumb Trail */}
-        <Breadcrumbs items={[{ label: "Products" }]} />
+    <div className="bg-navy text-cream min-h-screen">
+      {/* 1. Cinematic Dedicated Page Hero Video */}
+      <PageHeroVideo
+        videoSrc="/video/pages/products.mp4"
+        badgeIcon={<Package className="w-3.5 h-3.5" />}
+        badgeText="Export Portfolio • Certified Commodities"
+        title="Certified Global"
+        highlightedTitle="Agro-Commodities Catalogue"
+        description="Direct farmgate procurement, state-of-the-art optical grading, and cold-chain containerized freight. Browse our certified single-origin spices, hydro-cooled vegetables, and tropical fruits."
+        breadcrumbs={[{ label: "Products" }]}
+        metrics={[
+          { value: "50+", label: "Discharge Berths" },
+          { value: "<4h", label: "Harvest to Pre-Cool" },
+          { value: "ISO 17025", label: "Lab Assayed" },
+          { value: "100%", label: "MRL Compliant" },
+        ]}
+        primaryCtaText="Explore Directory"
+        primaryCtaHref="#catalogue"
+        secondaryCtaText="Request Bulk Quote"
+        secondaryCtaHref="/contact"
+      />
 
-        {/* 1. Header with Proper H1 for SEO */}
-        <div className="max-w-3xl mb-12" data-reveal="up">
-          <span className="eyebrow block mb-3 text-saffron">Export Portfolio</span>
-          <h1 className="hero-title text-cream font-normal">
-            Certified Global
-            <span className="text-saffron italic block mt-1">Agro-Commodities Catalogue</span>
-          </h1>
-          <p className="font-sans text-base sm:text-lg text-foam/85 font-light mt-4 leading-relaxed">
-            Direct farmgate procurement, state-of-the-art optical grading, and cold-chain containerized freight. Browse our certified botanical and horticultural export lines below.
-          </p>
-        </div>
-
-        {/* 2. CategoryTiles at Top */}
+      <div className="py-16 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+        {/* 2. CategoryTiles */}
         <div className="mb-20">
           <CategoryTiles className="py-0" showHeader={false} />
         </div>

@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { PageHeroVideo } from "@/components/media/PageHeroVideo";
 import { getCategoryBySlug, CATEGORIES } from "@/data/categories";
 import { getProductsByCategory, ProductItem } from "@/data/products";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -55,79 +56,47 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     }
   };
 
+  const getCategoryVideo = (slug: string) => {
+    switch (slug.toLowerCase()) {
+      case "spices":
+        return "/video/pages/category-spices.mp4";
+      case "vegetables":
+        return "/video/pages/category-vegetables.mp4";
+      case "fruits":
+        return "/video/pages/category-fruits.mp4";
+      default:
+        return "/video/pages/products.mp4";
+    }
+  };
+
   return (
-    <div className="pt-32 pb-24 bg-navy text-cream min-h-screen">
-      
-      {/* Category Hero Header */}
-      <div className="relative mb-16 border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-16">
-          <Breadcrumbs
-            items={[
-              { label: "Products", href: "/products" },
-              { label: category.name },
-            ]}
-          />
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mt-6">
-            
-            {/* Left Narrative */}
-            <div className="lg:col-span-7" data-reveal="right">
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-saffron/40 bg-navy/80 backdrop-blur-xl mb-6 shadow-glow">
-                {getCategoryThemeIcon(category.slug)}
-                <span className="eyebrow text-saffron text-xs font-semibold">
-                  {category.shortTagline}
-                </span>
-              </div>
-
-              <h1 className="hero-title text-cream font-normal leading-tight">
-                {category.name}
-                <span className="text-saffron italic block mt-1">Export Line</span>
-              </h1>
-
-              <p className="font-sans text-base sm:text-lg text-foam/85 font-light mt-6 leading-relaxed max-w-2xl">
-                {category.intro}
-              </p>
-
-              <div className="mt-8 flex flex-wrap gap-2">
-                <span className="text-xs font-sans text-foam/50 uppercase tracking-wider block w-full mb-1 font-semibold">
-                  Primary Calibrated Varieties:
-                </span>
-                {category.keyCommodities.map((item) => (
-                  <span
-                    key={item}
-                    className="text-xs font-sans bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-foam/90"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Right Media Poster Frame */}
-            <div className="lg:col-span-5" data-reveal="left">
-              <div className="relative rounded-4xl overflow-hidden aspect-[4/3] shadow-float border border-white/10 group">
-                <Image
-                  src={category.heroImage}
-                  alt={category.name}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-abyss/85 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-5 left-5 right-5 bg-abyss/90 backdrop-blur-xl p-4 rounded-3xl border border-white/15 text-xs font-sans text-foam flex items-center justify-between">
-                  <span className="font-medium">Standard: Export Class 1</span>
-                  <span className="text-saffron font-bold">NABL Lab Tested</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
+    <div className="bg-navy text-cream min-h-screen">
+      {/* 1. Cinematic Category Hero Video */}
+      <PageHeroVideo
+        videoSrc={getCategoryVideo(category.slug)}
+        badgeIcon={getCategoryThemeIcon(category.slug)}
+        badgeText={`${category.name} Export Line • ${category.shortTagline}`}
+        title={`${category.name}`}
+        highlightedTitle="Export Grade Portfolio"
+        description={category.intro}
+        breadcrumbs={[
+          { label: "Products", href: "/products" },
+          { label: category.name },
+        ]}
+        metrics={[
+          { value: `${products.length}`, label: "Available Lines" },
+          { value: "Export A", label: "Calibrated Grade" },
+          { value: "ISO 17025", label: "Assayed & Tested" },
+          { value: "100%", label: "MRL Compliant" },
+        ]}
+        primaryCtaText="Inspect Commodities"
+        primaryCtaHref="#commodities"
+        secondaryCtaText="All Products"
+        secondaryCtaHref="/products"
+      />
 
       {/* Product List Grid */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div id="commodities" className="py-16 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         <div className="flex items-center justify-between mb-10 pb-4 border-b border-white/10">
           <div>
             <h2 className="font-display text-2xl sm:text-3xl text-cream font-normal">

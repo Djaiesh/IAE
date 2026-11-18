@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { PageHeroVideo } from "@/components/media/PageHeroVideo";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import {
   ShieldCheck,
@@ -91,27 +92,29 @@ export default function QualityPage() {
   ];
 
   return (
-    <div className="pt-32 pb-24 bg-navy text-cream min-h-screen">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-        
-        {/* Breadcrumb Trail */}
-        <Breadcrumbs items={[{ label: "Quality Assurance" }]} />
+    <div className="bg-navy text-cream min-h-screen">
+      {/* 1. Cinematic Dedicated Page Hero Video */}
+      <PageHeroVideo
+        videoSrc="/video/pages/quality.mp4"
+        badgeIcon={<FlaskConical className="w-3.5 h-3.5" />}
+        badgeText="ISO 17025 Accreditations • Quality Vault"
+        title="Quality Assurance Protocol"
+        highlightedTitle="& Laboratory Assay Standards"
+        description="We adhere to the uncompromising statutory food safety frameworks governed by the European Food Safety Authority (EFSA), the United States FDA FSMA guidelines, and the Gulf Standards Organization (GSO) through transparent physical and biochemical verification."
+        breadcrumbs={[{ label: "Quality Assurance" }]}
+        metrics={[
+          { value: "ISO 17025", label: "Accredited Lab" },
+          { value: "450+", label: "Pesticides Screened" },
+          { value: "<10 ppb", label: "Aflatoxin Bound" },
+          { value: "HPLC", label: "Assayed Curcumin" },
+        ]}
+        primaryCtaText="Inspect Methodologies"
+        primaryCtaHref="#testing"
+        secondaryCtaText="Download Portfolio"
+        secondaryCtaHref="/documents/company-portfolio.pdf"
+      />
 
-        {/* 1. Hero Section */}
-        <div className="max-w-4xl mb-16" data-reveal="up">
-          <span className="eyebrow block mb-3 text-saffron">
-            Scientific Rigor & Statutory Compliance
-          </span>
-          <h1 className="hero-title text-cream font-normal leading-[1.05]">
-            Quality Assurance Protocol
-            <span className="text-saffron italic block mt-1">
-              & Laboratory Assay Standards
-            </span>
-          </h1>
-          <p className="font-sans text-base sm:text-lg text-foam/85 font-light mt-6 leading-relaxed max-w-3xl">
-            We adhere to the uncompromising statutory food safety frameworks governed by the European Food Safety Authority (EFSA), the United States FDA FSMA guidelines, and the Gulf Standards Organization (GSO) through transparent physical and biochemical verification.
-          </p>
-        </div>
+      <div id="testing" className="py-20 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
 
         {/* 2. Analytical Lab Testing Technologies (HPLC, GC-MS/MS, Aflatoxin, Titration) */}
         <div className="mb-24" data-reveal="up">

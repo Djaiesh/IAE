@@ -1,4 +1,5 @@
 import React from "react";
+import { PageHeroVideo } from "@/components/media/PageHeroVideo";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { EnquiryForm } from "@/components/ui/EnquiryForm";
 import { SITE_CONFIG } from "@/data/site";
@@ -36,31 +37,27 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
     type === "sample" || type === "contract" ? (type as "sample" | "contract") : "quote";
 
   return (
-    <div className="pt-32 pb-24 bg-navy text-cream min-h-screen">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-        
-        {/* Breadcrumb Trail */}
-        <Breadcrumbs items={[{ label: "Commercial Trade Desk" }]} />
+    <div className="bg-navy text-cream min-h-screen">
+      {/* 1. Cinematic Dedicated Page Hero Video */}
+      <PageHeroVideo
+        videoSrc="/video/pages/contact.mp4"
+        badgeIcon={<Anchor className="w-3.5 h-3.5 text-saffron" />}
+        badgeText="Direct B2B Procurement Desk • Maritime Trade"
+        title="Initiate a Trade Inquiry or"
+        highlightedTitle="Sample Allotment Request"
+        description="Connect directly with our maritime export operations team. We evaluate volume, seasonal availability, and destination phytosanitary compliance to provide firm commercial quotations within 24 hours."
+        breadcrumbs={[{ label: "Commercial Trade Desk" }]}
+        metrics={[
+          { value: "<2h", label: "Response Window" },
+          { value: "FOB / CIF", label: "IncoTerms 2020" },
+          { value: "Air Courier", label: "Sample Allotments" },
+          { value: "Valsaravakkam", label: "Chennai HQ Desk" },
+        ]}
+        primaryCtaText="Complete RFQ Form"
+        primaryCtaHref="#rfq-form"
+      />
 
-        {/* 1. Header */}
-        <div className="max-w-3xl mb-14" data-reveal="up">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-saffron/30 bg-saffron/10 mb-6 backdrop-blur-md">
-            <Anchor className="w-3.5 h-3.5 text-saffron" />
-            <span className="eyebrow text-saffron text-[11px] font-semibold">
-              Direct B2B Procurement Desk
-            </span>
-          </div>
-
-          <h1 className="hero-title text-cream font-normal leading-[1.05]">
-            Initiate a Trade Inquiry or
-            <span className="text-saffron italic block mt-1">
-              Sample Allotment Request
-            </span>
-          </h1>
-          <p className="font-sans text-base sm:text-lg text-foam/85 font-light mt-4 leading-relaxed">
-            Connect directly with our maritime export operations team. We evaluate volume, seasonal availability, and destination phytosanitary compliance to provide firm commercial quotations within 24 hours.
-          </p>
-        </div>
+      <div id="rfq-form" className="py-20 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
 
         {/* 2. Split Layout: Form & Verified Contact Desks */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">

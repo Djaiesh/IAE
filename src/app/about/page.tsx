@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { PageHeroVideo } from "@/components/media/PageHeroVideo";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import {
   ShieldCheck,
@@ -79,32 +80,29 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="pt-32 pb-24 bg-navy text-cream min-h-screen">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-        
-        {/* Breadcrumb Trail */}
-        <Breadcrumbs items={[{ label: "About" }]} />
+    <div className="bg-navy text-cream min-h-screen">
+      {/* 1. Cinematic Dedicated Page Hero Video */}
+      <PageHeroVideo
+        videoSrc="/video/pages/about.mp4"
+        badgeIcon={<Anchor className="w-3.5 h-3.5 text-saffron" />}
+        badgeText={`${SITE_CONFIG.brandMark} • Corporate Profile & Origins`}
+        title="Bridging Provenance Fields With"
+        highlightedTitle="Global Deep-Water Seaports"
+        description={`${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}. Headquartered in Valasaravakkam, Chennai with direct export access to major Indian deepwater seaports and processing packhouses across agricultural hinterlands.`}
+        breadcrumbs={[{ label: "About" }]}
+        metrics={[
+          { value: "2012", label: "Founded in Chennai" },
+          { value: "50+", label: "Global Berths Served" },
+          { value: "100%", label: "Direct Farmgate Custody" },
+          { value: "0-Spoil", label: "Cold-Chain Standard" },
+        ]}
+        primaryCtaText="Explore Export Process"
+        primaryCtaHref="/export-process"
+        secondaryCtaText="Contact Trade Desk"
+        secondaryCtaHref="/contact"
+      />
 
-        {/* 1. Typographic Hero Section (No Video) */}
-        <div className="max-w-4xl mb-20" data-reveal="up">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-saffron/30 bg-saffron/10 mb-6 backdrop-blur-md">
-            <Anchor className="w-3.5 h-3.5 text-saffron" />
-            <span className="eyebrow text-saffron text-[11px] font-semibold">
-              {SITE_CONFIG.brandMark} • Corporate Profile & Origins
-            </span>
-          </div>
-
-          <h1 className="hero-title text-cream font-normal leading-[1.04] tracking-tight">
-            Bridging Provenance Fields With
-            <span className="text-saffron italic block mt-1">
-              Global Deep-Water Seaports
-            </span>
-          </h1>
-
-          <p className="font-sans text-base sm:text-xl text-foam/85 font-light mt-6 leading-relaxed max-w-3xl">
-            {SITE_CONFIG.name} — {SITE_CONFIG.tagline}. Headquartered in Valasaravakkam, Chennai with direct export access to major Indian deepwater seaports and processing packhouses across agricultural hinterlands.
-          </p>
-        </div>
+      <div className="py-20 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
 
         {/* 2. Editorial Company Story Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-28">

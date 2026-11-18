@@ -25,7 +25,7 @@ const CARDS_DATA: CardCommodity[] = [
     grade: "Premium Export Grade · Polished",
     spec: "Curcumin 5.0%+ (HPLC Assayed)",
     packaging: "25kg / 50kg Multi-Wall PP / Jute",
-    image: "/images/luxury-spices-curcumin.jpg",
+    image: "/images/products/alleppey-finger-turmeric.jpg",
     moq: "1 x 20ft FCL (19 MT)",
   },
   {
@@ -35,7 +35,7 @@ const CARDS_DATA: CardCommodity[] = [
     grade: "TGSEB Extra Bold · Bulk Density 570g/L",
     spec: "Piperine >= 4.5% · Moisture <11%",
     packaging: "25kg High-Barrier Nitrogen Vacuum Sacks",
-    image: "/images/jilo-turmeric-sorting.jpg",
+    image: "/images/products/tellicherry-black-pepper.jpg",
     moq: "1 x 20ft FCL (16 MT)",
   },
   {
@@ -45,7 +45,7 @@ const CARDS_DATA: CardCommodity[] = [
     grade: "55mm+ Caliber · Hydro-Cooled",
     spec: "Pre-Cooled <3h from Harvest",
     packaging: "10kg / 25kg Leno Ventilated Mesh",
-    image: "/images/luxury-fresh-produce.jpg",
+    image: "/images/products/nashik-red-onion.jpg",
     moq: "1 x 40ft Reefer (29 MT)",
   },
   {
@@ -55,7 +55,7 @@ const CARDS_DATA: CardCommodity[] = [
     grade: "GI-Tagged · Hot Water / VHT Treated",
     spec: "Brix 17°–19° · Zero Chemical MRL",
     packaging: "3kg / 12-Piece Telescopic Export Cartons",
-    image: "/images/luxury-exotic-fruits.jpg",
+    image: "/images/products/ratnagiri-alphonso-mango.jpg",
     moq: "Air Freight Pallets / Reefer",
   },
   {
@@ -65,8 +65,18 @@ const CARDS_DATA: CardCommodity[] = [
     grade: "Export Fresh Stem-On · Class AAA",
     spec: "Controlled Atmosphere (+7°C)",
     packaging: "4.5kg Corrugated Perforated Boxes",
-    image: "/images/jilo-farmgate-harvest.jpg",
+    image: "/images/products/g4-green-chilli.jpg",
     moq: "1 x 40ft Reefer (18 MT)",
+  },
+  {
+    id: "card-pomegranate",
+    name: "Bhagwa Deep Red Pomegranates",
+    category: "Fruits",
+    grade: "Grade Super A · Soft Seeded",
+    spec: "Brix 15.5°+ · High Antioxidants",
+    packaging: "3.5kg / 4kg Master Cartons",
+    image: "/images/products/bhagwa-pomegranate.jpg",
+    moq: "1 x 40ft Reefer (15 MT)",
   },
   {
     id: "card-sea-freight",
