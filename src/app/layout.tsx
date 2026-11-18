@@ -39,8 +39,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('jilo-theme') || 'dark';
+                  document.documentElement.classList.add(theme);
+                  document.documentElement.setAttribute('data-theme', theme);
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
       </head>
       <body suppressHydrationWarning>
+        {/* Full-Page Deep Ocean Silk Background Layer */}
+        <div aria-hidden="true" className="fixed inset-0 z-0 pointer-events-none ocean-silk-layer" />
+
         {/* Animated particles layer rendered server-side — pure CSS orbs */}
         <div aria-hidden="true" className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
           <div className="orb orb-teal  w-[700px] h-[700px] -top-48 -left-32  opacity-60" style={{ animationDelay: "0s", animationDuration: "18s" }} />

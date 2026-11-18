@@ -1,165 +1,51 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { Ship, Compass, Sparkles, ShieldCheck, CheckCircle2 } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { ArrowRight, Volume2, VolumeX, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const CRITICAL_IMAGES = [
-  "/images/container-isolated.png",
-  "/images/container-stage-1-open.jpg",
-  "/images/container-stage-2-sealed.jpg",
-  "/images/container-stage-3-crane.jpg",
-  "/images/container-stage-4-vessel.jpg",
-  "/images/agro-export-gallery-mosaic.jpg",
-];
-
-const STATUS_MESSAGES = [
-  "Synchronizing Sovereign Export Infrastructure...",
-  "Pre-cooling 3D Marine Reefer Containers & Telemetry...",
-  "Calibrating High-Curcumin Spices & Hydro-Cooled Produce...",
-  "Connecting Direct Port Terminals (JNPT / Mundra)...",
-  "All Systems Synchronized. Entering Global Trade Desk.",
-];
 
 export function EntryLoader() {
   const [visible, setVisible] = useState(true);
-  const [progress, setProgress] = useState(5);
-  const [statusText, setStatusText] = useState(STATUS_MESSAGES[0]);
   const [fadingOut, setFadingOut] = useState(false);
-  const [isReady, setIsReady] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    let isCancelled = false;
-    let currentProgress = 5;
+    // Attempt autoplay immediately
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
 
-    // Smooth progress incrementer to keep visual feedback fluid
-    const progressTimer = setInterval(() => {
-      if (isCancelled) return;
-      if (currentProgress < 90) {
-        currentProgress += Math.floor(Math.random() * 6) + 3;
-        if (currentProgress > 90) currentProgress = 90;
-        setProgress(currentProgress);
+    // Safety timeout: automatically dismiss video after 12 seconds in case user is idle or browser pauses
+    const safetyTimer = setTimeout(() => {
+      dismissLoader();
+    }, 12000);
 
-        // Update status messages according to progress thresholds
-        if (currentProgress < 25) {
-          setStatusText(STATUS_MESSAGES[0]);
-        } else if (currentProgress < 50) {
-          setStatusText(STATUS_MESSAGES[1]);
-        } else if (currentProgress < 75) {
-          setStatusText(STATUS_MESSAGES[2]);
-        } else {
-          setStatusText(STATUS_MESSAGES[3]);
-        }
-      }
-    }, 80);
-
-    // ── 01. Preload Images Guarantee ──
-    const preloadImage = (src: string): Promise<void> => {
-      return new Promise((resolve) => {
-        const img = new Image();
-        img.src = src;
-        if (img.complete) {
-          resolve();
-        } else {
-          img.onload = () => resolve();
-          img.onerror = () => resolve(); // Safety fallback
-        }
-      });
-    };
-
-    // ── 02. Preload Fonts Guarantee ──
-    const preloadFonts = async (): Promise<void> => {
-      if (typeof document !== "undefined" && document.fonts) {
-        try {
-          await document.fonts.ready;
-        } catch {
-          // Fallback if fonts api fails
-        }
-      }
-    };
-
-    // ── 03. Window Complete Load Guarantee ──
-    const waitForPageLoad = (): Promise<void> => {
-      return new Promise((resolve) => {
-        if (typeof document !== "undefined" && document.readyState === "complete") {
-          resolve();
-        } else {
-          window.addEventListener("load", () => resolve(), { once: true });
-          setTimeout(resolve, 2500); // Safety ceiling
-        }
-      });
-    };
-
-    // ── 04. Video Buffering Readiness Check ──
-    const waitForVideoReady = (): Promise<void> => {
-      return new Promise((resolve) => {
-        const video = document.querySelector("video");
-        if (!video || video.readyState >= 2) {
-          resolve();
-        } else {
-          video.addEventListener("canplay", () => resolve(), { once: true });
-          setTimeout(resolve, 2000); // Safety timeout so it never blocks
-        }
-      });
-    };
-
-    // Execute All Preloaders in Parallel
-    const loadAllAssets = async () => {
-      const startTime = Date.now();
-
-      await Promise.all([
-        ...CRITICAL_IMAGES.map((src) => preloadImage(src)),
-        preloadFonts(),
-        waitForPageLoad(),
-        waitForVideoReady(),
-      ]);
-
-      if (isCancelled) return;
-
-      // Ensure loader displays for at least 1.1s for luxury feel, but finishes fast
-      const elapsed = Date.now() - startTime;
-      const minDisplayTime = 1200;
-      if (elapsed < minDisplayTime) {
-        await new Promise((r) => setTimeout(r, minDisplayTime - elapsed));
-      }
-
-      if (isCancelled) return;
-
-      // Final 100% completion
-      clearInterval(progressTimer);
-      setProgress(100);
-      setStatusText(STATUS_MESSAGES[4]);
-      setIsReady(true);
-
-      // Graceful curtain reveal
-      setTimeout(() => {
-        if (isCancelled) return;
-        setFadingOut(true);
-        setTimeout(() => {
-          if (isCancelled) return;
-          setVisible(false);
-        }, 600);
-      }, 350);
-    };
-
-    loadAllAssets();
-
-    // Absolute fallback safety timeout (in case of network drop)
-    const absoluteSafety = setTimeout(() => {
-      if (!isCancelled) {
-        clearInterval(progressTimer);
-        setProgress(100);
-        setFadingOut(true);
-        setTimeout(() => setVisible(false), 500);
-      }
-    }, 4500);
-
-    return () => {
-      isCancelled = true;
-      clearInterval(progressTimer);
-      clearTimeout(absoluteSafety);
-    };
+    return () => clearTimeout(safetyTimer);
   }, []);
+
+  const handleTimeUpdate = () => {
+    if (videoRef.current && videoRef.current.duration) {
+      const pct = Math.min(100, Math.round((videoRef.current.currentTime / videoRef.current.duration) * 100));
+      setProgress(pct);
+    }
+  };
+
+  const dismissLoader = () => {
+    setFadingOut(true);
+    setTimeout(() => {
+      setVisible(false);
+    }, 700);
+  };
+
+  const toggleSound = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
 
   if (!visible) return null;
 
@@ -167,91 +53,87 @@ export function EntryLoader() {
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Loading JILO Global Agro-Exports Experience"
-      suppressHydrationWarning
+      aria-label="JILO Cinematic Introduction"
       className={cn(
-        "fixed inset-0 z-[9999] flex flex-col items-center justify-center select-none transition-all duration-700 ease-out bg-abyss",
-        fadingOut ? "opacity-0 scale-[1.02] pointer-events-none" : "opacity-100 scale-100"
+        "fixed inset-0 z-[99999] flex flex-col justify-between p-6 sm:p-10 select-none transition-all duration-700 ease-out bg-black overflow-hidden",
+        fadingOut ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
       )}
-      style={{
-        background: "radial-gradient(ellipse at 50% 50%, #0d2035 0%, #040d18 80%)",
-      }}
     >
-      {/* Background Subtle Wave Texture */}
-      <div className="absolute inset-0 pointer-events-none opacity-20">
-        <svg className="w-full h-full" viewBox="0 0 1440 900" fill="none">
-          <circle cx="720" cy="450" r="380" stroke="url(#loaderRing)" strokeWidth="1.5" strokeDasharray="6 6" />
-          <circle cx="720" cy="450" r="280" stroke="url(#loaderRing)" strokeWidth="1" strokeDasharray="4 8" />
-          <defs>
-            <linearGradient id="loaderRing" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#1B6B7C" stopOpacity="0.3" />
-              <stop offset="50%" stopColor="#FF6B00" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#D4AF37" stopOpacity="0.4" />
-            </linearGradient>
-          </defs>
-        </svg>
+      {/* ── Background Cinematic Video (Full Bleed) ── */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <video
+          ref={videoRef}
+          src="/video/jilo-intro.mp4"
+          autoPlay
+          muted={isMuted}
+          playsInline
+          preload="auto"
+          onTimeUpdate={handleTimeUpdate}
+          onEnded={dismissLoader}
+          className="w-full h-full object-cover object-center scale-[1.02] brightness-95"
+        />
+
+        {/* Cinematic Vignettes */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60 pointer-events-none" />
       </div>
 
-      <div className="relative z-10 w-full max-w-md px-6 text-center">
-        
-        {/* Brand Emblem */}
-        <div className="flex flex-col items-center justify-center mb-8">
-          <div className="relative w-20 h-20 rounded-3xl border border-saffron/40 bg-navy/90 backdrop-blur-2xl flex items-center justify-center shadow-glow mb-4">
-            <Compass className="w-10 h-10 text-saffron animate-spin-slow" />
-            
-            {/* Pulsing Saffron Aura */}
-            <div className="absolute inset-0 rounded-3xl bg-saffron/15 animate-ping pointer-events-none" style={{ animationDuration: "3s" }} />
+      {/* ── Top Header Bar ── */}
+      <div className="relative z-10 flex items-center justify-between w-full">
+        {/* Brand Tag */}
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-2xl border border-[#E6C687]/40 bg-black/60 backdrop-blur-xl flex items-center justify-center shadow-lg">
+            <span className="font-display text-lg font-bold text-[#E6C687]">J</span>
           </div>
-
-          <h1 className="font-display text-2xl sm:text-3xl text-cream font-normal tracking-widest block leading-tight">
-            JILO
-          </h1>
-          <span className="text-[10px] tracking-eyebrow uppercase text-saffron font-sans font-bold mt-1">
-            Global Agro-Exports & Logistics
-          </span>
+          <div>
+            <span className="font-display text-xl text-white font-bold tracking-widest block leading-none">
+              JILO
+            </span>
+            <span className="text-[9px] uppercase tracking-widest text-[#E6C687] font-sans font-semibold block mt-0.5">
+              Global Agro-Exports
+            </span>
+          </div>
         </div>
 
-        {/* Nautical Progress Line */}
-        <div className="relative max-w-xs mx-auto mb-6">
-          <div className="h-1.5 bg-deep/90 rounded-full overflow-hidden border border-white/10 shadow-inner">
-            <div
-              className="h-full bg-gradient-to-r from-teal via-saffron to-gold transition-all duration-150 ease-out rounded-full shadow-saffron"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-
-          {/* Floating Vessel Node along the progress line */}
-          <div
-            className="absolute -top-3 transition-all duration-150 ease-out"
-            style={{ left: `calc(${Math.min(Math.max(progress, 5), 95)}% - 12px)` }}
+        {/* Top Controls: Audio & Skip/Enter Button */}
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={toggleSound}
+            aria-label={isMuted ? "Unmute audio" : "Mute audio"}
+            className="p-2.5 rounded-full border border-white/20 bg-black/60 backdrop-blur-xl text-slate-300 hover:text-white hover:border-[#E6C687] transition-all cursor-pointer shadow-md"
           >
-            <div className="w-6 h-6 rounded-full bg-abyss border border-saffron flex items-center justify-center shadow-md">
-              <Ship className="w-3.5 h-3.5 text-saffron" />
-            </div>
-          </div>
-        </div>
+            {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-[#E6C687]" />}
+          </button>
 
-        {/* Real-time Percentage Counter */}
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <span className="font-mono text-2xl font-bold text-cream tracking-tight">
-            {progress}
+          <button
+            type="button"
+            onClick={dismissLoader}
+            className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#E6C687] to-[#C29B4D] hover:opacity-95 text-black font-sans text-xs uppercase tracking-widest font-bold transition-all shadow-[0_0_25px_rgba(230,198,135,0.4)] flex items-center gap-2 cursor-pointer hover:scale-105"
+          >
+            <span>Enter JILO</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      </div>
+
+      {/* ── Bottom Progress & Title Banner ── */}
+      <div className="relative z-10 max-w-2xl mx-auto w-full text-center space-y-4">
+        <div>
+          <span className="text-[10px] uppercase font-mono tracking-widest text-[#E6C687] font-semibold block mb-1">
+            Intercontinental Agro-Commodities
           </span>
-          <span className="font-mono text-xs text-saffron font-bold">%</span>
+          <h2 className="font-display text-2xl sm:text-4xl text-white font-normal tracking-tight">
+            From Origin Soil to Global Berths
+          </h2>
         </div>
 
-        {/* Dynamic Status Text */}
-        <div className="min-h-[28px] flex items-center justify-center">
-          <p className="font-sans text-xs text-foam/80 font-light tracking-wide transition-all duration-300">
-            {statusText}
-          </p>
+        {/* Video Progress Line */}
+        <div className="w-full max-w-md mx-auto h-1 rounded-full bg-white/10 overflow-hidden backdrop-blur-sm">
+          <div
+            className="h-full bg-gradient-to-r from-[#E6C687] via-[#DFC08A] to-[#C29B4D] transition-all duration-200 shadow-glow"
+            style={{ width: `${progress}%` }}
+          />
         </div>
-
-        {/* Verification Pill */}
-        <div className="mt-8 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-sans text-foam/60">
-          <ShieldCheck className="w-3.5 h-3.5 text-teal" />
-          <span>APEDA · ISO 17712 · Reefer Cold Chain Calibrated</span>
-        </div>
-
       </div>
     </div>
   );

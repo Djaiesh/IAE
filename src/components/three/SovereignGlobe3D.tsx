@@ -51,7 +51,7 @@ export function SovereignGlobe3D() {
       0.1,
       1000
     );
-    camera.position.z = 215;
+    camera.position.z = 260;
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
     renderer.setSize(container.clientWidth, container.clientHeight);
@@ -75,7 +75,7 @@ export function SovereignGlobe3D() {
     const globeGroup = new THREE.Group();
     scene.add(globeGroup);
 
-    const GLOBE_RADIUS = 86;
+    const GLOBE_RADIUS = 70;
 
     // Ocean Core Sphere with deep abyss gradient
     const oceanGeometry = new THREE.SphereGeometry(GLOBE_RADIUS, 64, 64);

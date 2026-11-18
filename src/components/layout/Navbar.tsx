@@ -7,6 +7,7 @@ import { Menu, X, Phone, MessageSquare, ArrowUpRight, Sparkles } from "lucide-re
 import { SITE_CONFIG } from "@/data/site";
 import { cn } from "@/lib/utils";
 import { ProcurementTenderModal } from "@/components/leads/ProcurementTenderModal";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -81,8 +82,10 @@ export function Navbar() {
               </div>
             </nav>
 
-            {/* ── RIGHT: JILO Brand Logo (Extreme Right Corner) ── */}
+            {/* ── RIGHT: Theme Toggle & JILO Brand Logo (Extreme Right Corner) ── */}
             <div className="flex items-center gap-3 justify-end shrink-0">
+              <ThemeToggle />
+
               <Link href="/" aria-label="JILO Global Agro-Exports Home" className="flex items-center gap-3 group">
                 <div className="text-right hidden sm:block">
                   <span className="font-display text-2xl font-bold text-white block leading-none tracking-widest group-hover:text-[#E6C687] transition-colors">

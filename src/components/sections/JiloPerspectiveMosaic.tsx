@@ -13,158 +13,47 @@ interface MosaicTile {
   category: string;
 }
 
+// 32 High-Quality Local Verified Tiles Across 8 Columns (Zero External Broken Links)
 const MOSAIC_TILES: MosaicTile[] = [
-  // Row 1 (6 items)
-  {
-    id: "tile-1",
-    image: "/images/jilo-container-port-sunset.jpg",
-    title: "Container Port Terminal",
-    category: "Logistics",
-  },
-  {
-    id: "tile-2",
-    image: "/images/luxury-spices-curcumin.jpg",
-    title: "High-Curcumin Turmeric",
-    category: "Spices",
-  },
-  {
-    id: "tile-3",
-    image: "/images/jilo-farmgate-harvest.jpg",
-    title: "Western Ghats Harvest",
-    category: "Origin",
-  },
-  {
-    id: "tile-4",
-    image: "/images/container-stage-3-crane.jpg",
-    title: "Gantry Crane Stacking",
-    category: "Maritime",
-  },
-  {
-    id: "tile-5",
-    image: "https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=600&q=80",
-    title: "Tellicherry Black Pepper",
-    category: "Spices",
-  },
-  {
-    id: "tile-6",
-    image: "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=600&q=80",
-    title: "Guntur S4 Red Chilli",
-    category: "Spices",
-  },
+  // Row 1 (8 items)
+  { id: "tile-1", image: "/images/jilo-container-port-sunset.jpg", title: "Container Port Terminal", category: "Logistics" },
+  { id: "tile-2", image: "/images/luxury-spices-curcumin.jpg", title: "High-Curcumin Turmeric", category: "Spices" },
+  { id: "tile-3", image: "/images/jilo-farmgate-harvest.jpg", title: "Western Ghats Harvest", category: "Origin" },
+  { id: "tile-4", image: "/images/container-stage-3-crane.jpg", title: "Gantry Crane Stacking", category: "Maritime" },
+  { id: "tile-5", image: "/images/jilo-turmeric-sorting.jpg", title: "Optical Sorting Packhouse", category: "Quality" },
+  { id: "tile-6", image: "/images/luxury-fresh-produce.jpg", title: "Hydro-Cooled Red Onions", category: "Vegetables" },
+  { id: "tile-7", image: "/images/luxury-ocean-vessel.jpg", title: "Trans-Oceanic Freight", category: "Sea Freight" },
+  { id: "tile-8", image: "/images/luxury-exotic-fruits.jpg", title: "GI Ratnagiri Alphonso", category: "Fruits" },
 
-  // Row 2 (6 items)
-  {
-    id: "tile-7",
-    image: "/images/luxury-fresh-produce.jpg",
-    title: "Nashik Export Red Onions",
-    category: "Vegetables",
-  },
-  {
-    id: "tile-8",
-    image: "/images/jilo-turmeric-sorting.jpg",
-    title: "Optical Sorting Packhouse",
-    category: "Quality",
-  },
-  {
-    id: "tile-9",
-    image: "/images/luxury-ocean-vessel.jpg",
-    title: "Trans-Oceanic Freight",
-    category: "Sea Freight",
-  },
-  {
-    id: "tile-10",
-    image: "/images/luxury-exotic-fruits.jpg",
-    title: "GI Ratnagiri Alphonso",
-    category: "Fruits",
-  },
-  {
-    id: "tile-11",
-    image: "https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=600&q=80",
-    title: "Cavendish Fresh Bananas",
-    category: "Fruits",
-  },
-  {
-    id: "tile-12",
-    image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=600&q=80",
-    title: "Fresh Horticulture Carrots",
-    category: "Vegetables",
-  },
+  // Row 2 (8 items)
+  { id: "tile-9", image: "/images/jilo-reefer-vessel-open-ocean.jpg", title: "Midnight Ocean Voyage", category: "Cold Chain" },
+  { id: "tile-10", image: "/images/container-stage-2-sealed.jpg", title: "NPPO Phytosanitary Seals", category: "Compliance" },
+  { id: "tile-11", image: "/images/container-stage-4-vessel.jpg", title: "Liner Vessel Departure", category: "Berths" },
+  { id: "tile-12", image: "/images/container-stage-1-open.jpg", title: "CA Reefer Loading", category: "Equipment" },
+  { id: "tile-13", image: "/images/agro-export-gallery-mosaic.jpg", title: "Commercial Produce Packing", category: "Packhouse" },
+  { id: "tile-14", image: "/images/jilo-ocean-bg.jpg", title: "Indian Ocean Deep Lane", category: "Logistics" },
+  { id: "tile-15", image: "/images/luxury-spices-curcumin.jpg", title: "HPLC Laboratory Assay", category: "Testing" },
+  { id: "tile-16", image: "/images/jilo-farmgate-harvest.jpg", title: "Export Grade Harvest", category: "Agriculture" },
 
-  // Row 3 (6 items)
-  {
-    id: "tile-13",
-    image: "/images/jilo-reefer-vessel-open-ocean.jpg",
-    title: "Midnight Ocean Voyage",
-    category: "Cold Chain",
-  },
-  {
-    id: "tile-14",
-    image: "/images/container-stage-2-sealed.jpg",
-    title: "NPPO Phytosanitary Seals",
-    category: "Compliance",
-  },
-  {
-    id: "tile-15",
-    image: "/images/container-stage-4-vessel.jpg",
-    title: "Liner Vessel Departure",
-    category: "Berths",
-  },
-  {
-    id: "tile-16",
-    image: "/images/container-stage-1-open.jpg",
-    title: "CA Reefer Loading",
-    category: "Equipment",
-  },
-  {
-    id: "tile-17",
-    image: "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?auto=format&fit=crop&w=600&q=80",
-    title: "Bhagwa Pomegranates",
-    category: "Fruits",
-  },
-  {
-    id: "tile-18",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80",
-    title: "Green Cardamom Extra Bold",
-    category: "Spices",
-  },
+  // Row 3 (8 items)
+  { id: "tile-17", image: "/images/container-stage-3-crane.jpg", title: "Heavy Berth Operations", category: "Port" },
+  { id: "tile-18", image: "/images/jilo-turmeric-sorting.jpg", title: "Laser Size Grading", category: "Processing" },
+  { id: "tile-19", image: "/images/luxury-fresh-produce.jpg", title: "Fresh Export Vegetables", category: "Horticulture" },
+  { id: "tile-20", image: "/images/luxury-ocean-vessel.jpg", title: "Deepwater Container Liner", category: "Maritime" },
+  { id: "tile-21", image: "/images/jilo-container-port-sunset.jpg", title: "JNPT Harbor Berth", category: "Terminals" },
+  { id: "tile-22", image: "/images/luxury-exotic-fruits.jpg", title: "Export Caliber Mangoes", category: "Produce" },
+  { id: "tile-23", image: "/images/jilo-reefer-vessel-open-ocean.jpg", title: "Satellite Reefer Telemetry", category: "Cold Chain" },
+  { id: "tile-24", image: "/images/container-stage-2-sealed.jpg", title: "Tamper-Proof Customs Seals", category: "Customs" },
 
-  // Row 4 (6 items)
-  {
-    id: "tile-19",
-    image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=600&q=80",
-    title: "High-Seas Cargo Line",
-    category: "Maritime",
-  },
-  {
-    id: "tile-20",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
-    title: "Export Terminal Warehouse",
-    category: "Storage",
-  },
-  {
-    id: "tile-21",
-    image: "/images/jilo-container-port-sunset.jpg",
-    title: "JNPT Harbor Berth",
-    category: "Gateways",
-  },
-  {
-    id: "tile-22",
-    image: "/images/luxury-spices-curcumin.jpg",
-    title: "HPLC Assayed Spices",
-    category: "Laboratory",
-  },
-  {
-    id: "tile-23",
-    image: "/images/luxury-fresh-produce.jpg",
-    title: "Hydro-Cooled Calibers",
-    category: "Vegetables",
-  },
-  {
-    id: "tile-24",
-    image: "/images/luxury-ocean-vessel.jpg",
-    title: "Direct Liner to Rotterdam",
-    category: "Discharge",
-  },
+  // Row 4 (8 items)
+  { id: "tile-25", image: "/images/container-stage-4-vessel.jpg", title: "Direct Discharge Service", category: "Shipping" },
+  { id: "tile-26", image: "/images/container-stage-1-open.jpg", title: "Controlled Atmosphere Box", category: "Reefer" },
+  { id: "tile-27", image: "/images/agro-export-gallery-mosaic.jpg", title: "Quality Audit Chamber", category: "Assurance" },
+  { id: "tile-28", image: "/images/luxury-spices-curcumin.jpg", title: "Alleppey Polished Fingers", category: "Spices" },
+  { id: "tile-29", image: "/images/jilo-farmgate-harvest.jpg", title: "Smallholder Sourcing Hub", category: "Origin" },
+  { id: "tile-30", image: "/images/luxury-fresh-produce.jpg", title: "Ventilated Export Sacks", category: "Packaging" },
+  { id: "tile-31", image: "/images/jilo-container-port-sunset.jpg", title: "Sunset Vessel Departure", category: "Voyage" },
+  { id: "tile-32", image: "/images/luxury-ocean-vessel.jpg", title: "Direct Berth Allocation", category: "Berths" },
 ];
 
 export function JiloPerspectiveMosaic() {
@@ -178,7 +67,7 @@ export function JiloPerspectiveMosaic() {
   };
 
   return (
-    <section className="relative bg-black pt-16 pb-0 overflow-hidden font-sans">
+    <section className="relative pt-16 pb-0 overflow-hidden font-sans">
       {/* ── Section Header ── */}
       <div className="max-w-4xl mx-auto px-4 text-center mb-8 relative z-20">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-[#E6C687]/30 backdrop-blur-xl mb-4">
@@ -195,10 +84,10 @@ export function JiloPerspectiveMosaic() {
         </p>
       </div>
 
-      {/* ── 3D Isometric Diamond Perspective Viewport ── */}
-      <div className="relative w-full h-[620px] sm:h-[720px] lg:h-[820px] perspective-stage overflow-hidden flex items-center justify-center">
-        {/* Tilted Perspective Plane: Compact Cards & High-Density Grid */}
-        <div className="isometric-plane grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-6 gap-3 sm:gap-4 w-[1300px] sm:w-[1700px] lg:w-[2100px]">
+      {/* ── 3D Isometric Diamond Perspective Viewport (Full Bleed Across Right & Left) ── */}
+      <div className="relative w-full h-[640px] sm:h-[740px] lg:h-[840px] perspective-stage overflow-hidden flex items-center justify-center">
+        {/* Tilted Perspective Plane: 8 Columns Wide To Completely Cover Left & Right Viewport */}
+        <div className="isometric-plane grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-3 sm:gap-4 w-[1600px] sm:w-[2200px] lg:w-[2800px] xl:w-[3200px]">
           {MOSAIC_TILES.map((tile) => (
             <div
               key={tile.id}
@@ -209,7 +98,7 @@ export function JiloPerspectiveMosaic() {
                 src={tile.image}
                 alt={tile.title}
                 fill
-                sizes="(max-width: 640px) 200px, 320px"
+                sizes="(max-width: 640px) 180px, 280px"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 brightness-[0.92] group-hover:brightness-105"
               />
 
