@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { EntryLoader } from "@/components/motion/EntryLoader";
 import { ScrollRevealProvider } from "@/components/motion/ScrollRevealProvider";
 import { FloatingRFQDock } from "@/components/leads/FloatingRFQDock";
 import { SITE_CONFIG } from "@/data/site";
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="orb orb-ocean w-[600px] h-[600px] bottom-0  left-1/4  opacity-50" style={{ animationDelay: "-12s", animationDuration: "26s" }} />
         </div>
 
+        <EntryLoader />
         <ScrollRevealProvider />
         <Navbar />
 

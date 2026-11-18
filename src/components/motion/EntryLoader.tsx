@@ -47,7 +47,7 @@ export function EntryLoader() {
       {/* ── Pure Fullscreen Intro Video (Zero Sound, Zero Wording) ── */}
       <video
         ref={videoRef}
-        src="/video/jilo-intro.mp4"
+        src="/video/intro.mp4"
         autoPlay
         muted
         playsInline
