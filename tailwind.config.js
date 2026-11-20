@@ -8,33 +8,45 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        abyss: "#040D18",
-        navy: "#071525",
-        deep: "#0D2035",
-        ocean: "#0F3A5C",
-        teal: {
-          DEFAULT: "#1B6B7C",
-          light: "#22879D",
-          dark: "#134F5A",
+        abyss: "#040810",
+        navy: "#070D18",
+        deep: "#0B1526",
+        ocean: "#0E2038",
+        emerald: {
+          DEFAULT: "#10B981",
+          light: "#34D399",
+          dark: "#059669",
         },
-        saffron: {
-          DEFAULT: "#FF6B00",
-          light: "#FF8833",
-          dark: "#D95700",
-          hover: "#FF7A18",
+        teal: {
+          DEFAULT: "#10B981",
+          light: "#34D399",
+          dark: "#059669",
         },
         gold: {
           DEFAULT: "#D4AF37",
-          light: "#DFC08A",
-          dark: "#A8803E",
+          light: "#E6C687",
+          dark: "#B38F28",
         },
-        foam: "#C8E4EE",
-        cream: "#F4EFE6",
+        saffron: {
+          DEFAULT: "#D4AF37",
+          light: "#E6C687",
+          dark: "#B38F28",
+          hover: "#F0D69A",
+        },
+        azure: {
+          DEFAULT: "#38BDF8",
+          light: "#7DD3FC",
+          dark: "#0284C7",
+        },
+        foam: "#CBD5E1",
+        cream: "#F8FAFC",
       },
       fontFamily: {
-        display: ["Cinzel", "Georgia", "serif"],
-        serif: ["Cinzel", "Georgia", "serif"],
-        sans: ["Plus Jakarta Sans", "system-ui", "-apple-system", "sans-serif"],
+        display: ["'Oxanium'", "'Space Grotesk'", "sans-serif"],
+        heading: ["'Oxanium'", "'Space Grotesk'", "sans-serif"],
+        serif: ["'Oxanium'", "'Space Grotesk'", "sans-serif"],
+        sans: ["'Space Grotesk'", "'Outfit'", "system-ui", "-apple-system", "sans-serif"],
+        mono: ["'Space Mono'", "monospace"],
       },
       borderRadius: {
         "4xl": "2rem",
@@ -46,11 +58,11 @@ module.exports = {
         wide2: "0.14em",
       },
       boxShadow: {
-        gold: "0 0 40px rgba(212, 175, 55, 0.2)",
-        saffron: "0 0 45px rgba(255, 107, 0, 0.35)",
-        card: "0 10px 48px rgba(4, 13, 24, 0.6), 0 2px 8px rgba(4, 13, 24, 0.4)",
-        float: "0 24px 80px rgba(4, 13, 24, 0.75)",
-        glow: "0 0 30px rgba(255, 107, 0, 0.25)",
+        gold: "0 0 40px rgba(212, 175, 55, 0.25)",
+        saffron: "0 0 35px rgba(212, 175, 55, 0.25)",
+        card: "0 16px 48px rgba(4, 8, 16, 0.7), 0 2px 8px rgba(4, 8, 16, 0.5)",
+        float: "0 24px 80px rgba(4, 8, 16, 0.85)",
+        glow: "0 0 30px rgba(212, 175, 55, 0.2)",
       },
       animation: {
         "fade-in": "fadeIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards",
@@ -78,8 +90,8 @@ module.exports = {
           "50%": { opacity: "1", transform: "scale(1.04)" },
         },
         glowSlow: {
-          "0%": { filter: "drop-shadow(0 0 15px rgba(255, 107, 0, 0.2))" },
-          "100%": { filter: "drop-shadow(0 0 35px rgba(255, 107, 0, 0.45))" },
+          "0%": { filter: "drop-shadow(0 0 15px rgba(212, 175, 55, 0.2))" },
+          "100%": { filter: "drop-shadow(0 0 35px rgba(212, 175, 55, 0.45))" },
         },
         spinSlow: {
           to: { transform: "rotate(360deg)" },

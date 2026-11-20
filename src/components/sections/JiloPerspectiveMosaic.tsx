@@ -13,9 +13,7 @@ interface MosaicTile {
   category: string;
 }
 
-// 32 High-Quality Local Verified Tiles Across 8 Columns (Zero External Broken Links)
-const MOSAIC_TILES: MosaicTile[] = [
-  // Row 1 (8 items)
+const MOSAIC_TILES_ROW1: MosaicTile[] = [
   { id: "tile-1", image: "/images/jilo-container-port-sunset.jpg", title: "Container Port Terminal", category: "Logistics" },
   { id: "tile-2", image: "/images/luxury-spices-curcumin.jpg", title: "High-Curcumin Turmeric", category: "Spices" },
   { id: "tile-3", image: "/images/jilo-farmgate-harvest.jpg", title: "Western Ghats Harvest", category: "Origin" },
@@ -24,8 +22,9 @@ const MOSAIC_TILES: MosaicTile[] = [
   { id: "tile-6", image: "/images/luxury-fresh-produce.jpg", title: "Hydro-Cooled Red Onions", category: "Vegetables" },
   { id: "tile-7", image: "/images/luxury-ocean-vessel.jpg", title: "Trans-Oceanic Freight", category: "Sea Freight" },
   { id: "tile-8", image: "/images/luxury-exotic-fruits.jpg", title: "GI Ratnagiri Alphonso", category: "Fruits" },
+];
 
-  // Row 2 (8 items)
+const MOSAIC_TILES_ROW2: MosaicTile[] = [
   { id: "tile-9", image: "/images/jilo-reefer-vessel-open-ocean.jpg", title: "Midnight Ocean Voyage", category: "Cold Chain" },
   { id: "tile-10", image: "/images/container-stage-2-sealed.jpg", title: "NPPO Phytosanitary Seals", category: "Compliance" },
   { id: "tile-11", image: "/images/container-stage-4-vessel.jpg", title: "Liner Vessel Departure", category: "Berths" },
@@ -34,26 +33,6 @@ const MOSAIC_TILES: MosaicTile[] = [
   { id: "tile-14", image: "/images/jilo-ocean-bg.jpg", title: "Indian Ocean Deep Lane", category: "Logistics" },
   { id: "tile-15", image: "/images/luxury-spices-curcumin.jpg", title: "HPLC Laboratory Assay", category: "Testing" },
   { id: "tile-16", image: "/images/jilo-farmgate-harvest.jpg", title: "Export Grade Harvest", category: "Agriculture" },
-
-  // Row 3 (8 items)
-  { id: "tile-17", image: "/images/container-stage-3-crane.jpg", title: "Heavy Berth Operations", category: "Port" },
-  { id: "tile-18", image: "/images/jilo-turmeric-sorting.jpg", title: "Laser Size Grading", category: "Processing" },
-  { id: "tile-19", image: "/images/luxury-fresh-produce.jpg", title: "Fresh Export Vegetables", category: "Horticulture" },
-  { id: "tile-20", image: "/images/luxury-ocean-vessel.jpg", title: "Deepwater Container Liner", category: "Maritime" },
-  { id: "tile-21", image: "/images/jilo-container-port-sunset.jpg", title: "JNPT Harbor Berth", category: "Terminals" },
-  { id: "tile-22", image: "/images/luxury-exotic-fruits.jpg", title: "Export Caliber Mangoes", category: "Produce" },
-  { id: "tile-23", image: "/images/jilo-reefer-vessel-open-ocean.jpg", title: "Satellite Reefer Telemetry", category: "Cold Chain" },
-  { id: "tile-24", image: "/images/container-stage-2-sealed.jpg", title: "Tamper-Proof Customs Seals", category: "Customs" },
-
-  // Row 4 (8 items)
-  { id: "tile-25", image: "/images/container-stage-4-vessel.jpg", title: "Direct Discharge Service", category: "Shipping" },
-  { id: "tile-26", image: "/images/container-stage-1-open.jpg", title: "Controlled Atmosphere Box", category: "Reefer" },
-  { id: "tile-27", image: "/images/agro-export-gallery-mosaic.jpg", title: "Quality Audit Chamber", category: "Assurance" },
-  { id: "tile-28", image: "/images/luxury-spices-curcumin.jpg", title: "Alleppey Polished Fingers", category: "Spices" },
-  { id: "tile-29", image: "/images/jilo-farmgate-harvest.jpg", title: "Smallholder Sourcing Hub", category: "Origin" },
-  { id: "tile-30", image: "/images/luxury-fresh-produce.jpg", title: "Ventilated Export Sacks", category: "Packaging" },
-  { id: "tile-31", image: "/images/jilo-container-port-sunset.jpg", title: "Sunset Vessel Departure", category: "Voyage" },
-  { id: "tile-32", image: "/images/luxury-ocean-vessel.jpg", title: "Direct Berth Allocation", category: "Berths" },
 ];
 
 export function JiloPerspectiveMosaic() {
@@ -67,82 +46,155 @@ export function JiloPerspectiveMosaic() {
   };
 
   return (
-    <section className="relative pt-16 pb-0 overflow-hidden font-sans">
+    <section className="relative py-24 sm:py-32 bg-[#040810] overflow-hidden font-sans border-t border-b border-white/10">
+      {/* Ambient background glows */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#D4AF37]/5 blur-[140px] pointer-events-none rounded-full" />
+
       {/* ── Section Header ── */}
-      <div className="max-w-4xl mx-auto px-4 text-center mb-8 relative z-20">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-[#E6C687]/30 backdrop-blur-xl mb-4">
+      <div className="max-w-4xl mx-auto px-4 text-center mb-12 relative z-20">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 border border-[#E6C687]/40 backdrop-blur-xl mb-4">
           <Sparkles className="w-3.5 h-3.5 text-[#E6C687]" />
-          <span className="text-[11px] font-sans font-semibold uppercase tracking-widest text-[#E6C687]">
+          <span className="text-[11px] font-sans font-semibold uppercase tracking-[0.2em] text-[#E6C687]">
             Visual Cargo Provenance
           </span>
         </div>
-        <h2 className="font-display text-3xl sm:text-5xl text-white font-normal tracking-tight">
+        <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl text-white font-normal tracking-tight">
           Sovereign Agro-Export Mosaic
         </h2>
-        <p className="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto mt-2.5 font-light">
+        <p className="text-slate-300 text-xs sm:text-sm md:text-base max-w-2xl mx-auto mt-3 font-light leading-relaxed">
           An unbroken visual timeline spanning Western Ghats harvest co-operatives, optical packhouse sorting, containerized reefer stowage, and global berth departures.
         </p>
       </div>
 
-      {/* ── 3D Isometric Diamond Perspective Viewport (Full Bleed Across Right & Left) ── */}
-      <div className="relative w-full h-[640px] sm:h-[740px] lg:h-[840px] perspective-stage overflow-hidden flex items-center justify-center">
-        {/* Tilted Perspective Plane: 8 Columns Wide To Completely Cover Left & Right Viewport */}
-        <div className="isometric-plane grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-3 sm:gap-4 w-[1600px] sm:w-[2200px] lg:w-[2800px] xl:w-[3200px]">
-          {MOSAIC_TILES.map((tile) => (
-            <div
-              key={tile.id}
-              className="isometric-card group relative h-28 sm:h-36 lg:h-44 rounded-2xl overflow-hidden border border-white/10 bg-[#08080C] shadow-2xl transition-all duration-300 hover:border-[#E6C687]/70 hover:scale-[1.04] hover:shadow-[0_15px_30px_rgba(230,198,135,0.2)] cursor-pointer"
-            >
-              {/* Tile Image */}
-              <Image
-                src={tile.image}
-                alt={tile.title}
-                fill
-                sizes="(max-width: 640px) 180px, 280px"
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 brightness-[0.92] group-hover:brightness-105"
-              />
-
-              {/* Liquid Smoked Glass Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-
-              {/* Tile Micro Badge on Hover */}
-              <div className="absolute bottom-2 left-2 right-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span className="text-[9px] uppercase font-bold tracking-widest text-[#E6C687] block truncate">
-                  {tile.category}
-                </span>
-                <span className="text-xs font-semibold text-white block truncate leading-tight">
-                  {tile.title}
-                </span>
+      {/* ── Panoramic Visual Exhibition Tilted Grid (Matching Reference Angle) ── */}
+      <div className="relative w-full overflow-hidden py-12 -my-6">
+        
+        {/* Tilted Diagonal Container */}
+        <div
+          className="flex flex-col gap-4 sm:gap-6 w-[130%] -ml-[15%] will-change-transform"
+          style={{ transform: "rotate(-12deg) scale(1.12)" }}
+        >
+          {/* Row 1: Forward Gliding Gallery Track */}
+          <div className="flex gap-4 sm:gap-6 w-max animate-glide hover:[animation-play-state:paused]">
+            {[...MOSAIC_TILES_ROW1, ...MOSAIC_TILES_ROW1].map((tile, i) => (
+              <div
+                key={`r1-${tile.id}-${i}`}
+                className="group relative w-56 sm:w-68 lg:w-76 h-36 sm:h-44 lg:h-48 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 bg-[#070D18] shadow-2xl transition-all duration-500 hover:border-[#E6C687]/80 hover:scale-[1.04] shrink-0 cursor-pointer"
+              >
+                <Image
+                  src={tile.image}
+                  alt={tile.title}
+                  fill
+                  sizes="(max-width: 640px) 240px, 320px"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 brightness-[0.85] group-hover:brightness-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                
+                <div className="absolute bottom-3 left-3 right-3 z-10 transition-transform duration-300 group-hover:-translate-y-1">
+                  <span className="text-[9px] uppercase font-bold tracking-widest text-[#E6C687] block truncate">
+                    {tile.category}
+                  </span>
+                  <span className="text-xs sm:text-sm font-semibold text-white block truncate leading-tight mt-0.5">
+                    {tile.title}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Row 2: Reverse Gliding Gallery Track */}
+          <div
+            className="flex gap-4 sm:gap-6 w-max hover:[animation-play-state:paused]"
+            style={{
+              animation: "glideAnimation 42s linear infinite reverse",
+            }}
+          >
+            {[...MOSAIC_TILES_ROW2, ...MOSAIC_TILES_ROW2].map((tile, i) => (
+              <div
+                key={`r2-${tile.id}-${i}`}
+                className="group relative w-56 sm:w-68 lg:w-76 h-36 sm:h-44 lg:h-48 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 bg-[#070D18] shadow-2xl transition-all duration-500 hover:border-[#E6C687]/80 hover:scale-[1.04] shrink-0 cursor-pointer"
+              >
+                <Image
+                  src={tile.image}
+                  alt={tile.title}
+                  fill
+                  sizes="(max-width: 640px) 240px, 320px"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 brightness-[0.85] group-hover:brightness-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                
+                <div className="absolute bottom-3 left-3 right-3 z-10 transition-transform duration-300 group-hover:-translate-y-1">
+                  <span className="text-[9px] uppercase font-bold tracking-widest text-emerald-400 block truncate">
+                    {tile.category}
+                  </span>
+                  <span className="text-xs sm:text-sm font-semibold text-white block truncate leading-tight mt-0.5">
+                    {tile.title}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Row 3: Forward Gliding Gallery Track for Deep Perspective */}
+          <div
+            className="flex gap-4 sm:gap-6 w-max hover:[animation-play-state:paused]"
+            style={{
+              animation: "glideAnimation 38s linear infinite",
+            }}
+          >
+            {[...MOSAIC_TILES_ROW1, ...MOSAIC_TILES_ROW2].map((tile, i) => (
+              <div
+                key={`r3-${tile.id}-${i}`}
+                className="group relative w-56 sm:w-68 lg:w-76 h-36 sm:h-44 lg:h-48 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 bg-[#070D18] shadow-2xl transition-all duration-500 hover:border-[#E6C687]/80 hover:scale-[1.04] shrink-0 cursor-pointer"
+              >
+                <Image
+                  src={tile.image}
+                  alt={tile.title}
+                  fill
+                  sizes="(max-width: 640px) 240px, 320px"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 brightness-[0.85] group-hover:brightness-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                
+                <div className="absolute bottom-3 left-3 right-3 z-10 transition-transform duration-300 group-hover:-translate-y-1">
+                  <span className="text-[9px] uppercase font-bold tracking-widest text-[#E6C687] block truncate">
+                    {tile.category}
+                  </span>
+                  <span className="text-xs sm:text-sm font-semibold text-white block truncate leading-tight mt-0.5">
+                    {tile.title}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* ── Floating Frosted Glass Action Pills (Exact Match to Reference Design) ── */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3.5 z-30 pointer-events-auto">
-          {/* Button 1: Warm Amber Frosted Glass Pill */}
+        {/* ── Seamless Multi-Layer Edge Vignettes (Melts cleanly into footer) ── */}
+        <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#040810] via-[#040810]/70 to-transparent pointer-events-none z-10" />
+        <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-[#040810] via-[#040810]/95 to-transparent pointer-events-none z-10" />
+        <div className="absolute left-0 inset-y-0 w-20 sm:w-36 bg-gradient-to-r from-[#040810] via-[#040810]/80 to-transparent pointer-events-none z-10" />
+        <div className="absolute right-0 inset-y-0 w-20 sm:w-36 bg-gradient-to-l from-[#040810] via-[#040810]/80 to-transparent pointer-events-none z-10" />
+
+        {/* ── Floating Center Frosted Call to Actions (Level Upright, Matching Image 1) ── */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3.5 z-20 pointer-events-none p-4">
           <Link
             href="/products"
-            className="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#8C5E28]/85 via-[#B88741]/85 to-[#8C5E28]/85 backdrop-blur-2xl border border-[#E6C687]/50 text-white text-xs sm:text-sm font-sans font-bold uppercase tracking-widest hover:brightness-110 transition-all duration-300 shadow-[0_15px_40px_rgba(0,0,0,0.8),0_0_30px_rgba(230,198,135,0.3)] flex items-center gap-2.5 cursor-pointer hover:scale-105"
+            className="pointer-events-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#E6C687] text-black font-display font-black text-xs uppercase tracking-widest hover:brightness-110 transition-all duration-300 shadow-[0_15px_40px_rgba(0,0,0,0.9),0_0_30px_rgba(230,198,135,0.4)] flex items-center gap-2.5 cursor-pointer hover:scale-105 active:scale-95"
           >
             <span>EXPLORE COMMODITIES</span>
-            <ArrowRight className="w-4 h-4 text-[#F4E2BB]" />
+            <ArrowRight className="w-4 h-4 text-black" />
           </Link>
 
-          {/* Button 2: Deep Dark Frosted Glass Pill */}
           <button
             type="button"
             onClick={handleWhatsApp}
-            className="px-8 py-3.5 rounded-2xl bg-black/75 backdrop-blur-2xl border border-white/20 hover:border-[#E6C687]/60 text-slate-200 hover:text-white text-xs sm:text-sm font-sans font-bold uppercase tracking-widest transition-all duration-300 shadow-2xl flex items-center gap-2.5 cursor-pointer hover:scale-105"
+            className="pointer-events-auto px-8 py-3.5 rounded-full bg-[#070D18]/90 hover:bg-[#070D18] backdrop-blur-2xl border border-white/25 hover:border-[#E6C687]/70 text-slate-200 hover:text-white font-display font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-2xl flex items-center gap-2.5 cursor-pointer hover:scale-105 active:scale-95"
           >
             <MessageSquare className="w-4 h-4 text-[#E6C687]" />
-            <span>CHAT WITH TRADE DESK</span>
+            <span>CHAT WITH US</span>
           </button>
         </div>
 
-        {/* Top & Bottom Vignette for seamless blend into pure black */}
-        <div className="absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-black to-transparent pointer-events-none z-20" />
-        <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none z-20" />
       </div>
 
       {/* Global RFQ Tender Modal */}

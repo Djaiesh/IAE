@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   if (!category) return { title: "Category Not Found" };
 
   return {
-    title: `${category.name} Export Specifications | IAE Global`,
+    title: `${category.name} Export Specifications | ${SITE_CONFIG.name}`,
     description: category.intro,
   };
 }

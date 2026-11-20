@@ -3,17 +3,45 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone, MessageSquare, ArrowUpRight, Sparkles } from "lucide-react";
+import { Menu, X, ArrowUpRight, MessageCircle } from "lucide-react";
 import { SITE_CONFIG } from "@/data/site";
 import { cn } from "@/lib/utils";
-import { ProcurementTenderModal } from "@/components/leads/ProcurementTenderModal";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
+
+function InstagramGradientIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <defs>
+        <radialGradient id="igGradientNavbar" cx="20%" cy="115%" r="140%">
+          <stop offset="0%" stopColor="#fdf497" />
+          <stop offset="10%" stopColor="#fdf497" />
+          <stop offset="45%" stopColor="#fd5949" />
+          <stop offset="65%" stopColor="#d6249f" />
+          <stop offset="90%" stopColor="#285AEB" />
+        </radialGradient>
+      </defs>
+      {/* Instagram Gradient Rounded Square */}
+      <rect width="24" height="24" rx="6.5" fill="url(#igGradientNavbar)" />
+      {/* Camera Outer Rounded Square */}
+      <rect x="4" y="4" width="16" height="16" rx="4.5" stroke="#ffffff" strokeWidth="1.8" fill="none" />
+      {/* Center Lens */}
+      <circle cx="12" cy="12" r="3.8" stroke="#ffffff" strokeWidth="1.8" fill="none" />
+      {/* Flash Dot */}
+      <circle cx="16.5" cy="7.5" r="1.1" fill="#ffffff" />
+    </svg>
+  );
+}
 
 export function Navbar() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [isTenderOpen, setIsTenderOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 20);
@@ -31,36 +59,32 @@ export function Navbar() {
         className={cn(
           "fixed z-50 transition-all duration-500",
           isScrolled
-            ? "top-0 left-0 right-0 py-3 bg-black/90 backdrop-blur-2xl border-b border-white/10 shadow-2xl"
-            : "top-3 sm:top-4 left-3 right-3 sm:left-5 sm:right-5 py-2.5 sm:py-3 bg-black/75 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl"
+            ? "top-0 left-0 right-0 py-3 bg-[#040810]/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl"
+            : "top-3 sm:top-4 left-3 right-3 sm:left-5 sm:right-5 py-2.5 sm:py-3 bg-[#070D18]/80 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl"
         )}
       >
         <div className="w-full px-3 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-4 w-full">
 
-            {/* ── LEFT: Contact & Quick Desk Pill (Extreme Left Corner) ── */}
-            <div className="flex items-center gap-2 justify-start shrink-0">
-              <Link
-                href="/contact"
-                className="flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.09] border border-white/10 text-white text-xs font-medium transition-all cursor-pointer group shadow-sm"
-              >
-                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="hidden sm:inline">Contact Desk</span>
-                <Phone className="w-3.5 h-3.5 text-[#E6C687] group-hover:rotate-12 transition-transform" />
+            {/* ── LEFT: JILO Brand Logo & Name Only (No Extra Clutter) ── */}
+            <div className="flex items-center gap-3 justify-start shrink-0">
+              <Link href="/" aria-label="JILO Global Agro-Exports Home" className="flex items-center gap-3 group">
+                <div className="w-10 h-10 rounded-full flex items-center justify-center border border-[#E6C687]/40 bg-[#090E1A] shadow-md group-hover:border-[#E6C687] transition-all">
+                  <span className="font-display text-lg font-bold text-[#E6C687]">J</span>
+                </div>
+                <div className="text-left hidden sm:block">
+                  <span className="font-display text-2xl font-bold text-white block leading-none tracking-widest group-hover:text-[#E6C687] transition-colors">
+                    JILO
+                  </span>
+                  <span className="text-[9px] tracking-widest uppercase text-[#E6C687] font-sans font-medium block mt-0.5">
+                    Agro-Exports
+                  </span>
+                </div>
               </Link>
-
-              <button
-                type="button"
-                onClick={() => setIsTenderOpen(true)}
-                className="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#E6C687]/15 hover:bg-[#E6C687]/25 border border-[#E6C687]/30 text-[#E6C687] text-xs font-semibold transition-all cursor-pointer shadow-sm"
-              >
-                <Sparkles className="w-3 h-3" />
-                <span>Instant Quote</span>
-              </button>
             </div>
 
-            {/* ── CENTER: Floating Navigation Pill (Centered in Middle) ── */}
-            <nav className="hidden lg:flex items-center justify-center flex-1 px-4" aria-label="Main Navigation">
+            {/* ── CENTER: Floating Navigation Pills ── */}
+            <nav className="hidden lg:flex items-center justify-center flex-1 px-2" aria-label="Main Navigation">
               <div className="flex items-center gap-1 p-1.5 rounded-full bg-black/60 border border-white/10 backdrop-blur-xl shadow-inner">
                 {SITE_CONFIG.navItems.map((item) => {
                   const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
@@ -82,23 +106,35 @@ export function Navbar() {
               </div>
             </nav>
 
-            {/* ── RIGHT: Theme Toggle & JILO Brand Logo (Extreme Right Corner) ── */}
-            <div className="flex items-center gap-3 justify-end shrink-0">
+            {/* ── RIGHT: Theme Toggle, Instagram Icon & WhatsApp Contact Button ── */}
+            <div className="flex items-center gap-2 sm:gap-3 justify-end shrink-0">
+              {/* Theme Toggle */}
               <ThemeToggle />
 
-              <Link href="/" aria-label="JILO Global Agro-Exports Home" className="flex items-center gap-3 group">
-                <div className="text-right hidden sm:block">
-                  <span className="font-display text-2xl font-bold text-white block leading-none tracking-widest group-hover:text-[#E6C687] transition-colors">
-                    JILO
-                  </span>
-                  <span className="text-[9px] tracking-widest uppercase text-[#E6C687] font-sans font-medium block mt-0.5">
-                    Agro-Exports
-                  </span>
+              {/* Instagram Link with Authentic Gradient Logo */}
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="JILO Instagram Profile"
+                className="p-1.5 sm:p-2 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 hover:border-pink-500/40 transition-all cursor-pointer flex items-center justify-center hover:scale-105 shadow-sm"
+              >
+                <InstagramGradientIcon className="w-5 h-5 rounded-md" />
+              </a>
+
+              {/* Contact Button with Green WhatsApp Icon */}
+              <a
+                href="https://wa.me/919876543210?text=Hello%20JILO%20Agro-Exports%2C%20I%20would%20like%20to%20connect%20regarding%20export%20inquiries."
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Contact JILO on WhatsApp"
+                className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full border border-[#25D366]/40 bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#25D366] transition-all cursor-pointer shadow-[0_0_15px_rgba(37,211,102,0.2)] hover:scale-105"
+              >
+                <div className="w-5 h-5 rounded-full bg-[#25D366] text-black flex items-center justify-center shrink-0 shadow-sm">
+                  <MessageCircle className="w-3 h-3 fill-black text-black" />
                 </div>
-                <div className="w-10 h-10 rounded-full flex items-center justify-center border border-[#E6C687]/40 bg-[#090E1A] shadow-md group-hover:border-[#E6C687] transition-all">
-                  <span className="font-display text-lg font-bold text-[#E6C687]">J</span>
-                </div>
-              </Link>
+                <span className="text-xs font-bold font-sans tracking-wide text-white">Contact</span>
+              </a>
 
               {/* Mobile Menu Button */}
               <button
@@ -115,7 +151,7 @@ export function Navbar() {
         </div>
       </header>
 
-      {/* ── Mobile Drawer (Pure Black & Curved Glass) ── */}
+      {/* ── Mobile Drawer ── */}
       <div
         className={cn(
           "fixed inset-0 z-40 lg:hidden transition-opacity duration-500",
@@ -127,7 +163,7 @@ export function Navbar() {
 
       <div
         className={cn(
-          "fixed inset-y-0 right-0 z-40 w-full sm:w-96 lg:hidden transition-transform duration-500 ease-in-out bg-[#040406] border-l border-white/10",
+          "fixed inset-y-0 right-0 z-40 w-full sm:w-96 lg:hidden transition-transform duration-500 ease-in-out bg-[#040810] border-l border-white/10",
           mobileOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -165,38 +201,37 @@ export function Navbar() {
           </nav>
 
           <div className="pt-6 border-t border-white/10 mt-auto flex flex-col gap-3">
-            <button
-              type="button"
-              onClick={() => {
-                setMobileOpen(false);
-                setIsTenderOpen(true);
-              }}
-              className="w-full py-3.5 rounded-full bg-gradient-to-r from-[#E6C687] to-[#C29B4D] text-black font-bold text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <Sparkles className="w-4 h-4" />
-              <span>Request Spot Quote</span>
-            </button>
-
-            <Link
-              href="/contact"
+            <a
+              href="https://wa.me/919876543210?text=Hello%20JILO%20Agro-Exports%2C%20I%20would%20like%20to%20connect%20regarding%20export%20inquiries."
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
-              className="w-full py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-white font-medium text-xs uppercase tracking-wider text-center transition-colors cursor-pointer"
+              className="w-full py-3.5 rounded-full border border-[#25D366]/50 bg-[#25D366]/20 hover:bg-[#25D366]/30 text-white font-bold text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-2.5 cursor-pointer"
             >
-              Contact Commercial Desk
-            </Link>
+              <div className="w-5 h-5 rounded-full bg-[#25D366] text-black flex items-center justify-center shrink-0">
+                <MessageCircle className="w-3.5 h-3.5 fill-black text-black" />
+              </div>
+              <span>Contact on WhatsApp</span>
+            </a>
 
-            <div className="text-center text-[10px] text-slate-500 font-mono mt-2">
+            <div className="flex items-center justify-center gap-4 py-1">
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-slate-300 hover:text-white text-xs font-sans font-medium"
+              >
+                <InstagramGradientIcon className="w-4 h-4 rounded-sm" />
+                <span>Follow on Instagram</span>
+              </a>
+            </div>
+
+            <div className="text-center text-[10px] text-slate-500 font-mono mt-1">
               Trade Desk: {SITE_CONFIG.contact.salesDesk}
             </div>
           </div>
         </div>
       </div>
-
-      {/* Global RFQ Tender Modal */}
-      <ProcurementTenderModal
-        isOpen={isTenderOpen}
-        onClose={() => setIsTenderOpen(false)}
-      />
     </>
   );
 }

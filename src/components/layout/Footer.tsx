@@ -6,6 +6,7 @@ import { ArrowUp, Mail, Phone, MapPin, Clock, ShieldCheck, Sparkles, CheckCircle
 import { SITE_CONFIG } from "@/data/site";
 import { CATEGORIES } from "@/data/categories";
 import { ProcurementTenderModal } from "@/components/leads/ProcurementTenderModal";
+import { DottedBrandScatter } from "@/components/ui/DottedBrandScatter";
 
 export function Footer() {
   const [isTenderOpen, setIsTenderOpen] = useState(false);
@@ -24,7 +25,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-black text-white overflow-hidden border-t border-white/10 font-sans">
+    <footer className="relative bg-[#040810] text-white overflow-hidden border-t border-white/10 font-sans">
       {/* Top Gold Shimmer Line */}
       <div className="w-full h-px bg-gradient-to-r from-transparent via-[#E6C687]/40 to-transparent" />
 
@@ -64,11 +65,11 @@ export function Footer() {
                   placeholder="Enter corporate email..."
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
-                  className="w-full bg-[#07070B] border border-white/15 rounded-full px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#E6C687]"
+                  className="w-full bg-[#070D18] border border-white/15 rounded-full px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#E6C687]"
                 />
                 <button
                   type="submit"
-                  className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#E6C687] to-[#C29B4D] hover:opacity-95 text-xs font-bold text-black transition-all shrink-0 cursor-pointer shadow-sm"
+                  className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#E6C687] hover:brightness-110 text-xs font-bold text-black transition-all shrink-0 cursor-pointer shadow-sm"
                 >
                   Join
                 </button>
@@ -185,22 +186,27 @@ export function Footer() {
       </div>
 
       {/* Legal Strip & Back to Top */}
-      <div className="border-t border-white/10 py-6 bg-[#040406]">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <span>© {new Date().getFullYear()} {SITE_CONFIG.name}. All international trade rights reserved.</span>
+      <div className="border-t border-white/10 py-4 bg-[#040406]">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono">
+          <span>© {new Date().getFullYear()} {SITE_CONFIG.name}. ALL RIGHTS RESERVED.</span>
           <div className="flex items-center gap-4">
-            <span className="text-slate-600">
-              Valasaravakkam, Chennai, Tamil Nadu, India · Registered APEDA Agro-Exporter
+            <span className="text-slate-600 hidden md:inline">
+              VALASARAVAKKAM, CHENNAI, TAMIL NADU · REGISTERED APEDA EXPORTER
             </span>
             <button
               onClick={scrollToTop}
-              className="p-2.5 rounded-full border border-white/15 bg-white/5 text-slate-300 hover:border-[#E6C687] hover:text-[#E6C687] transition-all cursor-pointer shadow-sm ml-2"
+              className="p-2 rounded-full border border-white/15 bg-white/5 text-slate-300 hover:border-[#E6C687] hover:text-[#E6C687] transition-all cursor-pointer shadow-sm ml-2"
               aria-label="Back to top"
             >
               <ArrowUp className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
+      </div>
+
+      {/* ── Interactive Dotted Brand Particles (Scatters on Mouse Over, matching Image 2 & 3) ── */}
+      <div className="w-full bg-[#020408] border-t border-white/5 py-2 px-2 sm:px-6 overflow-hidden">
+        <DottedBrandScatter text="JILO EXPORTS" />
       </div>
 
       {/* Global Footer Tender Modal */}

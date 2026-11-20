@@ -10,13 +10,14 @@ export function EntryLoader() {
 
   useEffect(() => {
     // Autoplay muted video immediately on mount
-    if (videoRef.current) {
-      videoRef.current.muted = true;
-      videoRef.current.defaultMuted = true;
-      videoRef.current.play().catch(() => {});
+    const video = videoRef.current;
+    if (video) {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.play().catch(() => {});
     }
 
-    // Safety timeout in case browser throttles or user is idle
+    // Fallback safety timeout (12s) so site is never blocked indefinitely
     const safetyTimer = setTimeout(() => {
       dismissLoader();
     }, 12000);
@@ -28,7 +29,7 @@ export function EntryLoader() {
     setFadingOut(true);
     setTimeout(() => {
       setVisible(false);
-    }, 800);
+    }, 750);
   };
 
   if (!visible) return null;
@@ -37,16 +38,16 @@ export function EntryLoader() {
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Introduction Video"
+      aria-label="Initial Presentation Video"
+      onClick={dismissLoader}
       className={cn(
-        "fixed inset-0 z-[99999] select-none transition-opacity duration-700 ease-out bg-black cursor-default",
+        "fixed inset-0 z-[99999] select-none transition-opacity duration-700 ease-out bg-black cursor-pointer",
         fadingOut ? "opacity-0 pointer-events-none" : "opacity-100"
       )}
     >
-      {/* ── Pure Fullscreen Intro Video (Mandatory Playback, Zero Sound, Zero Wording, No Skip) ── */}
+      {/* ── Fullscreen Initial Video (Two Trucks Exchange Goods / Maritime Origin) ── */}
       <video
         ref={videoRef}
-        src="/video/intro.mp4"
         autoPlay
         muted
         playsInline
@@ -54,7 +55,24 @@ export function EntryLoader() {
         onEnded={dismissLoader}
         onError={dismissLoader}
         className="w-full h-full object-cover object-center scale-[1.01]"
-      />
+      >
+        <source src="/video/intro.mp4" type="video/mp4" />
+        <source src="/video/hero.mp4" type="video/mp4" />
+      </video>
+
+      {/* Discreet Minimal Skip Button (Top Right Corner) */}
+      <div className="absolute top-6 right-6 z-20">
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            dismissLoader();
+          }}
+          className="px-4 py-1.5 rounded-full bg-black/50 hover:bg-black/80 border border-white/20 hover:border-[#E6C687]/70 text-white/80 hover:text-white text-xs font-sans tracking-wider uppercase transition-all backdrop-blur-md cursor-pointer shadow-lg"
+        >
+          Skip
+        </button>
+      </div>
     </div>
   );
 }

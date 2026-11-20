@@ -44,6 +44,13 @@ export function ColdChainMarine3D() {
   };
 
   const currentProfile = telemetryProfiles[telemetryMode];
+  const accentLightRef = useRef<THREE.PointLight | null>(null);
+
+  useEffect(() => {
+    if (accentLightRef.current) {
+      accentLightRef.current.color.setHex(currentProfile.threeColor);
+    }
+  }, [currentProfile]);
 
   useEffect(() => {
     const container = mountRef.current;
@@ -81,6 +88,7 @@ export function ColdChainMarine3D() {
     const accentLight = new THREE.PointLight(currentProfile.threeColor, 4.0, 80);
     accentLight.position.set(0, 10, 10);
     scene.add(accentLight);
+    accentLightRef.current = accentLight;
 
     // 03. Animated Oceanic Surface Plane (Waves)
     const oceanWidth = 140;
@@ -261,8 +269,9 @@ export function ColdChainMarine3D() {
       mistGeo.dispose();
       mistMat.dispose();
       renderer.dispose();
+      accentLightRef.current = null;
     };
-  }, [telemetryMode]);
+  }, []);
 
   return (
     <section className="relative py-28 sm:py-36 bg-navy overflow-hidden">

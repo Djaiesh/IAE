@@ -87,6 +87,22 @@ export function LuxuryCommodity3D() {
   const mountRef = useRef<HTMLDivElement>(null);
   const [activeTab, setActiveTab] = useState<string>("spices");
   const activeCommodity = COMMODITIES.find((c) => c.id === activeTab) || COMMODITIES[0];
+  const crystalMatRef = useRef<THREE.MeshPhysicalMaterial | null>(null);
+  const accentLightRef = useRef<THREE.PointLight | null>(null);
+  const particleMatRef = useRef<THREE.PointsMaterial | null>(null);
+
+  // Smooth color update without tearing down WebGL context
+  useEffect(() => {
+    if (crystalMatRef.current) {
+      crystalMatRef.current.color.setHex(activeCommodity.threeColor);
+    }
+    if (accentLightRef.current) {
+      accentLightRef.current.color.setHex(activeCommodity.threeColor);
+    }
+    if (particleMatRef.current) {
+      particleMatRef.current.color.setHex(activeCommodity.threeColor);
+    }
+  }, [activeCommodity]);
 
   // Three.js interactive 3D Holographic Pedestal & Crystal Lattice
   useEffect(() => {
@@ -124,6 +140,7 @@ export function LuxuryCommodity3D() {
     const accentLight = new THREE.PointLight(activeCommodity.threeColor, 4.0, 100);
     accentLight.position.set(-20, 20, 25);
     scene.add(accentLight);
+    accentLightRef.current = accentLight;
 
     // 3D Master Exhibition Group
     const showGroup = new THREE.Group();
@@ -145,6 +162,7 @@ export function LuxuryCommodity3D() {
     });
     const crystalMesh = new THREE.Mesh(crystalGeo, crystalMat);
     showGroup.add(crystalMesh);
+    crystalMatRef.current = crystalMat;
 
     // Inner Glowing Core
     const innerGeo = new THREE.OctahedronGeometry(6, 0);
@@ -200,6 +218,7 @@ export function LuxuryCommodity3D() {
       opacity: 0.75,
       blending: THREE.AdditiveBlending,
     });
+    particleMatRef.current = particleMat;
     const particles = new THREE.Points(particleGeo, particleMat);
     showGroup.add(particles);
 
@@ -273,7 +292,7 @@ export function LuxuryCommodity3D() {
       particleMat.dispose();
       renderer.dispose();
     };
-  }, [activeCommodity]);
+  }, []);
 
   return (
     <section className="relative py-28 sm:py-36 bg-abyss overflow-hidden border-t border-white/5">

@@ -5,6 +5,8 @@ import { Footer } from "@/components/layout/Footer";
 import { EntryLoader } from "@/components/motion/EntryLoader";
 import { ScrollRevealProvider } from "@/components/motion/ScrollRevealProvider";
 import { FloatingRFQDock } from "@/components/leads/FloatingRFQDock";
+import { CustomCursor } from "@/components/ui/CustomCursor";
+import { FullScreenNavigationTransition } from "@/components/motion/FullScreenNavigationTransition";
 import { SITE_CONFIG } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -36,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
         <script
@@ -44,6 +46,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: `
               (function() {
                 try {
+                  if ('scrollRestoration' in history) {
+                    history.scrollRestoration = 'manual';
+                  }
+                  window.scrollTo(0, 0);
                   var theme = localStorage.getItem('jilo-theme') || 'dark';
                   document.documentElement.classList.add(theme);
                   document.documentElement.setAttribute('data-theme', theme);
@@ -66,6 +72,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <EntryLoader />
         <ScrollRevealProvider />
+        <CustomCursor />
+        <FullScreenNavigationTransition />
         <Navbar />
 
         <main className="relative z-10 flex flex-col">

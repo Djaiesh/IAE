@@ -33,6 +33,11 @@ export function SovereignGlobe3D() {
   const ports = SITE_CONFIG.destinationPorts;
   const [selectedId, setSelectedId] = useState(ports[0].id);
   const selectedPort = ports.find((p) => p.id === selectedId) || ports[0];
+  const selectedIdRef = useRef(selectedId);
+
+  useEffect(() => {
+    selectedIdRef.current = selectedId;
+  }, [selectedId]);
 
   // Callback to target rotation
   const targetRotationRef = useRef<{ x: number; y: number } | null>(null);
@@ -355,13 +360,13 @@ export function SovereignGlobe3D() {
         arc.pulseMesh.position.copy(pos);
 
         // Highlight selected port arc
-        if (arc.portId === selectedId) {
+        if (arc.portId === selectedIdRef.current) {
           (arc.lineMesh.material as THREE.LineBasicMaterial).opacity = 0.95;
-          (arc.lineMesh.material as THREE.LineBasicMaterial).color.setHex(0xff6b00);
+          (arc.lineMesh.material as THREE.LineBasicMaterial).color.setHex(0xe6c687);
           arc.pulseMesh.scale.set(1.4, 1.4, 1.4);
         } else {
           (arc.lineMesh.material as THREE.LineBasicMaterial).opacity = 0.35;
-          (arc.lineMesh.material as THREE.LineBasicMaterial).color.setHex(0x1b6b7c);
+          (arc.lineMesh.material as THREE.LineBasicMaterial).color.setHex(0x10b981);
           arc.pulseMesh.scale.set(0.9, 0.9, 0.9);
         }
       });
@@ -400,7 +405,7 @@ export function SovereignGlobe3D() {
       starMat.dispose();
       renderer.dispose();
     };
-  }, [selectedId]);
+  }, []);
 
   // Click handler to rotate globe to port
   const handleSelectPort = (portId: string) => {

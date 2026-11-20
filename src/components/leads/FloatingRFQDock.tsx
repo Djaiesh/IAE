@@ -1,13 +1,32 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FileText, PhoneCall, Calculator, Sparkles, ChevronUp, ChevronDown } from "lucide-react";
 import { ProcurementTenderModal, TenderPreFill } from "./ProcurementTenderModal";
+import { cn } from "@/lib/utils";
 
 export function FloatingRFQDock() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [preFill, setPreFill] = useState<TenderPreFill | undefined>(undefined);
+  const [hideAtFooter, setHideAtFooter] = useState(false);
+
+  useEffect(() => {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setHideAtFooter(entry.isIntersecting);
+      },
+      {
+        threshold: 0.05,
+      }
+    );
+
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
 
   const handleOpenTender = (fill?: TenderPreFill) => {
     setPreFill(fill);
@@ -24,7 +43,15 @@ export function FloatingRFQDock() {
   return (
     <>
       {/* Floating Action Dock Container */}
-      <aside aria-label="Quick Procurement & Trade Desk" className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end gap-2.5 pointer-events-auto">
+      <aside
+        aria-label="Quick Procurement & Trade Desk"
+        className={cn(
+          "fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end gap-2.5 transition-all duration-300",
+          hideAtFooter
+            ? "opacity-0 pointer-events-none translate-y-8 scale-95"
+            : "opacity-100 pointer-events-auto translate-y-0 scale-100"
+        )}
+      >
         {/* Expanded Quick Options Menu */}
         {isExpanded && (
           <div className="flex flex-col gap-2 p-3 rounded-3xl bg-[#070B13]/95 backdrop-blur-2xl border border-white/15 shadow-2xl animate-in fade-in slide-in-from-bottom-3 duration-300 w-64 max-w-[calc(100vw-2rem)]">

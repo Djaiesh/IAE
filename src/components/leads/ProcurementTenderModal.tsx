@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   X,
   ShieldCheck,
@@ -12,10 +12,14 @@ import {
   PhoneCall,
   Clock,
   Sparkles,
+  RotateCcw,
 } from "lucide-react";
+import { SITE_CONFIG } from "@/data/site";
 
 export interface TenderPreFill {
   commodity?: string;
+  category?: string;
+  packaging?: string;
   volume?: string;
   destinationPort?: string;
   incoterm?: string;
@@ -28,18 +32,31 @@ interface ProcurementTenderModalProps {
   preFill?: TenderPreFill;
 }
 
+const COMMODITY_CATALOG = [
+  { value: "Alleppey Finger Turmeric (Curcumin 5.0%+)", label: "Alleppey Finger Turmeric (Curcumin 5.0%+ HPLC)", category: "Spices" },
+  { value: "Malabar Bold Black Pepper (TGSEB Grade)", label: "Malabar Bold Black Pepper (TGSEB 4.75mm+)", category: "Spices" },
+  { value: "Guntur Teja S17 Stemless Chilli (75,000+ SHU)", label: "Guntur Teja S17 Stemless Red Chilli (75,000+ SHU)", category: "Spices" },
+  { value: "Nashik Fresh Red Onions (55mm+ Caliber)", label: "Nashik Fresh Red Onions (55mm+ Hydro-Cooled)", category: "Vegetables" },
+  { value: "G4 Fresh Green Chillies (Stem-On Class AAA)", label: "G4 Fresh Green Chillies (Stem-On Class AAA)", category: "Vegetables" },
+  { value: "Tender Export Okra (8-12cm Fresh)", label: "Tender Export Okra (8-12cm Pre-Cooled)", category: "Vegetables" },
+  { value: "Ratnagiri Alphonso Mangoes (GI-Tagged)", label: "Ratnagiri Alphonso Mangoes (GI-Tagged VHT Treated)", category: "Fruits" },
+  { value: "Bhagwa Deep Red Pomegranates (Super A)", label: "Bhagwa Deep Red Pomegranates (Super A Grade)", category: "Fruits" },
+  { value: "Cavendish Green Bananas (Class AAA 39-47)", label: "Fresh Cavendish Green Bananas (Class AAA)", category: "Fruits" },
+  { value: "Scheduled Reefer Freight Allocation", label: "Scheduled Reefer Freight (Mundra / JNPT Berths)", category: "Logistics" },
+];
+
 export function ProcurementTenderModal({
   isOpen,
   onClose,
   preFill,
 }: ProcurementTenderModalProps) {
   const [step, setStep] = useState(1);
-  const [commodity, setCommodity] = useState(preFill?.commodity || "High-Curcumin Alleppey Turmeric (5.0%+)");
+  const [commodity, setCommodity] = useState("Alleppey Finger Turmeric (Curcumin 5.0%+)");
   const [packaging, setPackaging] = useState("25kg Double Food-Grade PP Bags");
-  const [incoterm, setIncoterm] = useState(preFill?.incoterm || "CIF (Cost, Insurance & Freight)");
-  const [containerType, setContainerType] = useState(preFill?.containerType || "40ft High-Cube CA Reefer");
-  const [destinationPort, setDestinationPort] = useState(preFill?.destinationPort || "Rotterdam (Netherlands)");
-  const [monthlyVolume, setMonthlyVolume] = useState(preFill?.volume || "2 x 40ft FCL / Month");
+  const [incoterm, setIncoterm] = useState("CIF (Cost, Insurance & Freight)");
+  const [containerType, setContainerType] = useState("40ft High-Cube CA Reefer");
+  const [destinationPort, setDestinationPort] = useState("Rotterdam (Netherlands)");
+  const [monthlyVolume, setMonthlyVolume] = useState("1 x 40ft Reefer FCL");
 
   const [companyName, setCompanyName] = useState("");
   const [buyerName, setBuyerName] = useState("");
@@ -49,6 +66,34 @@ export function ProcurementTenderModal({
   const [notes, setNotes] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  // 01. Reset and pre-fill form dynamically whenever modal opens or preFill changes
+  useEffect(() => {
+    if (isOpen) {
+      setStep(1);
+      setIsSubmitting(false);
+      setIsSuccess(false);
+
+      if (preFill?.commodity) {
+        setCommodity(preFill.commodity);
+      }
+      if (preFill?.packaging) {
+        setPackaging(preFill.packaging);
+      }
+      if (preFill?.volume) {
+        setMonthlyVolume(preFill.volume);
+      }
+      if (preFill?.destinationPort) {
+        setDestinationPort(preFill.destinationPort);
+      }
+      if (preFill?.incoterm) {
+        setIncoterm(preFill.incoterm);
+      }
+      if (preFill?.containerType) {
+        setContainerType(preFill.containerType);
+      }
+    }
+  }, [isOpen, preFill]);
 
   if (!isOpen) return null;
 
@@ -60,7 +105,13 @@ export function ProcurementTenderModal({
       setIsSubmitting(false);
       setIsSuccess(true);
       setStep(4);
-    }, 900);
+    }, 700);
+  };
+
+  const handleResetForAnother = () => {
+    setStep(1);
+    setIsSuccess(false);
+    setIsSubmitting(false);
   };
 
   const handleWhatsAppDirect = () => {
@@ -80,9 +131,9 @@ export function ProcurementTenderModal({
       />
 
       {/* Modal Surface */}
-      <div className="relative z-10 w-full max-w-2xl bg-[#070B13] border border-white/15 rounded-3xl sm:rounded-4xl shadow-2xl p-6 sm:p-8 overflow-hidden my-8">
+      <div className="relative z-10 w-full max-w-2xl bg-[#070D18] border border-white/15 rounded-3xl sm:rounded-4xl shadow-2xl p-6 sm:p-8 overflow-hidden my-8">
         {/* Ambient Top Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-gradient-to-b from-[#E6C687]/15 to-transparent blur-2xl pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-gradient-to-b from-[#E6C687]/20 to-transparent blur-2xl pointer-events-none" />
 
         {/* Close Button */}
         <button
@@ -103,8 +154,22 @@ export function ProcurementTenderModal({
             Request Certified Export Quotation
           </h3>
           <p className="text-slate-400 text-xs sm:text-sm mt-1">
-            Direct sovereign origin contracts • SGS/Eurofins calibrated specifications • CIF/FOB terms
+            Direct origin contracts • SGS/Eurofins calibrated specifications • CIF/FOB terms
           </p>
+
+          {/* Active Pre-Filled Category Badge */}
+          {preFill?.category && (
+            <div className="flex items-center gap-2 mt-3">
+              <span className="text-[10px] font-sans uppercase font-bold tracking-wider px-3 py-1 rounded-full bg-[#E6C687]/15 text-[#E6C687] border border-[#E6C687]/30">
+                Category: {preFill.category}
+              </span>
+              {preFill.volume && (
+                <span className="text-[10px] font-mono uppercase px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10">
+                  Target MOQ: {preFill.volume}
+                </span>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Step Indicator */}
@@ -147,21 +212,22 @@ export function ProcurementTenderModal({
           <div className="space-y-4">
             <div>
               <label className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-2">
-                Commodity & Specification Grade
+                Commodity &amp; Specification Grade
               </label>
               <select
                 value={commodity}
                 onChange={(e) => setCommodity(e.target.value)}
-                className="w-full bg-[#0D1424] border border-white/15 rounded-2xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#E6C687] transition-colors"
+                className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#E6C687] transition-colors"
               >
-                <option value="High-Curcumin Alleppey Turmeric (5.0%+)">High-Curcumin Alleppey Turmeric (5.0%+ Curcumin)</option>
-                <option value="Malabar Bold Black Pepper (TGSEB Grade)">Malabar Bold Black Pepper (TGSEB 4.75mm+)</option>
-                <option value="Guntur Teja S17 Stemless Chilli (75,000+ SHU)">Guntur Teja S17 Stemless Red Chilli (75,000+ SHU)</option>
-                <option value="Nashik Export-Grade Fresh Red Onions (55mm+)">Nashik Export-Grade Fresh Red Onions (55mm+ Hydro-Cooled)</option>
-                <option value="G4 Fresh Green Chillies (Controlled Atmosphere)">G4 Fresh Green Chillies (CA Reefer Export)</option>
-                <option value="Fresh Cavendish Bananas (Class AAA 39-47 Calibration)">Fresh Cavendish Bananas (Class AAA 39-47 Calibration)</option>
-                <option value="GI-Tagged Ratnagiri Alphonso Mangoes">GI-Tagged Ratnagiri Alphonso Mangoes (Hot Water Treated)</option>
-                <option value="Kesar Mangoes (Gujarat Provenance)">Kesar Mangoes (Gujarat Provenance Export)</option>
+                {/* Dynamically include pre-filled custom item if not in default catalog */}
+                {commodity && !COMMODITY_CATALOG.some((c) => c.value === commodity) && (
+                  <option value={commodity}>{commodity}</option>
+                )}
+                {COMMODITY_CATALOG.map((c) => (
+                  <option key={c.value} value={c.value}>
+                    {c.label}
+                  </option>
+                ))}
               </select>
             </div>
 
@@ -172,12 +238,15 @@ export function ProcurementTenderModal({
               <select
                 value={packaging}
                 onChange={(e) => setPackaging(e.target.value)}
-                className="w-full bg-[#0D1424] border border-white/15 rounded-2xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#E6C687] transition-colors"
+                className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#E6C687] transition-colors"
               >
+                {packaging && !["25kg Double Food-Grade PP Bags", "50kg Natural Jute Bags (Machine Stitched)", "10kg Pre-Cooled Ventilated Corrugated Cartons", "25kg High-Barrier Nitrogen Vacuum Sacks", "Custom Private Label Importer Packaging"].includes(packaging) && (
+                  <option value={packaging}>{packaging}</option>
+                )}
                 <option value="25kg Double Food-Grade PP Bags">25kg Double Food-Grade PP Bags with Inner Poly Liner</option>
-                <option value="50kg Jute Bags (Machine Stitched)">50kg Natural Jute Bags (Machine Stitched & Fumigated)</option>
+                <option value="50kg Natural Jute Bags (Machine Stitched)">50kg Natural Jute Bags (Machine Stitched &amp; Fumigated)</option>
                 <option value="10kg Pre-Cooled Ventilated Corrugated Cartons">10kg Pre-Cooled Ventilated Corrugated Cartons</option>
-                <option value="25kg High-Barrier Nitrogen Flushed Vacuum Bricks">25kg High-Barrier Nitrogen Flushed Vacuum Bricks</option>
+                <option value="25kg High-Barrier Nitrogen Vacuum Sacks">25kg High-Barrier Nitrogen Vacuum Sacks</option>
                 <option value="Custom Private Label Importer Packaging">Custom Private Label Importer Packaging</option>
               </select>
             </div>
@@ -186,9 +255,9 @@ export function ProcurementTenderModal({
               <button
                 type="button"
                 onClick={() => setStep(2)}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#E6C687] to-[#C29B4D] text-black font-semibold text-xs tracking-wider uppercase hover:opacity-95 transition-opacity cursor-pointer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#E6C687] text-black font-bold text-xs tracking-wider uppercase hover:brightness-110 transition-all cursor-pointer shadow-lg shadow-[#D4AF37]/20"
               >
-                Next: Logistics & Berths
+                Next: Logistics &amp; Berths
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -206,28 +275,28 @@ export function ProcurementTenderModal({
                 <select
                   value={incoterm}
                   onChange={(e) => setIncoterm(e.target.value)}
-                  className="w-full bg-[#0D1424] border border-white/15 rounded-2xl px-4 py-3.5 text-white text-base sm:text-sm focus:outline-none focus:border-[#E6C687] transition-colors"
+                  className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#E6C687] transition-colors"
                 >
-                  <option value="CIF (Cost, Insurance & Freight)">CIF (Cost, Insurance & Freight)</option>
-                  <option value="FOB JNPT / Nhava Sheva (India)">FOB JNPT / Nhava Sheva (India)</option>
-                  <option value="FOB Mundra Port (Gujarat, India)">FOB Mundra Port (Gujarat, India)</option>
-                  <option value="CFR (Cost & Freight)">CFR (Cost & Freight)</option>
+                  <option value="CIF (Cost, Insurance & Freight)">CIF (Cost, Insurance &amp; Freight)</option>
+                  <option value="FOB (Free On Board - Indian Seaport)">FOB (Free On Board - JNPT/Mundra)</option>
+                  <option value="CFR (Cost and Freight)">CFR (Cost and Freight)</option>
+                  <option value="DAP (Delivered at Place - Cold Hub)">DAP (Delivered at Place)</option>
                 </select>
               </div>
 
               <div>
                 <label className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-2">
-                  Container Equipment
+                  Container Equipment Type
                 </label>
                 <select
                   value={containerType}
                   onChange={(e) => setContainerType(e.target.value)}
-                  className="w-full bg-[#0D1424] border border-white/15 rounded-2xl px-4 py-3.5 text-white text-base sm:text-sm focus:outline-none focus:border-[#E6C687] transition-colors"
+                  className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#E6C687] transition-colors"
                 >
-                  <option value="40ft High-Cube CA Reefer">40ft High-Cube Controlled Atmosphere Reefer</option>
-                  <option value="20ft Heavy FCL Dry Container">20ft Heavy FCL Dry Box (Up to 28 MT)</option>
-                  <option value="40ft Standard FCL Dry Container">40ft Standard FCL Dry Container</option>
-                  <option value="Air Freight Temperature-Controlled Pallets">Air Freight Temperature-Controlled Pallets</option>
+                  <option value="40ft High-Cube CA Reefer">40ft High-Cube CA Reefer (Controlled Atmosphere)</option>
+                  <option value="20ft Standard Dry Container">20ft Standard Dry FCL (Spices &amp; Dry Food)</option>
+                  <option value="40ft Standard Dry Container">40ft Standard Dry FCL</option>
+                  <option value="Direct Air Freight Pallet Allocation">Direct Air Freight Pallet Allocation</option>
                 </select>
               </div>
             </div>
@@ -235,38 +304,30 @@ export function ProcurementTenderModal({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-2">
-                  Destination Seaport of Discharge
+                  Destination Seaport / Berth
                 </label>
-                <select
+                <input
+                  type="text"
+                  required
                   value={destinationPort}
                   onChange={(e) => setDestinationPort(e.target.value)}
-                  className="w-full bg-[#0D1424] border border-white/15 rounded-2xl px-4 py-3.5 text-white text-base sm:text-sm focus:outline-none focus:border-[#E6C687] transition-colors"
-                >
-                  <option value="Rotterdam (Netherlands)">Rotterdam (Netherlands) — Gateway EU</option>
-                  <option value="Jebel Ali (Dubai, UAE)">Jebel Ali (Dubai, UAE) — Gateway GCC</option>
-                  <option value="Singapore (PSA)">Singapore (PSA) — Gateway SE Asia</option>
-                  <option value="New York / New Jersey (USA)">New York / New Jersey (USA) — US FDA Berth</option>
-                  <option value="Dammam / King Abdulaziz (Saudi Arabia)">Dammam (Saudi Arabia) — SFDA Berth</option>
-                  <option value="Hamburg (Germany)">Hamburg (Germany)</option>
-                  <option value="Felixstowe / London Gateway (UK)">Felixstowe (United Kingdom)</option>
-                  <option value="Other International Seaport">Other International Seaport</option>
-                </select>
+                  placeholder="e.g. Rotterdam, Jebel Ali, New York"
+                  className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
+                />
               </div>
 
               <div>
                 <label className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-2">
-                  Target Monthly Volume
+                  Monthly / Contract Volume
                 </label>
-                <select
+                <input
+                  type="text"
+                  required
                   value={monthlyVolume}
                   onChange={(e) => setMonthlyVolume(e.target.value)}
-                  className="w-full bg-[#0D1424] border border-white/15 rounded-2xl px-4 py-3.5 text-white text-base sm:text-sm focus:outline-none focus:border-[#E6C687] transition-colors"
-                >
-                  <option value="Trial Order (1 x 20ft / 40ft FCL)">Trial Order (1 x 20ft / 40ft FCL)</option>
-                  <option value="2 x 40ft FCL / Month">2 x 40ft FCL / Month (Regular Supply)</option>
-                  <option value="5-10 x 40ft FCL / Month">5-10 x 40ft FCL / Month (Contract)</option>
-                  <option value="Seasonal Block Booking (20+ FCL)">Seasonal Block Booking (20+ FCL)</option>
-                </select>
+                  placeholder="e.g. 2 x 40ft FCL / Month"
+                  className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
+                />
               </div>
             </div>
 
@@ -281,7 +342,7 @@ export function ProcurementTenderModal({
               <button
                 type="button"
                 onClick={() => setStep(3)}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#E6C687] to-[#C29B4D] text-black font-semibold text-xs tracking-wider uppercase hover:opacity-95 transition-opacity cursor-pointer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#E6C687] text-black font-bold text-xs tracking-wider uppercase hover:brightness-110 transition-all cursor-pointer shadow-lg shadow-[#D4AF37]/20"
               >
                 Next: Buyer Credentials
                 <ArrowRight className="w-4 h-4" />
@@ -290,93 +351,93 @@ export function ProcurementTenderModal({
           </div>
         )}
 
-        {/* Step 3: Corporate Buyer Profile */}
+        {/* Step 3: Buyer Details & Submit */}
         {step === 3 && (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-1.5">
-                  Company / Organization Name *
+                <label className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-2">
+                  Corporate / Trading Name *
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="e.g. EuroFoods Wholesale GmbH"
                   value={companyName}
                   onChange={(e) => setCompanyName(e.target.value)}
-                  className="w-full bg-[#0D1424] border border-white/15 rounded-2xl px-4 py-3 text-white text-base sm:text-sm focus:outline-none focus:border-[#E6C687]"
+                  placeholder="e.g. Global Foods Trading BV"
+                  className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-1.5">
+                <label className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-2">
                   Procurement Officer Name *
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="Full Name"
                   value={buyerName}
                   onChange={(e) => setBuyerName(e.target.value)}
-                  className="w-full bg-[#0D1424] border border-white/15 rounded-2xl px-4 py-3 text-white text-base sm:text-sm focus:outline-none focus:border-[#E6C687]"
+                  placeholder="Full Name"
+                  className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
-                <label className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-1.5">
-                  Buyer Country *
+                <label className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-2">
+                  Country of Import *
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Germany, UAE, USA"
                   value={country}
                   onChange={(e) => setCountry(e.target.value)}
-                  className="w-full bg-[#0D1424] border border-white/15 rounded-2xl px-4 py-3 text-white text-base sm:text-sm focus:outline-none focus:border-[#E6C687]"
+                  placeholder="e.g. Netherlands"
+                  className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-1.5">
+                <label className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-2">
                   Corporate Email *
                 </label>
                 <input
                   type="email"
                   required
-                  placeholder="procurement@company.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-[#0D1424] border border-white/15 rounded-2xl px-4 py-3 text-white text-base sm:text-sm focus:outline-none focus:border-[#E6C687]"
+                  placeholder="trade@company.com"
+                  className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-1.5">
+                <label className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-2">
                   WhatsApp / Phone *
                 </label>
                 <input
                   type="tel"
                   required
-                  placeholder="+49 170 1234567"
                   value={whatsapp}
                   onChange={(e) => setWhatsapp(e.target.value)}
-                  className="w-full bg-[#0D1424] border border-white/15 rounded-2xl px-4 py-3 text-white text-base sm:text-sm focus:outline-none focus:border-[#E6C687]"
+                  placeholder="+31 6 12345678"
+                  className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-1.5">
-                Special Quality Parameters or Chemical Assay Limits (Optional)
+              <label className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-2">
+                Special Quality Parameters or Phytosanitary Requirements
               </label>
               <textarea
                 rows={2}
-                placeholder="Specify required curcumin %, piperine %, pesticide MRL constraints, or target delivery window..."
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                className="w-full bg-[#0D1424] border border-white/15 rounded-2xl px-4 py-2.5 text-white text-base sm:text-sm focus:outline-none focus:border-[#E6C687]"
+                placeholder="Specific curcumin assay, mesh sizes, palletizing requirements, or phytosanitary guidelines..."
+                className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#E6C687]"
               />
             </div>
 
@@ -421,20 +482,31 @@ export function ProcurementTenderModal({
               <button
                 type="button"
                 onClick={handleWhatsAppDirect}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#25D366] text-black font-bold text-xs uppercase tracking-wider hover:opacity-95 transition-opacity cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#25D366] text-black font-bold text-xs uppercase tracking-wider hover:opacity-95 transition-opacity cursor-pointer shadow-lg shadow-emerald-600/30"
               >
                 <PhoneCall className="w-4 h-4" />
                 Open 24/7 WhatsApp Desk
               </button>
 
               <a
-                href="/documents/jilo-spec-index-2026.pdf"
-                download
+                href={SITE_CONFIG.portfolioPdfUrl}
+                download="JILO-Agro-Portfolio.pdf"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold text-xs uppercase tracking-wider transition-colors cursor-pointer"
               >
                 <Download className="w-4 h-4 text-[#E6C687]" />
-                Download Batch COA (PDF)
+                Download Portfolio (PDF)
               </a>
+            </div>
+
+            <div className="pt-2 flex items-center justify-center gap-4">
+              <button
+                type="button"
+                onClick={handleResetForAnother}
+                className="inline-flex items-center gap-2 text-xs text-[#E6C687] hover:underline cursor-pointer"
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+                <span>Request Quote for Another Commodity</span>
+              </button>
             </div>
 
             <div className="pt-2 text-xs text-slate-500 flex items-center justify-center gap-2">

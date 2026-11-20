@@ -30,15 +30,15 @@
   --marine-azure: #0EA5E9;
   --marine-glow: rgba(14, 165, 233, 0.25);
 
-  /* Eye-catching Saffron Secondary */
-  --saffron: #FF6B00;
-  --saffron-light: #FF8833;
-  --saffron-glow: rgba(255, 107, 0, 0.35);
+  /* Sovereign Gold Secondary / Accent */
+  --saffron: #D4AF37;
+  --saffron-light: #E6C687;
+  --saffron-glow: rgba(212, 175, 55, 0.25);
 
-  /* ── Unique Typography: Cormorant Garamond & Outfit ── */
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* ── Industrial Modern Typography: Oxanium & Space Grotesk ── */
+  --font-display: 'Oxanium', 'Space Grotesk', sans-serif;
+  --font-serif: 'Oxanium', 'Space Grotesk', sans-serif;
+  --font-sans: 'Space Grotesk', 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* ── Soft Curvature (No sharp rectangles/squares) ── */
   --radius-sm: 1rem;       /* 16px */
@@ -92,11 +92,10 @@ body::before {
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 70% 50% at 50% -5%, rgba(230, 198, 135, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 50% -5%, rgba(230, 198, 135, 0.08) 0%, transparent 60%),
     radial-gradient(ellipse 60% 50% at 90% 45%, rgba(16, 185, 129, 0.05) 0%, transparent 60%),
     radial-gradient(ellipse 70% 50% at 10% 85%, rgba(14, 165, 233, 0.05) 0%, transparent 65%),
-    linear-gradient(180deg, #000000 0%, #030305 35%, #050508 70%, #000000 100%);
-  animation: bgDrift 28s ease-in-out infinite alternate;
+    linear-gradient(180deg, #040810 0%, #060D1A 35%, #081224 70%, #040810 100%);
 }
 
 body::after {
@@ -105,15 +104,9 @@ body::after {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 36px 36px;
-  opacity: 0.4;
-}
-
-@keyframes bgDrift {
-  0%   { transform: translate(0, 0) scale(1); }
-  50%  { transform: translate(-2%, 2%) scale(1.03); }
-  100% { transform: translate(2%, -1%) scale(0.99); }
+  opacity: 0.35;
 }
 
 main {
@@ -284,7 +277,7 @@ button, input, select, textarea, .badge, .tag, .tab-item {
 }
 
 /* ────────────────────────────────────────────────
-   BUTTONS (Soft Pills with Saffron Glow)
+   BUTTONS (Sovereign Gold & Obsidian Glass Pills)
 ───────────────────────────────────────────────── */
 .btn-primary {
   display: inline-flex;
@@ -292,9 +285,9 @@ button, input, select, textarea, .badge, .tag, .tab-item {
   justify-content: center;
   gap: 0.6rem;
   padding: 0.95rem 2.25rem;
-  background: linear-gradient(135deg, var(--saffron) 0%, #FF8C38 50%, var(--saffron) 100%);
+  background: linear-gradient(135deg, #D4AF37 0%, #E6C687 50%, #C29B4D 100%);
   background-size: 200% 100%;
-  color: #FFFFFF;
+  color: #000000;
   font-family: var(--font-sans);
   font-size: 0.72rem;
   font-weight: 700;
@@ -303,14 +296,14 @@ button, input, select, textarea, .badge, .tag, .tab-item {
   border-radius: var(--radius-pill);
   border: none;
   cursor: pointer;
-  box-shadow: 0 6px 28px rgba(255, 107, 0, 0.4);
+  box-shadow: 0 6px 28px rgba(212, 175, 55, 0.35);
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   text-decoration: none;
 }
 .btn-primary:hover {
   background-position: 100% 0;
-  box-shadow: 0 8px 40px rgba(255, 107, 0, 0.6);
-  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 8px 36px rgba(212, 175, 55, 0.55);
+  transform: translateY(-2px) scale(1.02);
 }
 
 .btn-ghost {
@@ -319,7 +312,7 @@ button, input, select, textarea, .badge, .tag, .tab-item {
   justify-content: center;
   gap: 0.6rem;
   padding: 0.95rem 2.25rem;
-  background: rgba(13, 32, 53, 0.5);
+  background: rgba(9, 21, 38, 0.7);
   color: var(--cream);
   font-family: var(--font-sans);
   font-size: 0.72rem;
@@ -327,7 +320,7 @@ button, input, select, textarea, .badge, .tag, .tab-item {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   cursor: pointer;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -335,48 +328,99 @@ button, input, select, textarea, .badge, .tag, .tab-item {
   text-decoration: none;
 }
 .btn-ghost:hover {
-  border-color: var(--saffron);
-  color: var(--saffron-light);
-  background: rgba(255, 107, 0, 0.08);
-  box-shadow: 0 0 25px rgba(255, 107, 0, 0.2);
+  border-color: rgba(230, 198, 135, 0.6);
+  background: rgba(14, 28, 48, 0.85);
   transform: translateY(-2px);
 }
 
 /* ────────────────────────────────────────────────
-   SCROLL REVEAL UTILITIES
+   SCROLL REVEAL WORD RAISE-UP & IMAGE DYNAMICS
 ───────────────────────────────────────────────── */
 [data-reveal] {
   opacity: 0;
   will-change: opacity, transform;
   transition:
-    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-[data-reveal="up"]    { transform: translateY(45px); }
-[data-reveal="down"]  { transform: translateY(-30px); }
-[data-reveal="left"]  { transform: translateX(50px); }
-[data-reveal="right"] { transform: translateX(-50px); }
-[data-reveal="scale"] { transform: scale(0.92); }
+[data-reveal="up"]    { transform: translateY(55px); }
+[data-reveal="down"]  { transform: translateY(-35px); }
+[data-reveal="left"]  { transform: translateX(55px); }
+[data-reveal="right"] { transform: translateX(-55px); }
+[data-reveal="scale"] { transform: scale(0.92) translateY(30px); }
 
+[data-reveal][data-revealed="true"],
 [data-reveal][data-revealed] {
   opacity: 1;
   transform: none;
 }
 
+/* ── Word Raise-Up Dynamics (Split words rise up from hidden mask) ── */
+.word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  margin-right: 0.28em;
+  line-height: 1.15;
+}
+
+.word-raise {
+  display: inline-block;
+  transform: translateY(115%);
+  opacity: 0;
+  will-change: transform, opacity;
+  transition:
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--word-idx, 0) * 55ms);
+}
+
+[data-revealed="true"] .word-raise,
+.word-mask.revealed .word-raise {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+/* ── Image Cinematic Reveal Dynamics ── */
+[data-reveal-img] {
+  opacity: 0;
+  transform: translateY(35px) scale(0.95);
+  filter: blur(6px);
+  will-change: transform, opacity, filter;
+  transition:
+    opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.8s ease-out;
+}
+
+[data-reveal-img][data-revealed="true"],
+[data-revealed="true"] [data-reveal-img],
+[data-reveal-img][data-revealed] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
 [data-stagger] > * {
   opacity: 0;
-  transform: translateY(35px);
+  transform: translateY(45px);
   transition:
-    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
 }
+[data-stagger][data-revealed="true"] > *:nth-child(1),
 [data-stagger][data-revealed] > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0ms; }
-[data-stagger][data-revealed] > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 100ms; }
-[data-stagger][data-revealed] > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 200ms; }
-[data-stagger][data-revealed] > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 300ms; }
-[data-stagger][data-revealed] > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 400ms; }
-[data-stagger][data-revealed] > *:nth-child(6) { opacity: 1; transform: none; transition-delay: 500ms; }
+[data-stagger][data-revealed="true"] > *:nth-child(2),
+[data-stagger][data-revealed] > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 110ms; }
+[data-stagger][data-revealed="true"] > *:nth-child(3),
+[data-stagger][data-revealed] > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 220ms; }
+[data-stagger][data-revealed="true"] > *:nth-child(4),
+[data-stagger][data-revealed] > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 330ms; }
+[data-stagger][data-revealed="true"] > *:nth-child(5),
+[data-stagger][data-revealed] > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 440ms; }
+[data-stagger][data-revealed="true"] > *:nth-child(6),
+[data-stagger][data-revealed] > *:nth-child(6) { opacity: 1; transform: none; transition-delay: 550ms; }
 
 /* ────────────────────────────────────────────────
    SCRIM GRADIENTS
@@ -651,9 +695,8 @@ html.light .ocean-silk-layer {
 }
 
 html.light header {
-  background-color: rgba(255, 255, 255, 0.88) !important;
+  background-color: rgba(255, 255, 255, 0.92) !important;
   border-color: rgba(0, 0, 0, 0.08) !important;
-  color: #0F172A !important;
 }
 
 html.light header span.text-white,
@@ -661,12 +704,8 @@ html.light header span.font-display {
   color: #0F172A !important;
 }
 
-html.light header a {
-  color: #334155;
-}
-
 html.light nav div {
-  background-color: rgba(241, 245, 249, 0.9) !important;
+  background-color: rgba(241, 245, 249, 0.95) !important;
   border-color: rgba(0, 0, 0, 0.08) !important;
 }
 
@@ -679,31 +718,8 @@ html.light nav a:hover {
   background-color: rgba(0, 0, 0, 0.05) !important;
 }
 
-html.light .text-white {
-  color: #0F172A !important;
-}
-
-html.light .text-slate-300,
-html.light .text-slate-400 {
-  color: #475569 !important;
-}
-
-html.light .bg-black,
-html.light .bg-\[\#07070B\],
-html.light .bg-\[\#08080C\],
-html.light .bg-\[\#090E1A\],
-html.light .bg-\[\#040406\] {
-  background-color: #FFFFFF !important;
-}
-
-html.light .border-white\/10,
-html.light .border-white\/15,
-html.light .border-white\/5 {
-  border-color: rgba(0, 0, 0, 0.08) !important;
-}
-
 html.light .glass {
-  background: rgba(255, 255, 255, 0.9) !important;
+  background: rgba(255, 255, 255, 0.92) !important;
   border-color: rgba(0, 0, 0, 0.08) !important;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06) !important;
 }
@@ -712,11 +728,4 @@ html.light footer {
   background-color: #F8FAFC !important;
   border-top-color: rgba(0, 0, 0, 0.08) !important;
   color: #0F172A !important;
-}
-
-html.light footer .bg-\[\#07070B\],
-html.light footer .bg-\[\#040406\],
-html.light footer .bg-\[\#090E1A\] {
-  background-color: #FFFFFF !important;
-  border-color: rgba(0, 0, 0, 0.08) !important;
 }

@@ -38,6 +38,13 @@ export function QualityVault3D() {
   ];
 
   const currentAssay = assays[activeAssay];
+  const pointLightRef = useRef<THREE.PointLight | null>(null);
+
+  useEffect(() => {
+    if (pointLightRef.current) {
+      pointLightRef.current.color.setHex(currentAssay.threeColor);
+    }
+  }, [currentAssay]);
 
   // 3D Molecular Lattice / Crystal Structure
   useEffect(() => {
@@ -68,6 +75,7 @@ export function QualityVault3D() {
     const pointLight = new THREE.PointLight(currentAssay.threeColor, 4.5, 90);
     pointLight.position.set(20, 20, 30);
     scene.add(pointLight);
+    pointLightRef.current = pointLight;
 
     const rimLight = new THREE.DirectionalLight(0xd4af37, 2.0);
     rimLight.position.set(-30, -20, -20);
@@ -199,8 +207,9 @@ export function QualityVault3D() {
       gyroGeo.dispose();
       gyroMat.dispose();
       renderer.dispose();
+      pointLightRef.current = null;
     };
-  }, [currentAssay]);
+  }, []);
 
   return (
     <section className="relative py-28 sm:py-36 bg-abyss overflow-hidden border-t border-white/5">

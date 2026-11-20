@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Sparkles, ShieldCheck, Check } from "lucide-react";
+import { ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
 import { ProcurementTenderModal, TenderPreFill } from "@/components/leads/ProcurementTenderModal";
 
 interface CardCommodity {
@@ -24,7 +24,7 @@ const CARDS_DATA: CardCommodity[] = [
     category: "Spices",
     grade: "Premium Export Grade · Polished",
     spec: "Curcumin 5.0%+ (HPLC Assayed)",
-    packaging: "25kg / 50kg Multi-Wall PP / Jute",
+    packaging: "25kg Double Food-Grade PP Bags",
     image: "/images/products/alleppey-finger-turmeric.jpg",
     moq: "1 x 20ft FCL (19 MT)",
   },
@@ -44,7 +44,7 @@ const CARDS_DATA: CardCommodity[] = [
     category: "Vegetables",
     grade: "55mm+ Caliber · Hydro-Cooled",
     spec: "Pre-Cooled <3h from Harvest",
-    packaging: "10kg / 25kg Leno Ventilated Mesh",
+    packaging: "10kg Pre-Cooled Ventilated Corrugated Cartons",
     image: "/images/products/nashik-red-onion.jpg",
     moq: "1 x 40ft Reefer (29 MT)",
   },
@@ -97,8 +97,11 @@ export function JiloMovingCommodityCards() {
 
   const handleOpenQuote = (e: React.MouseEvent, item: CardCommodity) => {
     e.stopPropagation();
+    // Send exact commodity name, category, packaging, and volume so new form is pre-selected
     setPreFill({
       commodity: `${item.name} (${item.spec})`,
+      category: item.category,
+      packaging: item.packaging,
       volume: item.moq,
     });
     setIsTenderOpen(true);
@@ -108,20 +111,20 @@ export function JiloMovingCommodityCards() {
   const marqueeItems = [...CARDS_DATA, ...CARDS_DATA];
 
   return (
-    <section className="relative z-10 py-24 bg-black overflow-hidden border-t border-b border-white/10">
+    <section className="relative z-10 py-24 bg-[#040810] overflow-hidden border-t border-b border-white/10">
       {/* ── Section Header ── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-[#E6C687]/30 text-[#E6C687] text-xs font-semibold uppercase tracking-widest mb-3 font-sans">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/60 border border-[#E6C687]/40 text-[#E6C687] text-xs font-semibold uppercase tracking-widest mb-3 font-sans">
               <Sparkles className="w-3.5 h-3.5" />
-              Smooth Continuous Moving Exhibition
+              Continuous Export Marquee
             </div>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-white font-normal tracking-tight">
               Export Calibrated Commodities
             </h2>
             <p className="text-slate-400 text-xs sm:text-sm mt-2 max-w-xl font-light font-sans">
-              Certified single-origin spices, hydro-cooled vegetables, and GI-tagged tropical fruits. Hover or click any commodity to expand and inspect technical parameters.
+              Single-origin spices, hydro-cooled vegetables, and GI-tagged tropical fruits. Click &quot;Instant Quote&quot; on any commodity to configure procurement tenders with automated specifications.
             </p>
           </div>
 
@@ -129,7 +132,7 @@ export function JiloMovingCommodityCards() {
             href="/products"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-white text-xs font-semibold uppercase tracking-wider transition-colors self-start md:self-auto cursor-pointer font-sans"
           >
-            <span>View All Commodities</span>
+            <span>View Full Directory</span>
             <ArrowRight className="w-4 h-4 text-[#E6C687]" />
           </Link>
         </div>
@@ -138,11 +141,11 @@ export function JiloMovingCommodityCards() {
       {/* ── Continuous Smooth Gliding Marquee Container ── */}
       <div className="relative w-full overflow-hidden group">
         {/* Left & Right subtle edge fade */}
-        <div className="absolute left-0 inset-y-0 w-20 sm:w-32 bg-gradient-to-r from-black via-black/80 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 inset-y-0 w-20 sm:w-32 bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 inset-y-0 w-20 sm:w-32 bg-gradient-to-r from-[#040810] via-[#040810]/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 inset-y-0 w-20 sm:w-32 bg-gradient-to-l from-[#040810] via-[#040810]/80 to-transparent z-10 pointer-events-none" />
 
         {/* Gliding Cards Track with generous vertical padding for large scale hover */}
-        <div className="flex gap-7 w-max animate-glide group-hover:[animation-play-state:paused] py-12 px-6">
+        <div className="flex gap-7 w-max animate-glide group-hover:[animation-play-state:paused] py-8 px-6">
           {marqueeItems.map((item, idx) => {
             const isSelected = activeCardId === `${item.id}-${idx}`;
 
@@ -150,7 +153,7 @@ export function JiloMovingCommodityCards() {
               <div
                 key={`${item.id}-${idx}`}
                 onClick={() => setActiveCardId(isSelected ? null : `${item.id}-${idx}`)}
-                className={`relative w-64 sm:w-80 h-[430px] sm:h-[440px] rounded-3xl overflow-hidden bg-[#07070B] shadow-2xl flex flex-col justify-between shrink-0 transition-all duration-300 cursor-pointer group/card font-sans ${
+                className={`relative w-64 sm:w-80 h-[430px] sm:h-[440px] rounded-3xl overflow-hidden bg-[#070D18] shadow-2xl flex flex-col justify-between shrink-0 transition-all duration-300 cursor-pointer group/card font-sans ${
                   isSelected
                     ? "scale-105 sm:scale-110 -translate-y-3 sm:-translate-y-4 z-30 border-2 border-[#E6C687] shadow-[0_25px_60px_rgba(230,198,135,0.3)]"
                     : "border border-white/10 hover:scale-105 sm:hover:scale-110 hover:-translate-y-3 sm:hover:-translate-y-4 hover:z-30 hover:border-[#E6C687] hover:shadow-[0_25px_60px_rgba(230,198,135,0.25)]"
@@ -165,7 +168,7 @@ export function JiloMovingCommodityCards() {
                     sizes="320px"
                     className="object-cover transition-transform duration-700 ease-out group-hover/card:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#07070B] via-transparent to-black/30" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#070D18] via-transparent to-black/30" />
 
                   {/* Category Pill */}
                   <div className="absolute top-3.5 left-3.5 z-10">
@@ -190,24 +193,25 @@ export function JiloMovingCommodityCards() {
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-white/10 mt-3 space-y-2 text-[11px] font-sans">
+                  <div className="pt-3 border-t border-white/10 mt-3 space-y-1.5 text-[11px] font-sans">
                     <div className="flex justify-between text-slate-400">
                       <span>Packaging:</span>
-                      <span className="text-slate-200 truncate max-w-[170px]">{item.packaging.split("·")[0]}</span>
+                      <span className="text-slate-200 truncate max-w-[170px]">{item.packaging}</span>
                     </div>
                     <div className="flex justify-between text-slate-400">
-                      <span>MOQ:</span>
+                      <span>Target MOQ:</span>
                       <span className="text-[#E6C687] font-bold">{item.moq}</span>
                     </div>
                   </div>
 
                   {/* CTA Button */}
-                  <div className="pt-4 mt-3 border-t border-white/10 flex items-center gap-2">
+                  <div className="pt-3 mt-3 border-t border-white/10 flex items-center gap-2">
                     <button
                       type="button"
                       onClick={(e) => handleOpenQuote(e, item)}
-                      className="w-full py-2.5 rounded-full bg-white/5 hover:bg-[#E6C687] hover:text-black border border-white/15 text-white text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer flex items-center justify-center gap-1.5"
+                      className="w-full py-2.5 rounded-full bg-white/5 hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#E6C687] hover:text-black border border-white/15 text-white text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer flex items-center justify-center gap-1.5"
                     >
+                      <Sparkles className="w-3.5 h-3.5" />
                       <span>Instant Quote</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>

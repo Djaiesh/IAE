@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   if (!product) return { title: "Product Not Found" };
 
   return {
-    title: `${product.name} | Export Specification | IAE Global`,
+    title: `${product.name} | Export Specification | ${SITE_CONFIG.name}`,
     description: product.shortDescription,
   };
 }

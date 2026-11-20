@@ -74,13 +74,13 @@ export function BrandFilmSection() {
             playsInline
             loop
             muted={isMuted}
-            poster="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=80"
+            poster="/images/luxury-ocean-vessel.jpg"
             className="w-full h-full object-cover"
             onPlay={() => setIsPlaying(true)}
             onPause={() => setIsPlaying(false)}
           >
             <source
-              src="https://assets.mixkit.co/videos/preview/mixkit-cargo-ship-sailing-in-the-open-sea-43098-large.mp4"
+              src="/video/pages/export-process.mp4"
               type="video/mp4"
             />
           </video>

@@ -414,15 +414,15 @@ export function ContainerVoyageExperience() {
             {/* LAYER 0: BASE ISOLATED CONTAINER */}
             <div
               ref={layerIsolatedRef}
-              className="absolute inset-0 drop-shadow-[0_20px_30px_rgba(0,0,0,0.85)]"
+              className="absolute inset-0 rounded-3xl sm:rounded-4xl overflow-hidden border border-white/15 drop-shadow-[0_20px_30px_rgba(0,0,0,0.85)]"
               style={{ opacity: 1 }}
             >
               <Image
-                src="/images/container-isolated.png"
+                src="/images/container-stage-2-sealed.jpg"
                 alt="3D Marine Cargo Container Traversal"
                 fill
                 priority
-                className="object-contain"
+                className="object-cover"
                 sizes="(max-width: 768px) 280px, 600px"
               />
             </div>

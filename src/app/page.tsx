@@ -1,38 +1,31 @@
 "use client";
 
-import React from "react";
-import dynamic from "next/dynamic";
-import { CinematicHeroVideo } from "@/components/media/CinematicHeroVideo";
-import { LazyMountOnScroll } from "@/components/motion/LazyMountOnScroll";
+import React, { useRef } from "react";
+import { ShipScrollAnimation } from "@/components/motion/ShipScrollAnimation";
+import { UnitedGlobeSection } from "@/components/sections/UnitedGlobeSection";
 import { JiloMovingCommodityCards } from "@/components/sections/JiloMovingCommodityCards";
+import { QualityTrustSection } from "@/components/sections/QualityTrustSection";
 import { JiloPerspectiveMosaic } from "@/components/sections/JiloPerspectiveMosaic";
 
-// ── 3D WebGL Sovereign Globe dynamically imported on client ──
-const SovereignGlobe3D = dynamic(
-  () => import("@/components/three/SovereignGlobe3D").then((m) => m.SovereignGlobe3D),
-  { ssr: false }
-);
-
 export default function HomePage() {
+  const nextSectionRef = useRef<HTMLElement>(null);
+
   return (
     <>
-      {/* 01 — Cinematic Hero: Fullscreen 4K Video with Bottom Down-Arrow Navigation */}
-      <CinematicHeroVideo />
+      {/* 01 — Scroll-Driven Ship Sequence Hero with Seamless Next Section Transition */}
+      <ShipScrollAnimation nextSectionRef={nextSectionRef} />
 
-      {/* 02 — Interactive 3D WebGL Globe: Loads only when user scrolls to this section */}
-      <LazyMountOnScroll minHeight="650px" rootMargin="150px 0px 150px 0px">
-        <SovereignGlobe3D />
-      </LazyMountOnScroll>
+      {/* 02 — 3D Global Logistics Globe with Industrial Typography (Matching Reference) */}
+      <UnitedGlobeSection ref={nextSectionRef} />
 
-      {/* 03 — Smooth Moving Commodity Cards: Loads and glides only when scrolled into view */}
-      <LazyMountOnScroll minHeight="520px" rootMargin="150px 0px 150px 0px">
-        <JiloMovingCommodityCards />
-      </LazyMountOnScroll>
+      {/* 03 — Continuous Smooth Moving Commodity Exhibition with Dynamic Per-Item Quotes */}
+      <JiloMovingCommodityCards />
 
-      {/* 04 — Sovereign Agro-Export Mosaic Gallery: Mounts only when scrolled into view */}
-      <LazyMountOnScroll minHeight="600px" rootMargin="150px 0px 150px 0px">
-        <JiloPerspectiveMosaic />
-      </LazyMountOnScroll>
+      {/* 04 — Scientific Quality Standards & Accreditations (HPLC, MRL, Reefer Telemetry) */}
+      <QualityTrustSection />
+
+      {/* 05 — Sovereign Agro-Export Mosaic Gallery (Directly above footer, matching Image 1) */}
+      <JiloPerspectiveMosaic />
     </>
   );
 }
