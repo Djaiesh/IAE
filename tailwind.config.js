@@ -42,10 +42,10 @@ module.exports = {
         cream: "#F8FAFC",
       },
       fontFamily: {
-        display: ["'Oxanium'", "'Space Grotesk'", "sans-serif"],
-        heading: ["'Oxanium'", "'Space Grotesk'", "sans-serif"],
-        serif: ["'Oxanium'", "'Space Grotesk'", "sans-serif"],
-        sans: ["'Space Grotesk'", "'Outfit'", "system-ui", "-apple-system", "sans-serif"],
+        display: ["'Playfair Display'", "Georgia", "'Times New Roman'", "serif"],
+        heading: ["'Playfair Display'", "Georgia", "'Times New Roman'", "serif"],
+        serif: ["'Playfair Display'", "Georgia", "'Times New Roman'", "serif"],
+        sans: ["'Inter'", "system-ui", "-apple-system", "'Segoe UI'", "sans-serif"],
         mono: ["'Space Mono'", "monospace"],
       },
       borderRadius: {
@@ -109,5 +109,7 @@ module.exports = {
     "word-reveal-wrap",
     "word-reveal-inner",
     "tracking-eyebrow",
+    "floating-particle",
+    "floating-diamond",
   ],
 };

@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
           rel="stylesheet"
         />
         <script
@@ -50,9 +50,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     history.scrollRestoration = 'manual';
                   }
                   window.scrollTo(0, 0);
-                  var theme = localStorage.getItem('jilo-theme') || 'dark';
-                  document.documentElement.classList.add(theme);
-                  document.documentElement.setAttribute('data-theme', theme);
+                  document.documentElement.classList.add('dark');
+                  document.documentElement.setAttribute('data-theme', 'dark');
                 } catch (e) {}
               })();
             `,
@@ -68,6 +67,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="orb orb-teal  w-[700px] h-[700px] -top-48 -left-32  opacity-60" style={{ animationDelay: "0s", animationDuration: "18s" }} />
           <div className="orb orb-gold  w-[500px] h-[500px] top-1/3 -right-40  opacity-40" style={{ animationDelay: "-6s", animationDuration: "22s" }} />
           <div className="orb orb-ocean w-[600px] h-[600px] bottom-0  left-1/4  opacity-50" style={{ animationDelay: "-12s", animationDuration: "26s" }} />
+        </div>
+
+        {/* Ambient Floating Luxury Gold Particles & Drifting Diamonds */}
+        <div aria-hidden="true" className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+          <div className="floating-particle" style={{ top: '12%', left: '10%', ['--particle-dur' as any]: '16s', ['--particle-delay' as any]: '0s' }} />
+          <div className="floating-particle" style={{ top: '38%', left: '88%', ['--particle-dur' as any]: '21s', ['--particle-delay' as any]: '-4s' }} />
+          <div className="floating-particle" style={{ top: '65%', left: '22%', ['--particle-dur' as any]: '18s', ['--particle-delay' as any]: '-8s' }} />
+          <div className="floating-particle" style={{ top: '28%', left: '72%', ['--particle-dur' as any]: '23s', ['--particle-delay' as any]: '-2s' }} />
+          <div className="floating-particle" style={{ top: '82%', left: '52%', ['--particle-dur' as any]: '15s', ['--particle-delay' as any]: '-6s' }} />
+          <div className="floating-diamond" style={{ top: '18%', left: '58%', ['--diamond-dur' as any]: '24s', ['--diamond-delay' as any]: '0s' }} />
+          <div className="floating-diamond" style={{ top: '50%', left: '12%', ['--diamond-dur' as any]: '20s', ['--diamond-delay' as any]: '-5s' }} />
+          <div className="floating-diamond" style={{ top: '78%', left: '84%', ['--diamond-dur' as any]: '26s', ['--diamond-delay' as any]: '-10s' }} />
         </div>
 
         <EntryLoader />
