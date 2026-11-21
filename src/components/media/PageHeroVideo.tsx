@@ -68,10 +68,10 @@ export function PageHeroVideo({
           <source src={videoSrc} type="video/mp4" />
         </video>
 
-        {/* Sophisticated Multilayer Overlays for Text Contrast & Luxury Mood */}
-        <div className="absolute inset-0 bg-navy/70 dark:bg-black/75 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-black/60 dark:from-navy dark:via-black/40 dark:to-black/80" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,transparent_0%,rgba(6,16,29,0.7)_100%)]" />
+        {/* Sophisticated Multilayer Overlays: subtle dark tint for pristine video clarity & text readability */}
+        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#040810] via-black/30 to-black/55" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-10">

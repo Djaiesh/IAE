@@ -95,7 +95,7 @@ export default function QualityPage() {
     <div className="bg-navy text-cream min-h-screen">
       {/* 1. Cinematic Dedicated Page Hero Video */}
       <PageHeroVideo
-        videoSrc="/video/pages/quality.mp4"
+        videoSrc="/video/quality_page_video.mp4"
         badgeIcon={<FlaskConical className="w-3.5 h-3.5" />}
         badgeText="ISO 17025 Accreditations • Quality Vault"
         title="Quality Assurance Protocol"

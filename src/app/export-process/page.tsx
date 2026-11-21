@@ -48,7 +48,7 @@ export default function ExportProcessPage() {
     <div className="bg-navy text-cream min-h-screen">
       {/* 1. Cinematic Dedicated Page Hero Video */}
       <PageHeroVideo
-        videoSrc="/video/pages/export-process.mp4"
+        videoSrc="/video/export_page_video.mp4"
         badgeIcon={<Compass className="w-3.5 h-3.5 text-saffron" />}
         badgeText="End-to-End Maritime Execution • Port Logistics"
         title="The Six-Stage Maritime"

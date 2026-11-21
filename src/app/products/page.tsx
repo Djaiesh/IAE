@@ -45,7 +45,7 @@ export default function ProductsPage() {
     <div className="bg-navy text-cream min-h-screen">
       {/* 1. Cinematic Dedicated Page Hero Video */}
       <PageHeroVideo
-        videoSrc="/video/pages/products.mp4"
+        videoSrc="/video/product_page_video.mp4"
         badgeIcon={<Package className="w-3.5 h-3.5" />}
         badgeText="Export Portfolio • Certified Commodities"
         title="Certified Global"

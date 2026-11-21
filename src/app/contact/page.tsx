@@ -40,7 +40,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
     <div className="bg-navy text-cream min-h-screen">
       {/* 1. Cinematic Dedicated Page Hero Video */}
       <PageHeroVideo
-        videoSrc="/video/pages/contact.mp4"
+        videoSrc="/video/contact_page_video.mp4"
         badgeIcon={<Anchor className="w-3.5 h-3.5 text-saffron" />}
         badgeText="Direct B2B Procurement Desk • Maritime Trade"
         title="Initiate a Trade Inquiry or"

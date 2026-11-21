@@ -83,7 +83,7 @@ export default function AboutPage() {
     <div className="bg-navy text-cream min-h-screen">
       {/* 1. Cinematic Dedicated Page Hero Video */}
       <PageHeroVideo
-        videoSrc="/video/pages/about.mp4"
+        videoSrc="/video/about_page_video.mp4"
         badgeIcon={<Anchor className="w-3.5 h-3.5 text-saffron" />}
         badgeText={`${SITE_CONFIG.brandMark} • Corporate Profile & Origins`}
         title="Bridging Provenance Fields With"
