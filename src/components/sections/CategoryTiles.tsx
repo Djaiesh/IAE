@@ -17,13 +17,13 @@ export function CategoryTiles({ className, showHeader = true }: CategoryTilesPro
   const getCategoryGradient = (slug: string) => {
     switch (slug.toLowerCase()) {
       case "spices":
-        return "from-amber-500/25 via-[#0E3C7A]/85 to-[#0A2E5C]/95 border-amber-400/40 group-hover:border-amber-300 group-hover:shadow-[0_20px_50px_rgba(251,191,36,0.25)]";
+        return "from-amber-500/25 via-[#124B9E]/85 to-[#0B3B82]/95 border-amber-400/40 group-hover:border-amber-300 group-hover:shadow-[0_20px_50px_rgba(251,191,36,0.25)]";
       case "vegetables":
-        return "from-emerald-500/25 via-[#0E3C7A]/85 to-[#0A2E5C]/95 border-emerald-400/40 group-hover:border-emerald-300 group-hover:shadow-[0_20px_50px_rgba(52,211,153,0.25)]";
+        return "from-emerald-500/25 via-[#124B9E]/85 to-[#0B3B82]/95 border-emerald-400/40 group-hover:border-emerald-300 group-hover:shadow-[0_20px_50px_rgba(52,211,153,0.25)]";
       case "fruits":
-        return "from-rose-500/25 via-[#0E3C7A]/85 to-[#0A2E5C]/95 border-rose-400/40 group-hover:border-rose-300 group-hover:shadow-[0_20px_50px_rgba(244,63,94,0.25)]";
+        return "from-rose-500/25 via-[#124B9E]/85 to-[#0B3B82]/95 border-rose-400/40 group-hover:border-rose-300 group-hover:shadow-[0_20px_50px_rgba(244,63,94,0.25)]";
       default:
-        return "from-sky-500/25 via-[#0E3C7A]/85 to-[#0A2E5C]/95 border-sky-400/40";
+        return "from-sky-500/25 via-[#124B9E]/85 to-[#0B3B82]/95 border-sky-400/40";
     }
   };
 
@@ -109,7 +109,7 @@ export function CategoryTiles({ className, showHeader = true }: CategoryTilesPro
                     <span className="text-[10px] font-mono tracking-wider uppercase text-slate-200 block font-semibold">
                       Dedicated Origin Line
                     </span>
-                    <span className="inline-block px-3 py-1 rounded-full text-[11px] font-sans font-bold bg-[#072248]/80 backdrop-blur-md text-white border border-white/20">
+                    <span className="inline-block px-3 py-1 rounded-full text-[11px] font-sans font-bold bg-[#0D448E]/85 backdrop-blur-md text-white border border-white/25">
                       {count > 0 ? `${count} Active Cultivars` : `${cat.keyCommodities.length} Commodities`}
                     </span>
                   </div>
@@ -139,7 +139,7 @@ export function CategoryTiles({ className, showHeader = true }: CategoryTilesPro
                     {cat.keyCommodities.slice(0, 3).map((comm) => (
                       <span
                         key={comm}
-                        className="text-[10px] font-sans bg-[#072248]/80 backdrop-blur-md border border-white/20 px-3 py-1 rounded-full text-white font-medium"
+                        className="text-[10px] font-sans bg-[#0D448E]/85 backdrop-blur-md border border-white/25 px-3 py-1 rounded-full text-white font-medium"
                       >
                         {comm}
                       </span>

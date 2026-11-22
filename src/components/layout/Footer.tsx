@@ -25,9 +25,9 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#061F42]/95 backdrop-blur-2xl text-white overflow-hidden border-t border-white/20 font-sans">
+    <footer className="relative bg-[#0B3B82]/95 backdrop-blur-2xl text-white overflow-hidden border-t border-white/20 font-sans">
       {/* Top Crimson Shimmer Line */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#E50914]/50 to-transparent" />
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#FF1E27]/60 to-transparent" />
 
       {/* Main Multi-Column Grid */}
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-16">

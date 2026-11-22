@@ -42,13 +42,13 @@ export function FeaturedProducts({
         {/* Section Header */}
         <div className="flex items-end justify-between mb-12 sm:mb-16 gap-6 flex-col sm:flex-row">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#082247]/80 border border-[#E50914]/50 text-[#E50914] text-xs font-semibold uppercase tracking-widest mb-3 font-sans">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0D448E]/85 border border-[#FF1E27]/50 text-[#FF1E27] text-xs font-semibold uppercase tracking-widest mb-3 font-sans">
               <Sparkles className="w-3.5 h-3.5" />
               Prime Export Inventory
             </div>
             <h2 className="font-display text-3xl sm:text-5xl text-white font-normal tracking-tight">
               Flagship Export
-              <span className="text-[#E50914] italic font-light block mt-1">
+              <span className="text-[#FF1E27] italic font-light block mt-1">
                 Spotlight Selections
               </span>
             </h2>
@@ -56,7 +56,7 @@ export function FeaturedProducts({
           {showExploreAll && (
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-wider text-[#E50914] hover:brightness-125 transition-colors shrink-0 font-bold min-h-[44px]"
+              className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-wider text-[#FF1E27] hover:brightness-125 transition-colors shrink-0 font-bold min-h-[44px]"
             >
               <span>Explore All Commodities</span>
               <ArrowRight className="w-4 h-4" />
@@ -69,10 +69,10 @@ export function FeaturedProducts({
           {spotlightProducts.map((product) => (
             <div
               key={product.id}
-              className="group bg-[#0E3C7A]/85 backdrop-blur-xl rounded-3xl sm:rounded-4xl overflow-hidden flex flex-col border border-white/20 transition-all duration-300 hover:-translate-y-2 hover:border-[#38BDF8] hover:shadow-[0_20px_50px_rgba(56,189,248,0.25)]"
+              className="group bg-[#124B9E]/85 backdrop-blur-xl rounded-3xl sm:rounded-4xl overflow-hidden flex flex-col border border-white/25 transition-all duration-300 hover:-translate-y-2 hover:border-[#38BDF8] hover:shadow-[0_20px_50px_rgba(56,189,248,0.3)]"
             >
               {/* Product Image Frame */}
-              <div className="relative h-64 w-full overflow-hidden bg-[#0B2E5E]">
+              <div className="relative h-64 w-full overflow-hidden bg-[#0D3F82]">
                 <Image
                   src={product.image}
                   alt={`${product.name} - ${product.grade || "Export Quality"}`}
@@ -80,7 +80,7 @@ export function FeaturedProducts({
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0E3C7A] via-transparent to-black/20 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#124B9E] via-transparent to-black/20 pointer-events-none" />
 
                 {/* Category & Status Badges */}
                 <div className="absolute top-4 left-4 flex flex-wrap gap-2 z-10">
@@ -93,7 +93,7 @@ export function FeaturedProducts({
                     {product.category}
                   </span>
                   {product.grade && (
-                    <span className="text-[10px] font-sans uppercase tracking-wider bg-[#082247]/90 text-slate-200 px-2.5 py-1 rounded-full border border-white/20 backdrop-blur-md">
+                    <span className="text-[10px] font-sans uppercase tracking-wider bg-[#0D448E]/90 text-slate-200 px-2.5 py-1 rounded-full border border-white/25 backdrop-blur-md">
                       {product.grade.split("(")[0].trim()}
                     </span>
                   )}
@@ -112,7 +112,7 @@ export function FeaturedProducts({
               {/* Card Body */}
               <div className="p-7 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-display text-xl sm:text-2xl text-white group-hover:text-[#E50914] transition-colors mb-2">
+                  <h3 className="font-display text-xl sm:text-2xl text-white group-hover:text-[#FF1E27] transition-colors mb-2">
                     {product.name}
                   </h3>
                   <p className="font-sans text-xs sm:text-sm text-slate-200 font-light line-clamp-2 mb-6 leading-relaxed">

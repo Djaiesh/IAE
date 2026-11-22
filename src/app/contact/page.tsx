@@ -189,7 +189,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
               </div>
 
               {/* Embedded Google Map */}
-              <div className="relative h-48 rounded-2xl overflow-hidden border border-white/20 shadow-xl bg-[#0A2E5C]">
+              <div className="relative h-48 rounded-2xl overflow-hidden border border-white/20 shadow-xl bg-[#0E4E9E]">
                 <iframe
                   title="JILO Headquarters Location Map - Valasaravakkam, Chennai"
                   src="https://maps.google.com/maps?q=Valasaravakkam%2C%20Chennai%2C%20Tamil%20Nadu%2C%20India&t=&z=14&ie=UTF8&iwloc=&output=embed"

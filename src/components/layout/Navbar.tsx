@@ -59,8 +59,8 @@ export function Navbar() {
         className={cn(
           "fixed z-50 transition-all duration-500",
           isScrolled
-            ? "top-0 left-0 right-0 py-3 bg-[#0A2E5C]/90 backdrop-blur-2xl border-b border-white/20 shadow-[0_10px_35px_rgba(2,20,50,0.35)]"
-            : "top-3 sm:top-4 left-3 right-3 sm:left-5 sm:right-5 py-2.5 sm:py-3 bg-[#0D3870]/85 backdrop-blur-xl border border-white/20 rounded-full shadow-[0_10px_35px_rgba(2,20,50,0.35)]"
+            ? "top-0 left-0 right-0 py-3 bg-[#0B3B82]/92 backdrop-blur-2xl border-b border-white/25 shadow-[0_10px_35px_rgba(2,20,60,0.35)]"
+            : "top-3 sm:top-4 left-3 right-3 sm:left-5 sm:right-5 py-2.5 sm:py-3 bg-[#0E4E9E]/85 backdrop-blur-xl border border-white/25 rounded-full shadow-[0_10px_35px_rgba(2,20,60,0.35)]"
         )}
       >
         <div className="w-full px-3 sm:px-6 lg:px-8">

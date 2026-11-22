@@ -122,7 +122,7 @@ export function CinematicOceanCanvas() {
       const mouseParallaxX = ((mouseX / width) - 0.5) * 40;
       const mouseParallaxY = ((mouseY / height) - 0.5) * 20;
 
-      // ── 01. Base Multi-Stop Radiant Ocean Depth Gradient ──
+      // ── 01. Base Multi-Stop Radiant Ocean Depth Gradient (GlobalLink Corporate Blue) ──
       const bgGrad = ctx.createRadialGradient(
         width * 0.5 + mouseParallaxX * 0.5,
         -height * 0.1,
@@ -131,11 +131,11 @@ export function CinematicOceanCanvas() {
         height * 0.5,
         Math.max(width, height) * 1.1
       );
-      bgGrad.addColorStop(0, "#1F6BC2");   // Sunlit Ocean Surface
-      bgGrad.addColorStop(0.25, "#145199"); // Radiant Cerulean
-      bgGrad.addColorStop(0.55, "#0E3970"); // Royal Sapphire
-      bgGrad.addColorStop(0.85, "#08244D"); // Midnight Marine Depth
-      bgGrad.addColorStop(1, "#04142E");   // Abyssal Floor
+      bgGrad.addColorStop(0, "#2B82EC");    // Sunlit Brilliant Sky/Cobalt Blue
+      bgGrad.addColorStop(0.22, "#1B6ED9"); // Radiant Electric Royal Blue
+      bgGrad.addColorStop(0.50, "#1257BF"); // Rich Corporate Sapphire Blue
+      bgGrad.addColorStop(0.78, "#0D46A6"); // Vibrant Maritime Cobalt Blue
+      bgGrad.addColorStop(1, "#0A3B8C");    // Deep Luminous Royal Blue Floor (No dark/black abyss!)
 
       ctx.fillStyle = bgGrad;
       ctx.fillRect(0, 0, width, height);
@@ -161,9 +161,9 @@ export function CinematicOceanCanvas() {
         const rayPulse = Math.sin(time * 1.2 + i * 2) * 0.04;
         const currentAlpha = Math.max(0.04, ray.alpha + rayPulse);
 
-        rayGrad.addColorStop(0, `rgba(186, 230, 253, ${currentAlpha * 1.2})`);
-        rayGrad.addColorStop(0.3, `rgba(56, 189, 248, ${currentAlpha * 0.9})`);
-        rayGrad.addColorStop(0.7, `rgba(14, 165, 233, ${currentAlpha * 0.4})`);
+        rayGrad.addColorStop(0, `rgba(224, 242, 254, ${currentAlpha * 1.4})`);
+        rayGrad.addColorStop(0.3, `rgba(125, 211, 252, ${currentAlpha * 1.1})`);
+        rayGrad.addColorStop(0.7, `rgba(56, 189, 248, ${currentAlpha * 0.6})`);
         rayGrad.addColorStop(1, "rgba(2, 132, 199, 0)");
 
         ctx.fillStyle = rayGrad;
@@ -181,14 +181,14 @@ export function CinematicOceanCanvas() {
       // ── 03. Water Caustic Shimmer Wave Layer ──
       ctx.save();
       ctx.globalCompositeOperation = "screen";
-      const causticPulse = Math.sin(time * 0.8) * 0.05 + 0.12;
+      const causticPulse = Math.sin(time * 0.8) * 0.05 + 0.15;
 
       // Caustic Node 1 (Upper Left Swell)
       const c1X = width * 0.35 + Math.sin(time * 0.5) * 60 + mouseParallaxX;
       const c1Y = height * 0.3 + Math.cos(time * 0.4) * 40 + mouseParallaxY;
       const c1Grad = ctx.createRadialGradient(c1X, c1Y, 10, c1X, c1Y, width * 0.45);
-      c1Grad.addColorStop(0, `rgba(125, 211, 252, ${causticPulse * 1.3})`);
-      c1Grad.addColorStop(0.4, `rgba(56, 189, 248, ${causticPulse * 0.7})`);
+      c1Grad.addColorStop(0, `rgba(186, 230, 253, ${causticPulse * 1.5})`);
+      c1Grad.addColorStop(0.4, `rgba(56, 189, 248, ${causticPulse * 0.9})`);
       c1Grad.addColorStop(1, "rgba(14, 165, 233, 0)");
       ctx.fillStyle = c1Grad;
       ctx.fillRect(0, 0, width, height);
@@ -197,8 +197,8 @@ export function CinematicOceanCanvas() {
       const c2X = width * 0.75 + Math.cos(time * 0.45) * 70;
       const c2Y = height * 0.6 + Math.sin(time * 0.35) * 50;
       const c2Grad = ctx.createRadialGradient(c2X, c2Y, 20, c2X, c2Y, width * 0.5);
-      c2Grad.addColorStop(0, `rgba(56, 189, 248, ${causticPulse * 1.1})`);
-      c2Grad.addColorStop(0.5, `rgba(37, 99, 235, ${causticPulse * 0.5})`);
+      c2Grad.addColorStop(0, `rgba(125, 211, 252, ${causticPulse * 1.3})`);
+      c2Grad.addColorStop(0.5, `rgba(59, 130, 246, ${causticPulse * 0.7})`);
       c2Grad.addColorStop(1, "rgba(2, 132, 199, 0)");
       ctx.fillStyle = c2Grad;
       ctx.fillRect(0, 0, width, height);
