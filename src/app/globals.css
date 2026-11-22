@@ -16,10 +16,10 @@
   --cream: #FFFFFF;
 
   /* Sovereign Crimson / Red Accents */
-  --gold: #FF385C;
-  --gold-light: #FF6B8B;
-  --gold-dark: #E11D48;
-  --gold-glow: rgba(255, 56, 92, 0.35);
+  --gold: #E50914;
+  --gold-light: #FF2A36;
+  --gold-dark: #B8000B;
+  --gold-glow: rgba(229, 9, 20, 0.4);
 
   /* Agricultural Provenance Emerald Accent */
   --emerald: #10B981;
@@ -31,12 +31,12 @@
   --marine-glow: rgba(2, 132, 199, 0.35);
 
   /* Sovereign Crimson Secondary / Accent */
-  --saffron: #FF385C;
-  --saffron-light: #FF6B8B;
-  --saffron-glow: rgba(255, 56, 92, 0.35);
+  --saffron: #E50914;
+  --saffron-light: #FF2A36;
+  --saffron-glow: rgba(229, 9, 20, 0.4);
 
   /* Crimson Radiant Red */
-  --crimson: #FF385C;
+  --crimson: #E50914;
 
   /* ── Luxury B2B Typography: Playfair Display & Inter ── */
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
@@ -202,8 +202,8 @@ button, input, select, textarea, .badge, .tag, .tab-item {
   background: rgba(16, 60, 124, 0.82);
   backdrop-filter: blur(28px) saturate(190%);
   -webkit-backdrop-filter: blur(28px) saturate(190%);
-  border: 1px solid rgba(255, 56, 92, 0.45);
-  box-shadow: 0 20px 50px rgba(4, 25, 60, 0.4), 0 0 35px rgba(255, 56, 92, 0.25), inset 0 1px 0 rgba(255, 56, 92, 0.3);
+  border: 1px solid rgba(229, 9, 20, 0.5);
+  box-shadow: 0 20px 50px rgba(4, 25, 60, 0.4), 0 0 35px rgba(229, 9, 20, 0.3), inset 0 1px 0 rgba(229, 9, 20, 0.35);
 }
 
 .glass-emerald-edge {
@@ -218,16 +218,16 @@ button, input, select, textarea, .badge, .tag, .tab-item {
   background: rgba(16, 60, 124, 0.82);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid rgba(255, 56, 92, 0.4);
-  box-shadow: 0 14px 40px rgba(4, 25, 60, 0.35), 0 0 30px rgba(255, 56, 92, 0.25);
+  border: 1px solid rgba(229, 9, 20, 0.45);
+  box-shadow: 0 14px 40px rgba(4, 25, 60, 0.35), 0 0 30px rgba(229, 9, 20, 0.3);
 }
 
 .glass-hover {
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .glass-hover:hover {
-  border-color: rgba(255, 56, 92, 0.45);
-  box-shadow: var(--shadow-card), 0 0 40px rgba(255, 56, 92, 0.25);
+  border-color: rgba(229, 9, 20, 0.55);
+  box-shadow: var(--shadow-card), 0 0 40px rgba(229, 9, 20, 0.3);
   transform: translateY(-4px);
 }
 
@@ -268,7 +268,7 @@ button, input, select, textarea, .badge, .tag, .tab-item {
 
 /* Specular Gradient Texts */
 .text-gradient-gold {
-  background: linear-gradient(135deg, #FFFFFF 0%, #FF385C 50%, #E11D48 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #E50914 50%, #B8000B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -292,7 +292,7 @@ button, input, select, textarea, .badge, .tag, .tab-item {
   justify-content: center;
   gap: 0.6rem;
   padding: 0.95rem 2.25rem;
-  background: linear-gradient(135deg, #FF385C 0%, #FF4D6D 50%, #E11D48 100%);
+  background: linear-gradient(135deg, #E50914 0%, #FF1E27 50%, #B8000B 100%);
   background-size: 200% 100%;
   color: #FFFFFF;
   font-family: var(--font-sans);
@@ -303,13 +303,13 @@ button, input, select, textarea, .badge, .tag, .tab-item {
   border-radius: var(--radius-pill);
   border: none;
   cursor: pointer;
-  box-shadow: 0 6px 28px rgba(255, 56, 92, 0.4);
+  box-shadow: 0 6px 28px rgba(229, 9, 20, 0.45);
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   text-decoration: none;
 }
 .btn-primary:hover {
   background-position: 100% 0;
-  box-shadow: 0 8px 36px rgba(255, 56, 92, 0.6);
+  box-shadow: 0 8px 36px rgba(229, 9, 20, 0.65);
   transform: translateY(-2px) scale(1.02);
 }
 
@@ -335,7 +335,7 @@ button, input, select, textarea, .badge, .tag, .tab-item {
   text-decoration: none;
 }
 .btn-ghost:hover {
-  border-color: rgba(255, 56, 92, 0.6);
+  border-color: rgba(229, 9, 20, 0.65);
   background: rgba(14, 28, 48, 0.85);
   transform: translateY(-2px);
 }
@@ -540,7 +540,7 @@ html.lenis, html.lenis body {
   background: radial-gradient(circle, rgba(14, 165, 233, 0.45) 0%, transparent 70%);
 }
 .orb-gold {
-  background: radial-gradient(circle, rgba(255, 56, 92, 0.35) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(229, 9, 20, 0.4) 0%, transparent 70%);
 }
 .orb-ocean {
   background: radial-gradient(circle, rgba(2, 132, 199, 0.50) 0%, transparent 70%);
@@ -601,7 +601,7 @@ html.lenis { height: auto; }
 /* ── Orb floating elements ── */
 .orb { position: absolute; border-radius: 9999px; filter: blur(80px); }
 .orb-teal  { background: radial-gradient(circle, rgba(14,165,233,0.45) 0%, transparent 70%); }
-.orb-gold  { background: radial-gradient(circle, rgba(255,56,92,0.35) 0%, transparent 70%); }
+.orb-gold  { background: radial-gradient(circle, rgba(229,9,20,0.4) 0%, transparent 70%); }
 .orb-ocean { background: radial-gradient(circle, rgba(2,132,199,0.50) 0%, transparent 70%); }
 @keyframes orbDrift { 0%,100%{transform:translate(0,0)} 33%{transform:translate(20px,-15px)} 66%{transform:translate(-15px,20px)} }
 .orb { animation: orbDrift var(--drift-dur, 20s) ease-in-out infinite; }
@@ -630,8 +630,8 @@ html.lenis { height: auto; }
 
 .isometric-card:hover {
   transform: translateZ(36px) scale(1.06);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.95), 0 0 30px rgba(255, 56, 92, 0.35);
-  border-color: rgba(255, 56, 92, 0.6) !important;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.95), 0 0 30px rgba(229, 9, 20, 0.4);
+  border-color: rgba(229, 9, 20, 0.7) !important;
   z-index: 20;
 }
 
@@ -732,8 +732,8 @@ html.lenis { height: auto; }
   width: 4px;
   height: 4px;
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(255, 56, 92, 0.9) 0%, rgba(255, 56, 92, 0) 70%);
-  box-shadow: 0 0 10px rgba(255, 56, 92, 0.5);
+  background: radial-gradient(circle, rgba(229, 9, 20, 0.9) 0%, rgba(229, 9, 20, 0) 70%);
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
   pointer-events: none;
   animation: particleFloat var(--particle-dur, 18s) ease-in-out infinite;
   animation-delay: var(--particle-delay, 0s);
@@ -743,10 +743,10 @@ html.lenis { height: auto; }
   position: absolute;
   width: 5px;
   height: 5px;
-  background: rgba(255, 56, 92, 0.4);
-  border: 1px solid rgba(255, 56, 92, 0.6);
+  background: rgba(229, 9, 20, 0.4);
+  border: 1px solid rgba(229, 9, 20, 0.6);
   transform: rotate(45deg);
-  box-shadow: 0 0 8px rgba(255, 56, 92, 0.3);
+  box-shadow: 0 0 8px rgba(229, 9, 20, 0.35);
   pointer-events: none;
   animation: diamondDrift var(--diamond-dur, 22s) ease-in-out infinite;
   animation-delay: var(--diamond-delay, 0s);

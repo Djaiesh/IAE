@@ -37,7 +37,7 @@ export function HeroParticles3D() {
     const scales = new Float32Array(particleCount);
 
     const saffronColor = new THREE.Color("#FF8833");
-    const goldColor = new THREE.Color("#FF385C");
+    const goldColor = new THREE.Color("#E50914");
     const tealColor = new THREE.Color("#22879D");
 
     for (let i = 0; i < particleCount; i++) {

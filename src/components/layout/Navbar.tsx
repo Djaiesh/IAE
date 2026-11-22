@@ -69,14 +69,14 @@ export function Navbar() {
             {/* ── LEFT: JILO Brand Logo & Name Only (No Extra Clutter) ── */}
             <div className="flex items-center gap-3 justify-start shrink-0">
               <Link href="/" aria-label="JILO Global Agro-Exports Home" className="flex items-center gap-3 group">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center border border-[#FF385C]/50 bg-[#0A2E5C] shadow-md group-hover:border-[#FF385C] transition-all">
-                  <span className="font-display text-lg font-bold text-[#FF385C]">J</span>
+                <div className="w-10 h-10 rounded-full flex items-center justify-center border border-[#E50914]/50 bg-[#0A2E5C] shadow-md group-hover:border-[#E50914] transition-all">
+                  <span className="font-display text-lg font-bold text-[#E50914]">J</span>
                 </div>
                 <div className="text-left hidden sm:block">
-                  <span className="font-display text-2xl font-bold text-white block leading-none tracking-widest group-hover:text-[#FF385C] transition-colors">
+                  <span className="font-display text-2xl font-bold text-white block leading-none tracking-widest group-hover:text-[#E50914] transition-colors">
                     JILO
                   </span>
-                  <span className="text-[9px] tracking-widest uppercase text-[#FF385C] font-sans font-medium block mt-0.5">
+                  <span className="text-[9px] tracking-widest uppercase text-[#E50914] font-sans font-medium block mt-0.5">
                     Agro-Exports
                   </span>
                 </div>
@@ -95,7 +95,7 @@ export function Navbar() {
                       className={cn(
                         "relative px-4 py-1.5 text-xs font-sans uppercase tracking-wider rounded-full transition-all duration-200 cursor-pointer",
                         isActive
-                          ? "text-[#FF385C] bg-[#FF385C]/15 border border-[#FF385C]/30 font-bold shadow-sm"
+                          ? "text-[#E50914] bg-[#E50914]/15 border border-[#E50914]/30 font-bold shadow-sm"
                           : "text-slate-300 hover:text-white hover:bg-white/5 font-medium"
                       )}
                     >
@@ -138,10 +138,10 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden p-2 rounded-full border border-white/10 bg-white/5 text-white hover:border-[#FF385C]/50 transition-colors focus:outline-none cursor-pointer"
+                className="lg:hidden p-2 rounded-full border border-white/10 bg-white/5 text-white hover:border-[#E50914]/50 transition-colors focus:outline-none cursor-pointer"
                 aria-label={mobileOpen ? "Close menu" : "Open menu"}
               >
-                {mobileOpen ? <X className="w-5 h-5 text-[#FF385C]" /> : <Menu className="w-5 h-5" />}
+                {mobileOpen ? <X className="w-5 h-5 text-[#E50914]" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
 
@@ -168,7 +168,7 @@ export function Navbar() {
         <div className="relative h-full flex flex-col pt-24 px-6 pb-10 overflow-y-auto">
           <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
             <span className="font-display text-2xl font-bold text-white tracking-widest">JILO</span>
-            <span className="text-[10px] uppercase font-bold tracking-widest text-[#FF385C] px-2.5 py-1 rounded-full bg-white/5 border border-white/10">
+            <span className="text-[10px] uppercase font-bold tracking-widest text-[#E50914] px-2.5 py-1 rounded-full bg-white/5 border border-white/10">
               Navigation
             </span>
           </div>
@@ -184,12 +184,12 @@ export function Navbar() {
                   className={cn(
                     "flex items-center justify-between py-3.5 px-4 rounded-2xl border transition-all font-display text-lg",
                     isActive
-                      ? "text-[#FF385C] border-[#FF385C]/40 bg-[#FF385C]/10"
+                      ? "text-[#E50914] border-[#E50914]/40 bg-[#E50914]/10"
                       : "text-slate-300 border-white/5 hover:border-white/20 hover:bg-white/5"
                   )}
                 >
                   <span className="flex items-center gap-3">
-                    <span className="text-xs font-mono text-[#FF385C]/60">0{i + 1}.</span>
+                    <span className="text-xs font-mono text-[#E50914]/60">0{i + 1}.</span>
                     <span>{item.label}</span>
                   </span>
                   <ArrowUpRight className="w-4 h-4 text-slate-500" />

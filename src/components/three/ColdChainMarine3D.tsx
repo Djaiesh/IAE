@@ -38,8 +38,8 @@ export function ColdChainMarine3D() {
       oxygen: "3% Scrubbed",
       co2: "5% Enriched",
       status: "Ethylene Scrubbed Active",
-      color: "#FF385C",
-      threeColor: 0xff385c,
+      color: "#E50914",
+      threeColor: 0xe50914,
     },
   };
 
@@ -138,7 +138,7 @@ export function ColdChainMarine3D() {
     shipGroup.add(bow);
 
     // Glowing Containers Stack
-    const containerColors = [0xff385c, 0x1b6b7c, 0xe11d48, 0x0f3a5c];
+    const containerColors = [0xe50914, 0x1b6b7c, 0xb8000b, 0x0f3a5c];
     for (let x = -4; x <= 4; x += 4) {
       for (let y = 5; y <= 9; y += 2.5) {
         for (let z = -10; z <= 8; z += 6) {
@@ -164,7 +164,7 @@ export function ColdChainMarine3D() {
 
     // Glowing Navigation Mast Beacon
     const beaconGeo = new THREE.SphereGeometry(0.8, 16, 16);
-    const beaconMat = new THREE.MeshBasicMaterial({ color: 0xff6b00 });
+    const beaconMat = new THREE.MeshBasicMaterial({ color: 0xe50914 });
     const beacon = new THREE.Mesh(beaconGeo, beaconMat);
     beacon.position.set(0, 14, 12);
     shipGroup.add(beacon);

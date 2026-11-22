@@ -143,17 +143,17 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
       const globeGroup = new THREE.Group();
       scene.add(globeGroup);
 
-      // Warm Golden Scene Lighting for Depth
-      const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+      // Clean Oceanic & Vibrant Red Scene Lighting
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.75);
       scene.add(ambientLight);
 
-      const goldDirLight = new THREE.DirectionalLight(0xffe6a6, 1.4);
-      goldDirLight.position.set(-60, 80, 100);
-      scene.add(goldDirLight);
+      const celestialDirLight = new THREE.DirectionalLight(0xd0e8ff, 1.2);
+      celestialDirLight.position.set(-60, 80, 100);
+      scene.add(celestialDirLight);
 
-      const goldRimLight = new THREE.PointLight(0xff385c, 2.5, 450);
-      goldRimLight.position.set(120, -40, 80);
-      scene.add(goldRimLight);
+      const redRimLight = new THREE.PointLight(0xe50914, 3.5, 480);
+      redRimLight.position.set(120, -40, 80);
+      scene.add(redRimLight);
 
       const GLOBE_RADIUS = 68;
 
@@ -167,21 +167,8 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
       };
       updateGlobePosition();
 
-      // ── 03. Pure Dark Base Sphere (Deep Luxury Onyx with Warm Gold Specular) ──
-      const sphereGeo = new THREE.SphereGeometry(GLOBE_RADIUS, 64, 64);
-      const sphereMat = new THREE.MeshPhongMaterial({
-        color: 0x020509,
-        emissive: 0x020306,
-        specular: 0x4a3a14, // Warm golden reflection
-        shininess: 45,
-        transparent: true,
-        opacity: 0.98,
-      });
-      const sphereMesh = new THREE.Mesh(sphereGeo, sphereMat);
-      globeGroup.add(sphereMesh);
-
-      // ── 04. Soft Atmospheric Fresnel Glow (Delicate Golden Mist, Never Solid) ─
-      const fresnelVertexShader = `
+      // ── 03. Gradient Fade Border Base Sphere (No Hard Circle Edge) ──
+      const sphereVertexShader = `
         varying vec3 vNormal;
         varying vec3 vPosition;
         void main() {
@@ -191,31 +178,74 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
         }
       `;
 
-      const fresnelFragmentShader = `
+      const sphereFragmentShader = `
         varying vec3 vNormal;
         varying vec3 vPosition;
         void main() {
           vec3 viewDir = normalize(-vPosition);
-          float dotProduct = dot(vNormal, viewDir);
-          float fresnel = 1.0 - max(0.0, dotProduct);
-          float glow = pow(fresnel, 4.0); // Soft, tapered delicate mist
-
-          // Pure royal & sovereign gold tones on edges/corners
-          vec3 deepGold = vec3(0.85, 0.65, 0.22);      // #d9a638 rich warm gold
-          vec3 brightGold = vec3(1.0, 0.88, 0.48);    // #ffe07a radiant gold
-          vec3 atmosphereColor = mix(deepGold, brightGold, clamp(vNormal.y + 0.35, 0.0, 1.0));
-
-          gl_FragColor = vec4(atmosphereColor, glow * 0.72);
+          float dotP = max(0.0, dot(vNormal, viewDir));
+          
+          // Deep oceanic navy sapphire core
+          vec3 centerColor = vec3(0.02, 0.08, 0.18);
+          vec3 edgeGlow = vec3(0.90, 0.04, 0.08); // Pure vibrant red
+          
+          // Gradient fade border: smooth opacity reduction toward silhouette
+          float edgeAlpha = smoothstep(0.02, 0.60, dotP);
+          float rimSheen = pow(1.0 - dotP, 3.0);
+          
+          vec3 finalColor = mix(centerColor, edgeGlow, rimSheen * 0.4);
+          float alpha = edgeAlpha * 0.85 + rimSheen * 0.3;
+          
+          gl_FragColor = vec4(finalColor, alpha);
         }
       `;
 
-      const atmoGeo = new THREE.SphereGeometry(GLOBE_RADIUS * 1.025, 64, 64);
-      const atmoMat = new THREE.ShaderMaterial({
-        vertexShader: fresnelVertexShader,
-        fragmentShader: fresnelFragmentShader,
+      const sphereGeo = new THREE.SphereGeometry(GLOBE_RADIUS, 64, 64);
+      const sphereMat = new THREE.ShaderMaterial({
+        vertexShader: sphereVertexShader,
+        fragmentShader: sphereFragmentShader,
         transparent: true,
-        side: THREE.BackSide,
+        depthWrite: false,
+      });
+      const sphereMesh = new THREE.Mesh(sphereGeo, sphereMat);
+      globeGroup.add(sphereMesh);
+
+      // ── 04. Soft Atmospheric Red Glow (Smooth Gradient Falloff, No Hard Ring) ──
+      const atmoVertexShader = `
+        varying vec3 vNormal;
+        varying vec3 vPosition;
+        void main() {
+          vNormal = normalize(normalMatrix * normal);
+          vPosition = (modelViewMatrix * vec4(position, 1.0)).xyz;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `;
+
+      const atmoFragmentShader = `
+        varying vec3 vNormal;
+        varying vec3 vPosition;
+        void main() {
+          vec3 viewDir = normalize(-vPosition);
+          float dotProduct = max(0.0, dot(vNormal, viewDir));
+          float fresnel = 1.0 - dotProduct;
+          // Smooth volumetric haze with gentle exponential falloff
+          float glow = pow(fresnel, 2.8);
+
+          vec3 pureRed = vec3(0.90, 0.04, 0.08); // #E50914 pure red
+          vec3 deepRed = vec3(0.72, 0.0, 0.04);   // #B8000B
+
+          vec3 atmosphereColor = mix(deepRed, pureRed, clamp(vNormal.y + 0.5, 0.0, 1.0));
+          gl_FragColor = vec4(atmosphereColor, glow * 0.65);
+        }
+      `;
+
+      const atmoGeo = new THREE.SphereGeometry(GLOBE_RADIUS * 1.04, 64, 64);
+      const atmoMat = new THREE.ShaderMaterial({
+        vertexShader: atmoVertexShader,
+        fragmentShader: atmoFragmentShader,
+        transparent: true,
         blending: THREE.AdditiveBlending,
+        depthWrite: false,
       });
       const atmoMesh = new THREE.Mesh(atmoGeo, atmoMat);
       globeGroup.add(atmoMesh);
@@ -225,7 +255,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
       const landColors: number[] = [];
 
       const colWhite = new THREE.Color(0xf4f1ea);
-      const colGold = new THREE.Color(0xff385c);
+      const colRed = new THREE.Color(0xe50914);
 
       for (let lat = -70; lat <= 75; lat += 1.8) {
         // Equidistant longitude spacing on sphere using cos(lat)
@@ -238,9 +268,9 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
             const vec = latLongToVector3(lat, lon, GLOBE_RADIUS * 1.008);
             landPositions.push(vec.x, vec.y, vec.z);
 
-            // Subtle crimson highlight for trade hubs
+            // Subtle red highlight for trade hubs
             const isTradeZone = (lat > 10 && lat < 45 && lon > 40 && lon < 145);
-            const col = (isTradeZone && Math.random() < 0.25) ? colGold : colWhite;
+            const col = (isTradeZone && Math.random() < 0.25) ? colRed : colWhite;
             landColors.push(col.r, col.g, col.b);
           }
         }
@@ -262,7 +292,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
       // ── 06. Location Pins & 3D Vector Positions ──
       const hubVectors: { hub: GlobalHub; vec: THREE.Vector3 }[] = [];
       const pinGeo = new THREE.SphereGeometry(1.2, 12, 12);
-      const pinMat = new THREE.MeshBasicMaterial({ color: 0xff385c });
+      const pinMat = new THREE.MeshBasicMaterial({ color: 0xe50914 });
 
       GLOBAL_HUBS.forEach((hub) => {
         const vec = latLongToVector3(hub.lat, hub.lon, GLOBE_RADIUS * 1.012);
@@ -273,7 +303,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
         globeGroup.add(pin);
       });
 
-      // ── 07. Luminous Crimson Curved Trade Arc ──
+      // ── 07. Luminous Red Curved Trade Arc ──
       // Long sweeping high arc from China/Japan across Eurasia to Middle East & Europe
       const startVec = hubVectors.find((h) => h.hub.id === "china")?.vec || hubVectors[0].vec;
       const endVec = hubVectors.find((h) => h.hub.id === "turkey")?.vec || hubVectors[4].vec;
@@ -288,7 +318,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
       const arcPoints = mainArc.getPoints(50);
       const arcGeo = new THREE.BufferGeometry().setFromPoints(arcPoints);
       const arcMat = new THREE.LineBasicMaterial({
-        color: 0xff385c,
+        color: 0xe50914,
         transparent: true,
         opacity: 0.85,
       });
@@ -311,7 +341,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
 
       // Animated traveling light pulse along main arc
       const pulseGeo = new THREE.SphereGeometry(1.6, 14, 14);
-      const pulseMat = new THREE.MeshBasicMaterial({ color: 0xfff6d4 });
+      const pulseMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
       const pulseMesh = new THREE.Mesh(pulseGeo, pulseMat);
       pulseMesh.position.copy(startVec);
       globeGroup.add(pulseMesh);
@@ -501,7 +531,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
         <div className="relative z-10 w-full lg:w-[46vw] max-w-xl lg:max-w-2xl px-6 sm:px-12 lg:pl-16 lg:pr-4 flex flex-col justify-center text-left py-6 lg:py-0 pointer-events-auto">
           {/* Clean Section Eyebrow */}
           <div className="mb-3">
-            <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.28em] text-[#FF385C]">
+            <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.28em] text-[#E50914]">
               ONE OPERATOR
             </span>
           </div>
@@ -539,6 +569,9 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
 
         {/* ── Right Column: 3D Globe Canvas Mount (Guaranteed Height & Zero Right Margin) ── */}
         <div className="relative z-10 w-full lg:w-[54vw] h-[520px] sm:h-[620px] lg:h-screen flex items-center justify-center lg:justify-end pointer-events-auto overflow-hidden">
+          {/* Soft Atmospheric Red & Oceanic Radial Glow Behind Globe */}
+          <div aria-hidden="true" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[540px] h-[540px] bg-[radial-gradient(circle,rgba(229,9,20,0.18)_0%,rgba(14,56,116,0.15)_50%,transparent_72%)] blur-3xl pointer-events-none rounded-full" />
+
           {/* 3D WebGL Canvas Container */}
           <div
             ref={mountRef}
@@ -558,8 +591,8 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
                 className="absolute top-0 left-0 items-center gap-1.5 transition-opacity duration-150 will-change-transform select-none"
                 style={{ display: "none" }}
               >
-                {/* Glowing Crimson Marker Dot */}
-                <span className="w-2.5 h-2.5 rounded-sm bg-[#FF385C] shadow-[0_0_12px_#FF385C] shrink-0" />
+                {/* Glowing Pure Red Marker Dot */}
+                <span className="w-2.5 h-2.5 rounded-sm bg-[#E50914] shadow-[0_0_12px_#E50914] shrink-0" />
 
                 {/* Clean Royal Blue Badge with Monospace Text */}
                 <span className="bg-[#072248]/90 border border-white/20 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase text-white shadow-xl whitespace-nowrap">

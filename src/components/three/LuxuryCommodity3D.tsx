@@ -67,8 +67,8 @@ const COMMODITIES: CommodityCategory[] = [
     title: "Controlled-Atmosphere Tropical Harvest",
     subtitle: "GI-Tagged Ratnagiri Alphonso & Bhagwa Pomegranates",
     description: "Sovereign orchards certified under Global-GAP protocols. Each fruit is picked at calibrated physiological maturity, hot-water or vapor-heat treated against quarantine pests, and packed in nitrogen-flushed reefer containers.",
-    accentColor: "#FF385C",
-    threeColor: 0xff385c,
+    accentColor: "#E50914",
+    threeColor: 0xe50914,
     specs: [
       { label: "Sweetness Brix", value: "16° – 19°+", detail: "Calibrated Refractometer" },
       { label: "Ethylene Scrubbing", value: "Active Gas", detail: "Nitrogen Atmosphere 12°C" },
@@ -178,7 +178,7 @@ export function LuxuryCommodity3D() {
     // Outer Floating Orbit Rings (Toruses)
     const ring1Geo = new THREE.TorusGeometry(18, 0.4, 16, 100);
     const ring1Mat = new THREE.MeshStandardMaterial({
-      color: 0xff385c,
+      color: 0xe50914,
       metalness: 0.9,
       roughness: 0.2,
       wireframe: false,

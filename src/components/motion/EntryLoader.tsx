@@ -72,7 +72,7 @@ export function EntryLoader() {
             e.stopPropagation();
             dismissLoader();
           }}
-          className="px-4 py-1.5 rounded-full bg-black/50 hover:bg-black/80 border border-white/20 hover:border-[#FF385C]/70 text-white/80 hover:text-white text-xs font-sans tracking-wider uppercase transition-all backdrop-blur-md cursor-pointer shadow-lg"
+          className="px-4 py-1.5 rounded-full bg-black/50 hover:bg-black/80 border border-white/20 hover:border-[#E50914]/70 text-white/80 hover:text-white text-xs font-sans tracking-wider uppercase transition-all backdrop-blur-md cursor-pointer shadow-lg"
         >
           Skip
         </button>
