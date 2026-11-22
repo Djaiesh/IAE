@@ -647,15 +647,48 @@ html.lenis { height: auto; }
   will-change: transform;
 }
 
-/* ── Full-Page Mediterranean Ocean Texture Background Layer ── */
-.ocean-silk-layer {
-  background-image: url('/images/site-bg.jpg');
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  opacity: 1;
-  transition: opacity 0.5s ease;
+/* ── Luminous Corporate Ambient Aurora Blooms ── */
+.corporate-ambient-lights {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle 750px at 20% 15%, rgba(56, 189, 248, 0.38) 0%, transparent 65%),
+    radial-gradient(circle 850px at 85% 25%, rgba(14, 165, 233, 0.30) 0%, transparent 65%),
+    radial-gradient(circle 900px at 50% 55%, rgba(37, 99, 235, 0.32) 0%, transparent 70%),
+    radial-gradient(circle 800px at 15% 80%, rgba(56, 189, 248, 0.28) 0%, transparent 65%),
+    radial-gradient(circle 950px at 85% 90%, rgba(2, 132, 199, 0.32) 0%, transparent 70%);
+  filter: blur(50px);
+  animation: corporateAurora 20s ease-in-out infinite alternate;
+}
+
+@keyframes corporateAurora {
+  0% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.06) translate(15px, -20px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.02) translate(-15px, 12px);
+    opacity: 0.95;
+  }
+}
+
+/* Subtle maritime navigational latitude/longitude coordinate grid */
+.corporate-nav-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 95% 85% at 50% 40%, black 50%, transparent 95%);
+  -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 40%, black 50%, transparent 95%);
+  opacity: 0.7;
 }
 
 /* ── Floating Luxury Gold Particles & Drifting Elements ── */

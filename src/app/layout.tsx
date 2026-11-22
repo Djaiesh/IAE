@@ -7,6 +7,7 @@ import { ScrollRevealProvider } from "@/components/motion/ScrollRevealProvider";
 import { FloatingRFQDock } from "@/components/leads/FloatingRFQDock";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { FullScreenNavigationTransition } from "@/components/motion/FullScreenNavigationTransition";
+import { CorporateBackground } from "@/components/layout/CorporateBackground";
 import { SITE_CONFIG } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -59,8 +60,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body suppressHydrationWarning>
-        {/* Full-Page Deep Ocean Silk Background Layer */}
-        <div aria-hidden="true" className="fixed inset-0 z-0 pointer-events-none ocean-silk-layer" />
+        {/* Full-Page Radiant Corporate Maritime Background System */}
+        <CorporateBackground />
 
         {/* Animated particles layer rendered server-side — pure CSS orbs */}
         <div aria-hidden="true" className="fixed inset-0 z-0 overflow-hidden pointer-events-none">

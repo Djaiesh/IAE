@@ -17,13 +17,13 @@ export function CategoryTiles({ className, showHeader = true }: CategoryTilesPro
   const getCategoryGradient = (slug: string) => {
     switch (slug.toLowerCase()) {
       case "spices":
-        return "from-amber-900 to-orange-950 border-amber-500/30 group-hover:border-amber-400/60";
+        return "from-amber-500/25 via-[#0E3C7A]/85 to-[#0A2E5C]/95 border-amber-400/40 group-hover:border-amber-300 group-hover:shadow-[0_20px_50px_rgba(251,191,36,0.25)]";
       case "vegetables":
-        return "from-green-900 to-emerald-950 border-emerald-500/30 group-hover:border-emerald-400/60";
+        return "from-emerald-500/25 via-[#0E3C7A]/85 to-[#0A2E5C]/95 border-emerald-400/40 group-hover:border-emerald-300 group-hover:shadow-[0_20px_50px_rgba(52,211,153,0.25)]";
       case "fruits":
-        return "from-rose-900 to-purple-950 border-rose-500/30 group-hover:border-rose-400/60";
+        return "from-rose-500/25 via-[#0E3C7A]/85 to-[#0A2E5C]/95 border-rose-400/40 group-hover:border-rose-300 group-hover:shadow-[0_20px_50px_rgba(244,63,94,0.25)]";
       default:
-        return "from-navy to-abyss border-white/15";
+        return "from-sky-500/25 via-[#0E3C7A]/85 to-[#0A2E5C]/95 border-sky-400/40";
     }
   };
 

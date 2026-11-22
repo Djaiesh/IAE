@@ -406,12 +406,12 @@ export function ShipScrollAnimation({
   return (
     <section
       ref={containerRef}
-      className={cn("relative w-full bg-[#0A2E5C]", className)}
+      className={cn("relative w-full bg-transparent", className)}
     >
       {/* ── Pinned Viewport Container (100svh) with video frames, workflow & subtle tint ── */}
       <div
         ref={pinWrapperRef}
-        className="relative w-full h-[100svh] overflow-hidden bg-[#0A2E5C] flex items-center justify-center select-none"
+        className="relative w-full h-[100svh] overflow-hidden bg-transparent flex items-center justify-center select-none"
       >
         {/* Inner scaling frame wrapper: reduces to half size during the last 10 frames */}
         <div
