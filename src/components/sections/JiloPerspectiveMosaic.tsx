@@ -46,12 +46,12 @@ export function JiloPerspectiveMosaic() {
   };
 
   return (
-    <section className="relative py-24 sm:py-32 bg-transparent overflow-hidden font-sans border-t border-b border-white/15">
+    <section className="relative pt-20 sm:pt-28 pb-0 bg-transparent overflow-hidden font-sans border-t border-white/15">
       {/* Ambient background glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#0284C7]/15 blur-[140px] pointer-events-none rounded-full" />
 
       {/* ── Section Header ── */}
-      <div className="max-w-4xl mx-auto px-4 text-center mb-12 relative z-20">
+      <div className="max-w-4xl mx-auto px-4 text-center mb-10 relative z-20">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#082247]/80 border border-[#E6C687]/50 backdrop-blur-xl mb-4">
           <Sparkles className="w-3.5 h-3.5 text-[#E6C687]" />
           <span className="text-[11px] font-sans font-semibold uppercase tracking-[0.2em] text-[#E6C687]">
@@ -66,13 +66,13 @@ export function JiloPerspectiveMosaic() {
         </p>
       </div>
 
-      {/* ── Panoramic Visual Exhibition Tilted Grid (Matching Reference Angle) ── */}
-      <div className="relative w-full overflow-hidden py-12 -my-6">
+      {/* ── Panoramic Visual Exhibition Seamlessly Flowing into Footer (Zero Dead Gap) ── */}
+      <div className="relative w-full overflow-hidden pt-4 pb-0 -mb-2">
         
-        {/* Tilted Diagonal Container */}
+        {/* Subtle Angle Container extending directly into Footer */}
         <div
-          className="flex flex-col gap-4 sm:gap-6 w-[130%] -ml-[15%] will-change-transform"
-          style={{ transform: "rotate(-12deg) scale(1.12)" }}
+          className="flex flex-col gap-4 sm:gap-6 w-[120%] -ml-[10%] will-change-transform"
+          style={{ transform: "rotate(-3.5deg) scale(1.05) translateY(24px)" }}
         >
           {/* Row 1: Forward Gliding Gallery Track */}
           <div className="flex gap-4 sm:gap-6 w-max animate-glide hover:[animation-play-state:paused]">
@@ -169,11 +169,11 @@ export function JiloPerspectiveMosaic() {
           </div>
         </div>
 
-        {/* ── Seamless Multi-Layer Edge Vignettes (Melts cleanly into footer) ── */}
-        <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#0A3266] via-[#0A3266]/70 to-transparent pointer-events-none z-10" />
-        <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-[#0A3266] via-[#0A3266]/90 to-transparent pointer-events-none z-10" />
-        <div className="absolute left-0 inset-y-0 w-20 sm:w-36 bg-gradient-to-r from-[#0A3266] via-[#0A3266]/70 to-transparent pointer-events-none z-10" />
-        <div className="absolute right-0 inset-y-0 w-20 sm:w-36 bg-gradient-to-l from-[#0A3266] via-[#0A3266]/70 to-transparent pointer-events-none z-10" />
+        {/* ── Seamless Multi-Layer Edge Vignettes (Melts cleanly into footer with zero gap) ── */}
+        <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-[#0A3266] via-[#0A3266]/50 to-transparent pointer-events-none z-10" />
+        <div className="absolute bottom-0 inset-x-0 h-14 bg-gradient-to-t from-[#061F42]/80 to-transparent pointer-events-none z-10" />
+        <div className="absolute left-0 inset-y-0 w-16 sm:w-28 bg-gradient-to-r from-[#0A3266] via-[#0A3266]/60 to-transparent pointer-events-none z-10" />
+        <div className="absolute right-0 inset-y-0 w-16 sm:w-28 bg-gradient-to-l from-[#0A3266] via-[#0A3266]/60 to-transparent pointer-events-none z-10" />
 
         {/* ── Floating Center Frosted Call to Actions (Level Upright, Matching Image 1) ── */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3.5 z-20 pointer-events-none p-4">
