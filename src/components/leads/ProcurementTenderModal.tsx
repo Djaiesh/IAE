@@ -125,13 +125,13 @@ export function ProcurementTenderModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
       {/* Dark backdrop blur */}
       <div
-        className="fixed inset-0 bg-black/85 backdrop-blur-xl transition-opacity"
+        className="fixed inset-0 bg-[#072248]/85 backdrop-blur-xl transition-opacity"
         onClick={onClose}
         aria-hidden="true"
       />
 
       {/* Modal Surface */}
-      <div className="relative z-10 w-full max-w-2xl bg-[#070D18] border border-white/15 rounded-3xl sm:rounded-4xl shadow-2xl p-6 sm:p-8 overflow-hidden my-8">
+      <div className="relative z-10 w-full max-w-2xl bg-[#0B3368] border border-white/20 rounded-3xl sm:rounded-4xl shadow-2xl p-6 sm:p-8 overflow-hidden my-8">
         {/* Ambient Top Glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-gradient-to-b from-[#E6C687]/20 to-transparent blur-2xl pointer-events-none" />
 
@@ -217,7 +217,7 @@ export function ProcurementTenderModal({
               <select
                 value={commodity}
                 onChange={(e) => setCommodity(e.target.value)}
-                className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#E6C687] transition-colors"
+                className="w-full bg-[#0E3C7A] border border-white/15 rounded-2xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#E6C687] transition-colors"
               >
                 {/* Dynamically include pre-filled custom item if not in default catalog */}
                 {commodity && !COMMODITY_CATALOG.some((c) => c.value === commodity) && (
@@ -238,7 +238,7 @@ export function ProcurementTenderModal({
               <select
                 value={packaging}
                 onChange={(e) => setPackaging(e.target.value)}
-                className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#E6C687] transition-colors"
+                className="w-full bg-[#0E3C7A] border border-white/15 rounded-2xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#E6C687] transition-colors"
               >
                 {packaging && !["25kg Double Food-Grade PP Bags", "50kg Natural Jute Bags (Machine Stitched)", "10kg Pre-Cooled Ventilated Corrugated Cartons", "25kg High-Barrier Nitrogen Vacuum Sacks", "Custom Private Label Importer Packaging"].includes(packaging) && (
                   <option value={packaging}>{packaging}</option>
@@ -275,7 +275,7 @@ export function ProcurementTenderModal({
                 <select
                   value={incoterm}
                   onChange={(e) => setIncoterm(e.target.value)}
-                  className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#E6C687] transition-colors"
+                  className="w-full bg-[#0E3C7A] border border-white/15 rounded-2xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#E6C687] transition-colors"
                 >
                   <option value="CIF (Cost, Insurance & Freight)">CIF (Cost, Insurance &amp; Freight)</option>
                   <option value="FOB (Free On Board - Indian Seaport)">FOB (Free On Board - JNPT/Mundra)</option>
@@ -291,7 +291,7 @@ export function ProcurementTenderModal({
                 <select
                   value={containerType}
                   onChange={(e) => setContainerType(e.target.value)}
-                  className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#E6C687] transition-colors"
+                  className="w-full bg-[#0E3C7A] border border-white/15 rounded-2xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#E6C687] transition-colors"
                 >
                   <option value="40ft High-Cube CA Reefer">40ft High-Cube CA Reefer (Controlled Atmosphere)</option>
                   <option value="20ft Standard Dry Container">20ft Standard Dry FCL (Spices &amp; Dry Food)</option>
@@ -312,7 +312,7 @@ export function ProcurementTenderModal({
                   value={destinationPort}
                   onChange={(e) => setDestinationPort(e.target.value)}
                   placeholder="e.g. Rotterdam, Jebel Ali, New York"
-                  className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
+                  className="w-full bg-[#0E3C7A] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
                 />
               </div>
 
@@ -326,7 +326,7 @@ export function ProcurementTenderModal({
                   value={monthlyVolume}
                   onChange={(e) => setMonthlyVolume(e.target.value)}
                   placeholder="e.g. 2 x 40ft FCL / Month"
-                  className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
+                  className="w-full bg-[#0E3C7A] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
                 />
               </div>
             </div>
@@ -365,7 +365,7 @@ export function ProcurementTenderModal({
                   value={companyName}
                   onChange={(e) => setCompanyName(e.target.value)}
                   placeholder="e.g. Global Foods Trading BV"
-                  className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
+                  className="w-full bg-[#0E3C7A] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
                 />
               </div>
 
@@ -379,7 +379,7 @@ export function ProcurementTenderModal({
                   value={buyerName}
                   onChange={(e) => setBuyerName(e.target.value)}
                   placeholder="Full Name"
-                  className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
+                  className="w-full bg-[#0E3C7A] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
                 />
               </div>
             </div>
@@ -395,7 +395,7 @@ export function ProcurementTenderModal({
                   value={country}
                   onChange={(e) => setCountry(e.target.value)}
                   placeholder="e.g. Netherlands"
-                  className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
+                  className="w-full bg-[#0E3C7A] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
                 />
               </div>
 
@@ -409,7 +409,7 @@ export function ProcurementTenderModal({
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="trade@company.com"
-                  className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
+                  className="w-full bg-[#0E3C7A] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
                 />
               </div>
 
@@ -423,7 +423,7 @@ export function ProcurementTenderModal({
                   value={whatsapp}
                   onChange={(e) => setWhatsapp(e.target.value)}
                   placeholder="+31 6 12345678"
-                  className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
+                  className="w-full bg-[#0E3C7A] border border-white/15 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E6C687]"
                 />
               </div>
             </div>
@@ -437,7 +437,7 @@ export function ProcurementTenderModal({
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder="Specific curcumin assay, mesh sizes, palletizing requirements, or phytosanitary guidelines..."
-                className="w-full bg-[#091526] border border-white/15 rounded-2xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#E6C687]"
+                className="w-full bg-[#0E3C7A] border border-white/15 rounded-2xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#E6C687]"
               />
             </div>
 

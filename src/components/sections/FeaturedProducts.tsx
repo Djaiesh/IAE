@@ -35,14 +35,14 @@ export function FeaturedProducts({
   };
 
   return (
-    <section className={cn("relative py-24 sm:py-32 overflow-hidden bg-[#040810] text-white", className)}>
-      <div className="absolute inset-0 bg-gradient-to-b from-[#040810] via-[#071220] to-[#040810] pointer-events-none" />
+    <section className={cn("relative py-24 sm:py-32 overflow-hidden bg-transparent text-white", className)}>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0284C7]/10 to-transparent pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         {/* Section Header */}
         <div className="flex items-end justify-between mb-12 sm:mb-16 gap-6 flex-col sm:flex-row">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/60 border border-[#E6C687]/40 text-[#E6C687] text-xs font-semibold uppercase tracking-widest mb-3 font-sans">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#082247]/80 border border-[#E6C687]/50 text-[#E6C687] text-xs font-semibold uppercase tracking-widest mb-3 font-sans">
               <Sparkles className="w-3.5 h-3.5" />
               Prime Export Inventory
             </div>
@@ -69,10 +69,10 @@ export function FeaturedProducts({
           {spotlightProducts.map((product) => (
             <div
               key={product.id}
-              className="group bg-[#070D18] rounded-3xl sm:rounded-4xl overflow-hidden flex flex-col border border-white/10 transition-all duration-300 hover:-translate-y-2 hover:border-[#E6C687]/70 hover:shadow-[0_20px_50px_rgba(230,198,135,0.18)]"
+              className="group bg-[#0E3C7A]/85 backdrop-blur-xl rounded-3xl sm:rounded-4xl overflow-hidden flex flex-col border border-white/20 transition-all duration-300 hover:-translate-y-2 hover:border-[#38BDF8] hover:shadow-[0_20px_50px_rgba(56,189,248,0.25)]"
             >
               {/* Product Image Frame */}
-              <div className="relative h-64 w-full overflow-hidden bg-[#0A0A10]">
+              <div className="relative h-64 w-full overflow-hidden bg-[#0B2E5E]">
                 <Image
                   src={product.image}
                   alt={`${product.name} - ${product.grade || "Export Quality"}`}
@@ -80,7 +80,7 @@ export function FeaturedProducts({
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#070D18] via-transparent to-black/30 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0E3C7A] via-transparent to-black/20 pointer-events-none" />
 
                 {/* Category & Status Badges */}
                 <div className="absolute top-4 left-4 flex flex-wrap gap-2 z-10">
@@ -93,7 +93,7 @@ export function FeaturedProducts({
                     {product.category}
                   </span>
                   {product.grade && (
-                    <span className="text-[10px] font-sans uppercase tracking-wider bg-black/80 text-slate-300 px-2.5 py-1 rounded-full border border-white/10 backdrop-blur-md">
+                    <span className="text-[10px] font-sans uppercase tracking-wider bg-[#082247]/90 text-slate-200 px-2.5 py-1 rounded-full border border-white/20 backdrop-blur-md">
                       {product.grade.split("(")[0].trim()}
                     </span>
                   )}
@@ -102,7 +102,7 @@ export function FeaturedProducts({
                 {/* Quick Quote Floating Link */}
                 <Link
                   href={`/contact?product=${encodeURIComponent(product.name)}&type=quote`}
-                  className="absolute bottom-4 right-4 z-10 px-4 py-2 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#E6C687] text-black text-[11px] font-sans uppercase tracking-wider font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg min-h-[40px] inline-flex items-center justify-center focus:opacity-100"
+                  className="absolute bottom-4 right-4 z-10 px-4 py-2 rounded-full bg-[#0284C7] hover:bg-[#0369A1] text-white text-[11px] font-sans uppercase tracking-wider font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg min-h-[40px] inline-flex items-center justify-center focus:opacity-100"
                   aria-label={`Quick quote for ${product.name}`}
                 >
                   Quick Quote
@@ -115,7 +115,7 @@ export function FeaturedProducts({
                   <h3 className="font-display text-xl sm:text-2xl text-white group-hover:text-[#E6C687] transition-colors mb-2">
                     {product.name}
                   </h3>
-                  <p className="font-sans text-xs sm:text-sm text-slate-400 font-light line-clamp-2 mb-6 leading-relaxed">
+                  <p className="font-sans text-xs sm:text-sm text-slate-200 font-light line-clamp-2 mb-6 leading-relaxed">
                     {product.shortDescription}
                   </p>
 

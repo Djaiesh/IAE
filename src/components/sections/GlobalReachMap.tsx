@@ -32,17 +32,17 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
       <section
         ref={ref}
         id="global-reach-map"
-        className={cn("relative py-24 sm:py-32 overflow-hidden bg-[#040810] text-white", className)}
+        className={cn("relative py-24 sm:py-32 overflow-hidden bg-transparent text-white", className)}
       >
       {/* Background ambient lighting */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#040810] via-[#071220] to-[#040810] pointer-events-none" />
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#D4AF37]/5 blur-[120px] pointer-events-none rounded-full" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0284C7]/10 to-transparent pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#0284C7]/15 blur-[120px] pointer-events-none rounded-full" />
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
 
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E6C687]/40 bg-black/60 backdrop-blur-xl mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E6C687]/50 bg-[#082247]/80 backdrop-blur-xl mb-4">
             <Globe className="w-3.5 h-3.5 text-[#E6C687]" />
             <span className="text-[11px] font-sans text-[#E6C687] uppercase tracking-[0.2em] font-semibold">
               Global Maritime Freight Corridors
@@ -61,7 +61,7 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
         </div>
 
         {/* ── 01. FAMILIAR & ACCURATE MARITIME CARTOGRAPHY MAP ── */}
-        <div className="relative w-full rounded-3xl sm:rounded-4xl border border-white/10 bg-[#070D18]/90 backdrop-blur-2xl p-4 sm:p-8 mb-12 shadow-2xl overflow-hidden">
+        <div className="relative w-full rounded-3xl sm:rounded-4xl border border-white/20 bg-[#0E3C7A]/85 backdrop-blur-2xl p-4 sm:p-8 mb-12 shadow-2xl overflow-hidden">
           
           {/* Subtle Grid Canvas Header */}
           <div className="flex items-center justify-between pb-3 mb-2 border-b border-white/10 text-xs font-sans text-slate-400">
@@ -257,28 +257,28 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
                   className={cn(
                     "w-full text-left p-4 sm:p-5 rounded-2xl sm:rounded-3xl border transition-all duration-300 flex items-center gap-4 cursor-pointer",
                     isSelected
-                      ? "bg-[#091526] border-[#E6C687] shadow-[0_8px_30px_rgba(230,198,135,0.15)] border-l-4"
-                      : "bg-[#070D18]/80 border-white/5 hover:bg-white/5 hover:border-white/15"
+                      ? "bg-[#0E3C7A] border-[#38BDF8] shadow-[0_8px_30px_rgba(56,189,248,0.25)] border-l-4"
+                      : "bg-[#0A2E5C]/80 border-white/15 hover:bg-[#0E3C7A]/50 hover:border-white/25"
                   )}
                 >
                   <div className={cn(
                     "w-11 h-11 rounded-2xl flex items-center justify-center border shrink-0 transition-colors",
-                    isSelected ? "bg-[#E6C687] text-black border-[#E6C687] shadow-md" : "bg-white/5 text-slate-400 border-white/10"
+                    isSelected ? "bg-[#0284C7] text-white border-[#0284C7] shadow-md" : "bg-white/10 text-slate-200 border-white/15"
                   )}>
                     <Anchor className="w-5 h-5" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <span className={cn(
                       "font-display text-lg block truncate transition-colors", 
-                      isSelected ? "text-white font-medium" : "text-slate-300"
+                      isSelected ? "text-white font-medium" : "text-slate-200"
                     )}>
                       {port.name}
                     </span>
-                    <span className="font-sans text-xs text-slate-400 block">
+                    <span className="font-sans text-xs text-slate-300 block">
                       {port.city}, {port.country}
                     </span>
                   </div>
-                  <span className="font-sans text-[10px] uppercase font-semibold tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/25 px-3 py-1 rounded-full shrink-0">
+                  <span className="font-sans text-[10px] uppercase font-semibold tracking-wider text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 rounded-full shrink-0">
                     {port.region}
                   </span>
                 </button>
@@ -288,7 +288,7 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
 
           {/* Port Detail Card (Right Column) */}
           <div className="lg:col-span-7">
-            <div className="bg-[#070D18]/90 rounded-3xl sm:rounded-4xl p-6 sm:p-10 border border-white/10 shadow-2xl relative overflow-hidden">
+            <div className="bg-[#0E3C7A]/85 backdrop-blur-2xl rounded-3xl sm:rounded-4xl p-6 sm:p-10 border border-white/20 shadow-2xl relative overflow-hidden">
               
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10 mb-6">
                 <div>

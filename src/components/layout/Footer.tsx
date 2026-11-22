@@ -25,7 +25,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#040810] text-white overflow-hidden border-t border-white/10 font-sans">
+    <footer className="relative bg-[#061F42]/95 backdrop-blur-2xl text-white overflow-hidden border-t border-white/20 font-sans">
       {/* Top Gold Shimmer Line */}
       <div className="w-full h-px bg-gradient-to-r from-transparent via-[#E6C687]/40 to-transparent" />
 
@@ -36,7 +36,7 @@ export function Footer() {
           {/* ── Col 1: Brand & Market Intelligence (4 cols) ── */}
           <div className="lg:col-span-4 space-y-5">
             <Link href="/" className="inline-flex items-center gap-3 group">
-              <div className="w-11 h-11 rounded-2xl border border-[#E6C687]/40 bg-[#090E1A] flex items-center justify-center shadow-md group-hover:border-[#E6C687] transition-all">
+              <div className="w-11 h-11 rounded-2xl border border-[#E6C687]/50 bg-[#0A2E5C] flex items-center justify-center shadow-md group-hover:border-[#E6C687] transition-all">
                 <span className="font-display text-xl font-bold text-[#E6C687]">J</span>
               </div>
               <div>
@@ -49,7 +49,7 @@ export function Footer() {
               </div>
             </Link>
 
-            <p className="text-sm text-slate-400 font-light leading-relaxed max-w-sm">
+            <p className="text-sm text-slate-300 font-light leading-relaxed max-w-sm">
               International B2B maritime export trading house specializing in single-origin spices, hydro-cooled vegetables, and Global-GAP certified tropical fruits with end-to-end cold chain traceability.
             </p>
 
@@ -65,24 +65,24 @@ export function Footer() {
                   placeholder="Enter corporate email..."
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
-                  className="w-full bg-[#070D18] border border-white/15 rounded-full px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#E6C687]"
+                  className="w-full bg-[#0A2E5C] border border-white/20 rounded-full px-4 py-2.5 text-xs text-white placeholder:text-slate-400 focus:outline-none focus:border-[#E6C687]"
                 />
                 <button
                   type="submit"
-                  className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#E6C687] hover:brightness-110 text-xs font-bold text-black transition-all shrink-0 cursor-pointer shadow-sm"
+                  className="px-5 py-2.5 rounded-full bg-[#0284C7] hover:bg-[#0369A1] text-xs font-bold text-white transition-all shrink-0 cursor-pointer shadow-md"
                 >
                   Join
                 </button>
               </form>
               {subscribed && (
-                <div className="text-[11px] text-emerald-400 flex items-center gap-1.5 mt-2">
+                <div className="text-[11px] text-emerald-300 flex items-center gap-1.5 mt-2">
                   <CheckCircle2 className="w-3.5 h-3.5" />
                   Subscribed to monthly CIF rate bulletins.
                 </div>
               )}
             </div>
 
-            <div className="flex items-center gap-2 text-xs text-emerald-400 pt-1">
+            <div className="flex items-center gap-2 text-xs text-emerald-300 pt-1">
               <ShieldCheck className="w-4 h-4 shrink-0" />
               <span>APEDA · FSSAI · US-FDA · Global-GAP Export Supply Chains</span>
             </div>
@@ -96,7 +96,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               {SITE_CONFIG.navItems.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-slate-400 hover:text-[#E6C687] transition-colors block py-0.5">
+                  <Link href={item.href} className="text-slate-300 hover:text-white transition-colors block py-0.5">
                     {item.label}
                   </Link>
                 </li>
@@ -114,7 +114,7 @@ export function Footer() {
                 <li key={cat.id}>
                   <Link
                     href={`/products/${cat.slug}`}
-                    className="text-slate-400 hover:text-[#E6C687] transition-colors flex items-center justify-between group py-0.5"
+                    className="text-slate-300 hover:text-white transition-colors flex items-center justify-between group py-0.5"
                   >
                     <span>{cat.name}</span>
                     <span className="text-[10px] text-[#E6C687] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
@@ -147,7 +147,7 @@ export function Footer() {
             </div>
 
             {/* Address Details */}
-            <div className="p-4 rounded-2xl bg-[#07070B] border border-white/10 space-y-2 text-xs text-slate-300">
+            <div className="p-4 rounded-2xl bg-[#0A2E5C]/85 border border-white/20 space-y-2 text-xs text-slate-200">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#E6C687] shrink-0 mt-0.5" />
                 <div className="leading-relaxed">
@@ -155,20 +155,20 @@ export function Footer() {
                   <span>Valasaravakkam, Chennai, Tamil Nadu 600087, India</span>
                 </div>
               </div>
-              <div className="flex items-center gap-2.5 pt-1 text-slate-400">
+              <div className="flex items-center gap-2.5 pt-1 text-slate-300">
                 <Mail className="w-3.5 h-3.5 text-[#E6C687] shrink-0" />
                 <a href={`mailto:${SITE_CONFIG.contact.email}`} className="hover:text-white transition-colors">
                   {SITE_CONFIG.contact.email}
                 </a>
               </div>
-              <div className="flex items-center gap-2.5 text-slate-400">
+              <div className="flex items-center gap-2.5 text-slate-300">
                 <Phone className="w-3.5 h-3.5 text-[#E6C687] shrink-0" />
                 <span>{SITE_CONFIG.contact.salesDesk}</span>
               </div>
             </div>
 
             {/* Embedded Google Map */}
-            <div className="relative w-full h-44 rounded-2xl overflow-hidden border border-white/15 shadow-xl bg-[#090E1A]">
+            <div className="relative w-full h-44 rounded-2xl overflow-hidden border border-white/20 shadow-xl bg-[#0A2E5C]">
               <iframe
                 title="JILO Headquarters Location Map - Valasaravakkam, Chennai, Tamil Nadu"
                 src="https://maps.google.com/maps?q=Valasaravakkam%2C%20Chennai%2C%20Tamil%20Nadu%2C%20India&t=&z=14&ie=UTF8&iwloc=&output=embed"
@@ -186,16 +186,16 @@ export function Footer() {
       </div>
 
       {/* Legal Strip & Back to Top */}
-      <div className="border-t border-white/10 py-4 bg-[#040406]">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono">
+      <div className="border-t border-white/15 py-4 bg-[#041630]">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-mono">
           <span>© {new Date().getFullYear()} {SITE_CONFIG.name}. ALL RIGHTS RESERVED.</span>
           <div className="flex items-center gap-4">
-            <span className="text-slate-600 hidden md:inline">
+            <span className="text-slate-400 hidden md:inline">
               VALASARAVAKKAM, CHENNAI, TAMIL NADU · REGISTERED APEDA EXPORTER
             </span>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-full border border-white/15 bg-white/5 text-slate-300 hover:border-[#E6C687] hover:text-[#E6C687] transition-all cursor-pointer shadow-sm ml-2"
+              className="p-2 rounded-full border border-white/20 bg-white/10 text-slate-200 hover:border-[#E6C687] hover:text-[#E6C687] transition-all cursor-pointer shadow-sm ml-2"
               aria-label="Back to top"
             >
               <ArrowUp className="w-3.5 h-3.5" />
@@ -204,8 +204,8 @@ export function Footer() {
         </div>
       </div>
 
-      {/* ── Interactive Dotted Brand Particles (Scatters on Mouse Over, matching Image 2 & 3) ── */}
-      <div className="w-full bg-[#020408] border-t border-white/5 py-2 px-2 sm:px-6 overflow-hidden">
+      {/* ── Interactive Dotted Brand Particles ── */}
+      <div className="w-full bg-[#031124] border-t border-white/10 py-2 px-2 sm:px-6 overflow-hidden">
         <DottedBrandScatter text="JILO EXPORTS" />
       </div>
 

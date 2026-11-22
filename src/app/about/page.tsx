@@ -80,7 +80,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="bg-navy text-cream min-h-screen">
+    <div className="bg-transparent text-cream min-h-screen relative z-10">
       {/* 1. Cinematic Dedicated Page Hero Video */}
       <PageHeroVideo
         videoSrc="/video/about_page_video.mp4"

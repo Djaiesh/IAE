@@ -46,13 +46,13 @@ export function JiloPerspectiveMosaic() {
   };
 
   return (
-    <section className="relative py-24 sm:py-32 bg-[#040810] overflow-hidden font-sans border-t border-b border-white/10">
+    <section className="relative py-24 sm:py-32 bg-transparent overflow-hidden font-sans border-t border-b border-white/15">
       {/* Ambient background glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#D4AF37]/5 blur-[140px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#0284C7]/15 blur-[140px] pointer-events-none rounded-full" />
 
       {/* ── Section Header ── */}
       <div className="max-w-4xl mx-auto px-4 text-center mb-12 relative z-20">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 border border-[#E6C687]/40 backdrop-blur-xl mb-4">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#082247]/80 border border-[#E6C687]/50 backdrop-blur-xl mb-4">
           <Sparkles className="w-3.5 h-3.5 text-[#E6C687]" />
           <span className="text-[11px] font-sans font-semibold uppercase tracking-[0.2em] text-[#E6C687]">
             Visual Cargo Provenance
@@ -61,7 +61,7 @@ export function JiloPerspectiveMosaic() {
         <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl text-white font-normal tracking-tight">
           Sovereign Agro-Export Mosaic
         </h2>
-        <p className="text-slate-300 text-xs sm:text-sm md:text-base max-w-2xl mx-auto mt-3 font-light leading-relaxed">
+        <p className="text-slate-200 text-xs sm:text-sm md:text-base max-w-2xl mx-auto mt-3 font-light leading-relaxed">
           An unbroken visual timeline spanning Western Ghats harvest co-operatives, optical packhouse sorting, containerized reefer stowage, and global berth departures.
         </p>
       </div>
@@ -79,16 +79,16 @@ export function JiloPerspectiveMosaic() {
             {[...MOSAIC_TILES_ROW1, ...MOSAIC_TILES_ROW1].map((tile, i) => (
               <div
                 key={`r1-${tile.id}-${i}`}
-                className="group relative w-56 sm:w-68 lg:w-76 h-36 sm:h-44 lg:h-48 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 bg-[#070D18] shadow-2xl transition-all duration-500 hover:border-[#E6C687]/80 hover:scale-[1.04] shrink-0 cursor-pointer"
+                className="group relative w-56 sm:w-68 lg:w-76 h-36 sm:h-44 lg:h-48 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/20 bg-[#0E3C7A]/80 shadow-2xl transition-all duration-500 hover:border-[#38BDF8] hover:scale-[1.04] shrink-0 cursor-pointer"
               >
                 <Image
                   src={tile.image}
                   alt={tile.title}
                   fill
                   sizes="(max-width: 640px) 240px, 320px"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 brightness-[0.85] group-hover:brightness-105"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 brightness-[0.9] group-hover:brightness-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 
                 <div className="absolute bottom-3 left-3 right-3 z-10 transition-transform duration-300 group-hover:-translate-y-1">
                   <span className="text-[9px] uppercase font-bold tracking-widest text-[#E6C687] block truncate">
@@ -112,19 +112,19 @@ export function JiloPerspectiveMosaic() {
             {[...MOSAIC_TILES_ROW2, ...MOSAIC_TILES_ROW2].map((tile, i) => (
               <div
                 key={`r2-${tile.id}-${i}`}
-                className="group relative w-56 sm:w-68 lg:w-76 h-36 sm:h-44 lg:h-48 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 bg-[#070D18] shadow-2xl transition-all duration-500 hover:border-[#E6C687]/80 hover:scale-[1.04] shrink-0 cursor-pointer"
+                className="group relative w-56 sm:w-68 lg:w-76 h-36 sm:h-44 lg:h-48 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/20 bg-[#0E3C7A]/80 shadow-2xl transition-all duration-500 hover:border-[#38BDF8] hover:scale-[1.04] shrink-0 cursor-pointer"
               >
                 <Image
                   src={tile.image}
                   alt={tile.title}
                   fill
                   sizes="(max-width: 640px) 240px, 320px"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 brightness-[0.85] group-hover:brightness-105"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 brightness-[0.9] group-hover:brightness-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 
                 <div className="absolute bottom-3 left-3 right-3 z-10 transition-transform duration-300 group-hover:-translate-y-1">
-                  <span className="text-[9px] uppercase font-bold tracking-widest text-emerald-400 block truncate">
+                  <span className="text-[9px] uppercase font-bold tracking-widest text-emerald-300 block truncate">
                     {tile.category}
                   </span>
                   <span className="text-xs sm:text-sm font-semibold text-white block truncate leading-tight mt-0.5">
@@ -145,16 +145,16 @@ export function JiloPerspectiveMosaic() {
             {[...MOSAIC_TILES_ROW1, ...MOSAIC_TILES_ROW2].map((tile, i) => (
               <div
                 key={`r3-${tile.id}-${i}`}
-                className="group relative w-56 sm:w-68 lg:w-76 h-36 sm:h-44 lg:h-48 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 bg-[#070D18] shadow-2xl transition-all duration-500 hover:border-[#E6C687]/80 hover:scale-[1.04] shrink-0 cursor-pointer"
+                className="group relative w-56 sm:w-68 lg:w-76 h-36 sm:h-44 lg:h-48 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/20 bg-[#0E3C7A]/80 shadow-2xl transition-all duration-500 hover:border-[#38BDF8] hover:scale-[1.04] shrink-0 cursor-pointer"
               >
                 <Image
                   src={tile.image}
                   alt={tile.title}
                   fill
                   sizes="(max-width: 640px) 240px, 320px"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 brightness-[0.85] group-hover:brightness-105"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 brightness-[0.9] group-hover:brightness-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 
                 <div className="absolute bottom-3 left-3 right-3 z-10 transition-transform duration-300 group-hover:-translate-y-1">
                   <span className="text-[9px] uppercase font-bold tracking-widest text-[#E6C687] block truncate">
@@ -170,25 +170,25 @@ export function JiloPerspectiveMosaic() {
         </div>
 
         {/* ── Seamless Multi-Layer Edge Vignettes (Melts cleanly into footer) ── */}
-        <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#040810] via-[#040810]/70 to-transparent pointer-events-none z-10" />
-        <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-[#040810] via-[#040810]/95 to-transparent pointer-events-none z-10" />
-        <div className="absolute left-0 inset-y-0 w-20 sm:w-36 bg-gradient-to-r from-[#040810] via-[#040810]/80 to-transparent pointer-events-none z-10" />
-        <div className="absolute right-0 inset-y-0 w-20 sm:w-36 bg-gradient-to-l from-[#040810] via-[#040810]/80 to-transparent pointer-events-none z-10" />
+        <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#0A3266] via-[#0A3266]/70 to-transparent pointer-events-none z-10" />
+        <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-[#0A3266] via-[#0A3266]/90 to-transparent pointer-events-none z-10" />
+        <div className="absolute left-0 inset-y-0 w-20 sm:w-36 bg-gradient-to-r from-[#0A3266] via-[#0A3266]/70 to-transparent pointer-events-none z-10" />
+        <div className="absolute right-0 inset-y-0 w-20 sm:w-36 bg-gradient-to-l from-[#0A3266] via-[#0A3266]/70 to-transparent pointer-events-none z-10" />
 
         {/* ── Floating Center Frosted Call to Actions (Level Upright, Matching Image 1) ── */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3.5 z-20 pointer-events-none p-4">
           <Link
             href="/products"
-            className="pointer-events-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#E6C687] text-black font-display font-black text-xs uppercase tracking-widest hover:brightness-110 transition-all duration-300 shadow-[0_15px_40px_rgba(0,0,0,0.9),0_0_30px_rgba(230,198,135,0.4)] flex items-center gap-2.5 cursor-pointer hover:scale-105 active:scale-95"
+            className="pointer-events-auto px-8 py-3.5 rounded-full bg-[#0284C7] hover:bg-[#0369A1] text-white font-sans font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_15px_40px_rgba(2,132,199,0.45)] flex items-center gap-2.5 cursor-pointer hover:scale-105 active:scale-95"
           >
             <span>EXPLORE COMMODITIES</span>
-            <ArrowRight className="w-4 h-4 text-black" />
+            <ArrowRight className="w-4 h-4 text-white" />
           </Link>
 
           <button
             type="button"
             onClick={handleWhatsApp}
-            className="pointer-events-auto px-8 py-3.5 rounded-full bg-[#070D18]/90 hover:bg-[#070D18] backdrop-blur-2xl border border-white/25 hover:border-[#E6C687]/70 text-slate-200 hover:text-white font-display font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-2xl flex items-center gap-2.5 cursor-pointer hover:scale-105 active:scale-95"
+            className="pointer-events-auto px-8 py-3.5 rounded-full bg-[#072248]/90 hover:bg-[#072248] backdrop-blur-2xl border border-white/25 hover:border-[#E6C687]/70 text-white font-sans font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-2xl flex items-center gap-2.5 cursor-pointer hover:scale-105 active:scale-95"
           >
             <MessageSquare className="w-4 h-4 text-[#E6C687]" />
             <span>CHAT WITH US</span>

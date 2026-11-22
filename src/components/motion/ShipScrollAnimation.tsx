@@ -406,12 +406,12 @@ export function ShipScrollAnimation({
   return (
     <section
       ref={containerRef}
-      className={cn("relative w-full bg-[#040810]", className)}
+      className={cn("relative w-full bg-[#0A2E5C]", className)}
     >
-      {/* ── Pinned Viewport Container (100svh) with video frames, workflow & subtle black tint ── */}
+      {/* ── Pinned Viewport Container (100svh) with video frames, workflow & subtle tint ── */}
       <div
         ref={pinWrapperRef}
-        className="relative w-full h-[100svh] overflow-hidden bg-[#040810] flex items-center justify-center select-none"
+        className="relative w-full h-[100svh] overflow-hidden bg-[#0A2E5C] flex items-center justify-center select-none"
       >
         {/* Inner scaling frame wrapper: reduces to half size during the last 10 frames */}
         <div
@@ -432,13 +432,12 @@ export function ShipScrollAnimation({
             className="absolute inset-0 w-full h-full object-cover pointer-events-none will-change-transform z-[1]"
           />
 
-          {/* ── Very subtle light black tint for cinematic elegance ── */}
-          <div className="absolute inset-0 bg-black/[0.16] pointer-events-none z-[2]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#040810]/75 via-transparent to-black/35 pointer-events-none z-[2]" />
+          {/* ── Subtle corporate blue gradient for crisp contrast and legibility ── */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A2E5C]/80 via-transparent to-black/20 pointer-events-none z-[2]" />
 
           {/* ── Workflow Tracking in Video Empty Space (Bottom-Left) ── */}
           <div className="absolute bottom-8 sm:bottom-12 left-6 sm:left-12 lg:left-16 z-20 pointer-events-none max-w-lg select-none transition-all duration-300">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 border border-[#E6C687]/40 backdrop-blur-md mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#072248]/80 border border-[#E6C687]/50 backdrop-blur-md mb-2">
               <span className="w-2 h-2 rounded-full bg-[#E6C687] animate-pulse" />
               <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.22em] uppercase text-[#E6C687]">
                 {workflow.step}
@@ -449,13 +448,13 @@ export function ShipScrollAnimation({
               {workflow.title}
             </h3>
 
-            <p className="font-sans text-xs sm:text-sm text-slate-300 mt-1.5 max-w-md font-normal drop-shadow leading-relaxed">
+            <p className="font-sans text-xs sm:text-sm text-slate-200 mt-1.5 max-w-md font-normal drop-shadow leading-relaxed">
               {workflow.desc}
             </p>
           </div>
 
           {/* ── Micro Telemetry Indicator in Empty Space (Bottom-Right) ── */}
-          <div className="hidden sm:flex absolute bottom-10 right-8 sm:right-12 z-20 pointer-events-none items-center gap-3 px-3.5 py-1.5 rounded-full bg-black/60 border border-white/10 backdrop-blur-md text-[10px] font-mono text-slate-300">
+          <div className="hidden sm:flex absolute bottom-10 right-8 sm:right-12 z-20 pointer-events-none items-center gap-3 px-3.5 py-1.5 rounded-full bg-[#072248]/80 border border-white/20 backdrop-blur-md text-[10px] font-mono text-slate-200">
             <span className="text-[#E6C687]">PHASE {String(activeFrame).padStart(3, "0")}/100</span>
             <span className="text-white/20">|</span>
             <span>REEFER TELEMETRY: ACTIVE</span>

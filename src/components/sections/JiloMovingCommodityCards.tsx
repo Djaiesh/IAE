@@ -111,26 +111,26 @@ export function JiloMovingCommodityCards() {
   const marqueeItems = [...CARDS_DATA, ...CARDS_DATA];
 
   return (
-    <section className="relative z-10 py-24 bg-[#040810] overflow-hidden border-t border-b border-white/10">
+    <section className="relative z-10 py-24 bg-transparent overflow-hidden border-t border-b border-white/15">
       {/* ── Section Header ── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/60 border border-[#E6C687]/40 text-[#E6C687] text-xs font-semibold uppercase tracking-widest mb-3 font-sans">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#082247]/80 border border-[#E6C687]/50 text-[#E6C687] text-xs font-semibold uppercase tracking-widest mb-3 font-sans">
               <Sparkles className="w-3.5 h-3.5" />
               Continuous Export Marquee
             </div>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-white font-normal tracking-tight">
               Export Calibrated Commodities
             </h2>
-            <p className="text-slate-400 text-xs sm:text-sm mt-2 max-w-xl font-light font-sans">
+            <p className="text-slate-200 text-xs sm:text-sm mt-2 max-w-xl font-light font-sans">
               Single-origin spices, hydro-cooled vegetables, and GI-tagged tropical fruits. Click &quot;Instant Quote&quot; on any commodity to configure procurement tenders with automated specifications.
             </p>
           </div>
 
           <Link
             href="/products"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-white text-xs font-semibold uppercase tracking-wider transition-colors self-start md:self-auto cursor-pointer font-sans"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/25 text-white text-xs font-semibold uppercase tracking-wider transition-colors self-start md:self-auto cursor-pointer font-sans"
           >
             <span>View Full Directory</span>
             <ArrowRight className="w-4 h-4 text-[#E6C687]" />
@@ -140,9 +140,9 @@ export function JiloMovingCommodityCards() {
 
       {/* ── Continuous Smooth Gliding Marquee Container ── */}
       <div className="relative w-full overflow-hidden group">
-        {/* Left & Right subtle edge fade */}
-        <div className="absolute left-0 inset-y-0 w-20 sm:w-32 bg-gradient-to-r from-[#040810] via-[#040810]/80 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 inset-y-0 w-20 sm:w-32 bg-gradient-to-l from-[#040810] via-[#040810]/80 to-transparent z-10 pointer-events-none" />
+        {/* Left & Right subtle edge fade matching the bright corporate blue */}
+        <div className="absolute left-0 inset-y-0 w-20 sm:w-32 bg-gradient-to-r from-[#0A3266] via-[#0A3266]/70 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 inset-y-0 w-20 sm:w-32 bg-gradient-to-l from-[#0A3266] via-[#0A3266]/70 to-transparent z-10 pointer-events-none" />
 
         {/* Gliding Cards Track with generous vertical padding for large scale hover */}
         <div className="flex gap-7 w-max animate-glide group-hover:[animation-play-state:paused] py-8 px-6">
@@ -153,14 +153,14 @@ export function JiloMovingCommodityCards() {
               <div
                 key={`${item.id}-${idx}`}
                 onClick={() => setActiveCardId(isSelected ? null : `${item.id}-${idx}`)}
-                className={`relative w-64 sm:w-80 h-[430px] sm:h-[440px] rounded-3xl overflow-hidden bg-[#070D18] shadow-2xl flex flex-col justify-between shrink-0 transition-all duration-300 cursor-pointer group/card font-sans ${
+                className={`relative w-64 sm:w-80 h-[430px] sm:h-[440px] rounded-3xl overflow-hidden bg-[#0E3C7A]/85 backdrop-blur-xl shadow-2xl flex flex-col justify-between shrink-0 transition-all duration-300 cursor-pointer group/card font-sans ${
                   isSelected
-                    ? "scale-105 sm:scale-110 -translate-y-3 sm:-translate-y-4 z-30 border-2 border-[#E6C687] shadow-[0_25px_60px_rgba(230,198,135,0.3)]"
-                    : "border border-white/10 hover:scale-105 sm:hover:scale-110 hover:-translate-y-3 sm:hover:-translate-y-4 hover:z-30 hover:border-[#E6C687] hover:shadow-[0_25px_60px_rgba(230,198,135,0.25)]"
+                    ? "scale-105 sm:scale-110 -translate-y-3 sm:-translate-y-4 z-30 border-2 border-[#E6C687] shadow-[0_25px_60px_rgba(230,198,135,0.35)]"
+                    : "border border-white/20 hover:scale-105 sm:hover:scale-110 hover:-translate-y-3 sm:hover:-translate-y-4 hover:z-30 hover:border-[#38BDF8] hover:shadow-[0_25px_60px_rgba(56,189,248,0.3)]"
                 }`}
               >
                 {/* Photo Frame */}
-                <div className="relative h-52 w-full overflow-hidden bg-[#0A0A10]">
+                <div className="relative h-52 w-full overflow-hidden bg-[#0B2E5E]">
                   <Image
                     src={item.image}
                     alt={item.name}
@@ -168,11 +168,11 @@ export function JiloMovingCommodityCards() {
                     sizes="320px"
                     className="object-cover transition-transform duration-700 ease-out group-hover/card:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#070D18] via-transparent to-black/30" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0E3C7A] via-transparent to-black/20" />
 
                   {/* Category Pill */}
                   <div className="absolute top-3.5 left-3.5 z-10">
-                    <span className="text-[10px] font-sans uppercase font-bold tracking-widest px-2.5 py-1 rounded-full bg-black/80 border border-white/15 text-[#E6C687] backdrop-blur-md">
+                    <span className="text-[10px] font-sans uppercase font-bold tracking-widest px-2.5 py-1 rounded-full bg-[#082247]/90 border border-white/20 text-[#E6C687] backdrop-blur-md">
                       {item.category}
                     </span>
                   </div>
@@ -184,32 +184,32 @@ export function JiloMovingCommodityCards() {
                     <h3 className="font-sans text-base sm:text-lg text-white font-bold group-hover/card:text-[#E6C687] transition-colors leading-snug">
                       {item.name}
                     </h3>
-                    <div className="text-[11px] font-sans text-emerald-400 mt-1 flex items-center gap-1.5 font-medium">
+                    <div className="text-[11px] font-sans text-emerald-300 mt-1 flex items-center gap-1.5 font-medium">
                       <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
                       <span>{item.spec}</span>
                     </div>
-                    <p className="text-slate-400 text-xs font-normal mt-2 line-clamp-2">
+                    <p className="text-slate-200 text-xs font-normal mt-2 line-clamp-2">
                       {item.grade}
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-white/10 mt-3 space-y-1.5 text-[11px] font-sans">
-                    <div className="flex justify-between text-slate-400">
+                  <div className="pt-3 border-t border-white/15 mt-3 space-y-1.5 text-[11px] font-sans">
+                    <div className="flex justify-between text-slate-300">
                       <span>Packaging:</span>
-                      <span className="text-slate-200 truncate max-w-[170px]">{item.packaging}</span>
+                      <span className="text-white truncate max-w-[170px]">{item.packaging}</span>
                     </div>
-                    <div className="flex justify-between text-slate-400">
+                    <div className="flex justify-between text-slate-300">
                       <span>Target MOQ:</span>
                       <span className="text-[#E6C687] font-bold">{item.moq}</span>
                     </div>
                   </div>
 
                   {/* CTA Button */}
-                  <div className="pt-3 mt-3 border-t border-white/10 flex items-center gap-2">
+                  <div className="pt-3 mt-3 border-t border-white/15 flex items-center gap-2">
                     <button
                       type="button"
                       onClick={(e) => handleOpenQuote(e, item)}
-                      className="w-full py-2.5 rounded-full bg-white/5 hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#E6C687] hover:text-black border border-white/15 text-white text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer flex items-center justify-center gap-1.5"
+                      className="w-full py-2.5 rounded-full bg-white/10 hover:bg-[#0284C7] hover:border-[#0284C7] hover:text-white border border-white/25 text-white text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer flex items-center justify-center gap-1.5 shadow-md"
                     >
                       <Sparkles className="w-3.5 h-3.5" />
                       <span>Instant Quote</span>

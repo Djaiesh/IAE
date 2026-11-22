@@ -8,10 +8,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        abyss: "#040810",
-        navy: "#070D18",
-        deep: "#0B1526",
-        ocean: "#0E2038",
+        abyss: "#0A2852",
+        navy: "#0D356A",
+        deep: "#114484",
+        ocean: "#1756A4",
         emerald: {
           DEFAULT: "#10B981",
           light: "#34D399",
@@ -34,12 +34,12 @@ module.exports = {
           hover: "#F0D69A",
         },
         azure: {
-          DEFAULT: "#38BDF8",
-          light: "#7DD3FC",
-          dark: "#0284C7",
+          DEFAULT: "#0284C7",
+          light: "#38BDF8",
+          dark: "#0369A1",
         },
-        foam: "#CBD5E1",
-        cream: "#F8FAFC",
+        foam: "#E2E8F0",
+        cream: "#FFFFFF",
       },
       fontFamily: {
         display: ["'Playfair Display'", "Georgia", "'Times New Roman'", "serif"],

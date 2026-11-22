@@ -40,10 +40,10 @@ export function EnquiryCTASection({
   ];
 
   return (
-    <section className={cn("relative py-24 sm:py-32 overflow-hidden bg-[#040810] text-white", className)}>
+    <section className={cn("relative py-24 sm:py-32 overflow-hidden bg-transparent text-white", className)}>
       {/* Background ambient scrim with oceanic gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#040810] via-[#071220] to-[#040810] pointer-events-none" />
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0284C7]/10 to-transparent pointer-events-none" />
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-[#0284C7]/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -51,7 +51,7 @@ export function EnquiryCTASection({
           {/* Left Column: Editorial & Trust Signals */}
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#E6C687]/40 bg-black/60 mb-6 backdrop-blur-md">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#E6C687]/50 bg-[#082247]/80 mb-6 backdrop-blur-md">
                 <Anchor className="w-3.5 h-3.5 text-[#E6C687]" />
                 <span className="text-[11px] font-sans text-[#E6C687] font-semibold uppercase tracking-[0.2em]">
                   Direct Exporter Trade Desk
@@ -65,7 +65,7 @@ export function EnquiryCTASection({
                 </span>
               </h2>
 
-              <p className="font-sans text-sm sm:text-base text-slate-300 font-light mt-5 leading-relaxed">
+              <p className="font-sans text-sm sm:text-base text-slate-200 font-light mt-5 leading-relaxed">
                 Connect directly with our maritime trade logistics specialists. From trial 20ft FCL shipments to recurring seasonal reefer allotments, we provide transparent FOB / CIF pricing, port transit schedules, and laboratory dossiers.
               </p>
             </div>
@@ -82,10 +82,10 @@ export function EnquiryCTASection({
                   return (
                     <div
                       key={signal.title}
-                      className="p-4 rounded-2xl bg-[#070D18] border border-white/10 flex items-start gap-4 hover:border-[#E6C687]/40 transition-colors"
+                      className="p-4 rounded-2xl bg-[#0E3C7A]/85 backdrop-blur-xl border border-white/20 flex items-start gap-4 hover:border-[#38BDF8] transition-colors"
                     >
-                      <div className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#E6C687] shrink-0 mt-0.5">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                      <div className="w-9 h-9 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-[#E6C687] shrink-0 mt-0.5">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-300" />
                       </div>
                       <div className="space-y-1">
                         <div className="flex items-center gap-2">
@@ -94,7 +94,7 @@ export function EnquiryCTASection({
                             {signal.title}
                           </h3>
                         </div>
-                        <p className="font-sans text-xs text-slate-400 font-light leading-relaxed">
+                        <p className="font-sans text-xs text-slate-200 font-light leading-relaxed">
                           {signal.description}
                         </p>
                       </div>

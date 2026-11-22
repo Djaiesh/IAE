@@ -27,6 +27,10 @@ export function EntryLoader() {
 
   const dismissLoader = () => {
     setFadingOut(true);
+    // Dispatch event so Hero video knows to begin playback immediately from 00:00
+    try {
+      window.dispatchEvent(new CustomEvent("jilo_intro_complete"));
+    } catch {}
     setTimeout(() => {
       setVisible(false);
     }, 750);

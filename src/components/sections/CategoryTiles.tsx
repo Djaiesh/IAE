@@ -41,9 +41,7 @@ export function CategoryTiles({ className, showHeader = true }: CategoryTilesPro
   };
 
   return (
-    <section className={cn("relative py-24 sm:py-28 overflow-hidden bg-navy", className)}>
-      {/* Background ambient gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-abyss via-navy to-deep pointer-events-none" />
+    <section className={cn("relative py-24 sm:py-28 overflow-hidden bg-transparent", className)}>
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         {/* Section Header */}
@@ -102,37 +100,37 @@ export function CategoryTiles({ className, showHeader = true }: CategoryTilesPro
                     loading="lazy"
                     className="object-cover opacity-35 mix-blend-overlay transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
                 </div>
 
                 {/* Top Section: Eyebrow + Commodity Count Pill + Top Action Icon */}
                 <div className="relative z-10 flex items-start justify-between gap-4">
                   <div className="space-y-1">
-                    <span className="text-[10px] font-mono tracking-wider uppercase text-foam/70 block">
+                    <span className="text-[10px] font-mono tracking-wider uppercase text-slate-200 block font-semibold">
                       Dedicated Origin Line
                     </span>
-                    <span className="inline-block px-3 py-1 rounded-full text-[11px] font-sans font-bold bg-white/10 backdrop-blur-md text-cream border border-white/15">
+                    <span className="inline-block px-3 py-1 rounded-full text-[11px] font-sans font-bold bg-[#072248]/80 backdrop-blur-md text-white border border-white/20">
                       {count > 0 ? `${count} Active Cultivars` : `${cat.keyCommodities.length} Commodities`}
                     </span>
                   </div>
 
-                  <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-cream group-hover:bg-saffron group-hover:text-white group-hover:border-saffron transition-all duration-300 shrink-0">
+                  <div className="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-xl border border-white/25 flex items-center justify-center text-white group-hover:bg-[#0284C7] group-hover:border-[#0284C7] transition-all duration-300 shrink-0 shadow-md">
                     <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
                 </div>
 
-                {/* Bottom Section: Category Title (Cinzel), Description, Commodity Tags, Explore CTA */}
+                {/* Bottom Section: Category Title, Description, Commodity Tags, Explore CTA */}
                 <div className="relative z-10 pt-16">
                   <span className={cn("text-xs font-mono tracking-wide uppercase font-semibold block mb-2", accentClass)}>
                     {cat.shortTagline}
                   </span>
 
-                  {/* Large Cinzel Category Name */}
-                  <h3 className="font-display text-3xl sm:text-4xl text-cream font-normal tracking-tight mb-3">
+                  {/* Large Category Name */}
+                  <h3 className="font-display text-3xl sm:text-4xl text-white font-normal tracking-tight mb-3">
                     {cat.name}
                   </h3>
 
-                  <p className="font-sans text-xs sm:text-sm text-foam/80 font-light line-clamp-2 mb-5 leading-relaxed">
+                  <p className="font-sans text-xs sm:text-sm text-slate-200 font-light line-clamp-2 mb-5 leading-relaxed">
                     {cat.intro}
                   </p>
 
@@ -141,7 +139,7 @@ export function CategoryTiles({ className, showHeader = true }: CategoryTilesPro
                     {cat.keyCommodities.slice(0, 3).map((comm) => (
                       <span
                         key={comm}
-                        className="text-[10px] font-sans bg-black/40 backdrop-blur-md border border-white/15 px-3 py-1 rounded-full text-foam/90 font-medium"
+                        className="text-[10px] font-sans bg-[#072248]/80 backdrop-blur-md border border-white/20 px-3 py-1 rounded-full text-white font-medium"
                       >
                         {comm}
                       </span>
@@ -149,7 +147,7 @@ export function CategoryTiles({ className, showHeader = true }: CategoryTilesPro
                   </div>
 
                   {/* Explore Link CTA with 44px min touch target */}
-                  <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/10 group-hover:bg-saffron text-cream group-hover:text-white border border-white/20 group-hover:border-saffron font-sans text-xs uppercase tracking-wider font-bold transition-all min-h-[44px]">
+                  <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/15 group-hover:bg-[#0284C7] text-white border border-white/25 group-hover:border-[#0284C7] font-sans text-xs uppercase tracking-wider font-bold transition-all min-h-[44px] shadow-md">
                     <span>Explore {cat.name} →</span>
                   </div>
                 </div>

@@ -186,7 +186,7 @@ export function ReeferFreightCalculator3D() {
   };
 
   return (
-    <section className="relative z-10 py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#020408] overflow-hidden border-t border-b border-white/[0.06]">
+    <section className="relative z-10 py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-transparent overflow-hidden border-t border-b border-white/15">
       {/* Background radial atmosphere */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-[#0EA5E9]/10 via-[#10B981]/05 to-transparent blur-3xl" />
@@ -213,7 +213,7 @@ export function ReeferFreightCalculator3D() {
           {/* Controls Column (7 Cols) */}
           <div className="lg:col-span-7 space-y-6">
             {/* 01: Commodity Selector */}
-            <div className="p-6 rounded-3xl bg-[#070B13]/90 border border-white/10 backdrop-blur-2xl">
+            <div className="p-6 rounded-3xl bg-[#0E3C7A]/85 border border-white/20 backdrop-blur-2xl">
               <label className="block text-xs uppercase tracking-widest text-[#E6C687] font-semibold mb-3 flex items-center gap-2">
                 <Layers className="w-3.5 h-3.5" />
                 Step 1: Select Export Commodity
@@ -247,7 +247,7 @@ export function ReeferFreightCalculator3D() {
             </div>
 
             {/* 02: Destination Seaport Selector */}
-            <div className="p-6 rounded-3xl bg-[#070B13]/90 border border-white/10 backdrop-blur-2xl">
+            <div className="p-6 rounded-3xl bg-[#0E3C7A]/85 border border-white/20 backdrop-blur-2xl">
               <label className="block text-xs uppercase tracking-widest text-[#0EA5E9] font-semibold mb-3 flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5" />
                 Step 2: Choose Destination Discharge Port
@@ -278,7 +278,7 @@ export function ReeferFreightCalculator3D() {
             </div>
 
             {/* 03: Container Specification & Equipment */}
-            <div className="p-6 rounded-3xl bg-[#070B13]/90 border border-white/10 backdrop-blur-2xl">
+            <div className="p-6 rounded-3xl bg-[#0E3C7A]/85 border border-white/20 backdrop-blur-2xl">
               <label className="block text-xs uppercase tracking-widest text-emerald-400 font-semibold mb-3 flex items-center gap-2">
                 <Ship className="w-3.5 h-3.5" />
                 Step 3: Container Equipment Specification
@@ -340,7 +340,7 @@ export function ReeferFreightCalculator3D() {
               </div>
 
               {/* 3D Wireframe Container Visualizer Graphic */}
-              <div className="relative h-44 rounded-2xl bg-black/60 border border-white/10 p-4 mb-6 flex flex-col justify-between overflow-hidden">
+              <div className="relative h-44 rounded-2xl bg-[#0A2E5C]/90 border border-white/20 p-4 mb-6 flex flex-col justify-between overflow-hidden">
                 <div className="flex items-center justify-between text-xs">
                   <span className="text-slate-400 flex items-center gap-1.5">
                     <Thermometer className="w-3.5 h-3.5 text-sky-400" />

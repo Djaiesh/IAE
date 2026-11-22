@@ -64,9 +64,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Animated particles layer rendered server-side — pure CSS orbs */}
         <div aria-hidden="true" className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-          <div className="orb orb-teal  w-[700px] h-[700px] -top-48 -left-32  opacity-60" style={{ animationDelay: "0s", animationDuration: "18s" }} />
-          <div className="orb orb-gold  w-[500px] h-[500px] top-1/3 -right-40  opacity-40" style={{ animationDelay: "-6s", animationDuration: "22s" }} />
-          <div className="orb orb-ocean w-[600px] h-[600px] bottom-0  left-1/4  opacity-50" style={{ animationDelay: "-12s", animationDuration: "26s" }} />
+          <div className="orb orb-teal  w-[700px] h-[700px] -top-48 -left-32  opacity-35" style={{ animationDelay: "0s", animationDuration: "18s" }} />
+          <div className="orb orb-gold  w-[500px] h-[500px] top-1/3 -right-40  opacity-25" style={{ animationDelay: "-6s", animationDuration: "22s" }} />
+          <div className="orb orb-ocean w-[600px] h-[600px] bottom-0  left-1/4  opacity-30" style={{ animationDelay: "-12s", animationDuration: "26s" }} />
         </div>
 
         {/* Ambient Floating Luxury Gold Particles & Drifting Diamonds */}

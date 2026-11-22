@@ -55,7 +55,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
   return (
-    <div className="pt-28 pb-16 sm:pt-32 sm:pb-24 bg-navy text-cream min-h-screen">
+    <div className="pt-28 pb-16 sm:pt-32 sm:pb-24 bg-transparent text-cream min-h-screen relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10">
         
         {/* Breadcrumb Trail */}

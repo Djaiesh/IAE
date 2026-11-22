@@ -59,8 +59,8 @@ export function Navbar() {
         className={cn(
           "fixed z-50 transition-all duration-500",
           isScrolled
-            ? "top-0 left-0 right-0 py-3 bg-[#040810]/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl"
-            : "top-3 sm:top-4 left-3 right-3 sm:left-5 sm:right-5 py-2.5 sm:py-3 bg-[#070D18]/80 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl"
+            ? "top-0 left-0 right-0 py-3 bg-[#0A2E5C]/90 backdrop-blur-2xl border-b border-white/20 shadow-[0_10px_35px_rgba(2,20,50,0.35)]"
+            : "top-3 sm:top-4 left-3 right-3 sm:left-5 sm:right-5 py-2.5 sm:py-3 bg-[#0D3870]/85 backdrop-blur-xl border border-white/20 rounded-full shadow-[0_10px_35px_rgba(2,20,50,0.35)]"
         )}
       >
         <div className="w-full px-3 sm:px-6 lg:px-8">
@@ -69,7 +69,7 @@ export function Navbar() {
             {/* ── LEFT: JILO Brand Logo & Name Only (No Extra Clutter) ── */}
             <div className="flex items-center gap-3 justify-start shrink-0">
               <Link href="/" aria-label="JILO Global Agro-Exports Home" className="flex items-center gap-3 group">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center border border-[#E6C687]/40 bg-[#090E1A] shadow-md group-hover:border-[#E6C687] transition-all">
+                <div className="w-10 h-10 rounded-full flex items-center justify-center border border-[#E6C687]/50 bg-[#0A2E5C] shadow-md group-hover:border-[#E6C687] transition-all">
                   <span className="font-display text-lg font-bold text-[#E6C687]">J</span>
                 </div>
                 <div className="text-left hidden sm:block">
@@ -85,7 +85,7 @@ export function Navbar() {
 
             {/* ── CENTER: Floating Navigation Pills ── */}
             <nav className="hidden lg:flex items-center justify-center flex-1 px-2" aria-label="Main Navigation">
-              <div className="flex items-center gap-1 p-1.5 rounded-full bg-black/60 border border-white/10 backdrop-blur-xl shadow-inner">
+              <div className="flex items-center gap-1 p-1.5 rounded-full bg-[#072248]/75 border border-white/15 backdrop-blur-xl shadow-inner">
                 {SITE_CONFIG.navItems.map((item) => {
                   const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
                   return (
@@ -156,12 +156,12 @@ export function Navbar() {
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >
-        <div className="absolute inset-0 bg-black/95 backdrop-blur-3xl" onClick={() => setMobileOpen(false)} />
+        <div className="absolute inset-0 bg-[#072248]/85 backdrop-blur-3xl" onClick={() => setMobileOpen(false)} />
       </div>
 
       <div
         className={cn(
-          "fixed inset-y-0 right-0 z-40 w-full sm:w-96 lg:hidden transition-transform duration-500 ease-in-out bg-[#040810] border-l border-white/10",
+          "fixed inset-y-0 right-0 z-40 w-full sm:w-96 lg:hidden transition-transform duration-500 ease-in-out bg-[#0A2E5C] border-l border-white/20",
           mobileOpen ? "translate-x-0" : "translate-x-full"
         )}
       >

@@ -54,7 +54,7 @@ export function FloatingRFQDock() {
       >
         {/* Expanded Quick Options Menu */}
         {isExpanded && (
-          <div className="flex flex-col gap-2 p-3 rounded-3xl bg-[#070B13]/95 backdrop-blur-2xl border border-white/15 shadow-2xl animate-in fade-in slide-in-from-bottom-3 duration-300 w-64 max-w-[calc(100vw-2rem)]">
+          <div className="flex flex-col gap-2 p-3 rounded-3xl bg-[#0A2E5C]/95 backdrop-blur-2xl border border-white/20 shadow-2xl animate-in fade-in slide-in-from-bottom-3 duration-300 w-64 max-w-[calc(100vw-2rem)]">
             <div className="px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-[#E6C687] flex items-center justify-between">
               <span>Sovereign Trade Desk</span>
               <span className="flex items-center gap-1.5 text-emerald-400">
@@ -105,7 +105,7 @@ export function FloatingRFQDock() {
         )}
 
         {/* Primary Floating Trigger Pill */}
-        <div className="flex items-center gap-2 p-1.5 rounded-full bg-[#070B13]/90 backdrop-blur-2xl border border-white/20 shadow-2xl hover:border-[#E6C687]/50 transition-all">
+        <div className="flex items-center gap-2 p-1.5 rounded-full bg-[#0A2E5C]/90 backdrop-blur-2xl border border-white/20 shadow-2xl hover:border-[#38BDF8] transition-all">
           <button
             onClick={() => handleOpenTender()}
             className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#E6C687] to-[#C29B4D] text-black font-bold text-xs uppercase tracking-wider shadow-lg hover:opacity-95 transition-all cursor-pointer"

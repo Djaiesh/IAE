@@ -489,13 +489,13 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
         ref={ref}
         id="global-reach-map"
         className={cn(
-          "relative min-h-screen w-full bg-[#040810] text-white overflow-hidden flex flex-col lg:flex-row items-center justify-between py-12 lg:py-0 select-none",
+          "relative min-h-screen w-full bg-transparent text-white overflow-hidden flex flex-col lg:flex-row items-center justify-between py-12 lg:py-0 select-none",
           className
         )}
       >
-        {/* ── Golden Ambient Corner Glows (Soft delicate golden light on corners) ── */}
-        <div aria-hidden="true" className="pointer-events-none absolute -top-24 -right-24 w-[480px] h-[480px] bg-[radial-gradient(circle,_rgba(212,175,55,0.12)_0%,_transparent_70%)] blur-3xl z-0" />
-        <div aria-hidden="true" className="pointer-events-none absolute -bottom-24 -right-24 w-[480px] h-[480px] bg-[radial-gradient(circle,_rgba(230,198,135,0.10)_0%,_transparent_70%)] blur-3xl z-0" />
+        {/* ── Luminous Ambient Corner Glows (Bright Sky Blue + Golden Accents) ── */}
+        <div aria-hidden="true" className="pointer-events-none absolute -top-24 -right-24 w-[520px] h-[520px] bg-[radial-gradient(circle,_rgba(56,189,248,0.22)_0%,_transparent_70%)] blur-3xl z-0" />
+        <div aria-hidden="true" className="pointer-events-none absolute -bottom-24 -left-24 w-[520px] h-[520px] bg-[radial-gradient(circle,_rgba(2,132,199,0.20)_0%,_transparent_70%)] blur-3xl z-0" />
 
         {/* ── Left Content (Text & Actions) ── */}
         <div className="relative z-10 w-full lg:w-[46vw] max-w-xl lg:max-w-2xl px-6 sm:px-12 lg:pl-16 lg:pr-4 flex flex-col justify-center text-left py-6 lg:py-0 pointer-events-auto">
@@ -514,23 +514,23 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
           </h2>
 
           {/* Clean Modern Subtitle */}
-          <p className="font-sans text-sm sm:text-base text-slate-300 font-normal mt-7 max-w-md leading-relaxed">
+          <p className="font-sans text-sm sm:text-base text-slate-200 font-normal mt-7 max-w-md leading-relaxed">
             Freight forwarding, land transport, and customs brokerage, unified across international sea lanes under one accountable team.
           </p>
 
-          {/* Dual Action Pill Buttons */}
+          {/* Dual Action Pill Buttons (Matching GlobalLink & SkyStructure Corporate Style) */}
           <div className="mt-9 flex items-center gap-4">
             <button
               type="button"
               onClick={() => setIsTenderOpen(true)}
-              className="px-8 py-3.5 rounded-full bg-white text-black font-display font-extrabold text-xs uppercase tracking-wider hover:bg-slate-200 transition-all shadow-[0_10px_30px_rgba(255,255,255,0.18)] cursor-pointer active:scale-95"
+              className="px-8 py-3.5 rounded-full bg-[#0284C7] hover:bg-[#0369A1] text-white font-sans font-bold text-xs uppercase tracking-wider transition-all shadow-[0_10px_30px_rgba(2,132,199,0.4)] cursor-pointer active:scale-95"
             >
               TALK WITH US
             </button>
 
             <Link
               href="/products"
-              className="px-8 py-3.5 rounded-full bg-transparent border border-white/35 hover:border-white hover:bg-white/10 text-white font-display font-bold text-xs uppercase tracking-wider transition-all cursor-pointer active:scale-95"
+              className="px-8 py-3.5 rounded-full bg-white/10 border border-white/30 hover:bg-white/20 text-white font-sans font-bold text-xs uppercase tracking-wider transition-all cursor-pointer active:scale-95"
             >
               OUR SERVICES
             </Link>
@@ -546,7 +546,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
             title="Click and drag to rotate global trade routes"
           />
 
-          {/* 3D-Projected DOM Badges (Matching Reference: Black Badge + Gold Dot) */}
+          {/* 3D-Projected DOM Badges */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             {GLOBAL_HUBS.map((hub) => (
               <div
@@ -561,8 +561,8 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
                 {/* Glowing Gold Marker Dot */}
                 <span className="w-2.5 h-2.5 rounded-sm bg-[#E6C687] shadow-[0_0_12px_#E6C687] shrink-0" />
 
-                {/* Clean Black Badge with Monospace Text */}
-                <span className="bg-black/95 border border-[#E6C687]/50 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase text-white shadow-xl whitespace-nowrap">
+                {/* Clean Royal Blue Badge with Monospace Text */}
+                <span className="bg-[#072248]/90 border border-white/20 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase text-white shadow-xl whitespace-nowrap">
                   {hub.name}
                 </span>
               </div>

@@ -70,7 +70,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   };
 
   return (
-    <div className="bg-navy text-cream min-h-screen">
+    <div className="bg-transparent text-cream min-h-screen relative z-10">
       {/* 1. Cinematic Category Hero Video */}
       <PageHeroVideo
         videoSrc={getCategoryVideo(category.slug)}

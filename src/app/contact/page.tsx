@@ -37,7 +37,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
     type === "sample" || type === "contract" ? (type as "sample" | "contract") : "quote";
 
   return (
-    <div className="bg-navy text-cream min-h-screen">
+    <div className="bg-transparent text-cream min-h-screen relative z-10">
       {/* 1. Cinematic Dedicated Page Hero Video */}
       <PageHeroVideo
         videoSrc="/video/contact_page_video.mp4"
@@ -189,7 +189,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
               </div>
 
               {/* Embedded Google Map */}
-              <div className="relative h-48 rounded-2xl overflow-hidden border border-white/15 shadow-xl bg-[#090E1A]">
+              <div className="relative h-48 rounded-2xl overflow-hidden border border-white/20 shadow-xl bg-[#0A2E5C]">
                 <iframe
                   title="JILO Headquarters Location Map - Valasaravakkam, Chennai"
                   src="https://maps.google.com/maps?q=Valasaravakkam%2C%20Chennai%2C%20Tamil%20Nadu%2C%20India&t=&z=14&ie=UTF8&iwloc=&output=embed"

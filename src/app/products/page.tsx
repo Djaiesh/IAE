@@ -42,7 +42,7 @@ export default function ProductsPage() {
   };
 
   return (
-    <div className="bg-navy text-cream min-h-screen">
+    <div className="bg-transparent text-cream min-h-screen relative z-10">
       {/* 1. Cinematic Dedicated Page Hero Video */}
       <PageHeroVideo
         videoSrc="/video/product_page_video.mp4"
