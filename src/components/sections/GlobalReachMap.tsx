@@ -61,15 +61,15 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
         </div>
 
         {/* ── 01. FAMILIAR & ACCURATE MARITIME CARTOGRAPHY MAP ── */}
-        <div className="relative w-full rounded-3xl sm:rounded-4xl border border-white/25 bg-[#124B9E]/85 backdrop-blur-2xl p-4 sm:p-8 mb-12 shadow-2xl overflow-hidden">
+        <div className="relative w-full rounded-3xl sm:rounded-4xl border border-white/20 bg-[#0E3C7A]/85 backdrop-blur-2xl p-4 sm:p-8 mb-12 shadow-2xl overflow-hidden">
           
           {/* Subtle Grid Canvas Header */}
-          <div className="flex items-center justify-between pb-3 mb-2 border-b border-white/10 text-xs font-sans text-slate-300">
+          <div className="flex items-center justify-between pb-3 mb-2 border-b border-white/10 text-xs font-sans text-slate-400">
             <div className="flex items-center gap-2 font-mono text-[11px]">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span>LIVE SHIPPING LANES: JNPT / MUNDRA GATEWAYS</span>
             </div>
-            <div className="hidden sm:flex items-center gap-4 text-[11px] text-[#FF1E27]">
+            <div className="hidden sm:flex items-center gap-4 text-[11px] text-[#E50914]">
               <span>IncoTerms 2020: CIF / FOB</span>
               <span>•</span>
               <span>Reefer Telemetry Active</span>
@@ -257,13 +257,13 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
                   className={cn(
                     "w-full text-left p-4 sm:p-5 rounded-2xl sm:rounded-3xl border transition-all duration-300 flex items-center gap-4 cursor-pointer",
                     isSelected
-                      ? "bg-[#124B9E] border-[#FF1E27] shadow-[0_8px_30px_rgba(255,30,39,0.35)] border-l-4"
-                      : "bg-[#0D448E]/80 border-white/20 hover:bg-[#124B9E]/60 hover:border-white/30"
+                      ? "bg-[#0E3C7A] border-[#E50914] shadow-[0_8px_30px_rgba(229, 9, 20,0.25)] border-l-4"
+                      : "bg-[#0A2E5C]/80 border-white/15 hover:bg-[#0E3C7A]/50 hover:border-white/25"
                   )}
                 >
                   <div className={cn(
                     "w-11 h-11 rounded-2xl flex items-center justify-center border shrink-0 transition-colors",
-                    isSelected ? "bg-[#FF1E27] text-white border-[#FF1E27] shadow-md" : "bg-white/10 text-slate-200 border-white/15"
+                    isSelected ? "bg-[#E50914] text-white border-[#E50914] shadow-md" : "bg-white/10 text-slate-200 border-white/15"
                   )}>
                     <Anchor className="w-5 h-5" />
                   </div>
@@ -288,24 +288,24 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
 
           {/* Port Detail Card (Right Column) */}
           <div className="lg:col-span-7">
-            <div className="bg-[#124B9E]/85 backdrop-blur-2xl rounded-3xl sm:rounded-4xl p-6 sm:p-10 border border-white/25 shadow-2xl relative overflow-hidden">
+            <div className="bg-[#0E3C7A]/85 backdrop-blur-2xl rounded-3xl sm:rounded-4xl p-6 sm:p-10 border border-white/20 shadow-2xl relative overflow-hidden">
               
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10 mb-6">
                 <div>
-                  <span className="text-[11px] font-sans uppercase tracking-widest text-[#FF1E27] block mb-1">
+                  <span className="text-[11px] font-sans uppercase tracking-widest text-[#E50914] block mb-1">
                     Verified Shipping Route &amp; Transit Profile
                   </span>
                   <h3 className="font-display text-3xl text-white font-normal mt-1">
                     {selectedPort.name}
                   </h3>
-                  <p className="font-sans text-sm text-slate-300 mt-0.5">
+                  <p className="font-sans text-sm text-slate-400 mt-0.5">
                     {selectedPort.city} · {selectedPort.country} ({selectedPort.region})
                   </p>
                 </div>
 
-                <div className="flex items-center gap-2 bg-[#FF1E27]/15 border border-[#FF1E27]/30 px-3.5 py-2 rounded-2xl self-start sm:self-auto">
-                  <Navigation className="w-4 h-4 text-[#FF1E27] animate-pulse" />
-                  <span className="font-sans text-xs text-[#FF1E27] font-semibold">
+                <div className="flex items-center gap-2 bg-[#E50914]/15 border border-[#E50914]/30 px-3.5 py-2 rounded-2xl self-start sm:self-auto">
+                  <Navigation className="w-4 h-4 text-[#E50914] animate-pulse" />
+                  <span className="font-sans text-xs text-[#E50914] font-semibold">
                     Scheduled Liner Service
                   </span>
                 </div>

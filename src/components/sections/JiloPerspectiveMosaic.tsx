@@ -79,19 +79,19 @@ export function JiloPerspectiveMosaic() {
             {[...MOSAIC_TILES_ROW1, ...MOSAIC_TILES_ROW1].map((tile, i) => (
               <div
                 key={`r1-${tile.id}-${i}`}
-                className="group relative w-56 sm:w-68 lg:w-76 h-36 sm:h-44 lg:h-48 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/25 bg-[#124B9E]/85 shadow-2xl transition-all duration-500 hover:border-[#38BDF8] hover:scale-[1.04] shrink-0 cursor-pointer"
+                className="group relative w-56 sm:w-68 lg:w-76 h-36 sm:h-44 lg:h-48 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/20 bg-[#0E3C7A]/80 shadow-2xl transition-all duration-500 hover:border-[#38BDF8] hover:scale-[1.04] shrink-0 cursor-pointer"
               >
                 <Image
                   src={tile.image}
                   alt={tile.title}
                   fill
                   sizes="(max-width: 640px) 240px, 320px"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 brightness-[0.92] group-hover:brightness-105"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 brightness-[0.9] group-hover:brightness-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 
                 <div className="absolute bottom-3 left-3 right-3 z-10 transition-transform duration-300 group-hover:-translate-y-1">
-                  <span className="text-[9px] uppercase font-bold tracking-widest text-[#FF1E27] block truncate">
+                  <span className="text-[9px] uppercase font-bold tracking-widest text-[#E50914] block truncate">
                     {tile.category}
                   </span>
                   <span className="text-xs sm:text-sm font-semibold text-white block truncate leading-tight mt-0.5">
@@ -112,14 +112,14 @@ export function JiloPerspectiveMosaic() {
             {[...MOSAIC_TILES_ROW2, ...MOSAIC_TILES_ROW2].map((tile, i) => (
               <div
                 key={`r2-${tile.id}-${i}`}
-                className="group relative w-56 sm:w-68 lg:w-76 h-36 sm:h-44 lg:h-48 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/25 bg-[#124B9E]/85 shadow-2xl transition-all duration-500 hover:border-[#38BDF8] hover:scale-[1.04] shrink-0 cursor-pointer"
+                className="group relative w-56 sm:w-68 lg:w-76 h-36 sm:h-44 lg:h-48 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/20 bg-[#0E3C7A]/80 shadow-2xl transition-all duration-500 hover:border-[#38BDF8] hover:scale-[1.04] shrink-0 cursor-pointer"
               >
                 <Image
                   src={tile.image}
                   alt={tile.title}
                   fill
                   sizes="(max-width: 640px) 240px, 320px"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 brightness-[0.92] group-hover:brightness-105"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 brightness-[0.9] group-hover:brightness-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 
@@ -145,19 +145,19 @@ export function JiloPerspectiveMosaic() {
             {[...MOSAIC_TILES_ROW1, ...MOSAIC_TILES_ROW2].map((tile, i) => (
               <div
                 key={`r3-${tile.id}-${i}`}
-                className="group relative w-56 sm:w-68 lg:w-76 h-36 sm:h-44 lg:h-48 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/25 bg-[#124B9E]/85 shadow-2xl transition-all duration-500 hover:border-[#38BDF8] hover:scale-[1.04] shrink-0 cursor-pointer"
+                className="group relative w-56 sm:w-68 lg:w-76 h-36 sm:h-44 lg:h-48 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/20 bg-[#0E3C7A]/80 shadow-2xl transition-all duration-500 hover:border-[#38BDF8] hover:scale-[1.04] shrink-0 cursor-pointer"
               >
                 <Image
                   src={tile.image}
                   alt={tile.title}
                   fill
                   sizes="(max-width: 640px) 240px, 320px"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 brightness-[0.92] group-hover:brightness-105"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 brightness-[0.9] group-hover:brightness-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 
                 <div className="absolute bottom-3 left-3 right-3 z-10 transition-transform duration-300 group-hover:-translate-y-1">
-                  <span className="text-[9px] uppercase font-bold tracking-widest text-[#FF1E27] block truncate">
+                  <span className="text-[9px] uppercase font-bold tracking-widest text-[#E50914] block truncate">
                     {tile.category}
                   </span>
                   <span className="text-xs sm:text-sm font-semibold text-white block truncate leading-tight mt-0.5">
@@ -170,10 +170,10 @@ export function JiloPerspectiveMosaic() {
         </div>
 
         {/* ── Seamless Multi-Layer Edge Vignettes (Melts cleanly into footer with zero gap) ── */}
-        <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-[#0B3B82] via-[#0B3B82]/50 to-transparent pointer-events-none z-10" />
-        <div className="absolute bottom-0 inset-x-0 h-14 bg-gradient-to-t from-[#0B3B82]/80 to-transparent pointer-events-none z-10" />
-        <div className="absolute left-0 inset-y-0 w-16 sm:w-28 bg-gradient-to-r from-[#0B3B82] via-[#0B3B82]/60 to-transparent pointer-events-none z-10" />
-        <div className="absolute right-0 inset-y-0 w-16 sm:w-28 bg-gradient-to-l from-[#0B3B82] via-[#0B3B82]/60 to-transparent pointer-events-none z-10" />
+        <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-[#0A3266] via-[#0A3266]/50 to-transparent pointer-events-none z-10" />
+        <div className="absolute bottom-0 inset-x-0 h-14 bg-gradient-to-t from-[#061F42]/80 to-transparent pointer-events-none z-10" />
+        <div className="absolute left-0 inset-y-0 w-16 sm:w-28 bg-gradient-to-r from-[#0A3266] via-[#0A3266]/60 to-transparent pointer-events-none z-10" />
+        <div className="absolute right-0 inset-y-0 w-16 sm:w-28 bg-gradient-to-l from-[#0A3266] via-[#0A3266]/60 to-transparent pointer-events-none z-10" />
 
         {/* ── Floating Center Frosted Call to Actions (Level Upright, Matching Image 1) ── */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3.5 z-20 pointer-events-none p-4">

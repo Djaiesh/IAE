@@ -433,13 +433,13 @@ export function ShipScrollAnimation({
           />
 
           {/* ── Subtle corporate blue gradient for crisp contrast and legibility ── */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B3B82]/75 via-transparent to-black/20 pointer-events-none z-[2]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A2E5C]/80 via-transparent to-black/20 pointer-events-none z-[2]" />
 
           {/* ── Workflow Tracking in Video Empty Space (Bottom-Left) ── */}
           <div className="absolute bottom-8 sm:bottom-12 left-6 sm:left-12 lg:left-16 z-20 pointer-events-none max-w-lg select-none transition-all duration-300">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0D448E]/85 border border-[#FF1E27]/50 backdrop-blur-md mb-2">
-              <span className="w-2 h-2 rounded-full bg-[#FF1E27] animate-pulse" />
-              <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.22em] uppercase text-[#FF1E27]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#072248]/80 border border-[#E50914]/50 backdrop-blur-md mb-2">
+              <span className="w-2 h-2 rounded-full bg-[#E50914] animate-pulse" />
+              <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.22em] uppercase text-[#E50914]">
                 {workflow.step}
               </span>
             </div>

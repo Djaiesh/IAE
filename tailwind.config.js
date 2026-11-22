@@ -8,10 +8,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        abyss: "#0B3B82",
-        navy: "#0E4E9E",
-        deep: "#1257BF",
-        ocean: "#1866D6",
+        abyss: "#0A2852",
+        navy: "#0D356A",
+        deep: "#114484",
+        ocean: "#1756A4",
         emerald: {
           DEFAULT: "#10B981",
           light: "#34D399",
@@ -23,21 +23,21 @@ module.exports = {
           dark: "#059669",
         },
         gold: {
-          DEFAULT: "#FF1E27",
-          light: "#FF3B45",
-          dark: "#C40812",
+          DEFAULT: "#E50914",
+          light: "#FF2A36",
+          dark: "#B8000B",
         },
         saffron: {
-          DEFAULT: "#FF1E27",
-          light: "#FF3B45",
-          dark: "#C40812",
-          hover: "#FF2B32",
+          DEFAULT: "#E50914",
+          light: "#FF2A36",
+          dark: "#B8000B",
+          hover: "#FF1E27",
         },
         crimson: {
-          DEFAULT: "#FF1E27",
-          light: "#FF3B45",
-          dark: "#C40812",
-          hover: "#FF2B32",
+          DEFAULT: "#E50914",
+          light: "#FF2A36",
+          dark: "#B8000B",
+          hover: "#FF1E27",
         },
         azure: {
           DEFAULT: "#0284C7",
@@ -64,12 +64,12 @@ module.exports = {
         wide2: "0.14em",
       },
       boxShadow: {
-        gold: "0 0 40px rgba(255, 30, 39, 0.45)",
-        saffron: "0 0 35px rgba(255, 30, 39, 0.45)",
-        crimson: "0 0 35px rgba(255, 30, 39, 0.45)",
-        card: "0 16px 48px rgba(4, 25, 70, 0.45), 0 2px 8px rgba(4, 25, 70, 0.3)",
-        float: "0 24px 80px rgba(4, 25, 70, 0.55)",
-        glow: "0 0 30px rgba(255, 30, 39, 0.4)",
+        gold: "0 0 40px rgba(229, 9, 20, 0.4)",
+        saffron: "0 0 35px rgba(229, 9, 20, 0.4)",
+        crimson: "0 0 35px rgba(229, 9, 20, 0.4)",
+        card: "0 16px 48px rgba(4, 8, 16, 0.7), 0 2px 8px rgba(4, 8, 16, 0.5)",
+        float: "0 24px 80px rgba(4, 8, 16, 0.85)",
+        glow: "0 0 30px rgba(229, 9, 20, 0.35)",
       },
       animation: {
         "fade-in": "fadeIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards",

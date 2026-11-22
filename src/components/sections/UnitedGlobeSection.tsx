@@ -185,9 +185,9 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
           vec3 viewDir = normalize(-vPosition);
           float dotP = max(0.0, dot(vNormal, viewDir));
           
-          // Deep luminous corporate royal sapphire core
-          vec3 centerColor = vec3(0.04, 0.16, 0.36);
-          vec3 edgeGlow = vec3(1.0, 0.12, 0.15); // Radiant red rim
+          // Deep oceanic navy sapphire core
+          vec3 centerColor = vec3(0.02, 0.08, 0.18);
+          vec3 edgeGlow = vec3(0.90, 0.04, 0.08); // Pure vibrant red
           
           // Gradient fade border: smooth opacity reduction toward silhouette
           float edgeAlpha = smoothstep(0.02, 0.60, dotP);
@@ -570,7 +570,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
         {/* ── Right Column: 3D Globe Canvas Mount (Guaranteed Height & Zero Right Margin) ── */}
         <div className="relative z-10 w-full lg:w-[54vw] h-[520px] sm:h-[620px] lg:h-screen flex items-center justify-center lg:justify-end pointer-events-auto overflow-hidden">
           {/* Soft Atmospheric Red & Oceanic Radial Glow Behind Globe */}
-          <div aria-hidden="true" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[540px] h-[540px] bg-[radial-gradient(circle,rgba(255,30,39,0.22)_0%,rgba(18,76,160,0.25)_50%,transparent_72%)] blur-3xl pointer-events-none rounded-full" />
+          <div aria-hidden="true" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[540px] h-[540px] bg-[radial-gradient(circle,rgba(229,9,20,0.18)_0%,rgba(14,56,116,0.15)_50%,transparent_72%)] blur-3xl pointer-events-none rounded-full" />
 
           {/* 3D WebGL Canvas Container */}
           <div
@@ -592,10 +592,10 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
                 style={{ display: "none" }}
               >
                 {/* Glowing Pure Red Marker Dot */}
-                <span className="w-2.5 h-2.5 rounded-sm bg-[#FF1E27] shadow-[0_0_12px_#FF1E27] shrink-0" />
+                <span className="w-2.5 h-2.5 rounded-sm bg-[#E50914] shadow-[0_0_12px_#E50914] shrink-0" />
 
                 {/* Clean Royal Blue Badge with Monospace Text */}
-                <span className="bg-[#0D448E]/90 border border-white/25 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase text-white shadow-xl whitespace-nowrap">
+                <span className="bg-[#072248]/90 border border-white/20 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase text-white shadow-xl whitespace-nowrap">
                   {hub.name}
                 </span>
               </div>

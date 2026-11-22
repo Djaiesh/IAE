@@ -190,13 +190,13 @@ export function ReeferFreightCalculator3D() {
       {/* Background radial atmosphere */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-[#0EA5E9]/10 via-[#10B981]/05 to-transparent blur-3xl" />
-        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#FF1E27]/08 blur-3xl rounded-full" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#E50914]/08 blur-3xl rounded-full" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FF1E27]/10 border border-[#FF1E27]/25 text-[#FF1E27] text-xs font-semibold uppercase tracking-widest mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E50914]/10 border border-[#E50914]/25 text-[#E50914] text-xs font-semibold uppercase tracking-widest mb-4">
             <Sparkles className="w-3.5 h-3.5" />
             Interactive 3D Freight & Telemetry Matrix
           </div>
@@ -213,8 +213,8 @@ export function ReeferFreightCalculator3D() {
           {/* Controls Column (7 Cols) */}
           <div className="lg:col-span-7 space-y-6">
             {/* 01: Commodity Selector */}
-            <div className="p-6 rounded-3xl bg-[#124B9E]/85 border border-white/20 backdrop-blur-2xl">
-              <label className="block text-xs uppercase tracking-widest text-[#FF1E27] font-semibold mb-3 flex items-center gap-2">
+            <div className="p-6 rounded-3xl bg-[#0E3C7A]/85 border border-white/20 backdrop-blur-2xl">
+              <label className="block text-xs uppercase tracking-widest text-[#E50914] font-semibold mb-3 flex items-center gap-2">
                 <Layers className="w-3.5 h-3.5" />
                 Step 1: Select Export Commodity
               </label>
@@ -227,7 +227,7 @@ export function ReeferFreightCalculator3D() {
                       onClick={() => setSelectedCommodityId(c.id)}
                       className={`p-3.5 rounded-2xl text-left transition-all border cursor-pointer ${
                         isSelected
-                          ? "bg-[#FF1E27]/15 border-[#FF1E27] text-white shadow-lg shadow-[#FF1E27]/10"
+                          ? "bg-[#E50914]/15 border-[#E50914] text-white shadow-lg shadow-[#E50914]/10"
                           : "bg-white/[0.03] border-white/05 text-slate-300 hover:bg-white/[0.07] hover:border-white/15"
                       }`}
                     >
@@ -237,7 +237,7 @@ export function ReeferFreightCalculator3D() {
                           {c.category}
                         </span>
                       </div>
-                      <div className="text-[11px] text-[#FF1E27] mt-1 font-mono">
+                      <div className="text-[11px] text-[#E50914] mt-1 font-mono">
                         {c.curcuminOrSpec}
                       </div>
                     </button>
@@ -247,7 +247,7 @@ export function ReeferFreightCalculator3D() {
             </div>
 
             {/* 02: Destination Seaport Selector */}
-            <div className="p-6 rounded-3xl bg-[#124B9E]/85 border border-white/20 backdrop-blur-2xl">
+            <div className="p-6 rounded-3xl bg-[#0E3C7A]/85 border border-white/20 backdrop-blur-2xl">
               <label className="block text-xs uppercase tracking-widest text-[#0EA5E9] font-semibold mb-3 flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5" />
                 Step 2: Choose Destination Discharge Port
@@ -278,7 +278,7 @@ export function ReeferFreightCalculator3D() {
             </div>
 
             {/* 03: Container Specification & Equipment */}
-            <div className="p-6 rounded-3xl bg-[#124B9E]/85 border border-white/20 backdrop-blur-2xl">
+            <div className="p-6 rounded-3xl bg-[#0E3C7A]/85 border border-white/20 backdrop-blur-2xl">
               <label className="block text-xs uppercase tracking-widest text-emerald-400 font-semibold mb-3 flex items-center gap-2">
                 <Ship className="w-3.5 h-3.5" />
                 Step 3: Container Equipment Specification
@@ -321,12 +321,12 @@ export function ReeferFreightCalculator3D() {
           >
             <div className="p-7 sm:p-8 rounded-4xl bg-gradient-to-b from-[#090E1A] to-[#04070F] border border-white/15 shadow-2xl relative overflow-hidden">
               {/* Top Specular Sheen */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#FF1E27]/10 blur-3xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#E50914]/10 blur-3xl pointer-events-none" />
 
               {/* HUD Header */}
               <div className="flex items-center justify-between pb-5 border-b border-white/10 mb-6">
                 <div>
-                  <div className="text-[10px] uppercase font-bold tracking-widest text-[#FF1E27]">
+                  <div className="text-[10px] uppercase font-bold tracking-widest text-[#E50914]">
                     Sovereign Logistics Telemetry
                   </div>
                   <div className="font-display text-xl text-white font-medium mt-0.5">
@@ -340,7 +340,7 @@ export function ReeferFreightCalculator3D() {
               </div>
 
               {/* 3D Wireframe Container Visualizer Graphic */}
-              <div className="relative h-44 rounded-2xl bg-[#0D448E]/90 border border-white/20 p-4 mb-6 flex flex-col justify-between overflow-hidden">
+              <div className="relative h-44 rounded-2xl bg-[#0A2E5C]/90 border border-white/20 p-4 mb-6 flex flex-col justify-between overflow-hidden">
                 <div className="flex items-center justify-between text-xs">
                   <span className="text-slate-400 flex items-center gap-1.5">
                     <Thermometer className="w-3.5 h-3.5 text-sky-400" />
@@ -370,7 +370,7 @@ export function ReeferFreightCalculator3D() {
                 {/* Transit time bar */}
                 <div className="flex items-center justify-between text-[11px] font-mono text-slate-400">
                   <span>Transit Duration:</span>
-                  <span className="text-[#FF1E27] font-bold">{seaport.transitDays}</span>
+                  <span className="text-[#E50914] font-bold">{seaport.transitDays}</span>
                 </div>
               </div>
 
@@ -405,7 +405,7 @@ export function ReeferFreightCalculator3D() {
                     <span className="text-[10px] text-slate-500">Includes Phytosanitary + SGS COA</span>
                   </div>
                   <div className="text-right">
-                    <div className="text-2xl font-bold font-mono text-[#FF1E27]">
+                    <div className="text-2xl font-bold font-mono text-[#E50914]">
                       ${estimatedCIFPerMT.toLocaleString()}
                       <span className="text-xs text-slate-400 font-normal"> / MT</span>
                     </div>
@@ -419,7 +419,7 @@ export function ReeferFreightCalculator3D() {
               {/* High-Intent Lead Conversion CTA Button */}
               <button
                 onClick={handleOpenTender}
-                className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#FF1E27] via-[#FF1E27] to-[#B8000B] text-white font-bold text-xs uppercase tracking-widest shadow-xl shadow-[#FF1E27]/25 hover:brightness-110 transition-all flex items-center justify-center gap-2 cursor-pointer group"
+                className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#E50914] via-[#FF1E27] to-[#B8000B] text-white font-bold text-xs uppercase tracking-widest shadow-xl shadow-[#E50914]/25 hover:brightness-110 transition-all flex items-center justify-center gap-2 cursor-pointer group"
               >
                 <span>Lock This Spot Rate & Request Proforma</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

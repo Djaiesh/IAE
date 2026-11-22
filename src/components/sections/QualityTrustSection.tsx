@@ -33,16 +33,16 @@ export function QualityTrustSection() {
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FF1E27]/50 bg-[#0D448E]/85 backdrop-blur-xl mb-5 shadow-lg">
-            <ShieldCheck className="w-4 h-4 text-[#FF1E27]" />
-            <span className="text-[11px] font-sans text-[#FF1E27] uppercase tracking-[0.2em] font-semibold">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#E50914]/50 bg-[#082247]/80 backdrop-blur-xl mb-5 shadow-lg">
+            <ShieldCheck className="w-4 h-4 text-[#E50914]" />
+            <span className="text-[11px] font-sans text-[#E50914] uppercase tracking-[0.2em] font-semibold">
               Verification &amp; Quality Assurance
             </span>
           </div>
           
           <h2 className="font-display text-3xl sm:text-5xl text-white font-normal tracking-tight">
             Built on Scientific
-            <span className="text-[#FF1E27] italic font-light block mt-1">
+            <span className="text-[#E50914] italic font-light block mt-1">
               Food Safety &amp; Laboratory Standards
             </span>
           </h2>
@@ -54,7 +54,7 @@ export function QualityTrustSection() {
         {/* 3 Core Scientific Pillars */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {PILLARS.map((p) => (
-            <div key={p.title} className="bg-[#124B9E]/85 backdrop-blur-xl rounded-3xl p-8 border border-white/25 flex flex-col justify-between hover:border-[#38BDF8] hover:shadow-[0_20px_50px_rgba(56,189,248,0.3)] transition-all duration-300 shadow-xl">
+            <div key={p.title} className="bg-[#0E3C7A]/85 backdrop-blur-xl rounded-3xl p-8 border border-white/20 flex flex-col justify-between hover:border-[#38BDF8] hover:shadow-[0_20px_50px_rgba(56,189,248,0.25)] transition-all duration-300 shadow-xl">
               <div>
                 <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-6 shadow-md">
                   {p.icon}
@@ -69,7 +69,7 @@ export function QualityTrustSection() {
         </div>
 
         {/* Accreditation Seal Strip & Direct Navigation Action */}
-        <div className="bg-[#0E4894]/90 backdrop-blur-xl rounded-3xl sm:rounded-4xl p-6 sm:p-10 border border-white/25 shadow-2xl">
+        <div className="bg-[#0B3368]/90 backdrop-blur-xl rounded-3xl sm:rounded-4xl p-6 sm:p-10 border border-white/20 shadow-2xl">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             
             <div className="max-w-xl">

@@ -141,8 +141,8 @@ export function JiloMovingCommodityCards() {
       {/* ── Continuous Smooth Gliding Marquee Container ── */}
       <div className="relative w-full overflow-hidden group">
         {/* Left & Right subtle edge fade matching the bright corporate blue */}
-        <div className="absolute left-0 inset-y-0 w-20 sm:w-32 bg-gradient-to-r from-[#0B3B82] via-[#0B3B82]/70 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 inset-y-0 w-20 sm:w-32 bg-gradient-to-l from-[#0B3B82] via-[#0B3B82]/70 to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 inset-y-0 w-20 sm:w-32 bg-gradient-to-r from-[#0A3266] via-[#0A3266]/70 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 inset-y-0 w-20 sm:w-32 bg-gradient-to-l from-[#0A3266] via-[#0A3266]/70 to-transparent z-10 pointer-events-none" />
 
         {/* Gliding Cards Track with generous vertical padding for large scale hover */}
         <div className="flex gap-7 w-max animate-glide group-hover:[animation-play-state:paused] py-8 px-6">
@@ -153,14 +153,14 @@ export function JiloMovingCommodityCards() {
               <div
                 key={`${item.id}-${idx}`}
                 onClick={() => setActiveCardId(isSelected ? null : `${item.id}-${idx}`)}
-                className={`relative w-64 sm:w-80 h-[430px] sm:h-[440px] rounded-3xl overflow-hidden bg-[#124B9E]/85 backdrop-blur-xl shadow-2xl flex flex-col justify-between shrink-0 transition-all duration-300 cursor-pointer group/card font-sans ${
+                className={`relative w-64 sm:w-80 h-[430px] sm:h-[440px] rounded-3xl overflow-hidden bg-[#0E3C7A]/85 backdrop-blur-xl shadow-2xl flex flex-col justify-between shrink-0 transition-all duration-300 cursor-pointer group/card font-sans ${
                   isSelected
-                    ? "scale-105 sm:scale-110 -translate-y-3 sm:-translate-y-4 z-30 border-2 border-[#FF1E27] shadow-[0_25px_60px_rgba(255,30,39,0.45)]"
-                    : "border border-white/25 hover:scale-105 sm:hover:scale-110 hover:-translate-y-3 sm:hover:-translate-y-4 hover:z-30 hover:border-[#FF1E27] hover:shadow-[0_25px_60px_rgba(255,30,39,0.38)]"
+                    ? "scale-105 sm:scale-110 -translate-y-3 sm:-translate-y-4 z-30 border-2 border-[#E50914] shadow-[0_25px_60px_rgba(229, 9, 20,0.35)]"
+                    : "border border-white/20 hover:scale-105 sm:hover:scale-110 hover:-translate-y-3 sm:hover:-translate-y-4 hover:z-30 hover:border-[#E50914] hover:shadow-[0_25px_60px_rgba(229, 9, 20,0.3)]"
                 }`}
               >
                 {/* Photo Frame */}
-                <div className="relative h-52 w-full overflow-hidden bg-[#0D3F82]">
+                <div className="relative h-52 w-full overflow-hidden bg-[#0B2E5E]">
                   <Image
                     src={item.image}
                     alt={item.name}
@@ -168,11 +168,11 @@ export function JiloMovingCommodityCards() {
                     sizes="320px"
                     className="object-cover transition-transform duration-700 ease-out group-hover/card:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#124B9E] via-transparent to-black/20" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0E3C7A] via-transparent to-black/20" />
 
                   {/* Category Pill */}
                   <div className="absolute top-3.5 left-3.5 z-10">
-                    <span className="text-[10px] font-sans uppercase font-bold tracking-widest px-2.5 py-1 rounded-full bg-[#0A3268]/90 border border-white/20 text-[#FF1E27] backdrop-blur-md">
+                    <span className="text-[10px] font-sans uppercase font-bold tracking-widest px-2.5 py-1 rounded-full bg-[#082247]/90 border border-white/20 text-[#E50914] backdrop-blur-md">
                       {item.category}
                     </span>
                   </div>
@@ -181,7 +181,7 @@ export function JiloMovingCommodityCards() {
                 {/* Card Body */}
                 <div className="p-5 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="font-sans text-base sm:text-lg text-white font-bold group-hover/card:text-[#FF1E27] transition-colors leading-snug">
+                    <h3 className="font-sans text-base sm:text-lg text-white font-bold group-hover/card:text-[#E50914] transition-colors leading-snug">
                       {item.name}
                     </h3>
                     <div className="text-[11px] font-sans text-emerald-300 mt-1 flex items-center gap-1.5 font-medium">
