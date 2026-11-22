@@ -28,6 +28,152 @@ const GLOBAL_HUBS: GlobalHub[] = [
   { id: "india-origin", name: "INDIA (JNPT)", lat: 18.95, lon: 72.85, isOrigin: true },
 ];
 
+interface CountryFlagHub {
+  id: string;
+  name: string;
+  displayName: string;
+  flag: React.ReactNode;
+  isOrigin?: boolean;
+}
+
+const COUNTRY_FLAG_HUBS: CountryFlagHub[] = [
+  {
+    id: "india-origin",
+    name: "INDIA (JNPT)",
+    displayName: "India (JNPT)",
+    isOrigin: true,
+    flag: (
+      <svg className="w-5 h-3.5 rounded-sm overflow-hidden shrink-0 shadow-sm border border-white/10" viewBox="0 0 640 480" aria-label="India Flag">
+        <rect width="640" height="160" fill="#FF9933" />
+        <rect y="160" width="640" height="160" fill="#FFFFFF" />
+        <rect y="320" width="640" height="160" fill="#138808" />
+        <circle cx="320" cy="240" r="48" fill="none" stroke="#000080" strokeWidth="6" />
+        <circle cx="320" cy="240" r="10" fill="#000080" />
+        <path d="M320 192v96M272 240h96M286 206l68 68M286 274l68-68M300 196l40 88M300 284l40-88M276 220l88 40M276 260l88-40" stroke="#000080" strokeWidth="2.5" />
+      </svg>
+    ),
+  },
+  {
+    id: "china",
+    name: "CHINA",
+    displayName: "China",
+    flag: (
+      <svg className="w-5 h-3.5 rounded-sm overflow-hidden shrink-0 shadow-sm border border-white/10" viewBox="0 0 640 480" aria-label="China Flag">
+        <rect width="640" height="480" fill="#EE1C25" />
+        <polygon fill="#FFDE00" points="106.7,40 119,78 159,78 126.7,101.5 139,139.5 106.7,116 74.3,139.5 86.7,101.5 54.3,78 94.3,78" />
+        <polygon fill="#FFDE00" transform="translate(213.3, 32) rotate(-36.9)" points="0,-16 4.7,-4.9 16,-4.9 7.1,2 10.5,13 0,6 -10.5,13 -7.1,2 -16,-4.9 -4.7,-4.9" />
+        <polygon fill="#FFDE00" transform="translate(256, 74.7) rotate(-14)" points="0,-16 4.7,-4.9 16,-4.9 7.1,2 10.5,13 0,6 -10.5,13 -7.1,2 -16,-4.9 -4.7,-4.9" />
+        <polygon fill="#FFDE00" transform="translate(256, 138.7) rotate(14)" points="0,-16 4.7,-4.9 16,-4.9 7.1,2 10.5,13 0,6 -10.5,13 -7.1,2 -16,-4.9 -4.7,-4.9" />
+        <polygon fill="#FFDE00" transform="translate(213.3, 181.3) rotate(36.9)" points="0,-16 4.7,-4.9 16,-4.9 7.1,2 10.5,13 0,6 -10.5,13 -7.1,2 -16,-4.9 -4.7,-4.9" />
+      </svg>
+    ),
+  },
+  {
+    id: "hong-kong",
+    name: "HONG KONG",
+    displayName: "Hong Kong",
+    flag: (
+      <svg className="w-5 h-3.5 rounded-sm overflow-hidden shrink-0 shadow-sm border border-white/10" viewBox="0 0 640 480" aria-label="Hong Kong Flag">
+        <rect width="640" height="480" fill="#EE1C25" />
+        <g fill="#FFFFFF" transform="translate(320, 240) scale(1.15)">
+          <path d="M0-65 C12-35 35-45 40-18 C45 8 18 18 0 0 C-18 18 -45 8 -40-18 C-35-45 -12-35 0-65z" />
+          <path d="M0-65 C12-35 35-45 40-18 C45 8 18 18 0 0 C-18 18 -45 8 -40-18 C-35-45 -12-35 0-65z" transform="rotate(72)" />
+          <path d="M0-65 C12-35 35-45 40-18 C45 8 18 18 0 0 C-18 18 -45 8 -40-18 C-35-45 -12-35 0-65z" transform="rotate(144)" />
+          <path d="M0-65 C12-35 35-45 40-18 C45 8 18 18 0 0 C-18 18 -45 8 -40-18 C-35-45 -12-35 0-65z" transform="rotate(216)" />
+          <path d="M0-65 C12-35 35-45 40-18 C45 8 18 18 0 0 C-18 18 -45 8 -40-18 C-35-45 -12-35 0-65z" transform="rotate(288)" />
+          <circle cx="0" cy="0" r="14" fill="#EE1C25" />
+        </g>
+      </svg>
+    ),
+  },
+  {
+    id: "japan",
+    name: "JAPAN",
+    displayName: "Japan",
+    flag: (
+      <svg className="w-5 h-3.5 rounded-sm overflow-hidden shrink-0 shadow-sm border border-white/20" viewBox="0 0 640 480" aria-label="Japan Flag">
+        <rect width="640" height="480" fill="#FFFFFF" />
+        <circle cx="320" cy="240" r="144" fill="#BC002D" />
+      </svg>
+    ),
+  },
+  {
+    id: "qatar",
+    name: "QATAR",
+    displayName: "Qatar",
+    flag: (
+      <svg className="w-5 h-3.5 rounded-sm overflow-hidden shrink-0 shadow-sm border border-white/10" viewBox="0 0 640 480" aria-label="Qatar Flag">
+        <rect width="640" height="480" fill="#8D1B3D" />
+        <path fill="#FFFFFF" d="M0 0h175l38 26.6-38 26.7 38 26.7-38 26.7 38 26.6-38 26.7 38 26.7-38 26.7 38 26.6-38 26.7 38 26.7-38 26.7 38 26.6-38 26.7H0z" />
+      </svg>
+    ),
+  },
+  {
+    id: "turkey",
+    name: "TURKEY",
+    displayName: "Turkey",
+    flag: (
+      <svg className="w-5 h-3.5 rounded-sm overflow-hidden shrink-0 shadow-sm border border-white/10" viewBox="0 0 640 480" aria-label="Turkey Flag">
+        <rect width="640" height="480" fill="#E30A17" />
+        <circle cx="260" cy="240" r="120" fill="#FFFFFF" />
+        <circle cx="290" cy="240" r="96" fill="#E30A17" />
+        <polygon fill="#FFFFFF" transform="translate(370, 240) rotate(-18) scale(36)" points="0,-1 0.588,0.809 -0.951,-0.309 0.951,-0.309 -0.588,0.809" />
+      </svg>
+    ),
+  },
+  {
+    id: "italy",
+    name: "ITALY",
+    displayName: "Italy",
+    flag: (
+      <svg className="w-5 h-3.5 rounded-sm overflow-hidden shrink-0 shadow-sm border border-white/10" viewBox="0 0 640 480" aria-label="Italy Flag">
+        <rect width="213.3" height="480" fill="#009246" />
+        <rect x="213.3" width="213.4" height="480" fill="#FFFFFF" />
+        <rect x="426.7" width="213.3" height="480" fill="#CE2B37" />
+      </svg>
+    ),
+  },
+  {
+    id: "germany",
+    name: "GERMANY",
+    displayName: "Germany",
+    flag: (
+      <svg className="w-5 h-3.5 rounded-sm overflow-hidden shrink-0 shadow-sm border border-white/10" viewBox="0 0 640 480" aria-label="Germany Flag">
+        <rect width="640" height="160" fill="#000000" />
+        <rect y="160" width="640" height="160" fill="#DD0000" />
+        <rect y="320" width="640" height="160" fill="#FFCE00" />
+      </svg>
+    ),
+  },
+  {
+    id: "spain",
+    name: "SPAIN",
+    displayName: "Spain",
+    flag: (
+      <svg className="w-5 h-3.5 rounded-sm overflow-hidden shrink-0 shadow-sm border border-white/10" viewBox="0 0 640 480" aria-label="Spain Flag">
+        <rect width="640" height="120" fill="#AA151B" />
+        <rect y="120" width="640" height="240" fill="#F1BF00" />
+        <rect y="360" width="640" height="120" fill="#AA151B" />
+        <rect x="160" y="190" width="45" height="60" rx="10" fill="#AA151B" opacity="0.65" />
+      </svg>
+    ),
+  },
+  {
+    id: "uk",
+    name: "UK",
+    displayName: "United Kingdom",
+    flag: (
+      <svg className="w-5 h-3.5 rounded-sm overflow-hidden shrink-0 shadow-sm border border-white/10" viewBox="0 0 640 480" aria-label="United Kingdom Flag">
+        <rect width="640" height="480" fill="#012169" />
+        <path d="M0 0l640 480M640 0L0 480" stroke="#FFFFFF" strokeWidth="60" />
+        <path d="M0 0l640 480M640 0L0 480" stroke="#C8102E" strokeWidth="40" />
+        <path d="M320 0v480M0 240h640" stroke="#FFFFFF" strokeWidth="100" />
+        <path d="M320 0v480M0 240h640" stroke="#C8102E" strokeWidth="60" />
+      </svg>
+    ),
+  },
+];
+
 function latLongToVector3(lat: number, lon: number, radius: number): THREE.Vector3 {
   const phi = (90 - lat) * (Math.PI / 180);
   const theta = (lon + 180) * (Math.PI / 180);
@@ -105,6 +251,8 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
   function UnitedGlobeSection({ className }, ref) {
     const mountRef = useRef<HTMLDivElement>(null);
     const [isTenderOpen, setIsTenderOpen] = useState(false);
+    const [activeHubId, setActiveHubId] = useState<string | null>(null);
+    const rotateToHubRef = useRef<((hub: GlobalHub) => void) | null>(null);
 
     // Refs for 3D projected badges
     const pinElementsRef = useRef<Map<string, HTMLDivElement>>(new Map());
@@ -143,7 +291,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
       const globeGroup = new THREE.Group();
       scene.add(globeGroup);
 
-      // Clean Oceanic & Vibrant Red Scene Lighting
+      // Clean Oceanic & Warm Copper Scene Lighting
       const ambientLight = new THREE.AmbientLight(0xffffff, 0.75);
       scene.add(ambientLight);
 
@@ -151,9 +299,9 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
       celestialDirLight.position.set(-60, 80, 100);
       scene.add(celestialDirLight);
 
-      const redRimLight = new THREE.PointLight(0xe50914, 3.5, 480);
-      redRimLight.position.set(120, -40, 80);
-      scene.add(redRimLight);
+      const copperRimLight = new THREE.PointLight(0xc17b58, 3.5, 480);
+      copperRimLight.position.set(120, -40, 80);
+      scene.add(copperRimLight);
 
       const GLOBE_RADIUS = 68;
 
@@ -359,6 +507,11 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
       let targetRotY = globeGroup.rotation.y;
       let targetRotX = globeGroup.rotation.x;
 
+      rotateToHubRef.current = (hub: GlobalHub) => {
+        targetRotY = -((hub.lon + 90) * (Math.PI / 180));
+        targetRotX = Math.max(-0.4, Math.min(0.6, (hub.lat * (Math.PI / 180)) * 0.35));
+      };
+
       const onMouseDown = (e: MouseEvent) => {
         isDragging = true;
         prevMouseX = e.clientX;
@@ -488,6 +641,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
       animate();
 
       return () => {
+        rotateToHubRef.current = null;
         cancelAnimationFrame(animId);
         container.removeEventListener("mousedown", onMouseDown);
         window.removeEventListener("mousemove", onMouseMove);
@@ -513,6 +667,16 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
         renderer.dispose();
       };
     }, []);
+
+    const handleFlagClick = (hubId: string) => {
+      setActiveHubId(hubId);
+      const hub = GLOBAL_HUBS.find((h) => h.id === hubId);
+      if (hub && rotateToHubRef.current) {
+        rotateToHubRef.current(hub);
+      }
+    };
+
+    const marqueeFlagItems = [...COUNTRY_FLAG_HUBS, ...COUNTRY_FLAG_HUBS];
 
     return (
       <section
@@ -564,6 +728,57 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
             >
               OUR SERVICES
             </Link>
+          </div>
+
+          {/* ── Continuous Rotating Country Flags Marquee (Pinned Global Hubs) ── */}
+          <div className="mt-8 sm:mt-10 w-full max-w-lg">
+            <div className="flex items-center justify-between mb-2.5">
+              <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.22em] text-[#B8D0CE]/85 font-semibold flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C17B58] animate-pulse" />
+                Active Maritime Hubs ({GLOBAL_HUBS.length} Nations)
+              </span>
+              <span className="text-[10px] font-mono text-slate-400 hidden sm:inline">
+                Direct Scheduled Corridors
+              </span>
+            </div>
+
+            {/* Seamless Gliding Flags Track with Edge Masking */}
+            <div className="relative w-full overflow-hidden group py-1 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+              <div
+                className="flex gap-2.5 w-max animate-glide group-hover:[animation-play-state:paused]"
+                style={{ animationDuration: "24s" }}
+              >
+                {marqueeFlagItems.map((hub, idx) => {
+                  const isCurrent = activeHubId === hub.id;
+                  return (
+                    <button
+                      key={`${hub.id}-${idx}`}
+                      type="button"
+                      onClick={() => handleFlagClick(hub.id)}
+                      className={cn(
+                        "inline-flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md text-white shrink-0 transition-all cursor-pointer shadow-sm select-none",
+                        isCurrent
+                          ? "bg-[#C17B58]/30 border-2 border-[#C17B58] shadow-[0_0_15px_rgba(193,123,88,0.4)]"
+                          : "bg-[#164A55]/70 border border-[#B8D0CE]/25 hover:border-[#C17B58] hover:bg-[#164A55]/95"
+                      )}
+                      title={`Focus ${hub.displayName} on 3D Globe`}
+                    >
+                      {/* Crisp Country Flag SVG */}
+                      {hub.flag}
+                      {/* Hub Country Label */}
+                      <span className="text-[11px] font-sans font-semibold tracking-wide text-slate-100 whitespace-nowrap">
+                        {hub.displayName}
+                      </span>
+                      {hub.isOrigin && (
+                        <span className="text-[9px] font-mono uppercase font-bold px-1.5 py-0.5 rounded-full bg-[#C17B58]/25 text-[#C17B58] border border-[#C17B58]/40">
+                          Origin
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
 
