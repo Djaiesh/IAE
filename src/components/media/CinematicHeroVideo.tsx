@@ -100,8 +100,8 @@ export function CinematicHeroVideo() {
           aria-label="Scroll down to explore contents"
           className="group flex flex-col items-center gap-1.5 focus:outline-none cursor-pointer transition-transform duration-300 hover:scale-105 active:scale-95"
         >
-          <div className="w-11 h-11 rounded-full bg-black/40 hover:bg-black/70 border border-white/25 hover:border-[#E50914] backdrop-blur-md flex items-center justify-center text-white transition-all shadow-lg animate-bounce">
-            <ChevronDown className="w-5 h-5 text-white group-hover:text-[#E50914] transition-colors" />
+          <div className="w-11 h-11 rounded-full bg-black/40 hover:bg-black/70 border border-white/25 hover:border-[#C17B58] backdrop-blur-md flex items-center justify-center text-white transition-all shadow-lg animate-bounce">
+            <ChevronDown className="w-5 h-5 text-white group-hover:text-[#C17B58] transition-colors" />
           </div>
         </button>
       </div>

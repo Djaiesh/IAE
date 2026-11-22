@@ -185,9 +185,9 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
           vec3 viewDir = normalize(-vPosition);
           float dotP = max(0.0, dot(vNormal, viewDir));
           
-          // Deep oceanic navy sapphire core
-          vec3 centerColor = vec3(0.02, 0.08, 0.18);
-          vec3 edgeGlow = vec3(0.90, 0.04, 0.08); // Pure vibrant red
+          // Deep oceanic black core (#061820)
+          vec3 centerColor = vec3(0.024, 0.094, 0.125);
+          vec3 edgeGlow = vec3(0.757, 0.482, 0.345); // Muted Copper #C17B58
           
           // Gradient fade border: smooth opacity reduction toward silhouette
           float edgeAlpha = smoothstep(0.02, 0.60, dotP);
@@ -210,7 +210,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
       const sphereMesh = new THREE.Mesh(sphereGeo, sphereMat);
       globeGroup.add(sphereMesh);
 
-      // ── 04. Soft Atmospheric Red Glow (Smooth Gradient Falloff, No Hard Ring) ──
+      // ── 04. Soft Atmospheric Copper Glow (Smooth Gradient Falloff, No Hard Ring) ──
       const atmoVertexShader = `
         varying vec3 vNormal;
         varying vec3 vPosition;
@@ -231,10 +231,10 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
           // Smooth volumetric haze with gentle exponential falloff
           float glow = pow(fresnel, 2.8);
 
-          vec3 pureRed = vec3(0.90, 0.04, 0.08); // #E50914 pure red
-          vec3 deepRed = vec3(0.72, 0.0, 0.04);   // #B8000B
+          vec3 pureCopper = vec3(0.757, 0.482, 0.345); // #C17B58 Muted Copper
+          vec3 deepCopper = vec3(0.651, 0.388, 0.259); // #A66342 Dark Muted Copper
 
-          vec3 atmosphereColor = mix(deepRed, pureRed, clamp(vNormal.y + 0.5, 0.0, 1.0));
+          vec3 atmosphereColor = mix(deepCopper, pureCopper, clamp(vNormal.y + 0.5, 0.0, 1.0));
           gl_FragColor = vec4(atmosphereColor, glow * 0.65);
         }
       `;
@@ -255,7 +255,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
       const landColors: number[] = [];
 
       const colWhite = new THREE.Color(0xf4f1ea);
-      const colRed = new THREE.Color(0xe50914);
+      const colCopper = new THREE.Color(0xc17b58);
 
       for (let lat = -70; lat <= 75; lat += 1.8) {
         // Equidistant longitude spacing on sphere using cos(lat)
@@ -268,9 +268,9 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
             const vec = latLongToVector3(lat, lon, GLOBE_RADIUS * 1.008);
             landPositions.push(vec.x, vec.y, vec.z);
 
-            // Subtle red highlight for trade hubs
+            // Subtle copper highlight for trade hubs
             const isTradeZone = (lat > 10 && lat < 45 && lon > 40 && lon < 145);
-            const col = (isTradeZone && Math.random() < 0.25) ? colRed : colWhite;
+            const col = (isTradeZone && Math.random() < 0.25) ? colCopper : colWhite;
             landColors.push(col.r, col.g, col.b);
           }
         }
@@ -292,7 +292,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
       // ── 06. Location Pins & 3D Vector Positions ──
       const hubVectors: { hub: GlobalHub; vec: THREE.Vector3 }[] = [];
       const pinGeo = new THREE.SphereGeometry(1.2, 12, 12);
-      const pinMat = new THREE.MeshBasicMaterial({ color: 0xe50914 });
+      const pinMat = new THREE.MeshBasicMaterial({ color: 0xc17b58 });
 
       GLOBAL_HUBS.forEach((hub) => {
         const vec = latLongToVector3(hub.lat, hub.lon, GLOBE_RADIUS * 1.012);
@@ -303,7 +303,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
         globeGroup.add(pin);
       });
 
-      // ── 07. Luminous Red Curved Trade Arc ──
+      // ── 07. Luminous Copper Curved Trade Arc ──
       // Long sweeping high arc from China/Japan across Eurasia to Middle East & Europe
       const startVec = hubVectors.find((h) => h.hub.id === "china")?.vec || hubVectors[0].vec;
       const endVec = hubVectors.find((h) => h.hub.id === "turkey")?.vec || hubVectors[4].vec;
@@ -318,7 +318,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
       const arcPoints = mainArc.getPoints(50);
       const arcGeo = new THREE.BufferGeometry().setFromPoints(arcPoints);
       const arcMat = new THREE.LineBasicMaterial({
-        color: 0xe50914,
+        color: 0xc17b58,
         transparent: true,
         opacity: 0.85,
       });
@@ -523,15 +523,15 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
           className
         )}
       >
-        {/* ── Luminous Ambient Corner Glows (Bright Sky Blue + Golden Accents) ── */}
-        <div aria-hidden="true" className="pointer-events-none absolute -top-24 -right-24 w-[520px] h-[520px] bg-[radial-gradient(circle,_rgba(56,189,248,0.22)_0%,_transparent_70%)] blur-3xl z-0" />
-        <div aria-hidden="true" className="pointer-events-none absolute -bottom-24 -left-24 w-[520px] h-[520px] bg-[radial-gradient(circle,_rgba(2,132,199,0.20)_0%,_transparent_70%)] blur-3xl z-0" />
+        {/* ── Luminous Ambient Corner Glows (Petrol Blue + Sea Mist Accents) ── */}
+        <div aria-hidden="true" className="pointer-events-none absolute -top-24 -right-24 w-[520px] h-[520px] bg-[radial-gradient(circle,_rgba(22,74,85,0.35)_0%,_transparent_70%)] blur-3xl z-0" />
+        <div aria-hidden="true" className="pointer-events-none absolute -bottom-24 -left-24 w-[520px] h-[520px] bg-[radial-gradient(circle,_rgba(184,208,206,0.12)_0%,_transparent_70%)] blur-3xl z-0" />
 
         {/* ── Left Content (Text & Actions) ── */}
         <div className="relative z-10 w-full lg:w-[46vw] max-w-xl lg:max-w-2xl px-6 sm:px-12 lg:pl-16 lg:pr-4 flex flex-col justify-center text-left py-6 lg:py-0 pointer-events-auto">
           {/* Clean Section Eyebrow */}
           <div className="mb-3">
-            <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.28em] text-[#E50914]">
+            <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.28em] text-[#C17B58]">
               ONE OPERATOR
             </span>
           </div>
@@ -548,19 +548,19 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
             Freight forwarding, land transport, and customs brokerage, unified across international sea lanes under one accountable team.
           </p>
 
-          {/* Dual Action Pill Buttons (Matching GlobalLink & SkyStructure Corporate Style) */}
+          {/* Dual Action Pill Buttons (Muted Copper + Frosted Glass) */}
           <div className="mt-9 flex items-center gap-4">
             <button
               type="button"
               onClick={() => setIsTenderOpen(true)}
-              className="px-8 py-3.5 rounded-full bg-[#0284C7] hover:bg-[#0369A1] text-white font-sans font-bold text-xs uppercase tracking-wider transition-all shadow-[0_10px_30px_rgba(2,132,199,0.4)] cursor-pointer active:scale-95"
+              className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#D68C66] to-[#C17B58] hover:brightness-110 text-white font-sans font-bold text-xs uppercase tracking-wider transition-all shadow-[0_10px_30px_rgba(193,123,88,0.4)] cursor-pointer active:scale-95"
             >
               TALK WITH US
             </button>
 
             <Link
               href="/products"
-              className="px-8 py-3.5 rounded-full bg-white/10 border border-white/30 hover:bg-white/20 text-white font-sans font-bold text-xs uppercase tracking-wider transition-all cursor-pointer active:scale-95"
+              className="px-8 py-3.5 rounded-full bg-white/10 border border-[#B8D0CE]/30 hover:bg-white/20 text-white font-sans font-bold text-xs uppercase tracking-wider transition-all cursor-pointer active:scale-95"
             >
               OUR SERVICES
             </Link>
@@ -569,8 +569,8 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
 
         {/* ── Right Column: 3D Globe Canvas Mount (Guaranteed Height & Zero Right Margin) ── */}
         <div className="relative z-10 w-full lg:w-[54vw] h-[520px] sm:h-[620px] lg:h-screen flex items-center justify-center lg:justify-end pointer-events-auto overflow-hidden">
-          {/* Soft Atmospheric Red & Oceanic Radial Glow Behind Globe */}
-          <div aria-hidden="true" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[540px] h-[540px] bg-[radial-gradient(circle,rgba(229,9,20,0.18)_0%,rgba(14,56,116,0.15)_50%,transparent_72%)] blur-3xl pointer-events-none rounded-full" />
+          {/* Soft Atmospheric Copper & Petrol Radial Glow Behind Globe */}
+          <div aria-hidden="true" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[540px] h-[540px] bg-[radial-gradient(circle,rgba(193,123,88,0.20)_0%,rgba(22,74,85,0.25)_50%,transparent_72%)] blur-3xl pointer-events-none rounded-full" />
 
           {/* 3D WebGL Canvas Container */}
           <div
@@ -591,11 +591,11 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
                 className="absolute top-0 left-0 items-center gap-1.5 transition-opacity duration-150 will-change-transform select-none"
                 style={{ display: "none" }}
               >
-                {/* Glowing Pure Red Marker Dot */}
-                <span className="w-2.5 h-2.5 rounded-sm bg-[#E50914] shadow-[0_0_12px_#E50914] shrink-0" />
+                {/* Glowing Muted Copper Marker Dot */}
+                <span className="w-2.5 h-2.5 rounded-sm bg-[#C17B58] shadow-[0_0_12px_#C17B58] shrink-0" />
 
-                {/* Clean Royal Blue Badge with Monospace Text */}
-                <span className="bg-[#072248]/90 border border-white/20 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase text-white shadow-xl whitespace-nowrap">
+                {/* Clean Petrol Blue Badge with Monospace Text */}
+                <span className="bg-[#164A55]/90 border border-[#B8D0CE]/25 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase text-white shadow-xl whitespace-nowrap">
                   {hub.name}
                 </span>
               </div>

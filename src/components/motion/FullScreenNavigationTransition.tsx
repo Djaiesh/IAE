@@ -76,7 +76,7 @@ export function FullScreenNavigationTransition() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed inset-0 z-[9999] pointer-events-auto bg-[#0A2E5C] flex items-center justify-center select-none overflow-hidden"
+          className="fixed inset-0 z-[9999] pointer-events-auto bg-[#061820] flex items-center justify-center select-none overflow-hidden"
         >
           {/* Deep Ambient Crimson Glow */}
           <div
@@ -90,7 +90,7 @@ export function FullScreenNavigationTransition() {
             {[0, 1, 2, 3, 4].map((index) => (
               <motion.div
                 key={index}
-                className="absolute rounded-full border border-[#E50914]"
+                className="absolute rounded-full border border-[#C17B58]"
                 initial={{ width: 36, height: 36, opacity: 0.85 }}
                 animate={{
                   width: [36, 320],
@@ -111,29 +111,29 @@ export function FullScreenNavigationTransition() {
 
             {/* Rotating Circular Wave Ring 1 */}
             <motion.div
-              className="absolute w-48 h-48 rounded-full border border-dashed border-[#E50914]/50"
+              className="absolute w-48 h-48 rounded-full border border-dashed border-[#C17B58]/50"
               animate={{ rotate: 360 }}
               transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
             >
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-[#E50914] shadow-[0_0_12px_#E50914]" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-[#C17B58] shadow-[0_0_12px_#C17B58]" />
             </motion.div>
 
             {/* Counter-Rotating Circular Wave Ring 2 */}
             <motion.div
-              className="absolute w-32 h-32 rounded-full border border-dotted border-[#FF2A36]/60"
+              className="absolute w-32 h-32 rounded-full border border-dotted border-[#D68C66]/60"
               animate={{ rotate: -360 }}
               transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
             >
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#FF2A36] shadow-[0_0_10px_#FF2A36]" />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#D68C66] shadow-[0_0_10px_#D68C66]" />
             </motion.div>
 
             {/* Glowing Crimson Core Sphere */}
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#B8000B] to-[#FF2A36] shadow-[0_0_30px_#E50914] animate-pulse z-10" />
+            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#A66342] to-[#D68C66] shadow-[0_0_30px_#C17B58] animate-pulse z-10" />
           </div>
 
           {/* Delicate Edge Light Trims */}
-          <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#E50914]/60 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#E50914]/60 to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#C17B58]/60 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#C17B58]/60 to-transparent" />
         </motion.div>
       )}
     </AnimatePresence>

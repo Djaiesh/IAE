@@ -179,8 +179,8 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
             {/* Interactive Location Map Box - Valasaravakkam, Chennai */}
             <div className="glass rounded-4xl p-7 border border-white/10 space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                <div className="flex items-center gap-2 text-xs font-mono text-[#E50914]">
-                  <Compass className="w-4 h-4 text-[#E50914]" />
+                <div className="flex items-center gap-2 text-xs font-mono text-[#C17B58]">
+                  <Compass className="w-4 h-4 text-[#C17B58]" />
                   <span className="uppercase tracking-wider font-semibold">Headquarters &amp; Maritime Port</span>
                 </div>
                 <span className="text-[10px] font-mono text-emerald-400 bg-emerald-400/15 px-2.5 py-0.5 rounded-full border border-emerald-400/30">
@@ -189,7 +189,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
               </div>
 
               {/* Embedded Google Map */}
-              <div className="relative h-48 rounded-2xl overflow-hidden border border-white/20 shadow-xl bg-[#0A2E5C]">
+              <div className="relative h-48 rounded-2xl overflow-hidden border border-white/20 shadow-xl bg-[#0E333C]">
                 <iframe
                   title="JILO Headquarters Location Map - Valasaravakkam, Chennai"
                   src="https://maps.google.com/maps?q=Valasaravakkam%2C%20Chennai%2C%20Tamil%20Nadu%2C%20India&t=&z=14&ie=UTF8&iwloc=&output=embed"
@@ -210,7 +210,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
 
             {/* 24/7 WhatsApp Direct Desk */}
             <div className="glass rounded-4xl p-8 border border-white/10 space-y-4">
-              <span className="eyebrow text-[#E50914] block">Direct Senior Trade Desk</span>
+              <span className="eyebrow text-[#C17B58] block">Direct Senior Trade Desk</span>
               <h3 className="font-display text-xl text-white font-normal">
                 Instant WhatsApp Commercial Line
               </h3>

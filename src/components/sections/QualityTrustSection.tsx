@@ -7,7 +7,7 @@ import { SITE_CONFIG } from "@/data/site";
 
 const PILLARS = [
   {
-    icon: <FlaskConical className="w-6 h-6 text-[#E50914]" />,
+    icon: <FlaskConical className="w-6 h-6 text-[#C17B58]" />,
     title: "HPLC Active Compound Assay",
     desc: "Every spice consignment is calibrated for curcumin (turmeric), piperine (black pepper), or ASTA color units (chilli) to assure consistent bio-active potency.",
   },
@@ -17,7 +17,7 @@ const PILLARS = [
     desc: "Zero-tolerance multi-residue pesticide screens conducted via GC-MS/MS and LC-MS/MS in NABL/ISO-17025 accredited labs compliant with EU and USDA limits.",
   },
   {
-    icon: <Thermometer className="w-6 h-6 text-sky-400" />,
+    icon: <Thermometer className="w-6 h-6 text-[#B8D0CE]" />,
     title: "Continuous Reefer Telemetry",
     desc: "Satellite GPS dataloggers embedded into each container record pulp temperature, relative humidity, and air vent settings at 15-minute intervals.",
   },
@@ -26,23 +26,23 @@ const PILLARS = [
 export function QualityTrustSection() {
   return (
     <section className="relative py-24 sm:py-32 overflow-hidden bg-transparent text-white">
-      {/* Background ambient subtle cyan glow */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0284C7]/10 to-transparent pointer-events-none" />
+      {/* Background ambient subtle petrol glow */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#164A55]/15 to-transparent pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#E50914]/50 bg-[#082247]/80 backdrop-blur-xl mb-5 shadow-lg">
-            <ShieldCheck className="w-4 h-4 text-[#E50914]" />
-            <span className="text-[11px] font-sans text-[#E50914] uppercase tracking-[0.2em] font-semibold">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#C17B58]/50 bg-[#0E333C]/80 backdrop-blur-xl mb-5 shadow-lg">
+            <ShieldCheck className="w-4 h-4 text-[#C17B58]" />
+            <span className="text-[11px] font-sans text-[#C17B58] uppercase tracking-[0.2em] font-semibold">
               Verification &amp; Quality Assurance
             </span>
           </div>
           
           <h2 className="font-display text-3xl sm:text-5xl text-white font-normal tracking-tight">
             Built on Scientific
-            <span className="text-[#E50914] italic font-light block mt-1">
+            <span className="text-[#C17B58] italic font-light block mt-1">
               Food Safety &amp; Laboratory Standards
             </span>
           </h2>
@@ -54,7 +54,7 @@ export function QualityTrustSection() {
         {/* 3 Core Scientific Pillars */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {PILLARS.map((p) => (
-            <div key={p.title} className="bg-[#0E3C7A]/85 backdrop-blur-xl rounded-3xl p-8 border border-white/20 flex flex-col justify-between hover:border-[#38BDF8] hover:shadow-[0_20px_50px_rgba(56,189,248,0.25)] transition-all duration-300 shadow-xl">
+            <div key={p.title} className="bg-[#164A55]/85 backdrop-blur-xl rounded-3xl p-8 border border-[#B8D0CE]/25 flex flex-col justify-between hover:border-[#C17B58] hover:shadow-[0_20px_50px_rgba(193,123,88,0.25)] transition-all duration-300 shadow-xl">
               <div>
                 <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-6 shadow-md">
                   {p.icon}
@@ -69,11 +69,11 @@ export function QualityTrustSection() {
         </div>
 
         {/* Accreditation Seal Strip & Direct Navigation Action */}
-        <div className="bg-[#0B3368]/90 backdrop-blur-xl rounded-3xl sm:rounded-4xl p-6 sm:p-10 border border-white/20 shadow-2xl">
+        <div className="bg-[#0E333C]/90 backdrop-blur-xl rounded-3xl sm:rounded-4xl p-6 sm:p-10 border border-[#B8D0CE]/25 shadow-2xl">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             
             <div className="max-w-xl">
-              <span className="text-[11px] font-sans uppercase tracking-widest text-[#E50914] font-semibold block mb-2">
+              <span className="text-[11px] font-sans uppercase tracking-widest text-[#C17B58] font-semibold block mb-2">
                 Audited Regulatory Approvals
               </span>
               <h3 className="font-display text-2xl sm:text-3xl text-white font-normal mb-3">
@@ -101,7 +101,7 @@ export function QualityTrustSection() {
             <div className="shrink-0">
               <Link
                 href="/quality"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#0284C7] hover:bg-[#0369A1] text-white font-sans font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-[#0284C7]/30"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#D68C66] to-[#C17B58] hover:brightness-110 text-white font-sans font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-[rgba(193,123,88,0.3)]"
               >
                 <span>Inspect Quality Dossier</span>
                 <ArrowRight className="w-4 h-4" />

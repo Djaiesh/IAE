@@ -59,8 +59,8 @@ export function Navbar() {
         className={cn(
           "fixed z-50 transition-all duration-500",
           isScrolled
-            ? "top-0 left-0 right-0 py-3 bg-[#0A2E5C]/90 backdrop-blur-2xl border-b border-white/20 shadow-[0_10px_35px_rgba(2,20,50,0.35)]"
-            : "top-3 sm:top-4 left-3 right-3 sm:left-5 sm:right-5 py-2.5 sm:py-3 bg-[#0D3870]/85 backdrop-blur-xl border border-white/20 rounded-full shadow-[0_10px_35px_rgba(2,20,50,0.35)]"
+            ? "top-0 left-0 right-0 py-3 bg-[#061820]/95 backdrop-blur-2xl border-b border-[#B8D0CE]/20 shadow-[0_10px_35px_rgba(3,12,16,0.6)]"
+            : "top-3 sm:top-4 left-3 right-3 sm:left-5 sm:right-5 py-2.5 sm:py-3 bg-[#0E333C]/85 backdrop-blur-xl border border-[#B8D0CE]/25 rounded-full shadow-[0_10px_35px_rgba(3,12,16,0.5)]"
         )}
       >
         <div className="w-full px-3 sm:px-6 lg:px-8">
@@ -69,14 +69,14 @@ export function Navbar() {
             {/* ── LEFT: JILO Brand Logo & Name Only (No Extra Clutter) ── */}
             <div className="flex items-center gap-3 justify-start shrink-0">
               <Link href="/" aria-label="JILO Global Agro-Exports Home" className="flex items-center gap-3 group">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center border border-[#E50914]/50 bg-[#0A2E5C] shadow-md group-hover:border-[#E50914] transition-all">
-                  <span className="font-display text-lg font-bold text-[#E50914]">J</span>
+                <div className="w-10 h-10 rounded-full flex items-center justify-center border border-[#C17B58]/50 bg-[#061820] shadow-md group-hover:border-[#C17B58] transition-all">
+                  <span className="font-display text-lg font-bold text-[#C17B58]">J</span>
                 </div>
                 <div className="text-left hidden sm:block">
-                  <span className="font-display text-2xl font-bold text-white block leading-none tracking-widest group-hover:text-[#E50914] transition-colors">
+                  <span className="font-display text-2xl font-bold text-white block leading-none tracking-widest group-hover:text-[#C17B58] transition-colors">
                     JILO
                   </span>
-                  <span className="text-[9px] tracking-widest uppercase text-[#E50914] font-sans font-medium block mt-0.5">
+                  <span className="text-[9px] tracking-widest uppercase text-[#C17B58] font-sans font-medium block mt-0.5">
                     Agro-Exports
                   </span>
                 </div>
@@ -85,7 +85,7 @@ export function Navbar() {
 
             {/* ── CENTER: Floating Navigation Pills ── */}
             <nav className="hidden lg:flex items-center justify-center flex-1 px-2" aria-label="Main Navigation">
-              <div className="flex items-center gap-1 p-1.5 rounded-full bg-[#072248]/75 border border-white/15 backdrop-blur-xl shadow-inner">
+              <div className="flex items-center gap-1 p-1.5 rounded-full bg-[#061820]/75 border border-[#B8D0CE]/15 backdrop-blur-xl shadow-inner">
                 {SITE_CONFIG.navItems.map((item) => {
                   const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
                   return (
@@ -95,7 +95,7 @@ export function Navbar() {
                       className={cn(
                         "relative px-4 py-1.5 text-xs font-sans uppercase tracking-wider rounded-full transition-all duration-200 cursor-pointer",
                         isActive
-                          ? "text-[#E50914] bg-[#E50914]/15 border border-[#E50914]/30 font-bold shadow-sm"
+                          ? "text-[#C17B58] bg-[#C17B58]/15 border border-[#C17B58]/30 font-bold shadow-sm"
                           : "text-slate-300 hover:text-white hover:bg-white/5 font-medium"
                       )}
                     >
@@ -138,10 +138,10 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden p-2 rounded-full border border-white/10 bg-white/5 text-white hover:border-[#E50914]/50 transition-colors focus:outline-none cursor-pointer"
+                className="lg:hidden p-2 rounded-full border border-[#B8D0CE]/20 bg-white/5 text-white hover:border-[#C17B58]/50 transition-colors focus:outline-none cursor-pointer"
                 aria-label={mobileOpen ? "Close menu" : "Open menu"}
               >
-                {mobileOpen ? <X className="w-5 h-5 text-[#E50914]" /> : <Menu className="w-5 h-5" />}
+                {mobileOpen ? <X className="w-5 h-5 text-[#C17B58]" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
 
@@ -156,19 +156,19 @@ export function Navbar() {
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >
-        <div className="absolute inset-0 bg-[#072248]/85 backdrop-blur-3xl" onClick={() => setMobileOpen(false)} />
+        <div className="absolute inset-0 bg-[#061820]/90 backdrop-blur-3xl" onClick={() => setMobileOpen(false)} />
       </div>
 
       <div
         className={cn(
-          "fixed inset-y-0 right-0 z-40 w-full sm:w-96 lg:hidden transition-transform duration-500 ease-in-out bg-[#0A2E5C] border-l border-white/20",
+          "fixed inset-y-0 right-0 z-40 w-full sm:w-96 lg:hidden transition-transform duration-500 ease-in-out bg-[#0E333C] border-l border-[#B8D0CE]/20",
           mobileOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
         <div className="relative h-full flex flex-col pt-24 px-6 pb-10 overflow-y-auto">
           <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
             <span className="font-display text-2xl font-bold text-white tracking-widest">JILO</span>
-            <span className="text-[10px] uppercase font-bold tracking-widest text-[#E50914] px-2.5 py-1 rounded-full bg-white/5 border border-white/10">
+            <span className="text-[10px] uppercase font-bold tracking-widest text-[#C17B58] px-2.5 py-1 rounded-full bg-white/5 border border-white/10">
               Navigation
             </span>
           </div>
@@ -184,12 +184,12 @@ export function Navbar() {
                   className={cn(
                     "flex items-center justify-between py-3.5 px-4 rounded-2xl border transition-all font-display text-lg",
                     isActive
-                      ? "text-[#E50914] border-[#E50914]/40 bg-[#E50914]/10"
+                      ? "text-[#C17B58] border-[#C17B58]/40 bg-[#C17B58]/10"
                       : "text-slate-300 border-white/5 hover:border-white/20 hover:bg-white/5"
                   )}
                 >
                   <span className="flex items-center gap-3">
-                    <span className="text-xs font-mono text-[#E50914]/60">0{i + 1}.</span>
+                    <span className="text-xs font-mono text-[#C17B58]/60">0{i + 1}.</span>
                     <span>{item.label}</span>
                   </span>
                   <ArrowUpRight className="w-4 h-4 text-slate-500" />

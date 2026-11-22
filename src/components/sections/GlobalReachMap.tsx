@@ -42,16 +42,16 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
 
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E50914]/50 bg-[#082247]/80 backdrop-blur-xl mb-4">
-            <Globe className="w-3.5 h-3.5 text-[#E50914]" />
-            <span className="text-[11px] font-sans text-[#E50914] uppercase tracking-[0.2em] font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#C17B58]/50 bg-[#0E333C]/80 backdrop-blur-xl mb-4">
+            <Globe className="w-3.5 h-3.5 text-[#C17B58]" />
+            <span className="text-[11px] font-sans text-[#C17B58] uppercase tracking-[0.2em] font-semibold">
               Global Maritime Freight Corridors
             </span>
           </div>
 
           <h2 className="font-display text-3xl sm:text-5xl text-white font-normal tracking-tight">
             Strategic International
-            <span className="text-[#E50914] italic font-light block mt-1">
+            <span className="text-[#C17B58] italic font-light block mt-1">
               Discharge Berths & Sea Lanes
             </span>
           </h2>
@@ -61,7 +61,7 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
         </div>
 
         {/* ── 01. FAMILIAR & ACCURATE MARITIME CARTOGRAPHY MAP ── */}
-        <div className="relative w-full rounded-3xl sm:rounded-4xl border border-white/20 bg-[#0E3C7A]/85 backdrop-blur-2xl p-4 sm:p-8 mb-12 shadow-2xl overflow-hidden">
+        <div className="relative w-full rounded-3xl sm:rounded-4xl border border-[#B8D0CE]/25 bg-[#164A55]/85 backdrop-blur-2xl p-4 sm:p-8 mb-12 shadow-2xl overflow-hidden">
           
           {/* Subtle Grid Canvas Header */}
           <div className="flex items-center justify-between pb-3 mb-2 border-b border-white/10 text-xs font-sans text-slate-400">
@@ -69,7 +69,7 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span>LIVE SHIPPING LANES: JNPT / MUNDRA GATEWAYS</span>
             </div>
-            <div className="hidden sm:flex items-center gap-4 text-[11px] text-[#E50914]">
+            <div className="hidden sm:flex items-center gap-4 text-[11px] text-[#C17B58]">
               <span>IncoTerms 2020: CIF / FOB</span>
               <span>•</span>
               <span>Reefer Telemetry Active</span>
@@ -154,7 +154,7 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
                     {/* Shadow / Inactive Lane */}
                     <path
                       d={pathD}
-                      stroke={isSelected ? "#E50914" : "rgba(255, 255, 255, 0.12)"}
+                      stroke={isSelected ? "#C17B58" : "rgba(184, 208, 206, 0.18)"}
                       strokeWidth={isSelected ? "2.5" : "1"}
                       strokeDasharray={isSelected ? "6 4" : "3 5"}
                       fill="none"
@@ -167,7 +167,7 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
                       cx={coord.x}
                       cy={coord.y}
                       r={isSelected ? "7" : "4.5"}
-                      fill={isSelected ? "#E50914" : "#10B981"}
+                      fill={isSelected ? "#C17B58" : "#10B981"}
                       stroke="#FFFFFF"
                       strokeWidth={isSelected ? "2" : "1"}
                       className="cursor-pointer transition-all duration-300 hover:scale-125"
@@ -181,7 +181,7 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
                         cy={coord.y}
                         r="14"
                         fill="none"
-                        stroke="#E50914"
+                        stroke="#C17B58"
                         strokeWidth="1.5"
                         opacity="0.7"
                         className="animate-ping"
@@ -209,13 +209,13 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
 
               {/* Origin Node: Mumbai / JNPT / Mundra (India) */}
               <g>
-                <circle cx={ORIGIN_INDIA.x} cy={ORIGIN_INDIA.y} r="8" fill="#B8000B" stroke="#FFFFFF" strokeWidth="2.5" />
-                <circle cx={ORIGIN_INDIA.x} cy={ORIGIN_INDIA.y} r="18" fill="none" stroke="#E50914" strokeWidth="1.5" opacity="0.6" className="animate-ping" style={{ transformOrigin: `${ORIGIN_INDIA.x}px ${ORIGIN_INDIA.y}px`, animationDuration: "3s" }} />
+                <circle cx={ORIGIN_INDIA.x} cy={ORIGIN_INDIA.y} r="8" fill="#A66342" stroke="#FFFFFF" strokeWidth="2.5" />
+                <circle cx={ORIGIN_INDIA.x} cy={ORIGIN_INDIA.y} r="18" fill="none" stroke="#C17B58" strokeWidth="1.5" opacity="0.6" className="animate-ping" style={{ transformOrigin: `${ORIGIN_INDIA.x}px ${ORIGIN_INDIA.y}px`, animationDuration: "3s" }} />
                 <text
                   x={ORIGIN_INDIA.x}
                   y={ORIGIN_INDIA.y + 20}
                   textAnchor="middle"
-                  fill="#E50914"
+                  fill="#C17B58"
                   fontSize="9.5"
                   fontFamily="system-ui, sans-serif"
                   fontWeight="700"
@@ -230,12 +230,12 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
           {/* Map Footer Legend */}
           <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/10 text-xs font-sans text-slate-400">
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#E50914]" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#C17B58]" />
               <span className="text-white font-medium">Selected Corridor: {selectedPort.name} ({selectedPort.country})</span>
             </div>
             <div className="flex items-center gap-4 text-[11px]">
               <span>Primary Gateway: West Coast Terminals</span>
-              <span className="text-[#E50914] font-semibold">Click any destination port to inspect schedule</span>
+              <span className="text-[#C17B58] font-semibold">Click any destination port to inspect schedule</span>
             </div>
           </div>
         </div>
@@ -245,7 +245,7 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
 
           {/* Port Selector Cards (Left Column) */}
           <div className="lg:col-span-5 space-y-3">
-            <span className="text-[11px] font-sans uppercase tracking-[0.2em] font-semibold text-[#E50914] block mb-2">
+            <span className="text-[11px] font-sans uppercase tracking-[0.2em] font-semibold text-[#C17B58] block mb-2">
               Select Discharge Destination Port
             </span>
             {ports.map((port) => {
@@ -257,13 +257,13 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
                   className={cn(
                     "w-full text-left p-4 sm:p-5 rounded-2xl sm:rounded-3xl border transition-all duration-300 flex items-center gap-4 cursor-pointer",
                     isSelected
-                      ? "bg-[#0E3C7A] border-[#E50914] shadow-[0_8px_30px_rgba(229, 9, 20,0.25)] border-l-4"
-                      : "bg-[#0A2E5C]/80 border-white/15 hover:bg-[#0E3C7A]/50 hover:border-white/25"
+                      ? "bg-[#0E333C] border-[#C17B58] shadow-[0_8px_30px_rgba(193,123,88,0.25)] border-l-4"
+                      : "bg-[#164A55]/70 border-[#B8D0CE]/20 hover:bg-[#0E333C]/80 hover:border-[#B8D0CE]/40"
                   )}
                 >
                   <div className={cn(
                     "w-11 h-11 rounded-2xl flex items-center justify-center border shrink-0 transition-colors",
-                    isSelected ? "bg-[#E50914] text-white border-[#E50914] shadow-md" : "bg-white/10 text-slate-200 border-white/15"
+                    isSelected ? "bg-[#C17B58] text-white border-[#C17B58] shadow-md" : "bg-white/10 text-slate-200 border-white/15"
                   )}>
                     <Anchor className="w-5 h-5" />
                   </div>
@@ -288,11 +288,11 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
 
           {/* Port Detail Card (Right Column) */}
           <div className="lg:col-span-7">
-            <div className="bg-[#0E3C7A]/85 backdrop-blur-2xl rounded-3xl sm:rounded-4xl p-6 sm:p-10 border border-white/20 shadow-2xl relative overflow-hidden">
+            <div className="bg-[#164A55]/85 backdrop-blur-2xl rounded-3xl sm:rounded-4xl p-6 sm:p-10 border border-[#B8D0CE]/25 shadow-2xl relative overflow-hidden">
               
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10 mb-6">
                 <div>
-                  <span className="text-[11px] font-sans uppercase tracking-widest text-[#E50914] block mb-1">
+                  <span className="text-[11px] font-sans uppercase tracking-widest text-[#C17B58] block mb-1">
                     Verified Shipping Route &amp; Transit Profile
                   </span>
                   <h3 className="font-display text-3xl text-white font-normal mt-1">
@@ -303,9 +303,9 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
                   </p>
                 </div>
 
-                <div className="flex items-center gap-2 bg-[#E50914]/15 border border-[#E50914]/30 px-3.5 py-2 rounded-2xl self-start sm:self-auto">
-                  <Navigation className="w-4 h-4 text-[#E50914] animate-pulse" />
-                  <span className="font-sans text-xs text-[#E50914] font-semibold">
+                <div className="flex items-center gap-2 bg-[#C17B58]/15 border border-[#C17B58]/30 px-3.5 py-2 rounded-2xl self-start sm:self-auto">
+                  <Navigation className="w-4 h-4 text-[#C17B58] animate-pulse" />
+                  <span className="font-sans text-xs text-[#C17B58] font-semibold">
                     Scheduled Liner Service
                   </span>
                 </div>
@@ -315,7 +315,7 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/8">
                   <div className="flex items-center gap-2 text-xs font-sans text-slate-400 mb-1.5">
-                    <Clock className="w-4 h-4 text-[#E50914]" /> Typical Sea Transit
+                    <Clock className="w-4 h-4 text-[#C17B58]" /> Typical Sea Transit
                   </div>
                   <div className="font-display text-2xl text-white font-medium">
                     {selectedPort.typicalTransitDays}
@@ -349,7 +349,7 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
                       key={i}
                       className="font-sans text-xs bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full text-slate-200 flex items-center gap-2"
                     >
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#E50914] shrink-0" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#C17B58] shrink-0" />
                       {c}
                     </span>
                   ))}
@@ -364,7 +364,7 @@ export const GlobalReachMap = React.forwardRef<HTMLElement, { className?: string
                 <button
                   type="button"
                   onClick={() => handleOpenTenderForPort(selectedPort.name)}
-                  className="px-6 py-3.5 rounded-full bg-gradient-to-r from-[#E50914] to-[#B8000B] text-white font-sans font-bold text-xs uppercase tracking-wider hover:brightness-110 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-[#E50914]/25"
+                  className="px-6 py-3.5 rounded-full bg-gradient-to-r from-[#D68C66] to-[#C17B58] text-white font-sans font-bold text-xs uppercase tracking-wider hover:brightness-110 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-[rgba(193,123,88,0.25)]"
                 >
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>Request CIF Rate to {selectedPort.city}</span>

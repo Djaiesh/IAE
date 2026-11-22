@@ -17,26 +17,26 @@ export function CategoryTiles({ className, showHeader = true }: CategoryTilesPro
   const getCategoryGradient = (slug: string) => {
     switch (slug.toLowerCase()) {
       case "spices":
-        return "from-amber-500/25 via-[#0E3C7A]/85 to-[#0A2E5C]/95 border-amber-400/40 group-hover:border-amber-300 group-hover:shadow-[0_20px_50px_rgba(251,191,36,0.25)]";
+        return "from-[#C17B58]/25 via-[#164A55]/85 to-[#061820]/95 border-[#C17B58]/40 group-hover:border-[#C17B58] group-hover:shadow-[0_20px_50px_rgba(193,123,88,0.25)]";
       case "vegetables":
-        return "from-emerald-500/25 via-[#0E3C7A]/85 to-[#0A2E5C]/95 border-emerald-400/40 group-hover:border-emerald-300 group-hover:shadow-[0_20px_50px_rgba(52,211,153,0.25)]";
+        return "from-emerald-500/25 via-[#164A55]/85 to-[#061820]/95 border-emerald-400/40 group-hover:border-emerald-300 group-hover:shadow-[0_20px_50px_rgba(52,211,153,0.25)]";
       case "fruits":
-        return "from-rose-500/25 via-[#0E3C7A]/85 to-[#0A2E5C]/95 border-rose-400/40 group-hover:border-rose-300 group-hover:shadow-[0_20px_50px_rgba(244,63,94,0.25)]";
+        return "from-[#D68C66]/25 via-[#164A55]/85 to-[#061820]/95 border-[#D68C66]/40 group-hover:border-[#D68C66] group-hover:shadow-[0_20px_50px_rgba(214,140,102,0.25)]";
       default:
-        return "from-sky-500/25 via-[#0E3C7A]/85 to-[#0A2E5C]/95 border-sky-400/40";
+        return "from-[#164A55]/25 via-[#164A55]/85 to-[#061820]/95 border-[#B8D0CE]/40";
     }
   };
 
   const getCategoryAccent = (slug: string) => {
     switch (slug.toLowerCase()) {
       case "spices":
-        return "text-amber-300";
+        return "text-[#D68C66]";
       case "vegetables":
         return "text-emerald-300";
       case "fruits":
-        return "text-rose-300";
+        return "text-[#B8D0CE]";
       default:
-        return "text-saffron";
+        return "text-[#C17B58]";
     }
   };
 
@@ -109,12 +109,12 @@ export function CategoryTiles({ className, showHeader = true }: CategoryTilesPro
                     <span className="text-[10px] font-mono tracking-wider uppercase text-slate-200 block font-semibold">
                       Dedicated Origin Line
                     </span>
-                    <span className="inline-block px-3 py-1 rounded-full text-[11px] font-sans font-bold bg-[#072248]/80 backdrop-blur-md text-white border border-white/20">
+                    <span className="inline-block px-3 py-1 rounded-full text-[11px] font-sans font-bold bg-[#0E333C]/80 backdrop-blur-md text-white border border-[#B8D0CE]/25">
                       {count > 0 ? `${count} Active Cultivars` : `${cat.keyCommodities.length} Commodities`}
                     </span>
                   </div>
 
-                  <div className="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-xl border border-white/25 flex items-center justify-center text-white group-hover:bg-[#0284C7] group-hover:border-[#0284C7] transition-all duration-300 shrink-0 shadow-md">
+                  <div className="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-xl border border-white/25 flex items-center justify-center text-white group-hover:bg-[#C17B58] group-hover:border-[#C17B58] transition-all duration-300 shrink-0 shadow-md">
                     <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
                 </div>
@@ -139,7 +139,7 @@ export function CategoryTiles({ className, showHeader = true }: CategoryTilesPro
                     {cat.keyCommodities.slice(0, 3).map((comm) => (
                       <span
                         key={comm}
-                        className="text-[10px] font-sans bg-[#072248]/80 backdrop-blur-md border border-white/20 px-3 py-1 rounded-full text-white font-medium"
+                        className="text-[10px] font-sans bg-[#0E333C]/80 backdrop-blur-md border border-[#B8D0CE]/25 px-3 py-1 rounded-full text-white font-medium"
                       >
                         {comm}
                       </span>
@@ -147,7 +147,7 @@ export function CategoryTiles({ className, showHeader = true }: CategoryTilesPro
                   </div>
 
                   {/* Explore Link CTA with 44px min touch target */}
-                  <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/15 group-hover:bg-[#0284C7] text-white border border-white/25 group-hover:border-[#0284C7] font-sans text-xs uppercase tracking-wider font-bold transition-all min-h-[44px] shadow-md">
+                  <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/15 group-hover:bg-[#C17B58] text-white border border-white/25 group-hover:border-[#C17B58] font-sans text-xs uppercase tracking-wider font-bold transition-all min-h-[44px] shadow-md">
                     <span>Explore {cat.name} →</span>
                   </div>
                 </div>

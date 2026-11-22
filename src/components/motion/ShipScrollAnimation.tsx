@@ -46,14 +46,14 @@ function CenteredJiloExportsTyping({ active }: { active: boolean }) {
   return (
     <div className="absolute inset-0 z-30 flex flex-col items-center justify-center pointer-events-none px-4 select-none">
       <div className="text-center max-w-2xl mx-auto">
-        <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.35em] text-[#E50914] block mb-2 font-semibold drop-shadow-md">
+        <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.35em] text-[#C17B58] block mb-2 font-semibold drop-shadow-md">
           Sovereign Maritime Agro-Trade
         </span>
         <h2 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-wider text-white drop-shadow-[0_12px_45px_rgba(0,0,0,0.95)] flex items-center justify-center leading-none">
-          <span className="bg-gradient-to-r from-white via-[#E50914] to-white bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-white via-[#C17B58] to-white bg-clip-text text-transparent">
             {typedText}
           </span>
-          <span className="inline-block w-1.5 sm:w-2.5 h-8 sm:h-14 bg-[#E50914] ml-2 animate-pulse shadow-[0_0_15px_#E50914]" />
+          <span className="inline-block w-1.5 sm:w-2.5 h-8 sm:h-14 bg-[#C17B58] ml-2 animate-pulse shadow-[0_0_15px_#C17B58]" />
         </h2>
         <span className="text-xs sm:text-sm font-sans tracking-[0.22em] uppercase text-slate-300/85 block mt-3 font-medium drop-shadow">
           APEDA &amp; Global Cold-Chain Certified
@@ -433,13 +433,13 @@ export function ShipScrollAnimation({
           />
 
           {/* ── Subtle corporate blue gradient for crisp contrast and legibility ── */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A2E5C]/80 via-transparent to-black/20 pointer-events-none z-[2]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#061820]/80 via-transparent to-black/20 pointer-events-none z-[2]" />
 
           {/* ── Workflow Tracking in Video Empty Space (Bottom-Left) ── */}
           <div className="absolute bottom-8 sm:bottom-12 left-6 sm:left-12 lg:left-16 z-20 pointer-events-none max-w-lg select-none transition-all duration-300">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#072248]/80 border border-[#E50914]/50 backdrop-blur-md mb-2">
-              <span className="w-2 h-2 rounded-full bg-[#E50914] animate-pulse" />
-              <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.22em] uppercase text-[#E50914]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0E333C]/80 border border-[#C17B58]/50 backdrop-blur-md mb-2">
+              <span className="w-2 h-2 rounded-full bg-[#C17B58] animate-pulse" />
+              <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.22em] uppercase text-[#C17B58]">
                 {workflow.step}
               </span>
             </div>

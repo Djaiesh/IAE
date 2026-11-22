@@ -72,7 +72,7 @@ export function SovereignGlobe3D() {
     dirLight.position.set(150, 80, 100);
     scene.add(dirLight);
 
-    const redPointLight = new THREE.PointLight(0xe50914, 3.5, 300);
+    const redPointLight = new THREE.PointLight(0xc17b58, 3.5, 300);
     redPointLight.position.set(-80, 50, 120);
     scene.add(redPointLight);
 
@@ -123,7 +123,7 @@ export function SovereignGlobe3D() {
     const landPositions = new Float32Array(landPointCount * 3);
     const landColors = new Float32Array(landPointCount * 3);
     const cTeal = new THREE.Color(0x22879d);
-    const cGold = new THREE.Color(0xe50914);
+    const cGold = new THREE.Color(0xc17b58);
 
     // Approximate major continental bounds (minLat, maxLat, minLon, maxLon)
     const continents = [
@@ -178,7 +178,7 @@ export function SovereignGlobe3D() {
 
     // Origin Gateway Pin (JNPT / Mundra)
     const originPinGeo = new THREE.SphereGeometry(1.8, 16, 16);
-    const originPinMat = new THREE.MeshBasicMaterial({ color: 0xe50914 });
+    const originPinMat = new THREE.MeshBasicMaterial({ color: 0xc17b58 });
     const originPin = new THREE.Mesh(originPinGeo, originPinMat);
     originPin.position.copy(originVec);
     globeGroup.add(originPin);
@@ -206,7 +206,7 @@ export function SovereignGlobe3D() {
 
       // Destination Port Marker
       const portPinGeo = new THREE.SphereGeometry(1.3, 16, 16);
-      const portPinMat = new THREE.MeshBasicMaterial({ color: 0xe50914 });
+      const portPinMat = new THREE.MeshBasicMaterial({ color: 0xc17b58 });
       const portPin = new THREE.Mesh(portPinGeo, portPinMat);
       portPin.position.copy(destVec);
       globeGroup.add(portPin);
@@ -223,7 +223,7 @@ export function SovereignGlobe3D() {
       const curveGeo = new THREE.BufferGeometry().setFromPoints(curvePoints);
       
       const curveMat = new THREE.LineBasicMaterial({
-        color: 0xe50914,
+        color: 0xc17b58,
         transparent: true,
         opacity: 0.65,
       });
@@ -362,7 +362,7 @@ export function SovereignGlobe3D() {
         // Highlight selected port arc
         if (arc.portId === selectedIdRef.current) {
           (arc.lineMesh.material as THREE.LineBasicMaterial).opacity = 0.95;
-          (arc.lineMesh.material as THREE.LineBasicMaterial).color.setHex(0xe50914);
+          (arc.lineMesh.material as THREE.LineBasicMaterial).color.setHex(0xc17b58);
           arc.pulseMesh.scale.set(1.4, 1.4, 1.4);
         } else {
           (arc.lineMesh.material as THREE.LineBasicMaterial).opacity = 0.35;
@@ -468,11 +468,11 @@ export function SovereignGlobe3D() {
                     className={cn(
                       "p-3 rounded-2xl border text-left transition-all duration-300 flex items-center gap-2.5 cursor-pointer font-sans",
                       isCurrent
-                        ? "bg-[#E50914] text-white border-[#E50914] shadow-[0_0_20px_rgba(229, 9, 20,0.35)] font-semibold"
+                        ? "bg-[#C17B58] text-white border-[#C17B58] shadow-[0_0_20px_rgba(229, 9, 20,0.35)] font-semibold"
                         : "bg-white/[0.03] border-white/10 hover:border-white/20 text-slate-300 font-medium"
                     )}
                   >
-                    <Anchor className={cn("w-3.5 h-3.5 shrink-0", isCurrent ? "text-white" : "text-[#E50914]")} />
+                    <Anchor className={cn("w-3.5 h-3.5 shrink-0", isCurrent ? "text-white" : "text-[#C17B58]")} />
                     <span className="text-xs truncate">
                       {p.city}
                     </span>
@@ -485,7 +485,7 @@ export function SovereignGlobe3D() {
             <div className="bg-[#07070B] rounded-3xl p-6 sm:p-7 border border-white/15 shadow-2xl relative overflow-hidden font-sans">
               <div className="flex items-start justify-between gap-3 pb-4 border-b border-white/10 mb-5">
                 <div>
-                  <span className="text-[10px] uppercase tracking-widest text-[#E50914] font-semibold block mb-1">
+                  <span className="text-[10px] uppercase tracking-widest text-[#C17B58] font-semibold block mb-1">
                     Direct Maritime Discharge Corridor
                   </span>
                   <h3 className="text-xl sm:text-2xl text-white font-bold tracking-tight">
@@ -506,7 +506,7 @@ export function SovereignGlobe3D() {
               <div className="grid grid-cols-2 gap-3 mb-5">
                 <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
                   <div className="flex items-center gap-1.5 text-xs text-slate-400 mb-1">
-                    <Clock className="w-3.5 h-3.5 text-[#E50914]" /> Sea Transit
+                    <Clock className="w-3.5 h-3.5 text-[#C17B58]" /> Sea Transit
                   </div>
                   <div className="text-base sm:text-lg text-white font-bold">
                     {selectedPort.typicalTransitDays}
@@ -534,7 +534,7 @@ export function SovereignGlobe3D() {
                       key={i}
                       className="text-xs bg-white/[0.04] border border-white/10 px-3 py-1.5 rounded-full text-slate-200 flex items-center gap-1.5"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#E50914] shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#C17B58] shrink-0" />
                       {c}
                     </span>
                   ))}
@@ -544,7 +544,7 @@ export function SovereignGlobe3D() {
               {/* CTA Link */}
               <a
                 href={`/contact?port=${encodeURIComponent(selectedPort.name)}&type=quote`}
-                className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-gradient-to-r from-[#E50914] to-[#B8000B] hover:brightness-110 text-white text-xs uppercase tracking-wider font-bold transition-all shadow-[0_4px_20px_rgba(229, 9, 20,0.4)]"
+                className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-gradient-to-r from-[#C17B58] to-[#A66342] hover:brightness-110 text-white text-xs uppercase tracking-wider font-bold transition-all shadow-[0_4px_20px_rgba(229, 9, 20,0.4)]"
               >
                 <span>Inquire Freight Schedule to {selectedPort.city}</span>
                 <ArrowRight className="w-3.5 h-3.5" />

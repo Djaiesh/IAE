@@ -25,9 +25,9 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#061F42]/95 backdrop-blur-2xl text-white overflow-hidden border-t border-white/20 font-sans">
-      {/* Top Crimson Shimmer Line */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#E50914]/50 to-transparent" />
+    <footer className="relative bg-[#061820]/95 backdrop-blur-2xl text-white overflow-hidden border-t border-[#B8D0CE]/20 font-sans">
+      {/* Top Copper Shimmer Line */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C17B58]/50 to-transparent" />
 
       {/* Main Multi-Column Grid */}
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-16">
@@ -36,14 +36,14 @@ export function Footer() {
           {/* ── Col 1: Brand & Market Intelligence (4 cols) ── */}
           <div className="lg:col-span-4 space-y-5">
             <Link href="/" className="inline-flex items-center gap-3 group">
-              <div className="w-11 h-11 rounded-2xl border border-[#E50914]/50 bg-[#0A2E5C] flex items-center justify-center shadow-md group-hover:border-[#E50914] transition-all">
-                <span className="font-display text-xl font-bold text-[#E50914]">J</span>
+              <div className="w-11 h-11 rounded-2xl border border-[#C17B58]/50 bg-[#061820] flex items-center justify-center shadow-md group-hover:border-[#C17B58] transition-all">
+                <span className="font-display text-xl font-bold text-[#C17B58]">J</span>
               </div>
               <div>
                 <span className="font-display text-2xl text-white font-bold tracking-widest block leading-none">
                   JILO
                 </span>
-                <span className="text-[10px] tracking-widest uppercase text-[#E50914] font-semibold block mt-1">
+                <span className="text-[10px] tracking-widest uppercase text-[#C17B58] font-semibold block mt-1">
                   Global Agro-Exports
                 </span>
               </div>
@@ -65,11 +65,11 @@ export function Footer() {
                   placeholder="Enter corporate email..."
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
-                  className="w-full bg-[#0A2E5C] border border-white/20 rounded-full px-4 py-2.5 text-xs text-white placeholder:text-slate-400 focus:outline-none focus:border-[#E50914]"
+                  className="w-full bg-[#0E333C] border border-[#B8D0CE]/25 rounded-full px-4 py-2.5 text-xs text-white placeholder:text-slate-400 focus:outline-none focus:border-[#C17B58]"
                 />
                 <button
                   type="submit"
-                  className="px-5 py-2.5 rounded-full bg-[#0284C7] hover:bg-[#0369A1] text-xs font-bold text-white transition-all shrink-0 cursor-pointer shadow-md"
+                  className="px-5 py-2.5 rounded-full bg-[#C17B58] hover:bg-[#D68C66] text-xs font-bold text-white transition-all shrink-0 cursor-pointer shadow-md"
                 >
                   Join
                 </button>
@@ -90,7 +90,7 @@ export function Footer() {
 
           {/* ── Col 2: Navigation (2 cols) ── */}
           <div className="lg:col-span-2">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-[#E50914] mb-5 block">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-[#C17B58] mb-5 block">
               Navigation
             </h3>
             <ul className="space-y-3 text-sm">
@@ -106,7 +106,7 @@ export function Footer() {
 
           {/* ── Col 3: Commodities (2 cols) ── */}
           <div className="lg:col-span-2">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-[#E50914] mb-5 block">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-[#C17B58] mb-5 block">
               Commodities
             </h3>
             <ul className="space-y-3 text-sm">
@@ -117,12 +117,12 @@ export function Footer() {
                     className="text-slate-300 hover:text-white transition-colors flex items-center justify-between group py-0.5"
                   >
                     <span>{cat.name}</span>
-                    <span className="text-[10px] text-[#E50914] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                    <span className="text-[10px] text-[#C17B58] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                   </Link>
                 </li>
               ))}
               <li className="pt-2">
-                <Link href="/products" className="text-xs uppercase tracking-wider text-[#E50914] hover:underline transition-colors font-semibold">
+                <Link href="/products" className="text-xs uppercase tracking-wider text-[#C17B58] hover:underline transition-colors font-semibold">
                   Full Catalogue →
                 </Link>
               </li>
@@ -132,14 +132,14 @@ export function Footer() {
           {/* ── Col 4: Registered Office & Interactive Location Map (4 cols) ── */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="text-xs font-bold uppercase tracking-widest text-[#E50914]">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-[#C17B58]">
                 Headquarters &amp; Location
               </h3>
               <a
                 href="https://www.google.com/maps/search/?api=1&query=Valasaravakkam,+Chennai,+Tamil+Nadu,+India"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[11px] text-[#E50914] hover:underline flex items-center gap-1"
+                className="text-[11px] text-[#C17B58] hover:underline flex items-center gap-1"
               >
                 <span>View on Maps</span>
                 <ExternalLink className="w-3 h-3" />
@@ -147,28 +147,28 @@ export function Footer() {
             </div>
 
             {/* Address Details */}
-            <div className="p-4 rounded-2xl bg-[#0A2E5C]/85 border border-white/20 space-y-2 text-xs text-slate-200">
+            <div className="p-4 rounded-2xl bg-[#164A55]/85 border border-[#B8D0CE]/25 space-y-2 text-xs text-slate-200">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#E50914] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#C17B58] shrink-0 mt-0.5" />
                 <div className="leading-relaxed">
                   <strong className="text-white block font-semibold">JILO Global Agro-Exports</strong>
                   <span>Valasaravakkam, Chennai, Tamil Nadu 600087, India</span>
                 </div>
               </div>
               <div className="flex items-center gap-2.5 pt-1 text-slate-300">
-                <Mail className="w-3.5 h-3.5 text-[#E50914] shrink-0" />
+                <Mail className="w-3.5 h-3.5 text-[#C17B58] shrink-0" />
                 <a href={`mailto:${SITE_CONFIG.contact.email}`} className="hover:text-white transition-colors">
                   {SITE_CONFIG.contact.email}
                 </a>
               </div>
               <div className="flex items-center gap-2.5 text-slate-300">
-                <Phone className="w-3.5 h-3.5 text-[#E50914] shrink-0" />
+                <Phone className="w-3.5 h-3.5 text-[#C17B58] shrink-0" />
                 <span>{SITE_CONFIG.contact.salesDesk}</span>
               </div>
             </div>
 
             {/* Embedded Google Map */}
-            <div className="relative w-full h-44 rounded-2xl overflow-hidden border border-white/20 shadow-xl bg-[#0A2E5C]">
+            <div className="relative w-full h-44 rounded-2xl overflow-hidden border border-[#B8D0CE]/20 shadow-xl bg-[#0E333C]">
               <iframe
                 title="JILO Headquarters Location Map - Valasaravakkam, Chennai, Tamil Nadu"
                 src="https://maps.google.com/maps?q=Valasaravakkam%2C%20Chennai%2C%20Tamil%20Nadu%2C%20India&t=&z=14&ie=UTF8&iwloc=&output=embed"
@@ -186,7 +186,7 @@ export function Footer() {
       </div>
 
       {/* Legal Strip & Back to Top */}
-      <div className="border-t border-white/15 py-4 bg-[#041630]">
+      <div className="border-t border-[#B8D0CE]/15 py-4 bg-[#041117]">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-mono">
           <span>© {new Date().getFullYear()} {SITE_CONFIG.name}. ALL RIGHTS RESERVED.</span>
           <div className="flex items-center gap-4">
@@ -195,7 +195,7 @@ export function Footer() {
             </span>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-full border border-white/20 bg-white/10 text-slate-200 hover:border-[#E50914] hover:text-[#E50914] transition-all cursor-pointer shadow-sm ml-2"
+              className="p-2 rounded-full border border-[#B8D0CE]/20 bg-white/10 text-slate-200 hover:border-[#C17B58] hover:text-[#C17B58] transition-all cursor-pointer shadow-sm ml-2"
               aria-label="Back to top"
             >
               <ArrowUp className="w-3.5 h-3.5" />
@@ -205,7 +205,7 @@ export function Footer() {
       </div>
 
       {/* ── Interactive Dotted Brand Particles ── */}
-      <div className="w-full bg-[#031124] border-t border-white/10 py-2 px-2 sm:px-6 overflow-hidden">
+      <div className="w-full bg-[#041117] border-t border-[#B8D0CE]/10 py-2 px-2 sm:px-6 overflow-hidden">
         <DottedBrandScatter text="JILO EXPORTS" />
       </div>
 

@@ -54,8 +54,8 @@ export function FloatingRFQDock() {
       >
         {/* Expanded Quick Options Menu */}
         {isExpanded && (
-          <div className="flex flex-col gap-2 p-3 rounded-3xl bg-[#0A2E5C]/95 backdrop-blur-2xl border border-white/20 shadow-2xl animate-in fade-in slide-in-from-bottom-3 duration-300 w-64 max-w-[calc(100vw-2rem)]">
-            <div className="px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-[#E50914] flex items-center justify-between">
+          <div className="flex flex-col gap-2 p-3 rounded-3xl bg-[#0E333C]/95 backdrop-blur-2xl border border-[#B8D0CE]/25 shadow-2xl animate-in fade-in slide-in-from-bottom-3 duration-300 w-64 max-w-[calc(100vw-2rem)]">
+            <div className="px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-[#C17B58] flex items-center justify-between">
               <span>Sovereign Trade Desk</span>
               <span className="flex items-center gap-1.5 text-emerald-400">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -67,7 +67,7 @@ export function FloatingRFQDock() {
               onClick={() => handleOpenTender()}
               className="flex items-center gap-3 w-full px-3 py-2.5 rounded-2xl bg-white/5 hover:bg-white/10 text-white text-xs font-medium transition-colors text-left cursor-pointer group"
             >
-              <div className="w-8 h-8 rounded-xl bg-[#E50914]/15 border border-[#E50914]/30 flex items-center justify-center text-[#E50914] group-hover:scale-105 transition-transform">
+              <div className="w-8 h-8 rounded-xl bg-[#C17B58]/15 border border-[#C17B58]/30 flex items-center justify-center text-[#C17B58] group-hover:scale-105 transition-transform">
                 <Calculator className="w-4 h-4" />
               </div>
               <div>
@@ -105,10 +105,10 @@ export function FloatingRFQDock() {
         )}
 
         {/* Primary Floating Trigger Pill */}
-        <div className="flex items-center gap-2 p-1.5 rounded-full bg-[#0A2E5C]/90 backdrop-blur-2xl border border-white/20 shadow-2xl hover:border-[#E50914] transition-all">
+        <div className="flex items-center gap-2 p-1.5 rounded-full bg-[#0E333C]/90 backdrop-blur-2xl border border-[#B8D0CE]/25 shadow-2xl hover:border-[#C17B58] transition-all">
           <button
             onClick={() => handleOpenTender()}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#E50914] to-[#B8000B] text-white font-bold text-xs uppercase tracking-wider shadow-[0_4px_20px_rgba(229, 9, 20,0.4)] hover:brightness-110 transition-all cursor-pointer"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#D68C66] to-[#C17B58] text-white font-bold text-xs uppercase tracking-wider shadow-[0_4px_20px_rgba(193,123,88,0.4)] hover:brightness-110 transition-all cursor-pointer"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>Request Spot Quote</span>

@@ -33,15 +33,15 @@ export function CorporateBackground() {
         >
           <defs>
             <linearGradient id="waveLine" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.05" />
-              <stop offset="35%" stopColor="#7DD3FC" stopOpacity="0.5" />
-              <stop offset="70%" stopColor="#38BDF8" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="#0284C7" stopOpacity="0.05" />
+              <stop offset="0%" stopColor="#164A55" stopOpacity="0.05" />
+              <stop offset="35%" stopColor="#B8D0CE" stopOpacity="0.55" />
+              <stop offset="70%" stopColor="#164A55" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#061820" stopOpacity="0.05" />
             </linearGradient>
             <linearGradient id="waveLine2" x1="100%" y1="0%" x2="0%" y2="0%">
-              <stop offset="0%" stopColor="#60A5FA" stopOpacity="0.05" />
-              <stop offset="50%" stopColor="#38BDF8" stopOpacity="0.45" />
-              <stop offset="100%" stopColor="#0284C7" stopOpacity="0.05" />
+              <stop offset="0%" stopColor="#C17B58" stopOpacity="0.05" />
+              <stop offset="50%" stopColor="#C17B58" stopOpacity="0.45" />
+              <stop offset="100%" stopColor="#164A55" stopOpacity="0.05" />
             </linearGradient>
           </defs>
 
@@ -74,7 +74,7 @@ export function CorporateBackground() {
       <div className="corporate-nav-grid absolute inset-0 opacity-40 pointer-events-none" />
 
       {/* ── 04. Soft Vignette to focus contrast on center content ── */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_120%_90%_at_50%_50%,transparent_50%,rgba(4,18,44,0.45)_100%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_120%_90%_at_50%_50%,transparent_50%,rgba(6,24,32,0.65)_100%)] pointer-events-none" />
     </div>
   );
 }

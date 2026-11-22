@@ -58,10 +58,10 @@ export function CinematicOceanCanvas() {
     }
 
     const colors = [
-      "rgba(56, 189, 248,",  // Cyan / Sky
-      "rgba(125, 211, 252,", // Ice Blue
-      "rgba(229, 9, 20,",   // Radiant Crimson Red
-      "rgba(14, 165, 233,",  // Marine Azure
+      "rgba(184, 208, 206,", // Sea Mist
+      "rgba(22, 74, 85,",    // Petrol Blue
+      "rgba(193, 123, 88,",  // Muted Copper
+      "rgba(214, 140, 102,", // Light Muted Copper
     ];
 
     const particles: Particle[] = [];
@@ -122,7 +122,7 @@ export function CinematicOceanCanvas() {
       const mouseParallaxX = ((mouseX / width) - 0.5) * 40;
       const mouseParallaxY = ((mouseY / height) - 0.5) * 20;
 
-      // ── 01. Base Multi-Stop Radiant Ocean Depth Gradient ──
+      // ── 01. Base Multi-Stop Ocean Black & Petrol Blue Gradient ──
       const bgGrad = ctx.createRadialGradient(
         width * 0.5 + mouseParallaxX * 0.5,
         -height * 0.1,
@@ -131,11 +131,11 @@ export function CinematicOceanCanvas() {
         height * 0.5,
         Math.max(width, height) * 1.1
       );
-      bgGrad.addColorStop(0, "#1F6BC2");   // Sunlit Ocean Surface
-      bgGrad.addColorStop(0.25, "#145199"); // Radiant Cerulean
-      bgGrad.addColorStop(0.55, "#0E3970"); // Royal Sapphire
-      bgGrad.addColorStop(0.85, "#08244D"); // Midnight Marine Depth
-      bgGrad.addColorStop(1, "#04142E");   // Abyssal Floor
+      bgGrad.addColorStop(0, "#164A55");    // Sunlit Petrol Blue Surface
+      bgGrad.addColorStop(0.25, "#0E333C"); // Deep Petrol Depth
+      bgGrad.addColorStop(0.55, "#09232C"); // Dark Ocean Body
+      bgGrad.addColorStop(0.85, "#061820"); // Ocean Black Depth
+      bgGrad.addColorStop(1, "#041117");    // Abyssal Ocean Black Floor
 
       ctx.fillStyle = bgGrad;
       ctx.fillRect(0, 0, width, height);
@@ -161,10 +161,10 @@ export function CinematicOceanCanvas() {
         const rayPulse = Math.sin(time * 1.2 + i * 2) * 0.04;
         const currentAlpha = Math.max(0.04, ray.alpha + rayPulse);
 
-        rayGrad.addColorStop(0, `rgba(186, 230, 253, ${currentAlpha * 1.2})`);
-        rayGrad.addColorStop(0.3, `rgba(56, 189, 248, ${currentAlpha * 0.9})`);
-        rayGrad.addColorStop(0.7, `rgba(14, 165, 233, ${currentAlpha * 0.4})`);
-        rayGrad.addColorStop(1, "rgba(2, 132, 199, 0)");
+        rayGrad.addColorStop(0, `rgba(184, 208, 206, ${currentAlpha * 0.95})`);
+        rayGrad.addColorStop(0.35, `rgba(22, 74, 85, ${currentAlpha * 0.65})`);
+        rayGrad.addColorStop(0.7, `rgba(14, 51, 60, ${currentAlpha * 0.35})`);
+        rayGrad.addColorStop(1, "rgba(6, 24, 32, 0)");
 
         ctx.fillStyle = rayGrad;
         ctx.beginPath();
@@ -187,9 +187,9 @@ export function CinematicOceanCanvas() {
       const c1X = width * 0.35 + Math.sin(time * 0.5) * 60 + mouseParallaxX;
       const c1Y = height * 0.3 + Math.cos(time * 0.4) * 40 + mouseParallaxY;
       const c1Grad = ctx.createRadialGradient(c1X, c1Y, 10, c1X, c1Y, width * 0.45);
-      c1Grad.addColorStop(0, `rgba(125, 211, 252, ${causticPulse * 1.3})`);
-      c1Grad.addColorStop(0.4, `rgba(56, 189, 248, ${causticPulse * 0.7})`);
-      c1Grad.addColorStop(1, "rgba(14, 165, 233, 0)");
+      c1Grad.addColorStop(0, `rgba(184, 208, 206, ${causticPulse * 0.9})`);
+      c1Grad.addColorStop(0.4, `rgba(22, 74, 85, ${causticPulse * 0.5})`);
+      c1Grad.addColorStop(1, "rgba(6, 24, 32, 0)");
       ctx.fillStyle = c1Grad;
       ctx.fillRect(0, 0, width, height);
 
@@ -197,9 +197,9 @@ export function CinematicOceanCanvas() {
       const c2X = width * 0.75 + Math.cos(time * 0.45) * 70;
       const c2Y = height * 0.6 + Math.sin(time * 0.35) * 50;
       const c2Grad = ctx.createRadialGradient(c2X, c2Y, 20, c2X, c2Y, width * 0.5);
-      c2Grad.addColorStop(0, `rgba(56, 189, 248, ${causticPulse * 1.1})`);
-      c2Grad.addColorStop(0.5, `rgba(37, 99, 235, ${causticPulse * 0.5})`);
-      c2Grad.addColorStop(1, "rgba(2, 132, 199, 0)");
+      c2Grad.addColorStop(0, `rgba(22, 74, 85, ${causticPulse * 0.8})`);
+      c2Grad.addColorStop(0.5, `rgba(14, 51, 60, ${causticPulse * 0.4})`);
+      c2Grad.addColorStop(1, "rgba(6, 24, 32, 0)");
       ctx.fillStyle = c2Grad;
       ctx.fillRect(0, 0, width, height);
 

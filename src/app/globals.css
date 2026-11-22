@@ -3,40 +3,45 @@
 @tailwind utilities;
 
 :root {
-  /* ── Radiant Corporate Maritime Blue Palette (SkyStructure & GlobalLink Aesthetic) ── */
-  --obsidian-void: #092852;
-  --obsidian-surface: #0D3870;
-  --obsidian-card: rgba(14, 56, 116, 0.78);
-  --abyss: #092852;
-  --navy: #0D3870;
-  --deep: #114484;
-  --ocean: #1756A4;
-  --teal: #10B981;
-  --foam: #E2E8F0;
+  /* ── Sovereign Ocean Black & Petrol Blue Luxury Palette ── */
+  --ocean-black: #061820;
+  --petrol-blue: #164A55;
+  --muted-copper: #C17B58;
+  --sea-mist: #B8D0CE;
+
+  --obsidian-void: #061820;
+  --obsidian-surface: #164A55;
+  --obsidian-card: rgba(22, 74, 85, 0.78);
+  --abyss: #061820;
+  --navy: #0E333C;
+  --deep: #164A55;
+  --ocean: #206270;
+  --teal: #164A55;
+  --foam: #B8D0CE;
   --cream: #FFFFFF;
 
-  /* Sovereign Crimson / Red Accents */
-  --gold: #E50914;
-  --gold-light: #FF2A36;
-  --gold-dark: #B8000B;
-  --gold-glow: rgba(229, 9, 20, 0.4);
+  /* Sovereign Muted Copper Accents */
+  --gold: #C17B58;
+  --gold-light: #D68C66;
+  --gold-dark: #A66342;
+  --gold-glow: rgba(193, 123, 88, 0.4);
 
   /* Agricultural Provenance Emerald Accent */
   --emerald: #10B981;
   --emerald-light: #34D399;
   --emerald-glow: rgba(16, 185, 129, 0.25);
 
-  /* Marine Reefer Cold Chain Azure & Corporate Sky Blue */
-  --marine-azure: #0284C7;
-  --marine-glow: rgba(2, 132, 199, 0.35);
+  /* Marine Reefer Cold Chain Azure & Sea Mist */
+  --marine-azure: #164A55;
+  --marine-glow: rgba(184, 208, 206, 0.35);
 
-  /* Sovereign Crimson Secondary / Accent */
-  --saffron: #E50914;
-  --saffron-light: #FF2A36;
-  --saffron-glow: rgba(229, 9, 20, 0.4);
+  /* Sovereign Muted Copper Secondary / Accent */
+  --saffron: #C17B58;
+  --saffron-light: #D68C66;
+  --saffron-glow: rgba(193, 123, 88, 0.4);
 
-  /* Crimson Radiant Red */
-  --crimson: #E50914;
+  /* Crimson / Muted Copper */
+  --crimson: #C17B58;
 
   /* ── Luxury B2B Typography: Playfair Display & Inter ── */
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
@@ -50,12 +55,12 @@
   --radius-xl: 3rem;       /* 48px */
   --radius-pill: 9999px;
 
-  /* ── Luminous Royal Sapphire Frosted Glassmorphism ── */
-  --glass-bg: rgba(14, 56, 116, 0.72);
-  --glass-border: rgba(255, 255, 255, 0.22);
+  /* ── Frosted Glassmorphism Surfaces ── */
+  --glass-bg: rgba(22, 74, 85, 0.72);
+  --glass-border: rgba(184, 208, 206, 0.22);
   --glass-blur: 20px;
-  --shadow-card: 0 16px 40px rgba(4, 25, 60, 0.35), 0 2px 6px rgba(4, 25, 60, 0.2);
-  --shadow-float: 0 24px 60px rgba(4, 25, 60, 0.45);
+  --shadow-card: 0 16px 40px rgba(3, 12, 16, 0.45), 0 2px 6px rgba(3, 12, 16, 0.25);
+  --shadow-float: 0 24px 60px rgba(3, 12, 16, 0.55);
 }
 
 /* ────────────────────────────────────────────────
@@ -68,7 +73,7 @@
 html {
   scroll-behavior: smooth;
   color-scheme: dark;
-  background-color: #0A3266;
+  background-color: #061820;
   color: var(--cream);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -79,14 +84,14 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color: #0A3266;
+  background-color: #061820;
   color: var(--cream);
   position: relative;
 }
 
 /* ────────────────────────────────────────────────
    GLOBAL AMBIENT LIGHTING OVERLAY
-   Luminous sky-blue and cyan radiant ambient glows for a bright corporate blue feel
+   Luminous Sea Mist and Petrol Blue ambient glows
 ───────────────────────────────────────────────── */
 body::before {
   content: '';
@@ -95,9 +100,9 @@ body::before {
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(56, 189, 248, 0.22) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 50% at 90% 40%, rgba(14, 165, 233, 0.18) 0%, transparent 65%),
-    radial-gradient(ellipse 70% 60% at 15% 75%, rgba(2, 132, 199, 0.20) 0%, transparent 70%);
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(22, 74, 85, 0.35) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 90% 40%, rgba(184, 208, 206, 0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 60% at 15% 75%, rgba(14, 51, 60, 0.30) 0%, transparent 70%);
   animation: ambientShift 20s ease-in-out infinite alternate;
 }
 
@@ -191,43 +196,43 @@ button, input, select, textarea, .badge, .tag, .tab-item {
 }
 
 .glass-obsidian {
-  background: rgba(14, 56, 116, 0.78);
+  background: rgba(22, 74, 85, 0.78);
   backdrop-filter: blur(28px) saturate(190%);
   -webkit-backdrop-filter: blur(28px) saturate(190%);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  box-shadow: 0 16px 45px rgba(4, 25, 60, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(184, 208, 206, 0.22);
+  box-shadow: 0 16px 45px rgba(3, 12, 16, 0.45), inset 0 1px 0 rgba(184, 208, 206, 0.15);
 }
 
 .glass-gold-edge {
-  background: rgba(16, 60, 124, 0.82);
+  background: rgba(22, 74, 85, 0.85);
   backdrop-filter: blur(28px) saturate(190%);
   -webkit-backdrop-filter: blur(28px) saturate(190%);
-  border: 1px solid rgba(229, 9, 20, 0.5);
-  box-shadow: 0 20px 50px rgba(4, 25, 60, 0.4), 0 0 35px rgba(229, 9, 20, 0.3), inset 0 1px 0 rgba(229, 9, 20, 0.35);
+  border: 1px solid rgba(193, 123, 88, 0.5);
+  box-shadow: 0 20px 50px rgba(3, 12, 16, 0.5), 0 0 35px rgba(193, 123, 88, 0.3), inset 0 1px 0 rgba(193, 123, 88, 0.35);
 }
 
 .glass-emerald-edge {
-  background: rgba(14, 56, 116, 0.82);
+  background: rgba(22, 74, 85, 0.82);
   backdrop-filter: blur(28px) saturate(190%);
   -webkit-backdrop-filter: blur(28px) saturate(190%);
   border: 1px solid rgba(52, 211, 153, 0.45);
-  box-shadow: 0 20px 50px rgba(4, 25, 60, 0.4), 0 0 35px rgba(52, 211, 153, 0.2), inset 0 1px 0 rgba(52, 211, 153, 0.3);
+  box-shadow: 0 20px 50px rgba(3, 12, 16, 0.4), 0 0 35px rgba(52, 211, 153, 0.2), inset 0 1px 0 rgba(52, 211, 153, 0.3);
 }
 
 .glass-saffron {
-  background: rgba(16, 60, 124, 0.82);
+  background: rgba(22, 74, 85, 0.82);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid rgba(229, 9, 20, 0.45);
-  box-shadow: 0 14px 40px rgba(4, 25, 60, 0.35), 0 0 30px rgba(229, 9, 20, 0.3);
+  border: 1px solid rgba(193, 123, 88, 0.45);
+  box-shadow: 0 14px 40px rgba(3, 12, 16, 0.45), 0 0 30px rgba(193, 123, 88, 0.3);
 }
 
 .glass-hover {
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .glass-hover:hover {
-  border-color: rgba(229, 9, 20, 0.55);
-  box-shadow: var(--shadow-card), 0 0 40px rgba(229, 9, 20, 0.3);
+  border-color: rgba(193, 123, 88, 0.55);
+  box-shadow: var(--shadow-card), 0 0 40px rgba(193, 123, 88, 0.3);
   transform: translateY(-4px);
 }
 
@@ -268,7 +273,7 @@ button, input, select, textarea, .badge, .tag, .tab-item {
 
 /* Specular Gradient Texts */
 .text-gradient-gold {
-  background: linear-gradient(135deg, #FFFFFF 0%, #E50914 50%, #B8000B 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #D68C66 40%, #C17B58 70%, #A66342 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -284,7 +289,7 @@ button, input, select, textarea, .badge, .tag, .tab-item {
 }
 
 /* ────────────────────────────────────────────────
-   BUTTONS (Sovereign Crimson & Obsidian Glass Pills)
+   BUTTONS (Sovereign Muted Copper & Obsidian Glass Pills)
 ───────────────────────────────────────────────── */
 .btn-primary {
   display: inline-flex;
@@ -292,7 +297,7 @@ button, input, select, textarea, .badge, .tag, .tab-item {
   justify-content: center;
   gap: 0.6rem;
   padding: 0.95rem 2.25rem;
-  background: linear-gradient(135deg, #E50914 0%, #FF1E27 50%, #B8000B 100%);
+  background: linear-gradient(135deg, #D68C66 0%, #C17B58 50%, #A66342 100%);
   background-size: 200% 100%;
   color: #FFFFFF;
   font-family: var(--font-sans);
@@ -303,13 +308,13 @@ button, input, select, textarea, .badge, .tag, .tab-item {
   border-radius: var(--radius-pill);
   border: none;
   cursor: pointer;
-  box-shadow: 0 6px 28px rgba(229, 9, 20, 0.45);
+  box-shadow: 0 6px 28px rgba(193, 123, 88, 0.45);
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   text-decoration: none;
 }
 .btn-primary:hover {
   background-position: 100% 0;
-  box-shadow: 0 8px 36px rgba(229, 9, 20, 0.65);
+  box-shadow: 0 8px 36px rgba(193, 123, 88, 0.65);
   transform: translateY(-2px) scale(1.02);
 }
 
@@ -319,7 +324,7 @@ button, input, select, textarea, .badge, .tag, .tab-item {
   justify-content: center;
   gap: 0.6rem;
   padding: 0.95rem 2.25rem;
-  background: rgba(9, 21, 38, 0.7);
+  background: rgba(6, 24, 32, 0.75);
   color: var(--cream);
   font-family: var(--font-sans);
   font-size: 0.72rem;
@@ -327,7 +332,7 @@ button, input, select, textarea, .badge, .tag, .tab-item {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(184, 208, 206, 0.25);
   cursor: pointer;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -335,8 +340,8 @@ button, input, select, textarea, .badge, .tag, .tab-item {
   text-decoration: none;
 }
 .btn-ghost:hover {
-  border-color: rgba(229, 9, 20, 0.65);
-  background: rgba(14, 28, 48, 0.85);
+  border-color: rgba(193, 123, 88, 0.65);
+  background: rgba(14, 51, 60, 0.85);
   transform: translateY(-2px);
 }
 
@@ -435,18 +440,18 @@ button, input, select, textarea, .badge, .tag, .tab-item {
 .scrim-hero {
   background: linear-gradient(
     180deg,
-    rgba(4, 13, 24, 0.82) 0%,
-    rgba(7, 21, 37, 0.45) 45%,
-    rgba(4, 13, 24, 0.95) 100%
+    rgba(6, 24, 32, 0.85) 0%,
+    rgba(14, 51, 60, 0.45) 45%,
+    rgba(6, 24, 32, 0.98) 100%
   );
 }
 
 .scrim-side-left {
-  background: linear-gradient(90deg, rgba(4, 13, 24, 0.95) 0%, rgba(4, 13, 24, 0.6) 45%, transparent 100%);
+  background: linear-gradient(90deg, rgba(6, 24, 32, 0.95) 0%, rgba(6, 24, 32, 0.6) 45%, transparent 100%);
 }
 
 .scrim-card {
-  background: linear-gradient(180deg, transparent 0%, rgba(4, 13, 24, 0.75) 60%, rgba(4, 13, 24, 0.98) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(6, 24, 32, 0.75) 60%, rgba(6, 24, 32, 0.98) 100%);
 }
 
 /* Saffron subtle line */
@@ -537,13 +542,13 @@ html.lenis, html.lenis body {
   will-change: transform;
 }
 .orb-teal {
-  background: radial-gradient(circle, rgba(14, 165, 233, 0.45) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(22, 74, 85, 0.55) 0%, transparent 70%);
 }
 .orb-gold {
-  background: radial-gradient(circle, rgba(229, 9, 20, 0.4) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(193, 123, 88, 0.45) 0%, transparent 70%);
 }
 .orb-ocean {
-  background: radial-gradient(circle, rgba(2, 132, 199, 0.50) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(184, 208, 206, 0.25) 0%, transparent 70%);
 }
 @keyframes orbDrift {
   0%, 100% { transform: translate(0, 0); }
@@ -600,9 +605,9 @@ html.lenis { height: auto; }
 
 /* ── Orb floating elements ── */
 .orb { position: absolute; border-radius: 9999px; filter: blur(80px); }
-.orb-teal  { background: radial-gradient(circle, rgba(14,165,233,0.45) 0%, transparent 70%); }
-.orb-gold  { background: radial-gradient(circle, rgba(229,9,20,0.4) 0%, transparent 70%); }
-.orb-ocean { background: radial-gradient(circle, rgba(2,132,199,0.50) 0%, transparent 70%); }
+.orb-teal  { background: radial-gradient(circle, rgba(22, 74, 85, 0.55) 0%, transparent 70%); }
+.orb-gold  { background: radial-gradient(circle, rgba(193, 123, 88, 0.45) 0%, transparent 70%); }
+.orb-ocean { background: radial-gradient(circle, rgba(184, 208, 206, 0.25) 0%, transparent 70%); }
 @keyframes orbDrift { 0%,100%{transform:translate(0,0)} 33%{transform:translate(20px,-15px)} 66%{transform:translate(-15px,20px)} }
 .orb { animation: orbDrift var(--drift-dur, 20s) ease-in-out infinite; }
 
@@ -630,8 +635,8 @@ html.lenis { height: auto; }
 
 .isometric-card:hover {
   transform: translateZ(36px) scale(1.06);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.95), 0 0 30px rgba(229, 9, 20, 0.4);
-  border-color: rgba(229, 9, 20, 0.7) !important;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.95), 0 0 30px rgba(193, 123, 88, 0.4);
+  border-color: rgba(193, 123, 88, 0.7) !important;
   z-index: 20;
 }
 
@@ -654,11 +659,11 @@ html.lenis { height: auto; }
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle 750px at 20% 15%, rgba(56, 189, 248, 0.38) 0%, transparent 65%),
-    radial-gradient(circle 850px at 85% 25%, rgba(14, 165, 233, 0.30) 0%, transparent 65%),
-    radial-gradient(circle 900px at 50% 55%, rgba(37, 99, 235, 0.32) 0%, transparent 70%),
-    radial-gradient(circle 800px at 15% 80%, rgba(56, 189, 248, 0.28) 0%, transparent 65%),
-    radial-gradient(circle 950px at 85% 90%, rgba(2, 132, 199, 0.32) 0%, transparent 70%);
+    radial-gradient(circle 750px at 20% 15%, rgba(22, 74, 85, 0.45) 0%, transparent 65%),
+    radial-gradient(circle 850px at 85% 25%, rgba(184, 208, 206, 0.15) 0%, transparent 65%),
+    radial-gradient(circle 900px at 50% 55%, rgba(14, 51, 60, 0.50) 0%, transparent 70%),
+    radial-gradient(circle 800px at 15% 80%, rgba(22, 74, 85, 0.35) 0%, transparent 65%),
+    radial-gradient(circle 950px at 85% 90%, rgba(6, 24, 32, 0.60) 0%, transparent 70%);
   filter: blur(50px);
   animation: corporateAurora 20s ease-in-out infinite alternate;
 }
@@ -684,8 +689,8 @@ html.lenis { height: auto; }
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(184, 208, 206, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184, 208, 206, 0.07) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 95% 85% at 50% 40%, black 50%, transparent 95%);
   -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 40%, black 50%, transparent 95%);
@@ -732,8 +737,8 @@ html.lenis { height: auto; }
   width: 4px;
   height: 4px;
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(229, 9, 20, 0.9) 0%, rgba(229, 9, 20, 0) 70%);
-  box-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
+  background: radial-gradient(circle, rgba(193, 123, 88, 0.9) 0%, rgba(193, 123, 88, 0) 70%);
+  box-shadow: 0 0 10px rgba(193, 123, 88, 0.5);
   pointer-events: none;
   animation: particleFloat var(--particle-dur, 18s) ease-in-out infinite;
   animation-delay: var(--particle-delay, 0s);
@@ -743,10 +748,10 @@ html.lenis { height: auto; }
   position: absolute;
   width: 5px;
   height: 5px;
-  background: rgba(229, 9, 20, 0.4);
-  border: 1px solid rgba(229, 9, 20, 0.6);
+  background: rgba(193, 123, 88, 0.4);
+  border: 1px solid rgba(193, 123, 88, 0.6);
   transform: rotate(45deg);
-  box-shadow: 0 0 8px rgba(229, 9, 20, 0.35);
+  box-shadow: 0 0 8px rgba(193, 123, 88, 0.35);
   pointer-events: none;
   animation: diamondDrift var(--diamond-dur, 22s) ease-in-out infinite;
   animation-delay: var(--diamond-delay, 0s);
