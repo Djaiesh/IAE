@@ -676,14 +676,19 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
       }
     };
 
-    const marqueeFlagItems = [...COUNTRY_FLAG_HUBS, ...COUNTRY_FLAG_HUBS];
+    const marqueeFlagItems = [
+      ...COUNTRY_FLAG_HUBS,
+      ...COUNTRY_FLAG_HUBS,
+      ...COUNTRY_FLAG_HUBS,
+      ...COUNTRY_FLAG_HUBS,
+    ];
 
     return (
       <section
         ref={ref}
         id="global-reach-map"
         className={cn(
-          "relative min-h-screen w-full bg-transparent text-white overflow-hidden flex flex-col lg:flex-row items-center justify-between py-12 lg:py-0 select-none",
+          "relative min-h-screen w-full bg-transparent text-white overflow-hidden flex flex-col justify-between py-10 lg:py-14 select-none",
           className
         )}
       >
@@ -691,130 +696,134 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
         <div aria-hidden="true" className="pointer-events-none absolute -top-24 -right-24 w-[520px] h-[520px] bg-[radial-gradient(circle,_rgba(22,74,85,0.35)_0%,_transparent_70%)] blur-3xl z-0" />
         <div aria-hidden="true" className="pointer-events-none absolute -bottom-24 -left-24 w-[520px] h-[520px] bg-[radial-gradient(circle,_rgba(184,208,206,0.12)_0%,_transparent_70%)] blur-3xl z-0" />
 
-        {/* ── Left Content (Text & Actions) ── */}
-        <div className="relative z-10 w-full lg:w-[46vw] max-w-xl lg:max-w-2xl px-6 sm:px-12 lg:pl-16 lg:pr-4 flex flex-col justify-center text-left py-6 lg:py-0 pointer-events-auto">
-          {/* Clean Section Eyebrow */}
-          <div className="mb-3">
-            <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.28em] text-[#C17B58]">
-              ONE OPERATOR
-            </span>
-          </div>
-
-          {/* Giant Chamfered Industrial Headline */}
-          <h2 className="font-display text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tight leading-[0.94] text-white">
-            EVERY<br />
-            LEG OF THE<br />
-            JOURNEY
-          </h2>
-
-          {/* Clean Modern Subtitle */}
-          <p className="font-sans text-sm sm:text-base text-slate-200 font-normal mt-7 max-w-md leading-relaxed">
-            Freight forwarding, land transport, and customs brokerage, unified across international sea lanes under one accountable team.
-          </p>
-
-          {/* Dual Action Pill Buttons (Muted Copper + Frosted Glass) */}
-          <div className="mt-9 flex items-center gap-4">
-            <button
-              type="button"
-              onClick={() => setIsTenderOpen(true)}
-              className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#D68C66] to-[#C17B58] hover:brightness-110 text-white font-sans font-bold text-xs uppercase tracking-wider transition-all shadow-[0_10px_30px_rgba(193,123,88,0.4)] cursor-pointer active:scale-95"
-            >
-              TALK WITH US
-            </button>
-
-            <Link
-              href="/products"
-              className="px-8 py-3.5 rounded-full bg-white/10 border border-[#B8D0CE]/30 hover:bg-white/20 text-white font-sans font-bold text-xs uppercase tracking-wider transition-all cursor-pointer active:scale-95"
-            >
-              OUR SERVICES
-            </Link>
-          </div>
-
-          {/* ── Continuous Rotating Country Flags Marquee (Pinned Global Hubs) ── */}
-          <div className="mt-8 sm:mt-10 w-full max-w-lg">
-            <div className="flex items-center justify-between mb-2.5">
-              <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.22em] text-[#B8D0CE]/85 font-semibold flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C17B58] animate-pulse" />
-                Active Maritime Hubs ({GLOBAL_HUBS.length} Nations)
-              </span>
-              <span className="text-[10px] font-mono text-slate-400 hidden sm:inline">
-                Direct Scheduled Corridors
+        {/* ── Top/Center Showcase: Industrial Headline & Actions (Left) + 3D Interactive Globe (Right) ── */}
+        <div className="relative z-10 w-full flex-1 flex flex-col lg:flex-row items-center justify-between">
+          {/* Left Content (Text & Actions) */}
+          <div className="relative z-10 w-full lg:w-[46vw] max-w-xl lg:max-w-2xl px-6 sm:px-12 lg:pl-16 lg:pr-4 flex flex-col justify-center text-left py-6 lg:py-0 pointer-events-auto">
+            {/* Clean Section Eyebrow */}
+            <div className="mb-3">
+              <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.28em] text-[#C17B58]">
+                ONE OPERATOR
               </span>
             </div>
 
-            {/* Seamless Gliding Flags Track with Edge Masking */}
-            <div className="relative w-full overflow-hidden group py-1 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-              <div
-                className="flex gap-2.5 w-max animate-glide group-hover:[animation-play-state:paused]"
-                style={{ animationDuration: "24s" }}
+            {/* Giant Chamfered Industrial Headline */}
+            <h2 className="font-display text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tight leading-[0.94] text-white">
+              EVERY<br />
+              LEG OF THE<br />
+              JOURNEY
+            </h2>
+
+            {/* Clean Modern Subtitle */}
+            <p className="font-sans text-sm sm:text-base text-slate-200 font-normal mt-7 max-w-md leading-relaxed">
+              Freight forwarding, land transport, and customs brokerage, unified across international sea lanes under one accountable team.
+            </p>
+
+            {/* Dual Action Pill Buttons (Muted Copper + Frosted Glass) */}
+            <div className="mt-9 flex items-center gap-4">
+              <button
+                type="button"
+                onClick={() => setIsTenderOpen(true)}
+                className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#D68C66] to-[#C17B58] hover:brightness-110 text-white font-sans font-bold text-xs uppercase tracking-wider transition-all shadow-[0_10px_30px_rgba(193,123,88,0.4)] cursor-pointer active:scale-95"
               >
-                {marqueeFlagItems.map((hub, idx) => {
-                  const isCurrent = activeHubId === hub.id;
-                  return (
-                    <button
-                      key={`${hub.id}-${idx}`}
-                      type="button"
-                      onClick={() => handleFlagClick(hub.id)}
-                      className={cn(
-                        "inline-flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md text-white shrink-0 transition-all cursor-pointer shadow-sm select-none",
-                        isCurrent
-                          ? "bg-[#C17B58]/30 border-2 border-[#C17B58] shadow-[0_0_15px_rgba(193,123,88,0.4)]"
-                          : "bg-[#164A55]/70 border border-[#B8D0CE]/25 hover:border-[#C17B58] hover:bg-[#164A55]/95"
-                      )}
-                      title={`Focus ${hub.displayName} on 3D Globe`}
-                    >
-                      {/* Crisp Country Flag SVG */}
-                      {hub.flag}
-                      {/* Hub Country Label */}
-                      <span className="text-[11px] font-sans font-semibold tracking-wide text-slate-100 whitespace-nowrap">
-                        {hub.displayName}
-                      </span>
-                      {hub.isOrigin && (
-                        <span className="text-[9px] font-mono uppercase font-bold px-1.5 py-0.5 rounded-full bg-[#C17B58]/25 text-[#C17B58] border border-[#C17B58]/40">
-                          Origin
-                        </span>
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
+                TALK WITH US
+              </button>
+
+              <Link
+                href="/products"
+                className="px-8 py-3.5 rounded-full bg-white/10 border border-[#B8D0CE]/30 hover:bg-white/20 text-white font-sans font-bold text-xs uppercase tracking-wider transition-all cursor-pointer active:scale-95"
+              >
+                OUR SERVICES
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column: 3D Globe Canvas Mount (Guaranteed Height & Zero Right Margin) */}
+          <div className="relative z-10 w-full lg:w-[54vw] h-[480px] sm:h-[580px] lg:h-[calc(100vh-210px)] min-h-[460px] flex items-center justify-center lg:justify-end pointer-events-auto overflow-hidden">
+            {/* Soft Atmospheric Copper & Petrol Radial Glow Behind Globe */}
+            <div aria-hidden="true" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[540px] h-[540px] bg-[radial-gradient(circle,rgba(193,123,88,0.20)_0%,rgba(22,74,85,0.25)_50%,transparent_72%)] blur-3xl pointer-events-none rounded-full" />
+
+            {/* 3D WebGL Canvas Container */}
+            <div
+              ref={mountRef}
+              className="w-full h-full cursor-grab active:cursor-grabbing relative"
+              title="Click and drag to rotate global trade routes"
+            />
+
+            {/* 3D-Projected DOM Badges */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              {GLOBAL_HUBS.map((hub) => (
+                <div
+                  key={hub.id}
+                  ref={(el) => {
+                    if (el) pinElementsRef.current.set(hub.id, el);
+                    else pinElementsRef.current.delete(hub.id);
+                  }}
+                  className="absolute top-0 left-0 items-center gap-1.5 transition-opacity duration-150 will-change-transform select-none"
+                  style={{ display: "none" }}
+                >
+                  {/* Glowing Muted Copper Marker Dot */}
+                  <span className="w-2.5 h-2.5 rounded-sm bg-[#C17B58] shadow-[0_0_12px_#C17B58] shrink-0" />
+
+                  {/* Clean Petrol Blue Badge with Monospace Text */}
+                  <span className="bg-[#164A55]/90 border border-[#B8D0CE]/25 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase text-white shadow-xl whitespace-nowrap">
+                    {hub.name}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* ── Right Column: 3D Globe Canvas Mount (Guaranteed Height & Zero Right Margin) ── */}
-        <div className="relative z-10 w-full lg:w-[54vw] h-[520px] sm:h-[620px] lg:h-screen flex items-center justify-center lg:justify-end pointer-events-auto overflow-hidden">
-          {/* Soft Atmospheric Copper & Petrol Radial Glow Behind Globe */}
-          <div aria-hidden="true" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[540px] h-[540px] bg-[radial-gradient(circle,rgba(193,123,88,0.20)_0%,rgba(22,74,85,0.25)_50%,transparent_72%)] blur-3xl pointer-events-none rounded-full" />
+        {/* ── Full Screen-Width Continuous Rotating Country Flags Marquee (Edge-to-Edge) ── */}
+        <div className="relative z-20 w-full mt-6 lg:mt-8 pt-4 pb-1 pointer-events-auto overflow-hidden">
+          {/* Header Label Row: Full Width Container with Padding */}
+          <div className="w-full px-6 sm:px-12 lg:px-16 flex items-center justify-between mb-3">
+            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.22em] text-[#B8D0CE]/85 font-semibold flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C17B58] animate-pulse" />
+              Active Maritime Hubs ({GLOBAL_HUBS.length} Nations)
+            </span>
+            <span className="text-[10px] font-mono text-slate-400 hidden sm:inline tracking-wider">
+              Direct Scheduled Corridors · Click Flag to Center Globe
+            </span>
+          </div>
 
-          {/* 3D WebGL Canvas Container */}
-          <div
-            ref={mountRef}
-            className="w-full h-full cursor-grab active:cursor-grabbing relative"
-            title="Click and drag to rotate global trade routes"
-          />
-
-          {/* 3D-Projected DOM Badges */}
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            {GLOBAL_HUBS.map((hub) => (
-              <div
-                key={hub.id}
-                ref={(el) => {
-                  if (el) pinElementsRef.current.set(hub.id, el);
-                  else pinElementsRef.current.delete(hub.id);
-                }}
-                className="absolute top-0 left-0 items-center gap-1.5 transition-opacity duration-150 will-change-transform select-none"
-                style={{ display: "none" }}
-              >
-                {/* Glowing Muted Copper Marker Dot */}
-                <span className="w-2.5 h-2.5 rounded-sm bg-[#C17B58] shadow-[0_0_12px_#C17B58] shrink-0" />
-
-                {/* Clean Petrol Blue Badge with Monospace Text */}
-                <span className="bg-[#164A55]/90 border border-[#B8D0CE]/25 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase text-white shadow-xl whitespace-nowrap">
-                  {hub.name}
-                </span>
-              </div>
-            ))}
+          {/* Full Screen Width Gliding Track (Edge-to-Edge across entire viewport) */}
+          <div className="relative w-full overflow-hidden group py-1.5 [mask-image:linear-gradient(to_right,transparent,black_3%,black_97%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_3%,black_97%,transparent)]">
+            <div
+              className="flex gap-3 w-max animate-glide group-hover:[animation-play-state:paused]"
+              style={{ animationDuration: "36s" }}
+            >
+              {marqueeFlagItems.map((hub, idx) => {
+                const isCurrent = activeHubId === hub.id;
+                return (
+                  <button
+                    key={`${hub.id}-${idx}`}
+                    type="button"
+                    onClick={() => handleFlagClick(hub.id)}
+                    className={cn(
+                      "inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full backdrop-blur-md text-white shrink-0 transition-all cursor-pointer shadow-sm select-none",
+                      isCurrent
+                        ? "bg-[#C17B58]/35 border-2 border-[#C17B58] shadow-[0_0_18px_rgba(193,123,88,0.5)] scale-105"
+                        : "bg-[#164A55]/75 border border-[#B8D0CE]/25 hover:border-[#C17B58] hover:bg-[#164A55]/95 hover:scale-105"
+                    )}
+                    title={`Focus ${hub.displayName} on 3D Globe`}
+                  >
+                    {/* Crisp Country Flag SVG */}
+                    {hub.flag}
+                    {/* Hub Country Label */}
+                    <span className="text-[11px] font-sans font-semibold tracking-wide text-slate-100 whitespace-nowrap">
+                      {hub.displayName}
+                    </span>
+                    {hub.isOrigin && (
+                      <span className="text-[9px] font-mono uppercase font-bold px-1.5 py-0.5 rounded-full bg-[#C17B58]/25 text-[#C17B58] border border-[#C17B58]/40">
+                        Origin
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 
