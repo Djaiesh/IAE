@@ -46,14 +46,14 @@ function CenteredJiloExportsTyping({ active }: { active: boolean }) {
   return (
     <div className="absolute inset-0 z-30 flex flex-col items-center justify-center pointer-events-none px-4 select-none">
       <div className="text-center max-w-2xl mx-auto">
-        <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.35em] text-[#E6C687]/90 block mb-2 font-semibold drop-shadow-md">
+        <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.35em] text-[#FF385C]/90 block mb-2 font-semibold drop-shadow-md">
           Sovereign Maritime Agro-Trade
         </span>
         <h2 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-wider text-white drop-shadow-[0_12px_45px_rgba(0,0,0,0.95)] flex items-center justify-center leading-none">
-          <span className="bg-gradient-to-r from-white via-[#E6C687] to-white bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-white via-[#FF385C] to-white bg-clip-text text-transparent">
             {typedText}
           </span>
-          <span className="inline-block w-1.5 sm:w-2.5 h-8 sm:h-14 bg-[#E6C687] ml-2 animate-pulse shadow-[0_0_15px_#E6C687]" />
+          <span className="inline-block w-1.5 sm:w-2.5 h-8 sm:h-14 bg-[#FF385C] ml-2 animate-pulse shadow-[0_0_15px_#FF385C]" />
         </h2>
         <span className="text-xs sm:text-sm font-sans tracking-[0.22em] uppercase text-slate-300/85 block mt-3 font-medium drop-shadow">
           APEDA &amp; Global Cold-Chain Certified
@@ -328,7 +328,7 @@ export function ShipScrollAnimation({
                 frameWrapperRef.current.style.transform = `scale(${currentScale})`;
                 frameWrapperRef.current.style.borderRadius = `${radius}px`;
                 frameWrapperRef.current.style.boxShadow = shrinkProgress > 0.08
-                  ? `0 30px 90px rgba(0, 0, 0, ${0.4 + shrinkProgress * 0.55}), 0 0 0 1px rgba(230, 198, 135, ${shrinkProgress * 0.35})`
+                  ? `0 30px 90px rgba(0, 0, 0, ${0.4 + shrinkProgress * 0.55}), 0 0 0 1px rgba(255, 56, 92, ${shrinkProgress * 0.35})`
                   : "none";
               } else {
                 frameWrapperRef.current.style.transform = "scale(1)";
@@ -437,9 +437,9 @@ export function ShipScrollAnimation({
 
           {/* ── Workflow Tracking in Video Empty Space (Bottom-Left) ── */}
           <div className="absolute bottom-8 sm:bottom-12 left-6 sm:left-12 lg:left-16 z-20 pointer-events-none max-w-lg select-none transition-all duration-300">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#072248]/80 border border-[#E6C687]/50 backdrop-blur-md mb-2">
-              <span className="w-2 h-2 rounded-full bg-[#E6C687] animate-pulse" />
-              <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.22em] uppercase text-[#E6C687]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#072248]/80 border border-[#FF385C]/50 backdrop-blur-md mb-2">
+              <span className="w-2 h-2 rounded-full bg-[#FF385C] animate-pulse" />
+              <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.22em] uppercase text-[#FF385C]">
                 {workflow.step}
               </span>
             </div>
@@ -455,7 +455,7 @@ export function ShipScrollAnimation({
 
           {/* ── Micro Telemetry Indicator in Empty Space (Bottom-Right) ── */}
           <div className="hidden sm:flex absolute bottom-10 right-8 sm:right-12 z-20 pointer-events-none items-center gap-3 px-3.5 py-1.5 rounded-full bg-[#072248]/80 border border-white/20 backdrop-blur-md text-[10px] font-mono text-slate-200">
-            <span className="text-[#E6C687]">PHASE {String(activeFrame).padStart(3, "0")}/100</span>
+            <span className="text-[#FF385C]">PHASE {String(activeFrame).padStart(3, "0")}/100</span>
             <span className="text-white/20">|</span>
             <span>REEFER TELEMETRY: ACTIVE</span>
           </div>

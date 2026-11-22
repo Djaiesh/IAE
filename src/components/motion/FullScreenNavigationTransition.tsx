@@ -78,10 +78,10 @@ export function FullScreenNavigationTransition() {
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           className="fixed inset-0 z-[9999] pointer-events-auto bg-[#0A2E5C] flex items-center justify-center select-none overflow-hidden"
         >
-          {/* Deep Ambient Golden Glow */}
+          {/* Deep Ambient Crimson Glow */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,_rgba(212,175,55,0.18)_0%,_transparent_70%)] blur-3xl animate-pulse"
+            className="pointer-events-none absolute w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,_rgba(255,56,92,0.2)_0%,_transparent_70%)] blur-3xl animate-pulse"
           />
 
           {/* ── Circular Moving Ocean Waves Animation (Zero Words) ── */}
@@ -90,7 +90,7 @@ export function FullScreenNavigationTransition() {
             {[0, 1, 2, 3, 4].map((index) => (
               <motion.div
                 key={index}
-                className="absolute rounded-full border border-[#E6C687]"
+                className="absolute rounded-full border border-[#FF385C]"
                 initial={{ width: 36, height: 36, opacity: 0.85 }}
                 animate={{
                   width: [36, 320],
@@ -104,36 +104,36 @@ export function FullScreenNavigationTransition() {
                   ease: "easeOut",
                 }}
                 style={{
-                  boxShadow: "0 0 24px rgba(230, 198, 135, 0.35)",
+                  boxShadow: "0 0 24px rgba(255, 56, 92, 0.35)",
                 }}
               />
             ))}
 
             {/* Rotating Circular Wave Ring 1 */}
             <motion.div
-              className="absolute w-48 h-48 rounded-full border border-dashed border-[#E6C687]/50"
+              className="absolute w-48 h-48 rounded-full border border-dashed border-[#FF385C]/50"
               animate={{ rotate: 360 }}
               transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
             >
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-[#E6C687] shadow-[0_0_12px_#E6C687]" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-[#FF385C] shadow-[0_0_12px_#FF385C]" />
             </motion.div>
 
             {/* Counter-Rotating Circular Wave Ring 2 */}
             <motion.div
-              className="absolute w-32 h-32 rounded-full border border-dotted border-[#FFE6A6]/60"
+              className="absolute w-32 h-32 rounded-full border border-dotted border-[#FF6B8B]/60"
               animate={{ rotate: -360 }}
               transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
             >
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#FFE6A6] shadow-[0_0_10px_#FFE6A6]" />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#FF6B8B] shadow-[0_0_10px_#FF6B8B]" />
             </motion.div>
 
-            {/* Glowing Golden Core Sphere */}
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#D4AF37] to-[#FFE6A6] shadow-[0_0_30px_#E6C687] animate-pulse z-10" />
+            {/* Glowing Crimson Core Sphere */}
+            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#E11D48] to-[#FF6B8B] shadow-[0_0_30px_#FF385C] animate-pulse z-10" />
           </div>
 
           {/* Delicate Edge Light Trims */}
-          <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#E6C687]/60 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#E6C687]/60 to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#FF385C]/60 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#FF385C]/60 to-transparent" />
         </motion.div>
       )}
     </AnimatePresence>

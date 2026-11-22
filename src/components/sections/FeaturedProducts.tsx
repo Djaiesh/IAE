@@ -30,7 +30,7 @@ export function FeaturedProducts({
       case "fruits":
         return "bg-rose-950/80 text-rose-300 border-rose-500/40";
       default:
-        return "bg-black/80 text-[#E6C687] border-[#E6C687]/40";
+        return "bg-black/80 text-[#FF385C] border-[#FF385C]/40";
     }
   };
 
@@ -42,13 +42,13 @@ export function FeaturedProducts({
         {/* Section Header */}
         <div className="flex items-end justify-between mb-12 sm:mb-16 gap-6 flex-col sm:flex-row">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#082247]/80 border border-[#E6C687]/50 text-[#E6C687] text-xs font-semibold uppercase tracking-widest mb-3 font-sans">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#082247]/80 border border-[#FF385C]/50 text-[#FF385C] text-xs font-semibold uppercase tracking-widest mb-3 font-sans">
               <Sparkles className="w-3.5 h-3.5" />
               Prime Export Inventory
             </div>
             <h2 className="font-display text-3xl sm:text-5xl text-white font-normal tracking-tight">
               Flagship Export
-              <span className="text-[#E6C687] italic font-light block mt-1">
+              <span className="text-[#FF385C] italic font-light block mt-1">
                 Spotlight Selections
               </span>
             </h2>
@@ -56,7 +56,7 @@ export function FeaturedProducts({
           {showExploreAll && (
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-wider text-[#E6C687] hover:brightness-125 transition-colors shrink-0 font-bold min-h-[44px]"
+              className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-wider text-[#FF385C] hover:brightness-125 transition-colors shrink-0 font-bold min-h-[44px]"
             >
               <span>Explore All Commodities</span>
               <ArrowRight className="w-4 h-4" />
@@ -112,7 +112,7 @@ export function FeaturedProducts({
               {/* Card Body */}
               <div className="p-7 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-display text-xl sm:text-2xl text-white group-hover:text-[#E6C687] transition-colors mb-2">
+                  <h3 className="font-display text-xl sm:text-2xl text-white group-hover:text-[#FF385C] transition-colors mb-2">
                     {product.name}
                   </h3>
                   <p className="font-sans text-xs sm:text-sm text-slate-200 font-light line-clamp-2 mb-6 leading-relaxed">
@@ -134,9 +134,9 @@ export function FeaturedProducts({
                     {product.moq && (
                       <div className="flex items-center justify-between">
                         <span className="text-slate-400 flex items-center gap-2">
-                          <Package className="w-3.5 h-3.5 text-[#E6C687] shrink-0" /> Target MOQ
+                          <Package className="w-3.5 h-3.5 text-[#FF385C] shrink-0" /> Target MOQ
                         </span>
-                        <span className="text-[#E6C687] font-medium truncate max-w-[170px]">
+                        <span className="text-[#FF385C] font-medium truncate max-w-[170px]">
                           {product.moq.split("(")[0].trim()}
                         </span>
                       </div>
@@ -158,13 +158,13 @@ export function FeaturedProducts({
                 <div className="pt-6 mt-6 border-t border-white/10 flex items-center gap-3">
                   <Link
                     href={`/products/${product.category}/${product.slug}`}
-                    className="flex-1 py-3 px-4 min-h-[44px] rounded-full border border-white/15 text-xs font-sans uppercase tracking-wider text-slate-200 text-center font-semibold hover:border-[#E6C687] hover:bg-white/5 hover:text-white transition-all flex items-center justify-center"
+                    className="flex-1 py-3 px-4 min-h-[44px] rounded-full border border-white/15 text-xs font-sans uppercase tracking-wider text-slate-200 text-center font-semibold hover:border-[#FF385C] hover:bg-white/5 hover:text-white transition-all flex items-center justify-center"
                   >
                     View Specs
                   </Link>
                   <Link
                     href={`/contact?product=${encodeURIComponent(product.name)}&type=quote`}
-                    className="flex-1 py-3 px-4 min-h-[44px] rounded-full bg-gradient-to-r from-[#D4AF37] to-[#E6C687] hover:brightness-110 text-black text-xs font-sans uppercase tracking-wider text-center font-bold transition-all shadow-md flex items-center justify-center gap-1.5"
+                    className="flex-1 py-3 px-4 min-h-[44px] rounded-full bg-gradient-to-r from-[#FF385C] to-[#E11D48] hover:brightness-110 text-white text-xs font-sans uppercase tracking-wider text-center font-bold transition-all shadow-[0_4px_20px_rgba(255,56,92,0.35)] flex items-center justify-center gap-1.5"
                   >
                     <span>Request Quote</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -180,7 +180,7 @@ export function FeaturedProducts({
           <div className="mt-14 text-center">
             <Link
               href="/products"
-              className="inline-flex items-center gap-3 px-8 py-4 min-h-[48px] rounded-full bg-gradient-to-r from-[#D4AF37] to-[#E6C687] text-black font-sans text-xs uppercase tracking-widest font-bold transition-all shadow-[0_10px_30px_rgba(212,175,55,0.25)] hover:scale-105"
+              className="inline-flex items-center gap-3 px-8 py-4 min-h-[48px] rounded-full bg-gradient-to-r from-[#FF385C] to-[#E11D48] text-white font-sans text-xs uppercase tracking-widest font-bold transition-all shadow-[0_10px_30px_rgba(255,56,92,0.4)] hover:scale-105"
             >
               <span>Explore Complete Export Catalogue</span>
               <ArrowRight className="w-4 h-4" />

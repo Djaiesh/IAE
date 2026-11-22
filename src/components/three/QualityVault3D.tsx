@@ -32,8 +32,8 @@ export function QualityVault3D() {
       spec: "Consignment-Wise Verified PSC",
       method: "Methyl Bromide / Phosphine / Vapor Heat Treatment",
       desc: "Inspected and certified by the National Plant Protection Organization (NPPO). All fresh horticulture is cleared free of quarantine pests and soil pathogens.",
-      color: "#D4AF37",
-      threeColor: 0xd4af37,
+      color: "#FF385C",
+      threeColor: 0xff385c,
     },
   ];
 
@@ -77,7 +77,7 @@ export function QualityVault3D() {
     scene.add(pointLight);
     pointLightRef.current = pointLight;
 
-    const rimLight = new THREE.DirectionalLight(0xd4af37, 2.0);
+    const rimLight = new THREE.DirectionalLight(0xff385c, 2.0);
     rimLight.position.set(-30, -20, -20);
     scene.add(rimLight);
 
@@ -147,7 +147,7 @@ export function QualityVault3D() {
 
     // Outer Gyroscope Rings
     const gyroGeo = new THREE.TorusGeometry(19, 0.25, 16, 80);
-    const gyroMat = new THREE.MeshBasicMaterial({ color: 0xd4af37, transparent: true, opacity: 0.4 });
+    const gyroMat = new THREE.MeshBasicMaterial({ color: 0xff385c, transparent: true, opacity: 0.4 });
     const gyro = new THREE.Mesh(gyroGeo, gyroMat);
     scene.add(gyro);
 

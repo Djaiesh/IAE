@@ -151,7 +151,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
       goldDirLight.position.set(-60, 80, 100);
       scene.add(goldDirLight);
 
-      const goldRimLight = new THREE.PointLight(0xd4af37, 2.5, 450);
+      const goldRimLight = new THREE.PointLight(0xff385c, 2.5, 450);
       goldRimLight.position.set(120, -40, 80);
       scene.add(goldRimLight);
 
@@ -225,7 +225,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
       const landColors: number[] = [];
 
       const colWhite = new THREE.Color(0xf4f1ea);
-      const colGold = new THREE.Color(0xe6c687);
+      const colGold = new THREE.Color(0xff385c);
 
       for (let lat = -70; lat <= 75; lat += 1.8) {
         // Equidistant longitude spacing on sphere using cos(lat)
@@ -238,7 +238,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
             const vec = latLongToVector3(lat, lon, GLOBE_RADIUS * 1.008);
             landPositions.push(vec.x, vec.y, vec.z);
 
-            // Subtle golden highlight for trade hubs
+            // Subtle crimson highlight for trade hubs
             const isTradeZone = (lat > 10 && lat < 45 && lon > 40 && lon < 145);
             const col = (isTradeZone && Math.random() < 0.25) ? colGold : colWhite;
             landColors.push(col.r, col.g, col.b);
@@ -262,7 +262,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
       // ── 06. Location Pins & 3D Vector Positions ──
       const hubVectors: { hub: GlobalHub; vec: THREE.Vector3 }[] = [];
       const pinGeo = new THREE.SphereGeometry(1.2, 12, 12);
-      const pinMat = new THREE.MeshBasicMaterial({ color: 0xe6c687 });
+      const pinMat = new THREE.MeshBasicMaterial({ color: 0xff385c });
 
       GLOBAL_HUBS.forEach((hub) => {
         const vec = latLongToVector3(hub.lat, hub.lon, GLOBE_RADIUS * 1.012);
@@ -273,7 +273,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
         globeGroup.add(pin);
       });
 
-      // ── 07. Luminous Golden Curved Trade Arc ──
+      // ── 07. Luminous Crimson Curved Trade Arc ──
       // Long sweeping high arc from China/Japan across Eurasia to Middle East & Europe
       const startVec = hubVectors.find((h) => h.hub.id === "china")?.vec || hubVectors[0].vec;
       const endVec = hubVectors.find((h) => h.hub.id === "turkey")?.vec || hubVectors[4].vec;
@@ -288,7 +288,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
       const arcPoints = mainArc.getPoints(50);
       const arcGeo = new THREE.BufferGeometry().setFromPoints(arcPoints);
       const arcMat = new THREE.LineBasicMaterial({
-        color: 0xe6c687,
+        color: 0xff385c,
         transparent: true,
         opacity: 0.85,
       });
@@ -501,7 +501,7 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
         <div className="relative z-10 w-full lg:w-[46vw] max-w-xl lg:max-w-2xl px-6 sm:px-12 lg:pl-16 lg:pr-4 flex flex-col justify-center text-left py-6 lg:py-0 pointer-events-auto">
           {/* Clean Section Eyebrow */}
           <div className="mb-3">
-            <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.28em] text-[#E6C687]">
+            <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.28em] text-[#FF385C]">
               ONE OPERATOR
             </span>
           </div>
@@ -558,8 +558,8 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
                 className="absolute top-0 left-0 items-center gap-1.5 transition-opacity duration-150 will-change-transform select-none"
                 style={{ display: "none" }}
               >
-                {/* Glowing Gold Marker Dot */}
-                <span className="w-2.5 h-2.5 rounded-sm bg-[#E6C687] shadow-[0_0_12px_#E6C687] shrink-0" />
+                {/* Glowing Crimson Marker Dot */}
+                <span className="w-2.5 h-2.5 rounded-sm bg-[#FF385C] shadow-[0_0_12px_#FF385C] shrink-0" />
 
                 {/* Clean Royal Blue Badge with Monospace Text */}
                 <span className="bg-[#072248]/90 border border-white/20 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase text-white shadow-xl whitespace-nowrap">

@@ -189,7 +189,7 @@ export function DottedBrandScatter({
         // Slight color brightening when scattered
         const isDisplaced = Math.abs(homeDx) > 2 || Math.abs(homeDy) > 2;
         ctx.fillStyle = isDisplaced
-          ? "rgba(230, 198, 135, 0.9)"
+          ? "rgba(255, 56, 92, 0.9)"
           : `rgba(255, 255, 255, ${p.baseAlpha})`;
 
         ctx.beginPath();

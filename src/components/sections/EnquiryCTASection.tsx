@@ -51,16 +51,16 @@ export function EnquiryCTASection({
           {/* Left Column: Editorial & Trust Signals */}
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#E6C687]/50 bg-[#082247]/80 mb-6 backdrop-blur-md">
-                <Anchor className="w-3.5 h-3.5 text-[#E6C687]" />
-                <span className="text-[11px] font-sans text-[#E6C687] font-semibold uppercase tracking-[0.2em]">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#FF385C]/50 bg-[#082247]/80 mb-6 backdrop-blur-md">
+                <Anchor className="w-3.5 h-3.5 text-[#FF385C]" />
+                <span className="text-[11px] font-sans text-[#FF385C] font-semibold uppercase tracking-[0.2em]">
                   Direct Exporter Trade Desk
                 </span>
               </div>
 
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-white font-normal leading-[1.1] tracking-tight">
                 Secure Your
-                <span className="text-[#E6C687] italic font-light block mt-1">
+                <span className="text-[#FF385C] italic font-light block mt-1">
                   Container Allocation
                 </span>
               </h2>
@@ -72,7 +72,7 @@ export function EnquiryCTASection({
 
             {/* 4 Trust Signals */}
             <div className="space-y-4 pt-2">
-              <span className="text-[11px] font-sans tracking-widest uppercase text-[#E6C687] font-bold block">
+              <span className="text-[11px] font-sans tracking-widest uppercase text-[#FF385C] font-bold block">
                 Trade Assurances &amp; Standards
               </span>
               
@@ -84,12 +84,12 @@ export function EnquiryCTASection({
                       key={signal.title}
                       className="p-4 rounded-2xl bg-[#0E3C7A]/85 backdrop-blur-xl border border-white/20 flex items-start gap-4 hover:border-[#38BDF8] transition-colors"
                     >
-                      <div className="w-9 h-9 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-[#E6C687] shrink-0 mt-0.5">
+                      <div className="w-9 h-9 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-[#FF385C] shrink-0 mt-0.5">
                         <CheckCircle2 className="w-4 h-4 text-emerald-300" />
                       </div>
                       <div className="space-y-1">
                         <div className="flex items-center gap-2">
-                          <Icon className="w-3.5 h-3.5 text-[#E6C687]" />
+                          <Icon className="w-3.5 h-3.5 text-[#FF385C]" />
                           <h3 className="font-sans text-xs font-bold text-white uppercase tracking-wide">
                             {signal.title}
                           </h3>

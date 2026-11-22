@@ -105,11 +105,11 @@ export function MosaicShowcaseCTA() {
               href="/products"
               className="w-full sm:w-auto group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-sans text-xs uppercase tracking-[0.18em] font-bold text-cream transition-all duration-300 overflow-hidden shadow-2xl active:scale-[0.97]"
               style={{
-                background: "linear-gradient(135deg, rgba(255, 107, 0, 0.5) 0%, rgba(201, 164, 106, 0.35) 50%, rgba(13, 32, 53, 0.7) 100%)",
+                background: "linear-gradient(135deg, rgba(255, 56, 92, 0.8) 0%, rgba(225, 29, 72, 0.65) 50%, rgba(13, 32, 53, 0.7) 100%)",
                 backdropFilter: "blur(20px)",
                 WebkitBackdropFilter: "blur(20px)",
-                border: "1px solid rgba(255, 107, 0, 0.6)",
-                boxShadow: "0 8px 32px rgba(255, 107, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.3)",
+                border: "1px solid rgba(255, 56, 92, 0.6)",
+                boxShadow: "0 8px 32px rgba(255, 56, 92, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.3)",
               }}
             >
               <span className="absolute inset-0 bg-gradient-to-r from-saffron/30 via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -124,7 +124,7 @@ export function MosaicShowcaseCTA() {
               href="/contact"
               className="w-full sm:w-auto group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-sans text-xs uppercase tracking-[0.18em] font-semibold text-cream/90 transition-all duration-300 overflow-hidden shadow-xl active:scale-[0.97]"
               style={{
-                background: "linear-gradient(135deg, rgba(13, 32, 53, 0.8) 0%, rgba(212, 175, 55, 0.2) 100%)",
+                background: "linear-gradient(135deg, rgba(13, 32, 53, 0.8) 0%, rgba(255, 56, 92, 0.2) 100%)",
                 backdropFilter: "blur(20px)",
                 WebkitBackdropFilter: "blur(20px)",
                 border: "1px solid rgba(255, 255, 255, 0.2)",

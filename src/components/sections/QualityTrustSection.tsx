@@ -7,7 +7,7 @@ import { SITE_CONFIG } from "@/data/site";
 
 const PILLARS = [
   {
-    icon: <FlaskConical className="w-6 h-6 text-[#E6C687]" />,
+    icon: <FlaskConical className="w-6 h-6 text-[#FF385C]" />,
     title: "HPLC Active Compound Assay",
     desc: "Every spice consignment is calibrated for curcumin (turmeric), piperine (black pepper), or ASTA color units (chilli) to assure consistent bio-active potency.",
   },
@@ -33,16 +33,16 @@ export function QualityTrustSection() {
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#E6C687]/50 bg-[#082247]/80 backdrop-blur-xl mb-5 shadow-lg">
-            <ShieldCheck className="w-4 h-4 text-[#E6C687]" />
-            <span className="text-[11px] font-sans text-[#E6C687] uppercase tracking-[0.2em] font-semibold">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FF385C]/50 bg-[#082247]/80 backdrop-blur-xl mb-5 shadow-lg">
+            <ShieldCheck className="w-4 h-4 text-[#FF385C]" />
+            <span className="text-[11px] font-sans text-[#FF385C] uppercase tracking-[0.2em] font-semibold">
               Verification &amp; Quality Assurance
             </span>
           </div>
           
           <h2 className="font-display text-3xl sm:text-5xl text-white font-normal tracking-tight">
             Built on Scientific
-            <span className="text-[#E6C687] italic font-light block mt-1">
+            <span className="text-[#FF385C] italic font-light block mt-1">
               Food Safety &amp; Laboratory Standards
             </span>
           </h2>
@@ -73,7 +73,7 @@ export function QualityTrustSection() {
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             
             <div className="max-w-xl">
-              <span className="text-[11px] font-sans uppercase tracking-widest text-[#E6C687] font-semibold block mb-2">
+              <span className="text-[11px] font-sans uppercase tracking-widest text-[#FF385C] font-semibold block mb-2">
                 Audited Regulatory Approvals
               </span>
               <h3 className="font-display text-2xl sm:text-3xl text-white font-normal mb-3">

@@ -52,9 +52,9 @@ export function JiloPerspectiveMosaic() {
 
       {/* ── Section Header ── */}
       <div className="max-w-4xl mx-auto px-4 text-center mb-10 relative z-20">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#082247]/80 border border-[#E6C687]/50 backdrop-blur-xl mb-4">
-          <Sparkles className="w-3.5 h-3.5 text-[#E6C687]" />
-          <span className="text-[11px] font-sans font-semibold uppercase tracking-[0.2em] text-[#E6C687]">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#082247]/80 border border-[#FF385C]/50 backdrop-blur-xl mb-4">
+          <Sparkles className="w-3.5 h-3.5 text-[#FF385C]" />
+          <span className="text-[11px] font-sans font-semibold uppercase tracking-[0.2em] text-[#FF385C]">
             Visual Cargo Provenance
           </span>
         </div>
@@ -91,7 +91,7 @@ export function JiloPerspectiveMosaic() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 
                 <div className="absolute bottom-3 left-3 right-3 z-10 transition-transform duration-300 group-hover:-translate-y-1">
-                  <span className="text-[9px] uppercase font-bold tracking-widest text-[#E6C687] block truncate">
+                  <span className="text-[9px] uppercase font-bold tracking-widest text-[#FF385C] block truncate">
                     {tile.category}
                   </span>
                   <span className="text-xs sm:text-sm font-semibold text-white block truncate leading-tight mt-0.5">
@@ -157,7 +157,7 @@ export function JiloPerspectiveMosaic() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 
                 <div className="absolute bottom-3 left-3 right-3 z-10 transition-transform duration-300 group-hover:-translate-y-1">
-                  <span className="text-[9px] uppercase font-bold tracking-widest text-[#E6C687] block truncate">
+                  <span className="text-[9px] uppercase font-bold tracking-widest text-[#FF385C] block truncate">
                     {tile.category}
                   </span>
                   <span className="text-xs sm:text-sm font-semibold text-white block truncate leading-tight mt-0.5">
@@ -188,9 +188,9 @@ export function JiloPerspectiveMosaic() {
           <button
             type="button"
             onClick={handleWhatsApp}
-            className="pointer-events-auto px-8 py-3.5 rounded-full bg-[#072248]/90 hover:bg-[#072248] backdrop-blur-2xl border border-white/25 hover:border-[#E6C687]/70 text-white font-sans font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-2xl flex items-center gap-2.5 cursor-pointer hover:scale-105 active:scale-95"
+            className="pointer-events-auto px-8 py-3.5 rounded-full bg-[#072248]/90 hover:bg-[#072248] backdrop-blur-2xl border border-white/25 hover:border-[#FF385C]/70 text-white font-sans font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-2xl flex items-center gap-2.5 cursor-pointer hover:scale-105 active:scale-95"
           >
-            <MessageSquare className="w-4 h-4 text-[#E6C687]" />
+            <MessageSquare className="w-4 h-4 text-[#FF385C]" />
             <span>CHAT WITH US</span>
           </button>
         </div>

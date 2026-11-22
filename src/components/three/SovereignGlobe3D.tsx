@@ -123,7 +123,7 @@ export function SovereignGlobe3D() {
     const landPositions = new Float32Array(landPointCount * 3);
     const landColors = new Float32Array(landPointCount * 3);
     const cTeal = new THREE.Color(0x22879d);
-    const cGold = new THREE.Color(0xd4af37);
+    const cGold = new THREE.Color(0xff385c);
 
     // Approximate major continental bounds (minLat, maxLat, minLon, maxLon)
     const continents = [
@@ -206,7 +206,7 @@ export function SovereignGlobe3D() {
 
       // Destination Port Marker
       const portPinGeo = new THREE.SphereGeometry(1.3, 16, 16);
-      const portPinMat = new THREE.MeshBasicMaterial({ color: 0xd4af37 });
+      const portPinMat = new THREE.MeshBasicMaterial({ color: 0xff385c });
       const portPin = new THREE.Mesh(portPinGeo, portPinMat);
       portPin.position.copy(destVec);
       globeGroup.add(portPin);
@@ -362,7 +362,7 @@ export function SovereignGlobe3D() {
         // Highlight selected port arc
         if (arc.portId === selectedIdRef.current) {
           (arc.lineMesh.material as THREE.LineBasicMaterial).opacity = 0.95;
-          (arc.lineMesh.material as THREE.LineBasicMaterial).color.setHex(0xe6c687);
+          (arc.lineMesh.material as THREE.LineBasicMaterial).color.setHex(0xff385c);
           arc.pulseMesh.scale.set(1.4, 1.4, 1.4);
         } else {
           (arc.lineMesh.material as THREE.LineBasicMaterial).opacity = 0.35;
@@ -468,11 +468,11 @@ export function SovereignGlobe3D() {
                     className={cn(
                       "p-3 rounded-2xl border text-left transition-all duration-300 flex items-center gap-2.5 cursor-pointer font-sans",
                       isCurrent
-                        ? "bg-[#E6C687] text-black border-[#E6C687] shadow-[0_0_20px_rgba(230,198,135,0.3)] font-semibold"
+                        ? "bg-[#FF385C] text-white border-[#FF385C] shadow-[0_0_20px_rgba(255,56,92,0.35)] font-semibold"
                         : "bg-white/[0.03] border-white/10 hover:border-white/20 text-slate-300 font-medium"
                     )}
                   >
-                    <Anchor className={cn("w-3.5 h-3.5 shrink-0", isCurrent ? "text-black" : "text-[#E6C687]")} />
+                    <Anchor className={cn("w-3.5 h-3.5 shrink-0", isCurrent ? "text-white" : "text-[#FF385C]")} />
                     <span className="text-xs truncate">
                       {p.city}
                     </span>
@@ -485,7 +485,7 @@ export function SovereignGlobe3D() {
             <div className="bg-[#07070B] rounded-3xl p-6 sm:p-7 border border-white/15 shadow-2xl relative overflow-hidden font-sans">
               <div className="flex items-start justify-between gap-3 pb-4 border-b border-white/10 mb-5">
                 <div>
-                  <span className="text-[10px] uppercase tracking-widest text-[#E6C687] font-semibold block mb-1">
+                  <span className="text-[10px] uppercase tracking-widest text-[#FF385C] font-semibold block mb-1">
                     Direct Maritime Discharge Corridor
                   </span>
                   <h3 className="text-xl sm:text-2xl text-white font-bold tracking-tight">
@@ -506,7 +506,7 @@ export function SovereignGlobe3D() {
               <div className="grid grid-cols-2 gap-3 mb-5">
                 <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
                   <div className="flex items-center gap-1.5 text-xs text-slate-400 mb-1">
-                    <Clock className="w-3.5 h-3.5 text-[#E6C687]" /> Sea Transit
+                    <Clock className="w-3.5 h-3.5 text-[#FF385C]" /> Sea Transit
                   </div>
                   <div className="text-base sm:text-lg text-white font-bold">
                     {selectedPort.typicalTransitDays}
@@ -534,7 +534,7 @@ export function SovereignGlobe3D() {
                       key={i}
                       className="text-xs bg-white/[0.04] border border-white/10 px-3 py-1.5 rounded-full text-slate-200 flex items-center gap-1.5"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#E6C687] shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#FF385C] shrink-0" />
                       {c}
                     </span>
                   ))}
@@ -544,7 +544,7 @@ export function SovereignGlobe3D() {
               {/* CTA Link */}
               <a
                 href={`/contact?port=${encodeURIComponent(selectedPort.name)}&type=quote`}
-                className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-gradient-to-r from-[#E6C687] to-[#C29B4D] hover:opacity-95 text-black text-xs uppercase tracking-wider font-bold transition-all shadow-lg"
+                className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-gradient-to-r from-[#FF385C] to-[#E11D48] hover:brightness-110 text-white text-xs uppercase tracking-wider font-bold transition-all shadow-[0_4px_20px_rgba(255,56,92,0.4)]"
               >
                 <span>Inquire Freight Schedule to {selectedPort.city}</span>
                 <ArrowRight className="w-3.5 h-3.5" />

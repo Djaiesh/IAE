@@ -38,8 +38,8 @@ export function ColdChainMarine3D() {
       oxygen: "3% Scrubbed",
       co2: "5% Enriched",
       status: "Ethylene Scrubbed Active",
-      color: "#D4AF37",
-      threeColor: 0xd4af37,
+      color: "#FF385C",
+      threeColor: 0xff385c,
     },
   };
 
@@ -138,7 +138,7 @@ export function ColdChainMarine3D() {
     shipGroup.add(bow);
 
     // Glowing Containers Stack
-    const containerColors = [0xff6b00, 0x1b6b7c, 0xd4af37, 0x0f3a5c];
+    const containerColors = [0xff385c, 0x1b6b7c, 0xe11d48, 0x0f3a5c];
     for (let x = -4; x <= 4; x += 4) {
       for (let y = 5; y <= 9; y += 2.5) {
         for (let z = -10; z <= 8; z += 6) {

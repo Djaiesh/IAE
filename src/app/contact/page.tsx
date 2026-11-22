@@ -179,8 +179,8 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
             {/* Interactive Location Map Box - Valasaravakkam, Chennai */}
             <div className="glass rounded-4xl p-7 border border-white/10 space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                <div className="flex items-center gap-2 text-xs font-mono text-[#E6C687]">
-                  <Compass className="w-4 h-4 text-[#E6C687]" />
+                <div className="flex items-center gap-2 text-xs font-mono text-[#FF385C]">
+                  <Compass className="w-4 h-4 text-[#FF385C]" />
                   <span className="uppercase tracking-wider font-semibold">Headquarters &amp; Maritime Port</span>
                 </div>
                 <span className="text-[10px] font-mono text-emerald-400 bg-emerald-400/15 px-2.5 py-0.5 rounded-full border border-emerald-400/30">
@@ -210,7 +210,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
 
             {/* 24/7 WhatsApp Direct Desk */}
             <div className="glass rounded-4xl p-8 border border-white/10 space-y-4">
-              <span className="eyebrow text-[#E6C687] block">Direct Senior Trade Desk</span>
+              <span className="eyebrow text-[#FF385C] block">Direct Senior Trade Desk</span>
               <h3 className="font-display text-xl text-white font-normal">
                 Instant WhatsApp Commercial Line
               </h3>

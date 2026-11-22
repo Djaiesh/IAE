@@ -60,7 +60,7 @@ export function CinematicOceanCanvas() {
     const colors = [
       "rgba(56, 189, 248,",  // Cyan / Sky
       "rgba(125, 211, 252,", // Ice Blue
-      "rgba(230, 198, 135,", // Sovereign Gold
+      "rgba(255, 56, 92,",   // Radiant Crimson Red
       "rgba(14, 165, 233,",  // Marine Azure
     ];
 

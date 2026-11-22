@@ -122,7 +122,7 @@ export default function AboutPage() {
             </p>
 
             <div className="p-6 rounded-3xl glass-saffron border border-saffron/30 text-xs font-sans text-foam/90 space-y-2">
-              <span className="text-[#E6C687] font-bold uppercase tracking-wider block">
+              <span className="text-[#FF385C] font-bold uppercase tracking-wider block">
                 The JILO Standard of Provenance:
               </span>
               <p className="leading-relaxed">

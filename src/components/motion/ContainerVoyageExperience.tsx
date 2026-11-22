@@ -310,7 +310,7 @@ export function ContainerVoyageExperience() {
                 <stop offset="0%"   stopColor="#FF6B00" stopOpacity="0.8" />
                 <stop offset="25%"  stopColor="#1B6B7C" stopOpacity="0.8" />
                 <stop offset="50%"  stopColor="#FF6B00" stopOpacity="0.9" />
-                <stop offset="75%"  stopColor="#D4AF37" stopOpacity="0.85" />
+                <stop offset="75%"  stopColor="#FF385C" stopOpacity="0.85" />
                 <stop offset="100%" stopColor="#FF6B00" stopOpacity="0.95" />
               </linearGradient>
             </defs>
