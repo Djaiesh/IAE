@@ -1,25 +1,40 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { ShieldCheck, FlaskConical, Thermometer, Sparkles, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, FlaskConical, Thermometer, ArrowRight, CheckCircle2 } from "lucide-react";
 import { SITE_CONFIG } from "@/data/site";
 
-const PILLARS = [
+interface Pillar {
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+  image: string;
+  tag: string;
+}
+
+const PILLARS: Pillar[] = [
   {
     icon: <FlaskConical className="w-6 h-6 text-[#C17B58]" />,
     title: "HPLC Active Compound Assay",
     desc: "Every spice consignment is calibrated for curcumin (turmeric), piperine (black pepper), or ASTA color units (chilli) to assure consistent bio-active potency.",
+    image: "/images/luxury-spices-curcumin.jpg",
+    tag: "Curcumin & Piperine HPLC",
   },
   {
     icon: <ShieldCheck className="w-6 h-6 text-emerald-400" />,
     title: "Pesticide MRL & Heavy Metal Testing",
     desc: "Zero-tolerance multi-residue pesticide screens conducted via GC-MS/MS and LC-MS/MS in NABL/ISO-17025 accredited labs compliant with EU and USDA limits.",
+    image: "/images/jilo-turmeric-sorting.jpg",
+    tag: "ISO-17025 Screening",
   },
   {
     icon: <Thermometer className="w-6 h-6 text-[#B8D0CE]" />,
     title: "Continuous Reefer Telemetry",
     desc: "Satellite GPS dataloggers embedded into each container record pulp temperature, relative humidity, and air vent settings at 15-minute intervals.",
+    image: "/images/jilo-reefer-vessel-open-ocean.jpg",
+    tag: "Satellite CA Telemetry",
   },
 ];
 
@@ -51,18 +66,56 @@ export function QualityTrustSection() {
           </p>
         </div>
 
-        {/* 3 Core Scientific Pillars */}
+        {/* 3 Core Scientific Pillars with Background Images & Layered Text */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {PILLARS.map((p) => (
-            <div key={p.title} className="bg-[#164A55]/85 backdrop-blur-xl rounded-3xl p-8 border border-[#B8D0CE]/25 flex flex-col justify-between hover:border-[#C17B58] hover:shadow-[0_20px_50px_rgba(193,123,88,0.25)] transition-all duration-300 shadow-xl">
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-6 shadow-md">
-                  {p.icon}
+            <div
+              key={p.title}
+              className="group relative rounded-3xl overflow-hidden border border-[#B8D0CE]/25 p-7 sm:p-8 flex flex-col justify-between min-h-[360px] sm:min-h-[380px] shadow-2xl transition-all duration-500 hover:border-[#C17B58] hover:shadow-[0_25px_60px_rgba(193,123,88,0.28)] hover:-translate-y-1.5"
+            >
+              {/* Background Image Container */}
+              <div className="absolute inset-0 z-0 overflow-hidden">
+                <Image
+                  src={p.image}
+                  alt={p.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
+                />
+                {/* Multi-layered dark gradient overlay for optimal text legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#061820]/95 via-[#0E333C]/80 to-[#164A55]/60" />
+                <div className="absolute inset-0 bg-[#061820]/30 backdrop-blur-[1px] group-hover:backdrop-blur-none transition-all duration-500" />
+              </div>
+
+              {/* Text & Content Layer (Directly Above the Image Background) */}
+              <div className="relative z-10 flex flex-col justify-between h-full">
+                <div>
+                  {/* Floating Icon Pill */}
+                  <div className="w-14 h-14 rounded-2xl bg-[#0E333C]/85 border border-white/20 backdrop-blur-md flex items-center justify-center mb-6 shadow-xl group-hover:scale-105 group-hover:border-[#C17B58] transition-all">
+                    {p.icon}
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="font-display text-xl sm:text-2xl text-white mb-3 font-semibold tracking-wide drop-shadow-md group-hover:text-[#C17B58] transition-colors leading-snug">
+                    {p.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="font-sans text-xs sm:text-sm text-slate-200 font-normal leading-relaxed drop-shadow">
+                    {p.desc}
+                  </p>
                 </div>
-                <h3 className="font-display text-xl text-white mb-3 font-normal">{p.title}</h3>
-                <p className="font-sans text-xs sm:text-sm text-slate-200 font-light leading-relaxed">
-                  {p.desc}
-                </p>
+
+                {/* Bottom Audit Tag */}
+                <div className="mt-8 pt-4 border-t border-white/15 flex items-center justify-between text-[11px] font-mono">
+                  <span className="uppercase tracking-wider font-semibold text-[#C17B58] flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#C17B58] animate-pulse" />
+                    {p.tag}
+                  </span>
+                  <span className="text-slate-300 font-sans text-xs group-hover:text-white transition-colors">
+                    Audited Standard &rarr;
+                  </span>
+                </div>
               </div>
             </div>
           ))}
