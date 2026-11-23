@@ -70,7 +70,10 @@ export function Navbar() {
             {/* ── LEFT: ATLANTA Brand Logo & Name Only ── */}
             <div className="flex items-center gap-3 justify-start shrink-0">
               <Link href="/" aria-label="ATLANTA Import and Export Home" className="flex items-center gap-3 group">
-                <div className="relative w-11 h-11 rounded-full overflow-hidden border border-[#C17B58]/60 bg-[#061820] shadow-md group-hover:border-[#C17B58] transition-all flex items-center justify-center p-1">
+                <div
+                  className="relative w-11 h-11 rounded-full overflow-hidden border border-[#C17B58]/60 shadow-md group-hover:border-[#C17B58] transition-all flex items-center justify-center p-1"
+                  style={{ backgroundColor: "#0d1017" }}
+                >
                   <Image
                     src="/images/atlanta-logo.jpg"
                     alt="ATLANTA Logo"
@@ -176,7 +179,10 @@ export function Navbar() {
         <div className="relative h-full flex flex-col pt-24 px-6 pb-10 overflow-y-auto">
           <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
             <div className="flex items-center gap-2.5">
-              <div className="relative w-9 h-9 rounded-full overflow-hidden border border-[#C17B58]/60 bg-[#061820] shadow-md flex items-center justify-center p-0.5">
+              <div
+                className="relative w-9 h-9 rounded-full overflow-hidden border border-[#C17B58]/60 shadow-md flex items-center justify-center p-0.5"
+                style={{ backgroundColor: "#0d1017" }}
+              >
                 <Image
                   src="/images/atlanta-logo.jpg"
                   alt="ATLANTA Logo"

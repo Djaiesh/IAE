@@ -37,7 +37,10 @@ export function Footer() {
           {/* ── Col 1: Brand & Market Intelligence (4 cols) ── */}
           <div className="lg:col-span-4 space-y-5">
             <Link href="/" className="inline-flex items-center gap-3 group">
-              <div className="relative w-12 h-12 rounded-full border border-[#C17B58]/60 bg-[#061820] overflow-hidden shadow-md group-hover:border-[#C17B58] transition-all flex items-center justify-center p-1">
+              <div
+                className="relative w-12 h-12 rounded-full border border-[#C17B58]/60 overflow-hidden shadow-md group-hover:border-[#C17B58] transition-all flex items-center justify-center p-1"
+                style={{ backgroundColor: "#0d1017" }}
+              >
                 <Image
                   src="/images/atlanta-logo.jpg"
                   alt="ATLANTA Logo"
