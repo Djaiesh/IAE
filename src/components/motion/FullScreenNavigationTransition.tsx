@@ -78,10 +78,10 @@ export function FullScreenNavigationTransition() {
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           className="fixed inset-0 z-[9999] pointer-events-auto bg-[#061820] flex items-center justify-center select-none overflow-hidden"
         >
-          {/* Deep Ambient Crimson Glow */}
+          {/* Deep Ambient Copper Glow */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,_rgba(229, 9, 20,0.2)_0%,_transparent_70%)] blur-3xl animate-pulse"
+            className="pointer-events-none absolute w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,_rgba(193,123,88,0.2)_0%,_transparent_70%)] blur-3xl animate-pulse"
           />
 
           {/* ── Circular Moving Ocean Waves Animation (Zero Words) ── */}
@@ -104,7 +104,7 @@ export function FullScreenNavigationTransition() {
                   ease: "easeOut",
                 }}
                 style={{
-                  boxShadow: "0 0 24px rgba(229, 9, 20, 0.35)",
+                  boxShadow: "0 0 24px rgba(193, 123, 88, 0.35)",
                 }}
               />
             ))}

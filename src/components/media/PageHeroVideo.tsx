@@ -68,10 +68,10 @@ export function PageHeroVideo({
           <source src={videoSrc} type="video/mp4" />
         </video>
 
-        {/* Luminous Multilayer Overlays: Clean contrast for text readability without heavy black masking */}
-        <div className="absolute inset-0 bg-[#0A2E5C]/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A3266] via-transparent to-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A2E5C]/50 via-transparent to-transparent" />
+        {/* Cinematic Neutral Overlays: Light black tint for pure video visibility & sharp text contrast */}
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-10">

@@ -468,7 +468,7 @@ export function SovereignGlobe3D() {
                     className={cn(
                       "p-3 rounded-2xl border text-left transition-all duration-300 flex items-center gap-2.5 cursor-pointer font-sans",
                       isCurrent
-                        ? "bg-[#C17B58] text-white border-[#C17B58] shadow-[0_0_20px_rgba(229, 9, 20,0.35)] font-semibold"
+                        ? "bg-[#C17B58] text-white border-[#C17B58] shadow-[0_0_20px_rgba(193,123,88,0.4)] font-semibold"
                         : "bg-white/[0.03] border-white/10 hover:border-white/20 text-slate-300 font-medium"
                     )}
                   >
@@ -544,7 +544,7 @@ export function SovereignGlobe3D() {
               {/* CTA Link */}
               <a
                 href={`/contact?port=${encodeURIComponent(selectedPort.name)}&type=quote`}
-                className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-gradient-to-r from-[#C17B58] to-[#A66342] hover:brightness-110 text-white text-xs uppercase tracking-wider font-bold transition-all shadow-[0_4px_20px_rgba(229, 9, 20,0.4)]"
+                className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-gradient-to-r from-[#C17B58] to-[#A66342] hover:brightness-110 text-white text-xs uppercase tracking-wider font-bold transition-all shadow-[0_4px_20px_rgba(193,123,88,0.4)]"
               >
                 <span>Inquire Freight Schedule to {selectedPort.city}</span>
                 <ArrowRight className="w-3.5 h-3.5" />

@@ -169,17 +169,17 @@ export function JiloPerspectiveMosaic() {
           </div>
         </div>
 
-        {/* ── Seamless Multi-Layer Edge Vignettes (Melts cleanly into footer with zero gap) ── */}
-        <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-[#0A3266] via-[#0A3266]/50 to-transparent pointer-events-none z-10" />
-        <div className="absolute bottom-0 inset-x-0 h-14 bg-gradient-to-t from-[#061F42]/80 to-transparent pointer-events-none z-10" />
-        <div className="absolute left-0 inset-y-0 w-16 sm:w-28 bg-gradient-to-r from-[#0A3266] via-[#0A3266]/60 to-transparent pointer-events-none z-10" />
-        <div className="absolute right-0 inset-y-0 w-16 sm:w-28 bg-gradient-to-l from-[#0A3266] via-[#0A3266]/60 to-transparent pointer-events-none z-10" />
+        {/* ── Seamless Multi-Layer Edge Vignettes (Melts cleanly into surrounding sections) ── */}
+        <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-[#061820] via-[#061820]/60 to-transparent pointer-events-none z-10" />
+        <div className="absolute bottom-0 inset-x-0 h-14 bg-gradient-to-t from-[#061820]/90 to-transparent pointer-events-none z-10" />
+        <div className="absolute left-0 inset-y-0 w-16 sm:w-28 bg-gradient-to-r from-[#061820] via-[#061820]/60 to-transparent pointer-events-none z-10" />
+        <div className="absolute right-0 inset-y-0 w-16 sm:w-28 bg-gradient-to-l from-[#061820] via-[#061820]/60 to-transparent pointer-events-none z-10" />
 
         {/* ── Floating Center Frosted Call to Actions (Level Upright, Matching Image 1) ── */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3.5 z-20 pointer-events-none p-4">
           <Link
             href="/products"
-            className="pointer-events-auto px-8 py-3.5 rounded-full bg-[#0284C7] hover:bg-[#0369A1] text-white font-sans font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_15px_40px_rgba(2,132,199,0.45)] flex items-center gap-2.5 cursor-pointer hover:scale-105 active:scale-95"
+            className="pointer-events-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-[#D68C66] to-[#C17B58] hover:brightness-110 text-white font-sans font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_15px_40px_rgba(193,123,88,0.45)] flex items-center gap-2.5 cursor-pointer hover:scale-105 active:scale-95"
           >
             <span>EXPLORE COMMODITIES</span>
             <ArrowRight className="w-4 h-4 text-white" />

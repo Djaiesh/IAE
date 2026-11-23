@@ -186,10 +186,10 @@ export function DottedBrandScatter({
         p.y += p.vy;
 
         // 5. Render particle dot
-        // Slight color brightening when scattered
+        // Warm orangish copper color brightening when scattered
         const isDisplaced = Math.abs(homeDx) > 2 || Math.abs(homeDy) > 2;
         ctx.fillStyle = isDisplaced
-          ? "rgba(229, 9, 20, 0.9)"
+          ? "rgba(193, 123, 88, 0.95)"
           : `rgba(255, 255, 255, ${p.baseAlpha})`;
 
         ctx.beginPath();

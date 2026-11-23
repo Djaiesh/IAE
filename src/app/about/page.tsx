@@ -165,45 +165,45 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6" data-stagger>
             <div className="glass glass-hover rounded-4xl p-8 border border-white/10 flex flex-col justify-between">
               <div>
-                <div className="w-14 h-14 rounded-3xl bg-deep/90 border border-white/10 flex items-center justify-center mb-6 shadow-md">
-                  <Warehouse className="w-6 h-6 text-saffron" />
+                <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-6 shadow-md">
+                  <Warehouse className="w-6 h-6 text-[#C17B58]" />
                 </div>
                 <h3 className="card-title text-cream mb-2 font-medium">Central Packhouse Hub</h3>
                 <p className="font-sans text-xs sm:text-sm text-foam/75 leading-relaxed font-light">
                   45,000 sq.ft. facility in the Nashik agro processing corridor equipped with multi-stage air washers, optical color sorting lines, and Banavac vacuum packing systems.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-white/10 text-xs font-sans text-saffron font-semibold">
+              <div className="mt-6 pt-4 border-t border-white/10 text-xs font-sans text-[#C17B58] font-semibold">
                 MIDC Dindori, Maharashtra
               </div>
             </div>
 
             <div className="glass glass-hover rounded-4xl p-8 border border-white/10 flex flex-col justify-between">
               <div>
-                <div className="w-14 h-14 rounded-3xl bg-deep/90 border border-white/10 flex items-center justify-center mb-6 shadow-md">
-                  <Ship className="w-6 h-6 text-teal" />
+                <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-6 shadow-md">
+                  <Anchor className="w-6 h-6 text-[#C17B58]" />
                 </div>
                 <h3 className="card-title text-cream mb-2 font-medium">Port Terminal Staging</h3>
                 <p className="font-sans text-xs sm:text-sm text-foam/75 leading-relaxed font-light">
                   Pre-allocated electrical plug-in berths at JNPT Nhava Sheva and Mundra, enabling unbroken refrigeration during customs seals and vessel hold placement.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-white/10 text-xs font-sans text-teal font-semibold">
+              <div className="mt-6 pt-4 border-t border-white/10 text-xs font-sans text-[#C17B58] font-semibold">
                 JNPT & Mundra Corridors
               </div>
             </div>
 
             <div className="glass glass-hover rounded-4xl p-8 border border-white/10 flex flex-col justify-between">
               <div>
-                <div className="w-14 h-14 rounded-3xl bg-deep/90 border border-white/10 flex items-center justify-center mb-6 shadow-md">
-                  <ShieldCheck className="w-6 h-6 text-foam" />
+                <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-6 shadow-md">
+                  <ShieldCheck className="w-6 h-6 text-emerald-400" />
                 </div>
                 <h3 className="card-title text-cream mb-2 font-medium">Analytical Lab Assay</h3>
                 <p className="font-sans text-xs sm:text-sm text-foam/75 leading-relaxed font-light">
                   Equipped with digital NIR moisture analysers, ASTA extractors, and calibrated testing protocols for piperine and curcumin bioactive quantification.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-white/10 text-xs font-sans text-cream font-semibold">
+              <div className="mt-6 pt-4 border-t border-white/10 text-xs font-sans text-white font-semibold">
                 ISO 17025 Compliant Screening
               </div>
             </div>
