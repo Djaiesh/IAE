@@ -19,7 +19,7 @@ interface Particle {
 }
 
 export function DottedBrandScatter({
-  text = "JILO EXPORTS",
+  text = "ATLANTA IMPORT AND EXPORT",
   className = "",
 }: DottedBrandScatterProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);

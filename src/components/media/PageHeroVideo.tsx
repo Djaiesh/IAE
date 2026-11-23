@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ArrowRight, Sparkles } from "lucide-react";
@@ -42,20 +42,41 @@ export function PageHeroVideo({
   secondaryCtaHref,
 }: PageHeroVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isBuffered, setIsBuffered] = useState(false);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = true;
-      videoRef.current.defaultMuted = true;
-      videoRef.current.loop = true;
-      videoRef.current.play().catch(() => {});
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.loop = true;
+
+    const startPlayback = () => {
+      video.currentTime = 0;
+      video
+        .play()
+        .then(() => setIsBuffered(true))
+        .catch(() => setIsBuffered(true));
+    };
+
+    if (video.readyState >= 3) {
+      startPlayback();
+    } else {
+      video.addEventListener("canplaythrough", startPlayback, { once: true });
+      video.addEventListener("loadeddata", startPlayback, { once: true });
     }
-  }, []);
+
+    return () => {
+      video.removeEventListener("canplaythrough", startPlayback);
+      video.removeEventListener("loadeddata", startPlayback);
+    };
+  }, [videoSrc]);
 
   return (
     <section className="relative pt-28 pb-14 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24 overflow-hidden border-b border-white/10">
-      {/* ── Background Cinematic Video ── */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      {/* ── Background Cinematic Video with Pre-Buffer Readiness ── */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none bg-[#061820]">
         <video
           ref={videoRef}
           autoPlay
@@ -63,7 +84,9 @@ export function PageHeroVideo({
           loop
           playsInline
           preload="auto"
-          className="w-full h-full object-cover object-center scale-105 transition-transform duration-1000"
+          className={`w-full h-full object-cover object-center scale-105 transition-opacity duration-1000 ease-in ${
+            isBuffered ? "opacity-100" : "opacity-0"
+          }`}
         >
           <source src={videoSrc} type="video/mp4" />
         </video>

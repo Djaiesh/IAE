@@ -1,40 +1,84 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export function EntryLoader() {
   const [visible, setVisible] = useState(true);
   const [fadingOut, setFadingOut] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [videoSrc, setVideoSrc] = useState<string>("/video/entry_video_horizontal.mp4");
   const videoRef = useRef<HTMLVideoElement>(null);
+  const hasStartedRef = useRef(false);
 
-  useEffect(() => {
-    // Autoplay muted video immediately on mount
-    const video = videoRef.current;
-    if (video) {
-      video.muted = true;
-      video.defaultMuted = true;
-      video.play().catch(() => {});
-    }
-
-    // Fallback safety timeout (12s) so site is never blocked indefinitely
-    const safetyTimer = setTimeout(() => {
-      dismissLoader();
-    }, 12000);
-
-    return () => clearTimeout(safetyTimer);
-  }, []);
-
-  const dismissLoader = () => {
+  const dismissLoader = useCallback(() => {
+    if (fadingOut) return;
     setFadingOut(true);
-    // Dispatch event so Hero video knows to begin playback immediately from 00:00
+
     try {
+      window.dispatchEvent(new CustomEvent("atlanta_intro_complete"));
       window.dispatchEvent(new CustomEvent("jilo_intro_complete"));
+      sessionStorage.setItem("atlanta_intro_seen", "true");
     } catch {}
+
     setTimeout(() => {
       setVisible(false);
-    }, 750);
-  };
+    }, 700);
+  }, [fadingOut]);
+
+  // Determine horizontal vs vertical entry video based on viewport width
+  useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+    setVideoSrc(
+      isMobile
+        ? "/video/entry_video_vertical.mp4"
+        : "/video/entry_video_horizontal.mp4"
+    );
+  }, []);
+
+  // Buffering gate & seamless zero-stutter playback
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.currentTime = 0;
+
+    const tryStartPlayback = async () => {
+      if (hasStartedRef.current) return;
+      try {
+        video.currentTime = 0;
+        await video.play();
+        hasStartedRef.current = true;
+        setIsPlaying(true);
+      } catch (err) {
+        // If autoplay policy requires a user gesture or error occurs, dismiss gracefully
+      }
+    };
+
+    // If browser already buffered the video data
+    if (video.readyState >= 3) {
+      tryStartPlayback();
+    } else {
+      video.addEventListener("canplaythrough", tryStartPlayback, { once: true });
+      video.addEventListener("loadeddata", tryStartPlayback, { once: true });
+    }
+
+    // Fallback safety timeout (9s) so site is never blocked indefinitely
+    const safetyTimer = setTimeout(() => {
+      dismissLoader();
+    }, 9000);
+
+    return () => {
+      clearTimeout(safetyTimer);
+      if (video) {
+        video.removeEventListener("canplaythrough", tryStartPlayback);
+        video.removeEventListener("loadeddata", tryStartPlayback);
+      }
+    };
+  }, [videoSrc, dismissLoader]);
 
   if (!visible) return null;
 
@@ -42,27 +86,55 @@ export function EntryLoader() {
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Initial Presentation Video"
+      aria-label="ATLANTA Import and Export Entry Presentation"
       onClick={dismissLoader}
       className={cn(
-        "fixed inset-0 z-[99999] select-none transition-opacity duration-700 ease-out bg-black cursor-pointer",
+        "fixed inset-0 z-[99999] select-none transition-opacity duration-700 ease-out bg-[#061820] cursor-pointer",
         fadingOut ? "opacity-0 pointer-events-none" : "opacity-100"
       )}
     >
-      {/* ── Fullscreen Initial Video (Two Trucks Exchange Goods / Maritime Origin) ── */}
+      {/* Sleek Brand Watermark & Ambient Preload Glow while initial buffer settles */}
+      <div
+        className={cn(
+          "absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-500 pointer-events-none",
+          isPlaying ? "opacity-0" : "opacity-100"
+        )}
+      >
+        <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-[#C17B58]/40 bg-[#061820] shadow-[0_0_30px_rgba(193,123,88,0.3)] mb-4 flex items-center justify-center animate-pulse">
+          <Image
+            src="/images/atlanta-logo.jpg"
+            alt="ATLANTA"
+            fill
+            className="object-cover"
+            sizes="64px"
+            priority
+          />
+        </div>
+        <span className="font-display text-xl font-bold text-white tracking-[0.3em]">
+          ATLANTA
+        </span>
+        <span className="text-[10px] font-sans text-[#C17B58] uppercase tracking-[0.25em] mt-1">
+          Import and Export
+        </span>
+      </div>
+
+      {/* ── Seamless Fullscreen Video ── */}
       <video
         ref={videoRef}
-        autoPlay
-        muted
+        src={videoSrc}
         playsInline
+        muted
         preload="auto"
         onEnded={dismissLoader}
         onError={dismissLoader}
-        className="w-full h-full object-cover object-center scale-[1.01]"
-      >
-        <source src="/video/intro.mp4" type="video/mp4" />
-        <source src="/video/hero.mp4" type="video/mp4" />
-      </video>
+        className={cn(
+          "w-full h-full object-cover object-center transition-opacity duration-700 ease-in",
+          isPlaying ? "opacity-100 scale-[1.01]" : "opacity-0 scale-100"
+        )}
+      />
+
+      {/* Subtle Black/Petrol Vignette Overlay for Cinema Look */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#061820]/40 via-transparent to-[#061820]/40 pointer-events-none" />
 
       {/* Discreet Minimal Skip Button (Top Right Corner) */}
       <div className="absolute top-6 right-6 z-20">
@@ -72,9 +144,10 @@ export function EntryLoader() {
             e.stopPropagation();
             dismissLoader();
           }}
-          className="px-4 py-1.5 rounded-full bg-black/50 hover:bg-black/80 border border-white/20 hover:border-[#C17B58]/70 text-white/80 hover:text-white text-xs font-sans tracking-wider uppercase transition-all backdrop-blur-md cursor-pointer shadow-lg"
+          className="px-4 py-1.5 rounded-full bg-black/60 hover:bg-black/90 border border-white/20 hover:border-[#C17B58]/80 text-white/90 hover:text-white text-xs font-sans tracking-wider uppercase transition-all backdrop-blur-md cursor-pointer shadow-xl flex items-center gap-1.5"
         >
-          Skip
+          <span>Skip</span>
+          <span className="text-[#C17B58]">→</span>
         </button>
       </div>
     </div>

@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#041219" />
+      <stop offset="40%" stop-color="#0a232d" />
+      <stop offset="80%" stop-color="#164A55" />
+      <stop offset="100%" stop-color="#061820" />
+    </linearGradient>
+
+    <!-- Corrugated Steel Container Ribs -->
+    <linearGradient id="steelRib" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0d2e38" stop-opacity="0.8" />
+      <stop offset="25%" stop-color="#1a5563" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#246a7a" stop-opacity="1" />
+      <stop offset="75%" stop-color="#144652" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#081e26" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- Telemetry Housing Metal Gradient -->
+    <linearGradient id="housingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1b2a32" />
+      <stop offset="50%" stop-color="#0f191f" />
+      <stop offset="100%" stop-color="#060c10" />
+    </linearGradient>
+
+    <!-- Glowing LCD Display Screen -->
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#03161c" />
+      <stop offset="100%" stop-color="#01090d" />
+    </linearGradient>
+
+    <!-- Copper Accent Glow -->
+    <radialGradient id="copperGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#C17B58" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#C17B58" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Sea Mist Cyan Glow -->
+    <radialGradient id="cyanGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4ECCD3" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#4ECCD3" stop-opacity="0" />
+    </radialGradient>
+
+    <filter id="neonTeal" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="neonCopper" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 1. Deep Ocean Corrugated Reefer Container Bulkhead Wall -->
+  <rect width="1200" height="800" fill="url(#bgGrad)" />
+
+  <!-- Corrugated Container Panels (Vertical Steel Ribs) -->
+  <g opacity="0.45">
+    <rect x="0" y="0" width="80" height="800" fill="url(#steelRib)" />
+    <rect x="90" y="0" width="80" height="800" fill="url(#steelRib)" />
+    <rect x="180" y="0" width="80" height="800" fill="url(#steelRib)" />
+    <rect x="270" y="0" width="80" height="800" fill="url(#steelRib)" />
+    <rect x="360" y="0" width="80" height="800" fill="url(#steelRib)" />
+    <rect x="450" y="0" width="80" height="800" fill="url(#steelRib)" />
+    <rect x="540" y="0" width="80" height="800" fill="url(#steelRib)" />
+    <rect x="630" y="0" width="80" height="800" fill="url(#steelRib)" />
+    <rect x="720" y="0" width="80" height="800" fill="url(#steelRib)" />
+    <rect x="810" y="0" width="80" height="800" fill="url(#steelRib)" />
+    <rect x="900" y="0" width="80" height="800" fill="url(#steelRib)" />
+    <rect x="990" y="0" width="80" height="800" fill="url(#steelRib)" />
+    <rect x="1080" y="0" width="80" height="800" fill="url(#steelRib)" />
+    <rect x="1170" y="0" width="80" height="800" fill="url(#steelRib)" />
+  </g>
+
+  <!-- Background Port Terminal Silhouette & Gantry Crane Shadows -->
+  <g opacity="0.25">
+    <!-- Distant Container Ship Outline -->
+    <path d="M 850 380 L 1180 390 L 1150 480 L 890 480 Z" fill="#0E333C" />
+    <rect x="920" y="340" width="180" height="40" fill="#164A55" />
+    <!-- Gantry Crane Outline -->
+    <line x1="1020" y1="200" x2="1020" y2="480" stroke="#B8D0CE" stroke-width="4" stroke-dasharray="8,6" />
+    <line x1="940" y1="220" x2="1140" y2="220" stroke="#B8D0CE" stroke-width="5" />
+    <line x1="1020" y1="220" x2="1080" y2="350" stroke="#C17B58" stroke-width="2" />
+  </g>
+
+  <!-- Ambient Glow Behind Device -->
+  <circle cx="580" cy="420" r="320" fill="url(#cyanGlow)" />
+  <circle cx="780" cy="300" r="260" fill="url(#copperGlow)" />
+
+  <!-- 2. Industrial Heavy-Duty Telemetry Datalogger Gateway Unit -->
+  <!-- Outer Cast-Aluminum IP67 Weatherproof Chassis -->
+  <rect x="220" y="110" width="760" height="580" rx="28" fill="url(#housingGrad)" stroke="#2b4752" stroke-width="4" />
+  <!-- Stainless Steel Corner Hex Bolts -->
+  <g fill="#436270">
+    <circle cx="250" cy="140" r="10" stroke="#122027" stroke-width="2" />
+    <circle cx="950" cy="140" r="10" stroke="#122027" stroke-width="2" />
+    <circle cx="250" cy="660" r="10" stroke="#122027" stroke-width="2" />
+    <circle cx="950" cy="660" r="10" stroke="#122027" stroke-width="2" />
+  </g>
+
+  <!-- Unit Header Bar / Carrier Transicold & Thermo King Style Branding -->
+  <rect x="250" y="140" width="700" height="55" rx="12" fill="#09181f" stroke="#183642" stroke-width="1.5" />
+  <text x="275" y="174" fill="#B8D0CE" font-family="'Space Grotesk', -apple-system, sans-serif" font-size="15" font-weight="700" letter-spacing="3">
+    ATLANTA GLOBAL COLD-CHAIN TELEMETRY GATEWAY
+  </text>
+  <text x="830" y="174" fill="#C17B58" font-family="monospace" font-size="13" font-weight="700" letter-spacing="1">
+    REEFER-CA-40HC
+  </text>
+
+  <!-- 3. High-Contrast Industrial OLED Telemetry Screen -->
+  <rect x="250" y="215" width="700" height="400" rx="16" fill="url(#screenGrad)" stroke="#164A55" stroke-width="2" />
+
+  <!-- Subtle Digital Matrix Grid -->
+  <pattern id="dotGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1" fill="#164A55" opacity="0.3" />
+  </pattern>
+  <rect x="250" y="215" width="700" height="400" fill="url(#dotGrid)" />
+
+  <!-- Satellite Connection & Status Banner Inside Display -->
+  <g transform="translate(280, 245)">
+    <!-- Satellite Icon -->
+    <path d="M 0 10 L 8 2 L 16 10 L 12 14 L 4 14 Z" fill="#4ECCD3" />
+    <circle cx="8" cy="10" r="3" fill="#C17B58" />
+    <path d="M 18 4 A 12 12 0 0 1 24 16" fill="none" stroke="#4ECCD3" stroke-width="2" />
+    <path d="M 22 0 A 18 18 0 0 1 30 18" fill="none" stroke="#4ECCD3" stroke-width="2" />
+    <text x="40" y="14" fill="#4ECCD3" font-family="monospace" font-size="13" font-weight="700" letter-spacing="2">
+      INMARSAT-4 SATELLITE IOT UPLINK · LIVE 15-MIN INTERVAL
+    </text>
+    <text x="560" y="14" fill="#25D366" font-family="monospace" font-size="12" font-weight="700" letter-spacing="1">
+      ● 100% SIGNAL
+    </text>
+  </g>
+
+  <!-- Main Temperature Telemetry Display (Left & Center) -->
+  <g transform="translate(280, 290)">
+    <!-- Temperature Container Box -->
+    <rect x="0" y="0" width="310" height="150" rx="12" fill="#041217" stroke="#1b414d" stroke-width="1.5" />
+    <text x="20" y="28" fill="#B8D0CE" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" letter-spacing="2">
+      SUPPLY / RETURN AIR TEMP
+    </text>
+    <!-- Big Digital Temperature Readout -->
+    <text x="20" y="96" fill="#4ECCD3" font-family="monospace" font-size="56" font-weight="900" filter="url(#neonTeal)" letter-spacing="1">
+      +13.4°C
+    </text>
+    <text x="215" y="94" fill="#C17B58" font-family="monospace" font-size="16" font-weight="700">
+      SET: +13.5°
+    </text>
+    <!-- Pulp Probe Status -->
+    <text x="20" y="132" fill="#B8D0CE" font-family="monospace" font-size="12" opacity="0.8">
+      PULP SENSOR 1: 13.5°C · PULP 2: 13.4°C
+    </text>
+  </g>
+
+  <!-- Atmosphere / Relative Humidity / CO2 Box (Right) -->
+  <g transform="translate(615, 290)">
+    <rect x="0" y="0" width="305" height="150" rx="12" fill="#041217" stroke="#1b414d" stroke-width="1.5" />
+    <text x="20" y="28" fill="#B8D0CE" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" letter-spacing="2">
+      ATMOSPHERE &amp; HUMIDITY CONTROL
+    </text>
+    <text x="20" y="85" fill="#C17B58" font-family="monospace" font-size="44" font-weight="900" filter="url(#neonCopper)" letter-spacing="1">
+      88% <tspan font-size="24" fill="#B8D0CE">RH</tspan>
+    </text>
+    <text x="20" y="120" fill="#4ECCD3" font-family="monospace" font-size="13" font-weight="700">
+      O₂: 3.5% · CO₂: 4.8% · AIR VENT: 25 m³/h
+    </text>
+    <text x="20" y="138" fill="#25D366" font-family="monospace" font-size="11">
+      CA MEMBRANE ACTIVE · ZERO CHILL DAMAGE
+    </text>
+  </g>
+
+  <!-- 4. Continuous Live Telemetry Waveform / Graph Strip (Bottom of Display) -->
+  <g transform="translate(280, 465)">
+    <rect x="0" y="0" width="640" height="120" rx="10" fill="#041014" stroke="#122a33" stroke-width="1" />
+    
+    <!-- Coordinate Grid Lines -->
+    <line x1="20" y1="30" x2="620" y2="30" stroke="#164A55" stroke-width="0.8" stroke-dasharray="4,4" opacity="0.5" />
+    <line x1="20" y1="65" x2="620" y2="65" stroke="#164A55" stroke-width="0.8" stroke-dasharray="4,4" opacity="0.5" />
+    <line x1="20" y1="100" x2="620" y2="100" stroke="#164A55" stroke-width="0.8" stroke-dasharray="4,4" opacity="0.5" />
+
+    <!-- Continuous Steady Temperature Line (Zero Variation Proof) -->
+    <path d="M 20 65 Q 80 64, 140 66 T 260 65 T 380 64 T 500 65 T 580 65 L 620 65" 
+          fill="none" stroke="#4ECCD3" stroke-width="3" filter="url(#neonTeal)" />
+
+    <!-- Ideal Tolerance Corridor Band (Green Shade) -->
+    <rect x="20" y="55" width="600" height="20" fill="#25D366" opacity="0.08" />
+
+    <!-- Data Markers Along Curve -->
+    <circle cx="140" cy="66" r="4" fill="#4ECCD3" stroke="#061820" stroke-width="1.5" />
+    <circle cx="260" cy="65" r="4" fill="#4ECCD3" stroke="#061820" stroke-width="1.5" />
+    <circle cx="380" cy="64" r="4" fill="#4ECCD3" stroke="#061820" stroke-width="1.5" />
+    <circle cx="500" cy="65" r="4" fill="#4ECCD3" stroke="#061820" stroke-width="1.5" />
+    <circle cx="620" cy="65" r="5" fill="#C17B58" stroke="#ffffff" stroke-width="2" />
+
+    <text x="25" y="20" fill="#B8D0CE" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700" letter-spacing="1">
+      48-HOUR CONTINUOUS REEFER LOG (15-MIN TELEMETRY RESOLUTION)
+    </text>
+    <text x="440" y="20" fill="#25D366" font-family="monospace" font-size="10" font-weight="700">
+      VARIANCE: ±0.1°C (PERFECT STEADY-STATE)
+    </text>
+  </g>
+
+  <!-- 5. Bottom Hardware Interface: Physical Buttons, LED Indicators & Tamper Seal -->
+  <g transform="translate(250, 630)">
+    <!-- Live Status LEDs -->
+    <circle cx="40" cy="18" r="7" fill="#25D366" filter="url(#neonTeal)" />
+    <text x="55" y="22" fill="#B8D0CE" font-family="monospace" font-size="11" font-weight="700">COMPRESSOR RUN</text>
+
+    <circle cx="210" cy="18" r="7" fill="#4ECCD3" filter="url(#neonTeal)" />
+    <text x="225" y="22" fill="#B8D0CE" font-family="monospace" font-size="11" font-weight="700">CA CONTROL ON</text>
+
+    <circle cx="380" cy="18" r="7" fill="#C17B58" filter="url(#neonCopper)" />
+    <text x="395" y="22" fill="#B8D0CE" font-family="monospace" font-size="11" font-weight="700">GPS TX ACTIVE</text>
+
+    <!-- Tamper Proof Security Seal Hologram -->
+    <rect x="520" y="5" width="160" height="28" rx="6" fill="#164A55" stroke="#C17B58" stroke-width="1" />
+    <text x="532" y="23" fill="#ffffff" font-family="monospace" font-size="10" font-weight="700" letter-spacing="1">
+      🔒 APEDA AUDITED SEAL
+    </text>
+  </g>
+
+</svg>

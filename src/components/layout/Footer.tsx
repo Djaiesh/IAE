@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUp, Mail, Phone, MapPin, Clock, ShieldCheck, Sparkles, CheckCircle2, ExternalLink } from "lucide-react";
 import { SITE_CONFIG } from "@/data/site";
 import { CATEGORIES } from "@/data/categories";
@@ -36,15 +37,21 @@ export function Footer() {
           {/* ── Col 1: Brand & Market Intelligence (4 cols) ── */}
           <div className="lg:col-span-4 space-y-5">
             <Link href="/" className="inline-flex items-center gap-3 group">
-              <div className="w-11 h-11 rounded-2xl border border-[#C17B58]/50 bg-[#061820] flex items-center justify-center shadow-md group-hover:border-[#C17B58] transition-all">
-                <span className="font-display text-xl font-bold text-[#C17B58]">J</span>
+              <div className="relative w-12 h-12 rounded-xl border border-[#C17B58]/50 bg-[#061820] overflow-hidden shadow-md group-hover:border-[#C17B58] transition-all flex items-center justify-center">
+                <Image
+                  src="/images/atlanta-logo.jpg"
+                  alt="ATLANTA Logo"
+                  fill
+                  className="object-cover"
+                  sizes="48px"
+                />
               </div>
               <div>
-                <span className="font-display text-2xl text-white font-bold tracking-widest block leading-none">
-                  JILO
+                <span className="font-display text-2xl text-white font-bold tracking-widest block leading-none group-hover:text-[#C17B58] transition-colors">
+                  ATLANTA
                 </span>
                 <span className="text-[10px] tracking-widest uppercase text-[#C17B58] font-semibold block mt-1">
-                  Global Agro-Exports
+                  Import and Export
                 </span>
               </div>
             </Link>
@@ -151,7 +158,7 @@ export function Footer() {
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#C17B58] shrink-0 mt-0.5" />
                 <div className="leading-relaxed">
-                  <strong className="text-white block font-semibold">JILO Global Agro-Exports</strong>
+                  <strong className="text-white block font-semibold">ATLANTA Import and Export</strong>
                   <span>Valasaravakkam, Chennai, Tamil Nadu 600087, India</span>
                 </div>
               </div>
@@ -170,7 +177,7 @@ export function Footer() {
             {/* Embedded Google Map */}
             <div className="relative w-full h-44 rounded-2xl overflow-hidden border border-[#B8D0CE]/20 shadow-xl bg-[#0E333C]">
               <iframe
-                title="JILO Headquarters Location Map - Valasaravakkam, Chennai, Tamil Nadu"
+                title="ATLANTA Headquarters Location Map - Valasaravakkam, Chennai, Tamil Nadu"
                 src="https://maps.google.com/maps?q=Valasaravakkam%2C%20Chennai%2C%20Tamil%20Nadu%2C%20India&t=&z=14&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
@@ -190,8 +197,8 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-mono">
           <span>© {new Date().getFullYear()} {SITE_CONFIG.name}. ALL RIGHTS RESERVED.</span>
           <div className="flex items-center gap-4">
-            <span className="text-slate-400 hidden md:inline">
-              VALASARAVAKKAM, CHENNAI, TAMIL NADU · REGISTERED APEDA EXPORTER
+            <span className="text-slate-400 text-[11px]">
+              Built by <strong className="text-[#C17B58] font-semibold">freelanceXpress</strong> — Empowering Global Commerce with High-Performance Digital Solutions
             </span>
             <button
               onClick={scrollToTop}
@@ -206,7 +213,7 @@ export function Footer() {
 
       {/* ── Interactive Dotted Brand Particles ── */}
       <div className="w-full bg-[#041117] border-t border-[#B8D0CE]/10 py-2 px-2 sm:px-6 overflow-hidden">
-        <DottedBrandScatter text="JILO EXPORTS" />
+        <DottedBrandScatter text="ATLANTA IMPORT AND EXPORT" />
       </div>
 
       {/* Global Footer Tender Modal */}

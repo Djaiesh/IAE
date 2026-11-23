@@ -42,6 +42,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
           rel="stylesheet"
         />
+        {/* Preload Entry Videos so they are already cached before React mounts */}
+        <link
+          rel="preload"
+          href="/video/entry_video_horizontal.mp4"
+          as="video"
+          type="video/mp4"
+          media="(min-width: 768px)"
+        />
+        <link
+          rel="preload"
+          href="/video/entry_video_vertical.mp4"
+          as="video"
+          type="video/mp4"
+          media="(max-width: 767px)"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `

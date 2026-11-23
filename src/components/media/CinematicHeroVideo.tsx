@@ -32,7 +32,10 @@ export function CinematicHeroVideo() {
     // Check if intro is already dismissed or will be played
     let introSeen = false;
     try {
-      introSeen = Boolean(sessionStorage.getItem("jilo_intro_seen"));
+      introSeen = Boolean(
+        sessionStorage.getItem("atlanta_intro_seen") ||
+        sessionStorage.getItem("jilo_intro_seen")
+      );
     } catch {}
 
     if (introSeen) {
@@ -43,6 +46,7 @@ export function CinematicHeroVideo() {
       const onIntroComplete = () => {
         startPlaybackFromBeginning();
       };
+      window.addEventListener("atlanta_intro_complete", onIntroComplete, { once: true });
       window.addEventListener("jilo_intro_complete", onIntroComplete, { once: true });
 
       // Fallback in case intro doesn't trigger
@@ -51,6 +55,7 @@ export function CinematicHeroVideo() {
       }, 5000);
 
       return () => {
+        window.removeEventListener("atlanta_intro_complete", onIntroComplete);
         window.removeEventListener("jilo_intro_complete", onIntroComplete);
         clearTimeout(fallbackTimer);
       };

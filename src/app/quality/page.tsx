@@ -19,7 +19,7 @@ import { SITE_CONFIG } from "@/data/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Quality Assurance & Laboratory Assay Protocols | JILO Global",
+  title: "Quality Assurance & Laboratory Assay Protocols | ATLANTA Import and Export",
   description:
     "Explore our multi-stage inspection pipeline, HPLC & GC-MS/MS laboratory assay standards, and international compliance documentation.",
 };

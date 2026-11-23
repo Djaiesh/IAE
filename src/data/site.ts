@@ -25,9 +25,9 @@ export interface ExportProcessStep {
 }
 
 export const SITE_CONFIG = {
-  name: "JILO Global Agro-Exports",
-  brandMark: "JILO",
-  fullLegalName: "JILO International Exporters Pvt. Ltd.",
+  name: "ATLANTA Import and Export",
+  brandMark: "ATLANTA",
+  fullLegalName: "ATLANTA International Exporters Pvt. Ltd.",
   tagline: "Direct Origin Agricultural Commodities, Sea Freight & Certified Provenance",
   editorialClosingLine: "From farmgate origin to global seaports.",
   portfolioPdfUrl: "/documents/company-portfolio.pdf",
@@ -42,11 +42,11 @@ export const SITE_CONFIG = {
 
   // Contact details
   contact: {
-    email: "trade@jilo-exports.com",
-    salesDesk: "+91 98765 43210 (JILO Trade Desk)",
+    email: "trade@atlanta-exports.com",
+    salesDesk: "+91 98765 43210 (ATLANTA Trade Desk)",
     emergencyLogistics: "+91 98200 12345 (Port Logistics Operations)",
-    registeredOffice: "JILO Global Agro-Exports, Valasaravakkam, Chennai, Tamil Nadu 600087, India",
-    packingFacility: "JILO Cold-Storage Terminal & Export Packhouse Hub, Chennai Port Corridor, Tamil Nadu",
+    registeredOffice: "ATLANTA Import and Export, Valasaravakkam, Chennai, Tamil Nadu 600087, India",
+    packingFacility: "ATLANTA Cold-Storage Terminal & Export Packhouse Hub, Chennai Port Corridor, Tamil Nadu",
     businessHours: "Monday – Saturday: 08:30 – 19:30 IST / 24/7 Global Reefer Telemetry Desk",
   },
 

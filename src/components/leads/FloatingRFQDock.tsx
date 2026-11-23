@@ -64,7 +64,7 @@ export function FloatingRFQDock() {
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      "Hello JILO Global Agro-Exports Desk, I am an international procurement buyer inquiring about current spot availability and CIF rates for export commodities."
+      "Hello ATLANTA Import and Export Desk, I am an international procurement buyer inquiring about current spot availability and CIF rates for export commodities."
     );
     window.open(`https://wa.me/919876543210?text=${text}`, "_blank");
   };

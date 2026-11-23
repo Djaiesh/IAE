@@ -303,14 +303,14 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
       copperRimLight.position.set(120, -40, 80);
       scene.add(copperRimLight);
 
-      const GLOBE_RADIUS = 68;
+      const GLOBE_RADIUS = 75;
 
       const updateGlobePosition = () => {
         if (window.innerWidth >= 1024) {
-          // Compact globe (r=68) sits comfortably on right half with breathing room from left text
-          globeGroup.position.set(24, 0, 0);
+          // Proportionate globe (r=75) sits majestically on right half with breathing room from left text
+          globeGroup.position.set(22, 0, 0);
         } else {
-          globeGroup.position.set(0, -8, 0); // Centered on mobile
+          globeGroup.position.set(0, -6, 0); // Centered on mobile
         }
       };
       updateGlobePosition();

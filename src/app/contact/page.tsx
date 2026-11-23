@@ -17,7 +17,7 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Exporter Desk & Request Quotation | JILO Global",
+  title: "Contact Exporter Desk & Request Quotation | ATLANTA Import and Export",
   description:
     "Direct commercial trade desk for container allocations, FOB/CIF price inquiries, and commercial lab samples.",
 };
@@ -191,7 +191,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
               {/* Embedded Google Map */}
               <div className="relative h-48 rounded-2xl overflow-hidden border border-white/20 shadow-xl bg-[#0E333C]">
                 <iframe
-                  title="JILO Headquarters Location Map - Valasaravakkam, Chennai"
+                  title="ATLANTA Headquarters Location Map - Valasaravakkam, Chennai"
                   src="https://maps.google.com/maps?q=Valasaravakkam%2C%20Chennai%2C%20Tamil%20Nadu%2C%20India&t=&z=14&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="100%"
@@ -218,7 +218,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                 Connect directly with our senior export logistics directors for real-time spot CIF container rate confirmation and vessel booking status.
               </p>
               <a
-                href="https://wa.me/919876543210?text=Hello%20JILO%20Agro-Exports,%20I%20am%20an%20international%20buyer%20requesting%20spot%20CIF%20rates."
+                href="https://wa.me/919876543210?text=Hello%20ATLANTA%20Import%20and%20Export,%20I%20am%20an%20international%20buyer%20requesting%20spot%20CIF%20rates."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full justify-center text-xs py-3.5 min-h-[48px] rounded-full bg-[#25D366] text-black font-bold uppercase tracking-wider inline-flex items-center gap-2 hover:opacity-95 transition-opacity cursor-pointer shadow-lg"

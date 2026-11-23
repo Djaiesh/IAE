@@ -19,7 +19,7 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Export Logistics Pipeline & Cargo Journey | JILO Global",
+  title: "Export Logistics Pipeline & Cargo Journey | ATLANTA Import and Export",
   description:
     "Explore our complete six-stage export logistics lifecycle: farmgate sourcing, lab inspection, protective packing, customs documentation, and ocean freight.",
 };

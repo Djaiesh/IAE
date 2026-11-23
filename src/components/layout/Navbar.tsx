@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { SITE_CONFIG } from "@/data/site";
@@ -66,18 +67,25 @@ export function Navbar() {
         <div className="w-full px-3 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-4 w-full">
 
-            {/* ── LEFT: JILO Brand Logo & Name Only (No Extra Clutter) ── */}
+            {/* ── LEFT: ATLANTA Brand Logo & Name Only ── */}
             <div className="flex items-center gap-3 justify-start shrink-0">
-              <Link href="/" aria-label="JILO Global Agro-Exports Home" className="flex items-center gap-3 group">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center border border-[#C17B58]/50 bg-[#061820] shadow-md group-hover:border-[#C17B58] transition-all">
-                  <span className="font-display text-lg font-bold text-[#C17B58]">J</span>
+              <Link href="/" aria-label="ATLANTA Import and Export Home" className="flex items-center gap-3 group">
+                <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-[#C17B58]/50 bg-[#061820] shadow-md group-hover:border-[#C17B58] transition-all flex items-center justify-center">
+                  <Image
+                    src="/images/atlanta-logo.jpg"
+                    alt="ATLANTA Logo"
+                    fill
+                    className="object-cover"
+                    sizes="40px"
+                    priority
+                  />
                 </div>
                 <div className="text-left hidden sm:block">
                   <span className="font-display text-2xl font-bold text-white block leading-none tracking-widest group-hover:text-[#C17B58] transition-colors">
-                    JILO
+                    ATLANTA
                   </span>
                   <span className="text-[9px] tracking-widest uppercase text-[#C17B58] font-sans font-medium block mt-0.5">
-                    Agro-Exports
+                    Import and Export
                   </span>
                 </div>
               </Link>
@@ -114,7 +122,7 @@ export function Navbar() {
                 href="https://www.instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="JILO Instagram Profile"
+                aria-label="ATLANTA Instagram Profile"
                 className="p-1.5 sm:p-2 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 hover:border-pink-500/40 transition-all cursor-pointer flex items-center justify-center hover:scale-105 shadow-sm"
               >
                 <InstagramGradientIcon className="w-5 h-5 rounded-md" />
@@ -122,10 +130,10 @@ export function Navbar() {
 
               {/* WhatsApp Contact Button */}
               <a
-                href="https://wa.me/919876543210?text=Hello%20JILO%20Agro-Exports%2C%20I%20would%20like%20to%20connect%20regarding%20export%20inquiries."
+                href="https://wa.me/919876543210?text=Hello%20ATLANTA%20Import%20and%20Export%2C%20I%20would%20like%20to%20connect%20regarding%20export%20inquiries."
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Contact JILO on WhatsApp"
+                aria-label="Contact ATLANTA on WhatsApp"
                 className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full border border-[#25D366]/40 bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#25D366] transition-all cursor-pointer shadow-[0_0_15px_rgba(37,211,102,0.2)] hover:scale-105"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="#25D366" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -167,7 +175,18 @@ export function Navbar() {
       >
         <div className="relative h-full flex flex-col pt-24 px-6 pb-10 overflow-y-auto">
           <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
-            <span className="font-display text-2xl font-bold text-white tracking-widest">JILO</span>
+            <div className="flex items-center gap-2.5">
+              <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-[#C17B58]/50 bg-[#061820] shadow-md flex items-center justify-center">
+                <Image
+                  src="/images/atlanta-logo.jpg"
+                  alt="ATLANTA Logo"
+                  fill
+                  className="object-cover"
+                  sizes="32px"
+                />
+              </div>
+              <span className="font-display text-2xl font-bold text-white tracking-widest">ATLANTA</span>
+            </div>
             <span className="text-[10px] uppercase font-bold tracking-widest text-[#C17B58] px-2.5 py-1 rounded-full bg-white/5 border border-white/10">
               Navigation
             </span>
@@ -200,7 +219,7 @@ export function Navbar() {
 
           <div className="pt-6 border-t border-white/10 mt-auto flex flex-col gap-3">
             <a
-              href="https://wa.me/919876543210?text=Hello%20JILO%20Agro-Exports%2C%20I%20would%20like%20to%20connect%20regarding%20export%20inquiries."
+              href="https://wa.me/919876543210?text=Hello%20ATLANTA%20Import%20and%20Export%2C%20I%20would%20like%20to%20connect%20regarding%20export%20inquiries."
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}

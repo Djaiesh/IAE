@@ -40,7 +40,7 @@ export function JiloPerspectiveMosaic() {
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      "Hello JILO Agro-Exports Trade Desk, I am looking to procure export agricultural commodities and verify current shipping schedules."
+      "Hello ATLANTA Import and Export Trade Desk, I am looking to procure export agricultural commodities and verify current shipping schedules."
     );
     window.open(`https://wa.me/919876543210?text=${text}`, "_blank");
   };

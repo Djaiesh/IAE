@@ -33,7 +33,7 @@ const PILLARS: Pillar[] = [
     icon: <Thermometer className="w-6 h-6 text-[#B8D0CE]" />,
     title: "Continuous Reefer Telemetry",
     desc: "Satellite GPS dataloggers embedded into each container record pulp temperature, relative humidity, and air vent settings at 15-minute intervals.",
-    image: "/images/jilo-reefer-vessel-open-ocean.jpg",
+    image: "/images/reefer-telemetry-datalogger.svg",
     tag: "Satellite CA Telemetry",
   },
 ];

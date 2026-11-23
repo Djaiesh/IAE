@@ -19,9 +19,9 @@ import { SITE_CONFIG } from "@/data/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Our Maritime Export Operations | JILO Global",
+  title: "About Our Maritime Export Operations | ATLANTA Import and Export",
   description:
-    "Discover JILO's legacy in international agricultural commerce, coastal logistics infrastructure, and audited cold-chain custody.",
+    "Discover ATLANTA's legacy in international agricultural commerce, coastal logistics infrastructure, and audited cold-chain custody.",
 };
 
 export default function AboutPage() {
@@ -123,7 +123,7 @@ export default function AboutPage() {
 
             <div className="p-6 rounded-3xl glass-saffron border border-saffron/30 text-xs font-sans text-foam/90 space-y-2">
               <span className="text-[#C17B58] font-bold uppercase tracking-wider block">
-                The JILO Standard of Provenance:
+                The ATLANTA Standard of Provenance:
               </span>
               <p className="leading-relaxed">
                 We maintain direct farm-level contracts with certified grower clusters, enforcing strict pre-harvest withholding intervals (PHI) to guarantee zero violation of European and North American Maximum Residue Limits.

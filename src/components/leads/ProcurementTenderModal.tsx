@@ -116,7 +116,7 @@ export function ProcurementTenderModal({
 
   const handleWhatsAppDirect = () => {
     const text = encodeURIComponent(
-      `Hello JILO Global Agro-Exports Trade Desk,\n\nI am requesting an official B2B Tender / Spot Quote:\n- Commodity: ${commodity}\n- Packaging: ${packaging}\n- Volume: ${monthlyVolume}\n- Incoterm: ${incoterm}\n- Destination Port: ${destinationPort}\n- Company: ${companyName || "International Buyer"}\n- Country: ${country || "Global"}\n\nPlease share current CIF proforma index.`
+      `Hello ATLANTA Import and Export Trade Desk,\n\nI am requesting an official B2B Tender / Spot Quote:\n- Commodity: ${commodity}\n- Packaging: ${packaging}\n- Volume: ${monthlyVolume}\n- Incoterm: ${incoterm}\n- Destination Port: ${destinationPort}\n- Company: ${companyName || "International Buyer"}\n- Country: ${country || "Global"}\n\nPlease share current CIF proforma index.`
     );
     window.open(`https://wa.me/919876543210?text=${text}`, "_blank");
   };
@@ -473,7 +473,7 @@ export function ProcurementTenderModal({
                 Tender Successfully Registered
               </h4>
               <p className="text-slate-400 text-sm max-w-md mx-auto mt-2">
-                Your B2B procurement docket for <span className="text-[#C17B58] font-semibold">{commodity}</span> to <span className="text-white font-semibold">{destinationPort}</span> has been dispatched directly to the JILO Sovereign Export Trade Desk.
+                Your B2B procurement docket for <span className="text-[#C17B58] font-semibold">{commodity}</span> to <span className="text-white font-semibold">{destinationPort}</span> has been dispatched directly to the ATLANTA Sovereign Export Trade Desk.
               </p>
             </div>
 
@@ -490,7 +490,7 @@ export function ProcurementTenderModal({
 
               <a
                 href={SITE_CONFIG.portfolioPdfUrl}
-                download="JILO-Agro-Portfolio.pdf"
+                download="ATLANTA-Agro-Portfolio.pdf"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold text-xs uppercase tracking-wider transition-colors cursor-pointer"
               >
                 <Download className="w-4 h-4 text-[#C17B58]" />
