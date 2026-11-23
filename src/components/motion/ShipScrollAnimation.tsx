@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
@@ -9,9 +9,21 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const TOTAL_FRAMES = 149;
-const FRAME_PATH = (idx: number) =>
-  `/horizontal_scroll_frames/frame-${String(idx).padStart(4, "0")}.webp`;
+// ── Desktop Configuration (Horizontal / Landscape 16:9) ──
+const DESKTOP_CONFIG = {
+  totalFrames: 149,
+  path: (idx: number) =>
+    `/horizontal_scroll_frames/frame-${String(idx).padStart(4, "0")}.webp`,
+  firstFrame: "/horizontal_scroll_frames/frame-0001.webp",
+};
+
+// ── Mobile Configuration (Vertical / Portrait 9:16) ──
+const MOBILE_CONFIG = {
+  totalFrames: 99,
+  path: (idx: number) =>
+    `/Vertical_scroll_frames/frame-${String(idx).padStart(4, "0")}.webp`,
+  firstFrame: "/Vertical_scroll_frames/frame-0001.webp",
+};
 
 interface ShipScrollAnimationProps {
   nextSectionRef?: React.RefObject<HTMLElement | null>;
@@ -27,12 +39,22 @@ export function ShipScrollAnimation({
   const frameWrapperRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  // Cached frame images array [0..149], index 1..149 corresponds to frame-0001..frame-0149
-  const imagesRef = useRef<(HTMLImageElement | null)[]>(
-    new Array(TOTAL_FRAMES + 1).fill(null)
+  // Separate image caches for desktop (149 frames) and mobile (99 frames)
+  const desktopImagesRef = useRef<(HTMLImageElement | null)[]>(
+    new Array(DESKTOP_CONFIG.totalFrames + 1).fill(null)
   );
+  const mobileImagesRef = useRef<(HTMLImageElement | null)[]>(
+    new Array(MOBILE_CONFIG.totalFrames + 1).fill(null)
+  );
+
   const currentRenderedFrameRef = useRef<number>(1);
   const isComponentMountedRef = useRef<boolean>(true);
+
+  // Helper to determine if current device/viewport is mobile
+  const getIsMobile = useCallback(() => {
+    if (typeof window === "undefined") return false;
+    return window.innerWidth < 768;
+  }, []);
 
   // ─── 00. Guarantee Fresh Start on Page Load / Refresh ───────────────────────
   useEffect(() => {
@@ -50,67 +72,91 @@ export function ShipScrollAnimation({
     }
   }, []);
 
-  // ─── 01. High-Fidelity Canvas Drawing Engine (Pristine Image Quality) ───────
-  const renderFrame = useCallback((frameIndex: number) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d", { alpha: false });
-    if (!ctx) return;
+  // ─── 01. High-Fidelity Canvas Drawing Engine ────────────────────────────────
+  const renderFrame = useCallback(
+    (frameIndex: number) => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d", { alpha: false });
+      if (!ctx) return;
 
-    // Ultra-high standards for scaling & rendering
-    ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = "high";
+      // Ultra-high standards for scaling & rendering
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = "high";
 
-    // Clamp frame index between 1 and 149
-    const targetIdx = Math.max(1, Math.min(TOTAL_FRAMES, Math.round(frameIndex)));
+      const isMobile = getIsMobile();
+      const config = isMobile ? MOBILE_CONFIG : DESKTOP_CONFIG;
+      const images = isMobile
+        ? mobileImagesRef.current
+        : desktopImagesRef.current;
 
-    // Look for exact image or nearest available frame
-    let imgToDraw = imagesRef.current[targetIdx];
-    if (!imgToDraw || !imgToDraw.complete || imgToDraw.naturalWidth === 0) {
-      for (let i = targetIdx; i >= 1; i--) {
-        if (imagesRef.current[i]?.complete && imagesRef.current[i]!.naturalWidth > 0) {
-          imgToDraw = imagesRef.current[i];
-          break;
-        }
-      }
-      if (!imgToDraw) {
-        for (let i = targetIdx + 1; i <= TOTAL_FRAMES; i++) {
-          if (imagesRef.current[i]?.complete && imagesRef.current[i]!.naturalWidth > 0) {
-            imgToDraw = imagesRef.current[i];
+      // Clamp frame index within active configuration range
+      const targetIdx = Math.max(
+        1,
+        Math.min(config.totalFrames, Math.round(frameIndex))
+      );
+
+      // Look for exact image or nearest available loaded frame
+      let imgToDraw = images[targetIdx];
+      if (!imgToDraw || !imgToDraw.complete || imgToDraw.naturalWidth === 0) {
+        for (let i = targetIdx; i >= 1; i--) {
+          if (images[i]?.complete && images[i]!.naturalWidth > 0) {
+            imgToDraw = images[i];
             break;
           }
         }
+        if (!imgToDraw) {
+          for (let i = targetIdx + 1; i <= config.totalFrames; i++) {
+            if (images[i]?.complete && images[i]!.naturalWidth > 0) {
+              imgToDraw = images[i];
+              break;
+            }
+          }
+        }
       }
-    }
 
-    if (!imgToDraw) return;
+      if (!imgToDraw) return;
 
-    const canvasWidth = canvas.width;
-    const canvasHeight = canvas.height;
-    if (canvasWidth === 0 || canvasHeight === 0) return;
+      const canvasWidth = canvas.width;
+      const canvasHeight = canvas.height;
+      if (canvasWidth === 0 || canvasHeight === 0) return;
 
-    const imgWidth = imgToDraw.naturalWidth || 1920;
-    const imgHeight = imgToDraw.naturalHeight || 1080;
+      const imgWidth =
+        imgToDraw.naturalWidth || (isMobile ? 1080 : 1920);
+      const imgHeight =
+        imgToDraw.naturalHeight || (isMobile ? 1920 : 1080);
 
-    const imgRatio = imgWidth / imgHeight;
-    const canvasRatio = canvasWidth / canvasHeight;
+      const imgRatio = imgWidth / imgHeight;
+      const canvasRatio = canvasWidth / canvasHeight;
 
-    let drawWidth = canvasWidth;
-    let drawHeight = canvasHeight;
-    let offsetX = 0;
-    let offsetY = 0;
+      let drawWidth = canvasWidth;
+      let drawHeight = canvasHeight;
+      let offsetX = 0;
+      let offsetY = 0;
 
-    if (canvasRatio > imgRatio) {
-      drawHeight = canvasWidth / imgRatio;
-      offsetY = (canvasHeight - drawHeight) / 2;
-    } else {
-      drawWidth = canvasHeight * imgRatio;
-      offsetX = (canvasWidth - drawWidth) / 2;
-    }
+      if (canvasRatio > imgRatio) {
+        drawHeight = canvasWidth / imgRatio;
+        offsetY = (canvasHeight - drawHeight) / 2;
+      } else {
+        drawWidth = canvasHeight * imgRatio;
+        offsetX = (canvasWidth - drawWidth) / 2;
+      }
 
-    ctx.drawImage(imgToDraw, 0, 0, imgWidth, imgHeight, offsetX, offsetY, drawWidth, drawHeight);
-    currentRenderedFrameRef.current = targetIdx;
-  }, []);
+      ctx.drawImage(
+        imgToDraw,
+        0,
+        0,
+        imgWidth,
+        imgHeight,
+        offsetX,
+        offsetY,
+        drawWidth,
+        drawHeight
+      );
+      currentRenderedFrameRef.current = targetIdx;
+    },
+    [getIsMobile]
+  );
 
   // ─── 02. Resize Handler with DPI Normalization ──────────────────────────────
   const updateCanvasDimensions = useCallback(() => {
@@ -120,8 +166,12 @@ export function ShipScrollAnimation({
 
     const rect = pin.getBoundingClientRect();
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const displayWidth = Math.round(rect.width) || (typeof window !== "undefined" ? window.innerWidth : 1920);
-    const displayHeight = Math.round(rect.height) || (typeof window !== "undefined" ? window.innerHeight : 1080);
+    const displayWidth =
+      Math.round(rect.width) ||
+      (typeof window !== "undefined" ? window.innerWidth : 1920);
+    const displayHeight =
+      Math.round(rect.height) ||
+      (typeof window !== "undefined" ? window.innerHeight : 1080);
 
     if (displayWidth === 0 || displayHeight === 0) return;
 
@@ -138,23 +188,29 @@ export function ShipScrollAnimation({
     isComponentMountedRef.current = true;
     updateCanvasDimensions();
 
+    const isMobile = getIsMobile();
+    const config = isMobile ? MOBILE_CONFIG : DESKTOP_CONFIG;
+    const images = isMobile
+      ? mobileImagesRef.current
+      : desktopImagesRef.current;
+
     // Helper to safely load individual frame
     const loadFrame = (idx: number) => {
-      if (idx < 1 || idx > TOTAL_FRAMES || imagesRef.current[idx]) return;
+      if (idx < 1 || idx > config.totalFrames || images[idx]) return;
       const img = new window.Image();
-      img.src = FRAME_PATH(idx);
+      img.src = config.path(idx);
       img.onload = () => {
         if (!isComponentMountedRef.current) return;
-        imagesRef.current[idx] = img;
+        images[idx] = img;
       };
     };
 
     // 1. Immediately load frame 1 for instant first paint
     const firstImg = new window.Image();
-    firstImg.src = FRAME_PATH(1);
+    firstImg.src = config.path(1);
     const onFirstLoad = () => {
       if (!isComponentMountedRef.current) return;
-      imagesRef.current[1] = firstImg;
+      images[1] = firstImg;
       updateCanvasDimensions();
       renderFrame(1);
     };
@@ -165,26 +221,28 @@ export function ShipScrollAnimation({
       firstImg.onload = onFirstLoad;
     }
 
-    // 2. Preload initial batch (frames 2..35) for immediate scrolling response
+    // 2. Preload initial batch for immediate scrolling response
+    const initialBatchSize = isMobile ? 25 : 35;
     const t1 = setTimeout(() => {
-      for (let i = 2; i <= Math.min(35, TOTAL_FRAMES); i++) {
+      for (let i = 2; i <= Math.min(initialBatchSize, config.totalFrames); i++) {
         loadFrame(i);
       }
     }, 20);
 
-    // 3. Preload middle batch (frames 36..90)
+    // 3. Preload middle batch
+    const midBatchSize = isMobile ? 60 : 90;
     const t2 = setTimeout(() => {
-      for (let i = 36; i <= Math.min(90, TOTAL_FRAMES); i++) {
+      for (let i = initialBatchSize + 1; i <= Math.min(midBatchSize, config.totalFrames); i++) {
         loadFrame(i);
       }
     }, 120);
 
-    // 4. Preload remaining frames (91..149)
+    // 4. Preload remaining frames
     const t3 = setTimeout(() => {
-      for (let i = 91; i <= TOTAL_FRAMES; i++) {
+      for (let i = midBatchSize + 1; i <= config.totalFrames; i++) {
         loadFrame(i);
       }
-    }, 300);
+    }, 280);
 
     return () => {
       isComponentMountedRef.current = false;
@@ -192,7 +250,7 @@ export function ShipScrollAnimation({
       clearTimeout(t2);
       clearTimeout(t3);
     };
-  }, [renderFrame, updateCanvasDimensions]);
+  }, [getIsMobile, renderFrame, updateCanvasDimensions]);
 
   // ─── 04. Window Resize & Orientation Observer ──────────────────────────────
   useEffect(() => {
@@ -229,7 +287,9 @@ export function ShipScrollAnimation({
 
     const ctx = gsap.context(() => {
       const isMobile = window.innerWidth < 768;
-      const pinDistance = isMobile ? window.innerHeight * 2.8 : window.innerHeight * 3.4;
+      const pinDistance = isMobile
+        ? window.innerHeight * 2.8
+        : window.innerHeight * 3.4;
 
       // ── Pinned Hero Video Animation Timeline ──
       gsap.timeline({
@@ -244,9 +304,15 @@ export function ShipScrollAnimation({
           invalidateOnRefresh: true,
           onUpdate: (self) => {
             const p = self.progress; // 0.000 to 1.000
+            const currentIsMobile = window.innerWidth < 768;
+            const config = currentIsMobile ? MOBILE_CONFIG : DESKTOP_CONFIG;
+            const images = currentIsMobile
+              ? mobileImagesRef.current
+              : desktopImagesRef.current;
+
             const targetFrame = Math.max(
               1,
-              Math.min(TOTAL_FRAMES, Math.round(1 + p * (TOTAL_FRAMES - 1)))
+              Math.min(config.totalFrames, Math.round(1 + p * (config.totalFrames - 1)))
             );
 
             if (targetFrame !== currentRenderedFrameRef.current) {
@@ -256,12 +322,12 @@ export function ShipScrollAnimation({
             // Opportunistically load frames ahead of current scroll
             for (let offset = 1; offset <= 12; offset++) {
               const ahead = targetFrame + offset;
-              if (ahead <= TOTAL_FRAMES && !imagesRef.current[ahead]) {
+              if (ahead <= config.totalFrames && !images[ahead]) {
                 const img = new window.Image();
-                img.src = FRAME_PATH(ahead);
+                img.src = config.path(ahead);
                 img.onload = () => {
                   if (isComponentMountedRef.current) {
-                    imagesRef.current[ahead] = img;
+                    images[ahead] = img;
                   }
                 };
               }
@@ -318,12 +384,18 @@ export function ShipScrollAnimation({
           ref={frameWrapperRef}
           className="relative w-full h-full overflow-hidden flex items-center justify-center will-change-transform"
         >
-          {/* Instant Native Image Paint - Guaranteed Zero Flash */}
-          <img
-            src="/horizontal_scroll_frames/frame-0001.webp"
-            alt="Hero Video Frame"
-            className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
-          />
+          {/* Instant Native Image Paint via Picture: Vertical frames for Mobile (<768px), Horizontal for Desktop */}
+          <picture className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none">
+            <source
+              media="(max-width: 767px)"
+              srcSet={MOBILE_CONFIG.firstFrame}
+            />
+            <img
+              src={DESKTOP_CONFIG.firstFrame}
+              alt="Hero Video Frame"
+              className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+            />
+          </picture>
 
           {/* ── High-Performance Canvas for Scroll Animation Frames ── */}
           <canvas
