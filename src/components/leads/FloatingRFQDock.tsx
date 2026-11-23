@@ -1,16 +1,20 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { FileText, PhoneCall, Calculator, Sparkles, ChevronUp, ChevronDown } from "lucide-react";
 import { ProcurementTenderModal, TenderPreFill } from "./ProcurementTenderModal";
 import { cn } from "@/lib/utils";
 
 export function FloatingRFQDock() {
+  const pathname = usePathname();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [preFill, setPreFill] = useState<TenderPreFill | undefined>(undefined);
   const [hideAtFooter, setHideAtFooter] = useState(false);
+  const [inHeroSection, setInHeroSection] = useState(false);
 
+  // 1. Hide dock when footer is visible
   useEffect(() => {
     const footer = document.querySelector("footer");
     if (!footer) return;
@@ -26,7 +30,32 @@ export function FloatingRFQDock() {
 
     observer.observe(footer);
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
+
+  // 2. Hide dock while in hero video section; show once user scrolls below it
+  useEffect(() => {
+    const checkHeroVisibility = () => {
+      const hero = document.getElementById("hero-scroll-video");
+      if (!hero) {
+        setInHeroSection(false);
+        return;
+      }
+
+      const rect = hero.getBoundingClientRect();
+      // While rect.bottom > 60, the user is still within the hero video section.
+      // Once rect.bottom <= 60, the user has scrolled below the hero section!
+      setInHeroSection(rect.bottom > 60);
+    };
+
+    checkHeroVisibility();
+    window.addEventListener("scroll", checkHeroVisibility, { passive: true });
+    window.addEventListener("resize", checkHeroVisibility, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", checkHeroVisibility);
+      window.removeEventListener("resize", checkHeroVisibility);
+    };
+  }, [pathname]);
 
   const handleOpenTender = (fill?: TenderPreFill) => {
     setPreFill(fill);
@@ -47,7 +76,7 @@ export function FloatingRFQDock() {
         aria-label="Quick Procurement & Trade Desk"
         className={cn(
           "fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end gap-2.5 transition-all duration-300",
-          hideAtFooter
+          hideAtFooter || inHeroSection
             ? "opacity-0 pointer-events-none translate-y-8 scale-95"
             : "opacity-100 pointer-events-auto translate-y-0 scale-100"
         )}
