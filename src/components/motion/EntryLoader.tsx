@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef, useState, useCallback } from "react";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export function EntryLoader() {
@@ -93,31 +92,6 @@ export function EntryLoader() {
         fadingOut ? "opacity-0 pointer-events-none" : "opacity-100"
       )}
     >
-      {/* Sleek Brand Watermark & Ambient Preload Glow while initial buffer settles */}
-      <div
-        className={cn(
-          "absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-500 pointer-events-none",
-          isPlaying ? "opacity-0" : "opacity-100"
-        )}
-      >
-        <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-[#C17B58]/40 bg-[#061820] shadow-[0_0_30px_rgba(193,123,88,0.3)] mb-4 flex items-center justify-center animate-pulse">
-          <Image
-            src="/images/atlanta-logo.jpg"
-            alt="ATLANTA"
-            fill
-            className="object-cover"
-            sizes="64px"
-            priority
-          />
-        </div>
-        <span className="font-display text-xl font-bold text-white tracking-[0.3em]">
-          ATLANTA
-        </span>
-        <span className="text-[10px] font-sans text-[#C17B58] uppercase tracking-[0.25em] mt-1">
-          Import and Export
-        </span>
-      </div>
-
       {/* ── Seamless Fullscreen Video ── */}
       <video
         ref={videoRef}

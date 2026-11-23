@@ -70,13 +70,13 @@ export function Navbar() {
             {/* ── LEFT: ATLANTA Brand Logo & Name Only ── */}
             <div className="flex items-center gap-3 justify-start shrink-0">
               <Link href="/" aria-label="ATLANTA Import and Export Home" className="flex items-center gap-3 group">
-                <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-[#C17B58]/50 bg-[#061820] shadow-md group-hover:border-[#C17B58] transition-all flex items-center justify-center">
+                <div className="relative w-11 h-11 rounded-full overflow-hidden border border-[#C17B58]/60 bg-[#061820] shadow-md group-hover:border-[#C17B58] transition-all flex items-center justify-center p-1">
                   <Image
                     src="/images/atlanta-logo.jpg"
                     alt="ATLANTA Logo"
                     fill
-                    className="object-cover"
-                    sizes="40px"
+                    className="object-contain p-0.5"
+                    sizes="44px"
                     priority
                   />
                 </div>
@@ -176,13 +176,13 @@ export function Navbar() {
         <div className="relative h-full flex flex-col pt-24 px-6 pb-10 overflow-y-auto">
           <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
             <div className="flex items-center gap-2.5">
-              <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-[#C17B58]/50 bg-[#061820] shadow-md flex items-center justify-center">
+              <div className="relative w-9 h-9 rounded-full overflow-hidden border border-[#C17B58]/60 bg-[#061820] shadow-md flex items-center justify-center p-0.5">
                 <Image
                   src="/images/atlanta-logo.jpg"
                   alt="ATLANTA Logo"
                   fill
-                  className="object-cover"
-                  sizes="32px"
+                  className="object-contain"
+                  sizes="36px"
                 />
               </div>
               <span className="font-display text-2xl font-bold text-white tracking-widest">ATLANTA</span>
