@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -9,6 +9,14 @@ import { CustomCursor } from "@/components/ui/CustomCursor";
 import { FullScreenNavigationTransition } from "@/components/motion/FullScreenNavigationTransition";
 import { CorporateBackground } from "@/components/layout/CorporateBackground";
 import { SITE_CONFIG } from "@/data/site";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+  themeColor: "#061820",
+};
 
 export const metadata: Metadata = {
   title: {

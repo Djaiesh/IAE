@@ -708,30 +708,30 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
             </div>
 
             {/* Giant Chamfered Industrial Headline */}
-            <h2 className="font-display text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tight leading-[0.94] text-white">
+            <h2 className="font-display text-4xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tight leading-[0.94] text-white">
               EVERY<br />
               LEG OF THE<br />
               JOURNEY
             </h2>
 
             {/* Clean Modern Subtitle */}
-            <p className="font-sans text-sm sm:text-base text-slate-200 font-normal mt-7 max-w-md leading-relaxed">
+            <p className="font-sans text-xs sm:text-base text-slate-200 font-normal mt-5 sm:mt-7 max-w-md leading-relaxed">
               Freight forwarding, land transport, and customs brokerage, unified across international sea lanes under one accountable team.
             </p>
 
             {/* Dual Action Pill Buttons (Muted Copper + Frosted Glass) */}
-            <div className="mt-9 flex items-center gap-4">
+            <div className="mt-7 sm:mt-9 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <button
                 type="button"
                 onClick={() => setIsTenderOpen(true)}
-                className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#D68C66] to-[#C17B58] hover:brightness-110 text-white font-sans font-bold text-xs uppercase tracking-wider transition-all shadow-[0_10px_30px_rgba(193,123,88,0.4)] cursor-pointer active:scale-95"
+                className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#D68C66] to-[#C17B58] hover:brightness-110 text-white font-sans font-bold text-xs uppercase tracking-wider transition-all shadow-[0_10px_30px_rgba(193,123,88,0.4)] cursor-pointer active:scale-95 text-center"
               >
                 TALK WITH US
               </button>
 
               <Link
                 href="/products"
-                className="px-8 py-3.5 rounded-full bg-white/10 border border-[#B8D0CE]/30 hover:bg-white/20 text-white font-sans font-bold text-xs uppercase tracking-wider transition-all cursor-pointer active:scale-95"
+                className="px-8 py-3.5 rounded-full bg-white/10 border border-[#B8D0CE]/30 hover:bg-white/20 text-white font-sans font-bold text-xs uppercase tracking-wider transition-all cursor-pointer active:scale-95 text-center"
               >
                 OUR SERVICES
               </Link>
@@ -739,14 +739,14 @@ export const UnitedGlobeSection = React.forwardRef<HTMLElement, UnitedGlobeSecti
           </div>
 
           {/* Right Column: 3D Globe Canvas Mount (Guaranteed Height & Zero Right Margin) */}
-          <div className="relative z-10 w-full lg:w-[54vw] h-[480px] sm:h-[580px] lg:h-[calc(100vh-210px)] min-h-[460px] flex items-center justify-center lg:justify-end pointer-events-auto overflow-hidden">
+          <div className="relative z-10 w-full lg:w-[54vw] h-[440px] sm:h-[580px] lg:h-[calc(100vh-210px)] min-h-[400px] flex items-center justify-center lg:justify-end pointer-events-auto overflow-hidden">
             {/* Soft Atmospheric Copper & Petrol Radial Glow Behind Globe */}
             <div aria-hidden="true" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[540px] h-[540px] bg-[radial-gradient(circle,rgba(193,123,88,0.20)_0%,rgba(22,74,85,0.25)_50%,transparent_72%)] blur-3xl pointer-events-none rounded-full" />
 
             {/* 3D WebGL Canvas Container */}
             <div
               ref={mountRef}
-              className="w-full h-full cursor-grab active:cursor-grabbing relative"
+              className="w-full h-full cursor-grab active:cursor-grabbing relative [touch-action:pan-y]"
               title="Click and drag to rotate global trade routes"
             />
 

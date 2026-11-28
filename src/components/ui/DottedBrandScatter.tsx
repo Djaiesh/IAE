@@ -207,7 +207,7 @@ export function DottedBrandScatter({
     };
   }, []);
 
-  // ─── Mouse Movement Listeners ─────────────────────────────────────────────
+  // ─── Mouse & Touch Interaction Listeners ─────────────────────────────────
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -221,13 +221,31 @@ export function DottedBrandScatter({
     mousePosRef.current.active = false;
   };
 
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (e.touches.length > 0) {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      mousePosRef.current.x = e.touches[0].clientX - rect.left;
+      mousePosRef.current.y = e.touches[0].clientY - rect.top;
+      mousePosRef.current.active = true;
+    }
+  };
+
+  const handleTouchEnd = () => {
+    mousePosRef.current.active = false;
+  };
+
   return (
     <div
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`relative w-full overflow-hidden select-none cursor-pointer py-1 ${className}`}
-      title="Hover and drag to scatter letters"
+      onTouchStart={handleTouchMove}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      className={`relative w-full overflow-hidden select-none cursor-pointer py-1 touch-none ${className}`}
+      title="Hover or drag across letters to scatter dots"
     >
       <canvas
         ref={canvasRef}

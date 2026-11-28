@@ -197,15 +197,15 @@ export function Footer() {
 
       {/* Legal Strip & Back to Top */}
       <div className="border-t border-[#B8D0CE]/15 py-4 bg-[#041117]">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-mono">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-mono text-center sm:text-left">
           <span>© {new Date().getFullYear()} {SITE_CONFIG.name}. ALL RIGHTS RESERVED.</span>
-          <div className="flex items-center gap-4">
-            <span className="text-slate-400 text-[11px]">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-right">
+            <span className="text-slate-400 text-[11px] leading-relaxed">
               Built by <strong className="text-[#C17B58] font-semibold">freelanceXpress</strong> — Empowering Global Commerce with High-Performance Digital Solutions
             </span>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-full border border-[#B8D0CE]/20 bg-white/10 text-slate-200 hover:border-[#C17B58] hover:text-[#C17B58] transition-all cursor-pointer shadow-sm ml-2"
+              className="p-2 rounded-full border border-[#B8D0CE]/20 bg-white/10 text-slate-200 hover:border-[#C17B58] hover:text-[#C17B58] transition-all cursor-pointer shadow-sm shrink-0"
               aria-label="Back to top"
             >
               <ArrowUp className="w-3.5 h-3.5" />

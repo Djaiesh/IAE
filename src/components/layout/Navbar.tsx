@@ -60,18 +60,18 @@ export function Navbar() {
         className={cn(
           "fixed z-50 transition-all duration-500",
           isScrolled
-            ? "top-0 left-0 right-0 py-3 bg-[#061820]/95 backdrop-blur-2xl border-b border-[#B8D0CE]/20 shadow-[0_10px_35px_rgba(3,12,16,0.6)]"
-            : "top-3 sm:top-4 left-3 right-3 sm:left-5 sm:right-5 py-2.5 sm:py-3 bg-[#0E333C]/85 backdrop-blur-xl border border-[#B8D0CE]/25 rounded-full shadow-[0_10px_35px_rgba(3,12,16,0.5)]"
+            ? "top-0 left-0 right-0 py-2.5 sm:py-3 bg-[#061820]/95 backdrop-blur-2xl border-b border-[#B8D0CE]/20 shadow-[0_10px_35px_rgba(3,12,16,0.6)]"
+            : "top-[max(0.75rem,env(safe-area-inset-top))] left-3 right-3 sm:left-5 sm:right-5 py-2 sm:py-3 bg-[#0E333C]/85 backdrop-blur-xl border border-[#B8D0CE]/25 rounded-full shadow-[0_10px_35px_rgba(3,12,16,0.5)]"
         )}
       >
-        <div className="w-full px-3 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-4 w-full">
+        <div className="w-full px-2.5 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between gap-2 sm:gap-4 w-full">
 
-            {/* ── LEFT: ATLANTA Brand Logo & Name Only ── */}
-            <div className="flex items-center gap-3 justify-start shrink-0">
-              <Link href="/" aria-label="ATLANTA Import and Export Home" className="flex items-center gap-3 group">
+            {/* ── LEFT: ATLANTA Brand Logo & Name ── */}
+            <div className="flex items-center gap-2 sm:gap-3 justify-start shrink-0">
+              <Link href="/" aria-label="ATLANTA Import and Export Home" className="flex items-center gap-2 sm:gap-3 group">
                 <div
-                  className="relative w-11 h-11 rounded-full overflow-hidden border border-[#C17B58]/60 shadow-md group-hover:border-[#C17B58] transition-all flex items-center justify-center p-1"
+                  className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden border border-[#C17B58]/60 shadow-md group-hover:border-[#C17B58] transition-all flex items-center justify-center p-1"
                   style={{ backgroundColor: "#0d1017" }}
                 >
                   <Image
@@ -83,11 +83,11 @@ export function Navbar() {
                     priority
                   />
                 </div>
-                <div className="text-left hidden sm:block">
-                  <span className="font-display text-2xl font-bold text-white block leading-none tracking-widest group-hover:text-[#C17B58] transition-colors">
+                <div className="text-left">
+                  <span className="font-display text-base sm:text-2xl font-bold text-white block leading-none tracking-wider sm:tracking-widest group-hover:text-[#C17B58] transition-colors">
                     ATLANTA
                   </span>
-                  <span className="text-[9px] tracking-widest uppercase text-[#C17B58] font-sans font-medium block mt-0.5">
+                  <span className="text-[8px] sm:text-[9px] tracking-widest uppercase text-[#C17B58] font-sans font-medium block mt-0.5">
                     Import and Export
                   </span>
                 </div>
@@ -176,7 +176,7 @@ export function Navbar() {
           mobileOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <div className="relative h-full flex flex-col pt-24 px-6 pb-10 overflow-y-auto">
+        <div className="relative h-full flex flex-col pt-24 px-6 pb-[max(2rem,env(safe-area-inset-bottom))] overflow-y-auto">
           <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
             <div className="flex items-center gap-2.5">
               <div

@@ -50,25 +50,39 @@ export function PageHeroVideo({
 
     video.muted = true;
     video.defaultMuted = true;
+    video.playsInline = true;
     video.loop = true;
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "true");
+    video.setAttribute("x5-playsinline", "true");
 
     const startPlayback = () => {
-      video.currentTime = 0;
-      video
-        .play()
-        .then(() => setIsBuffered(true))
-        .catch(() => setIsBuffered(true));
+      const p = video.play();
+      if (p !== undefined) {
+        p.then(() => setIsBuffered(true)).catch(() => setIsBuffered(true));
+      } else {
+        setIsBuffered(true);
+      }
     };
 
-    if (video.readyState >= 3) {
+    if (video.readyState >= 2) {
       startPlayback();
     } else {
-      video.addEventListener("canplaythrough", startPlayback, { once: true });
+      video.addEventListener("canplay", startPlayback, { once: true });
       video.addEventListener("loadeddata", startPlayback, { once: true });
     }
 
+    video.addEventListener("playing", () => setIsBuffered(true), { once: true });
+
+    // Safety fallback so video container never remains transparent indefinitely on slow connections
+    const bufferFallback = setTimeout(() => {
+      setIsBuffered(true);
+    }, 1200);
+
     return () => {
-      video.removeEventListener("canplaythrough", startPlayback);
+      clearTimeout(bufferFallback);
+      video.removeEventListener("canplay", startPlayback);
       video.removeEventListener("loadeddata", startPlayback);
     };
   }, [videoSrc]);
@@ -87,6 +101,10 @@ export function PageHeroVideo({
           className={`w-full h-full object-cover object-center scale-105 transition-opacity duration-1000 ease-in ${
             isBuffered ? "opacity-100" : "opacity-0"
           }`}
+          {...({
+            "webkit-playsinline": "true",
+            "x5-playsinline": "true",
+          } as React.VideoHTMLAttributes<HTMLVideoElement>)}
         >
           <source src={videoSrc} type="video/mp4" />
         </video>
